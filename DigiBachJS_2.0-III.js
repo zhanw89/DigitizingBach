@@ -4,7 +4,7 @@
 //
 //
 // Written by Kyle Gauder
-// v2.0
+// v2.0.1
 // file 5: Code for everything else (functionality, html sketchboard, etc)
 //
 // As this is an unwieldly file, there are some key terms for the different sections you can search for
