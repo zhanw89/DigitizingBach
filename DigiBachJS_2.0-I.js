@@ -280,6 +280,7 @@ function audioFile(OnOff, composer, piece, PerfvsEdit, performer, note,
     for (i = 0; i < 22; i++) {
     	var value = dict[i];
       if (value === performerName) {
+	      position = i;
 	flag = 0;
       } else {
         flag = 1;
