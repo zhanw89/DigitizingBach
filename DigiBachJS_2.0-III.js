@@ -6,8 +6,31 @@
 // Written by Kyle Gauder
 // v2.0
 // file 5: Code for everything else (functionality, html sketchboard, etc)
-//Object activation
-//Scores
+//
+// As this is an unwieldly file, there are some key terms for the different sections you can search for
+// to navigate quickly.
+//
+// s_MenuFunction
+// s_MenuControl
+// s_MenuVisuals
+// s_FXActivator
+// s_PerformerButton
+// s_HTMLGraph
+// s_KeyListen
+// s_AppInit
+//
+//////////////////////////////////////////////
+//
+/////////////////////////////
+// Data Menu Functionality //
+/////////////////////////////
+//
+// s_MenuFunction
+//
+// Activates all the objects previously defined 
+//
+//////////////////////////////
+//
 var scoreActivater = function() {
     list_of_pieces.forEach(function(value) {
         button = eval(value);
