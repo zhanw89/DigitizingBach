@@ -280,7 +280,6 @@ function audioFile(OnOff, composer, piece, PerfvsEdit, performer, note,
     for (i = 0; i < 22; i++) {
     	var value = dict[i];
       if (value === performerName) {
-	      position = i;
 	flag = 0;
       } else {
         flag = 1;
@@ -385,7 +384,7 @@ function audioFile(OnOff, composer, piece, PerfvsEdit, performer, note,
         }
     } else {
         this.dataInitialize = function() {
-            $('.d' + adjustPosition).append(
+            $('.d' + position).append(
                 '<div class="data redDot unselected ' +
                 instrumentData + ' ' + contentPiece + ' ' +
                 contentPerformer + ' ' + contentForm + ' ' +

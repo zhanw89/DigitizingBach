@@ -99,7 +99,7 @@ var dataMenuFunction = function() {
     var currentAAxis = menuPIECE + menuFORM + menuCHROMA + menuKEY +
         axislabel;
     $('.' + currentAAxis).show();
-    for (i = 0; i < 30; i++) {
+    for (i = 0; i < 22; i++) {
         diData = $('.d' + i + ' .' + menuPIECE + '.' + menuFORM + '.' +
             menuCHROMA + '.' + menuKEY + ' .' + "actualData").text();
         diattackData = $('.d' + i + ' .' + menuPIECE + '.' + menuFORM + '.' +
