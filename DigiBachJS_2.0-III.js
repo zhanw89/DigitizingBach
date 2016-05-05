@@ -375,19 +375,19 @@ var menuControl = function() {
             $('.d16').show();
             $('.d15').show();
             $('.d14').show();
-            $('.d13').hide();
-            $('.d12').hide();
-            $('.d11').hide();
-            $('.d10').hide();
-            $('.d9').hide();
-            $('.d8').hide();
-            $('.d7').hide();
-            $('.d6').hide();
-            $('.d5').hide();
-            $('.d4').hide();
-            $('.d3').hide();
-            $('.d2').hide();
-            $('.d1').hide();
+            $('.d13').show();
+            $('.d12').show();
+            $('.d11').show();
+            $('.d10').show();
+            $('.d9').show();
+            $('.d8').show();
+            $('.d7').show();
+            $('.d6').show();
+            $('.d5').show();
+            $('.d4').show();
+            $('.d3').show();
+            $('.d2').show();
+            $('.d1').show();
             var listofEditors = ["Bartok", "Bischoff", "Czerny",
                 "Hughes", "Mugellini", "Palmer",
                 "Bodky", "Keller"
@@ -471,14 +471,14 @@ var menuControl = function() {
             $('#performerXaxis').show();
             $('#editorXaxis').hide();
             $('#combinedXaxis').hide();
-            $('.d21').hide();
-            $('.d20').hide();
-            $('.d19').hide();
-            $('.d18').hide();
-            $('.d17').hide();
-            $('.d16').hide();
-            $('.d15').hide();
-            $('.d14').hide();
+            $('.d21').show();
+            $('.d20').show();
+            $('.d19').show();
+            $('.d18').show();
+            $('.d17').show();
+            $('.d16').show();
+            $('.d15').show();
+            $('.d14').show();
             $('.d13').show();
             $('.d12').show();
             $('.d11').show();
@@ -1291,8 +1291,6 @@ $(document).ready(function() {
         var currentTextLength = currentText.length;
         //var currentTick = ".x" + listofPerformers[i];
         if (currentTextLength > 0) {
-            var currentSpot = ".d" + (i + 1 - numberOffset);
-            $(currentSpot).css("left", (24 * i) + "px");
             listofPerformerLocations.push(24 * i);
         } else {
             numberOffset = numberOffset + 1;
@@ -1348,8 +1346,6 @@ $(document).ready(function() {
         var currentText = listofEditors[i];
         var currentTextLength = currentText.length;
         if (currentTextLength > 0) {
-            var currentSpot = ".d" + (i + 21 - numberOffset);
-            $(currentSpot).css("left", (31 * i) + "px");
             listofEditorLocations.push(31 * i);
         } else {
             numberOffset = numberOffset + 1;
@@ -1407,8 +1403,6 @@ $(document).ready(function() {
         var currentText = listofCombined[i];
         var currentTextLength = currentText.length;
         if (currentTextLength > 0) {
-            var currentSpot = ".d" + (i + 21 - numberOffset);
-            $(currentSpot).css("left", (0.1 * i) + "px");
             listofCombinedLocations.push(0.1 * i);
         } else {
             numberOffset = numberOffset + 1;
