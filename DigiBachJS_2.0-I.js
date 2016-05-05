@@ -253,37 +253,23 @@ function audioFile(OnOff, composer, piece, PerfvsEdit, performer, note,
     this.performer = performer.toLowerCase();
     var performerName = this.performer.caps();
 // Check/Add to dictionary
-    var dict = {
-        1: "Fischer",
-    	2: "Tureck",
-    	3: "Gould",
-    	4: "Martins",
-    	5: "Demus",
-    	6: "Richter",
-    	7: "Gulda",
-    	8: "Landowska",
-    	9: "Galling",
-    	10: "Hamilton",
-    	11: "Kirkpatrick",
-    	12: "Leonhardt",
-    	13: "Newman",
-    	14: "Bartok",
-    	15: "Bischoff",
-    	16: "Czerny",
-    	17: "Hughes",
-    	18: "Mugellini",
-    	19: "Palmer",
-    	20: "Bodky",
-    	21: "Keller"
-    };
-    var dictSize = Object.size(dict);
-    for (i = 0; i < 22; i++) {
-    	var value = dict[i];
-      if (value === performerName) {
-	      position = i;
-	flag = 0;
+    var dict = [];
+    var listPerformers = ["Fischer", "Tureck", "Gould", "Martins",
+            "Demus", "Richter", "Gulda", "Landowska", "Galling",
+            "Hamilton", "Kirkpatrick", "Leonhardt", "Newman",
+            "Bartok", "Bischoff", "Czerny", "Hughes", "Mugellini",
+            "Palmer", "Bodky", "Keller"
+        ];
+	for (i=0; i<listPerformers.length; i++) {
+	    	dict.push({position:i+1,thisname:listPerformers[i]});
+	    }
+    var dictSize = dict.length;
+    for (i = 0; i < dictSize; i++) {
+      var currentName = dict[i].thisname;
+      var currentPosition = dict[i].position;
+      if (currentName === performerName) {
+	      position = currentPosition;
       } else {
-        flag = 1;
       }
     }
 //
