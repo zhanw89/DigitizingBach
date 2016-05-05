@@ -23,7 +23,7 @@
 // You can set this app to only load specific portions, forcing it into different modes.
 // The available modes are BachEditor, BachPerformer, and ALL 
 if (appMODE == "bacheditorMODE") {
-	var loadBachWTC = false;
+	var loadBachWTC = true;
 	var loadBachEditor = true;
 	var loadBachScatterplot = true;
 	var menuPIECE = "cBacheditor_WTC1";
