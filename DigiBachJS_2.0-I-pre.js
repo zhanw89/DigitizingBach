@@ -59,26 +59,3 @@ var toolTipHolder = "toolTipBoxT";
 var currentPiecePlaying = "NA";
 var scatterColortoggle = "scatterColorOff";
 //
-var dict = {
-    	1: "Fischer",
-	2: "Tureck",
-	3: "Gould",
-	4: "Martins",
-	5: "Demus",
-	6: "Richter",
-	7: "Gulda",
-	8: "Landowska",
-	9: "Galling",
-	10: "Hamilton",
-	11: "Kirkpatrick",
-	12: "Leonhardt",
-	13: "Newman",
-	14: "Bartok",
-	15: "Bischoff",
-	16: "Czerny",
-	17: "Hughes",
-	18: "Mugellini",
-	19: "Palmer",
-	20: "Bodky",
-	21: "Keller"
-};
