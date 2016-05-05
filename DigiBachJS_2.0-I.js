@@ -353,7 +353,7 @@ function audioFile(OnOff, composer, piece, PerfvsEdit, performer, note,
     //play creates a jQuery function for each button that assigns it a click function, calling playPiece() and passing through information.
     if (OnOff === "N") {
         this.dataInitialize = function() {
-            $('.d' + adjustPosition).append(
+            $('.d' + position).append(
                 '<div class="data blackDot unselected ' +
                 instrumentData + ' ' + contentPiece + ' ' +
                 contentPerformer + ' ' + contentForm + ' ' +
