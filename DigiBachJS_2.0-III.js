@@ -405,6 +405,8 @@ var menuControl = function() {
                 }
             }
         }
+	menuFunction();
+	dataMenuFunction();
     });
     $('.plotEditorBUTTON').click(function() {
         if (menuPLOT === "plotEditor") {
