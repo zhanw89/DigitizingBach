@@ -357,7 +357,9 @@ var menuControl = function() {
     //Menu functions
     //Composers
     $('.plotPerformerBUTTON').click(function() {
-        if (menuPLOT === "plotPerformer") {
+    	menuFunction();
+    	dataMenuFunction();
+	if (menuPLOT === "plotPerformer") {
             menuPLOT = "plotEditor";
             $('.plotPerformerBUTTON').hide();
             $('.plotEditorBUTTON').show();
@@ -387,7 +389,7 @@ var menuControl = function() {
             $('.d2').hide();
             $('.d1').hide();
             var listofEditors = ["Bartok", "Bischoff", "Czerny",
-                "Hughes", "Mugellini", "", "Palmer", "",
+                "Hughes", "Mugellini", "Palmer",
                 "Bodky", "Keller"
             ];
             multiplier = 1.9;
@@ -397,7 +399,7 @@ var menuControl = function() {
                 var currentText = listofEditors[i];
                 var currentTextLength = currentText.length;
                 if (currentTextLength > 0) {
-                    var currentSpot = ".d" + (i + 21 - numberOffset);
+                    var currentSpot = ".d" + (i+14);
                     $(currentSpot).css("left", (31 * i) + "px");
                     listofEditorLocations.push(31 * i);
                 } else {
@@ -405,8 +407,7 @@ var menuControl = function() {
                 }
             }
         }
-	menuFunction();
-	dataMenuFunction();
+	
     });
     $('.plotEditorBUTTON').click(function() {
         if (menuPLOT === "plotEditor") {
@@ -439,11 +440,11 @@ var menuControl = function() {
             $('.d2').show();
             $('.d1').show();
             var listofCombined = ["Fischer", "Tureck", "Gould",
-                "Martins", "Demus", "Richter", "Gulda", "",
+                "Martins", "Demus", "Richter", "Gulda",
                 "Landowska", "Galling", "Hamilton",
-                "Kirkpatrick", "Leonhardt", "Newman", "",
+                "Kirkpatrick", "Leonhardt", "Newman",
                 "Bartok", "Bischoff", "Czerny", "Hughes",
-                "Mugellini", "", "Palmer", "", "Bodky",
+                "Mugellini", "Palmer", "Bodky",
                 "Keller"
             ];
             multiplier = 0.9;
@@ -452,7 +453,7 @@ var menuControl = function() {
                 var currentText = listofCombined[i];
                 var currentTextLength = currentText.length;
                 if (currentTextLength > 0) {
-                    var currentSpot = ".d" + (i + 21 - numberOffset);
+                    var currentSpot = ".d" + (i);
                     $(currentSpot).css("left", (31 * i) + "px");
                     listofCombinedLocations.push(31 * i);
                 } else {
@@ -504,7 +505,7 @@ var menuControl = function() {
                 var currentTextLength = currentText.length;
                 //var currentTick = ".x" + listofPerformers[i];
                 if (currentTextLength > 0) {
-                    var currentSpot = ".d" + (i + 1 - numberOffset);
+                    var currentSpot = ".d" + (i);
                     $(currentSpot).css("left", (24 * i) + "px");
                     listofPerformerLocations.push(24 * i);
                 } else {
