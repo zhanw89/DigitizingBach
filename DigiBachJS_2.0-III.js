@@ -99,7 +99,7 @@ var dataMenuFunction = function() {
     var currentAAxis = menuPIECE + menuFORM + menuCHROMA + menuKEY +
         axislabel;
     $('.' + currentAAxis).show();
-    for (i = 0; i < 22; i++) {
+    for (i = 1; i < 22; i++) {
         diData = $('.d' + i + ' .' + menuPIECE + '.' + menuFORM + '.' +
             menuCHROMA + '.' + menuKEY + ' .' + "actualData").text();
         diattackData = $('.d' + i + ' .' + menuPIECE + '.' + menuFORM + '.' +
@@ -399,7 +399,7 @@ var menuControl = function() {
                 var currentText = listofEditors[i];
                 var currentTextLength = currentText.length;
                 if (currentTextLength > 0) {
-                    var currentSpot = ".d" + (i+14);
+                    var currentSpot = ".d" + (i+13);
                     $(currentSpot).css("left", (31 * i) + "px");
                     listofEditorLocations.push(31 * i);
                 } else {
@@ -2240,13 +2240,13 @@ if (appMODE == "bacheditorMODE") {
         $('.defbutton').hide();
         $('.defbutton.cBach_WTC1').show();
         $('.editorModeText').hide();
-        $('.d21').hide();
-        $('.d20').hide();
-        $('.d19').hide();
-        $('.d18').hide();
-        $('.d17').hide();
-        $('.d16').hide();
-        $('.d15').hide();
+        $('.d21').show();
+        $('.d20').show();
+        $('.d19').show();
+        $('.d18').show();
+        $('.d17').show();
+        $('.d16').show();
+        $('.d15').show();
         $('.d14').show();
         $('.d13').show();
         $('.d12').show();
@@ -2292,13 +2292,13 @@ if (appMODE == "bacheditorMODE") {
         $('.defbutton').hide();
         $('.defbutton.cBach_WTC1').show();
         $('.editorModeText').hide();
-        $('.d21').hide();
-        $('.d20').hide();
-        $('.d19').hide();
-        $('.d18').hide();
-        $('.d17').hide();
-        $('.d16').hide();
-        $('.d15').hide();
+        $('.d21').show();
+        $('.d20').show();
+        $('.d19').show();
+        $('.d18').show();
+        $('.d17').show();
+        $('.d16').show();
+        $('.d15').show();
         $('.d14').show();
         $('.d13').show();
         $('.d12').show();
@@ -2339,13 +2339,13 @@ if (appMODE == "bacheditorMODE") {
         $('.defbutton').hide();
         $('.defbutton.cBach_WTC1').show();
         $('.editorModeText').hide();
-        $('.d21').hide();
-        $('.d20').hide();
-        $('.d19').hide();
-        $('.d18').hide();
-        $('.d17').hide();
-        $('.d16').hide();
-        $('.d15').hide();
+        $('.d21').show();
+        $('.d20').show();
+        $('.d19').show();
+        $('.d18').show();
+        $('.d17').show();
+        $('.d16').show();
+        $('.d15').show();
         $('.d14').show();
         $('.d13').show();
         $('.d12').show();

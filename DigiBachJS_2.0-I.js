@@ -260,8 +260,8 @@ function audioFile(OnOff, composer, piece, PerfvsEdit, performer, note,
             "Bartok", "Bischoff", "Czerny", "Hughes", "Mugellini",
             "Palmer", "Bodky", "Keller"
         ];
-	for (i=0; i<listPerformers.length; i++) {
-	    	dict.push({position:i+1,thisname:listPerformers[i]});
+	for (i=1; i<listPerformers.length; i++) {
+	    	dict.push({position:i,thisname:listPerformers[i]});
 	    }
     var dictSize = dict.length;
     for (i = 0; i < dictSize; i++) {
