@@ -50,7 +50,7 @@ var menuCHROMA;
 var menuKEY;
 var menuEDITOR = "cPerf";
 var menuScorechooser = "cCzernyscore";
-var menuPLOT = "plotPerformer";
+var menuPLOT = "plotPerformer"
 var fileType = "mp3";
 var quickPerformer = false;
 var menuPERFORMER = "cTureck";

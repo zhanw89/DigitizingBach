@@ -1012,10 +1012,23 @@ text-align: left;
 .redDot {
     background-color: red;
 }
+.redPDot {
+        background-color: red;
+        border-radius: 5px;
+}
+.redHSquare {
+	background-color: red;
+	border-radius: 0px !important;
+	
+}
 
 .blackDot {
     background-color: #000;
     cursor: not-allowed;
+}
+.graySquare {
+    border-radius: 0px;
+    background-color: gray;
 }
 
 .pianoData {
@@ -1032,7 +1045,7 @@ text-align: left;
 }
 
 .editorData {
-    border-radius: 5px;
+    border-radius: 0px;
     background-color: gray;
 }
 
@@ -1050,7 +1063,7 @@ text-align: left;
 
 .palmData {
     border-radius: 5px;
-    background-color: gray;
+    background-color: gray !important;
 }
 
 .dataToggle {

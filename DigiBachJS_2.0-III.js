@@ -357,8 +357,6 @@ var menuControl = function() {
     //Menu functions
     //Composers
     $('.plotPerformerBUTTON').click(function() {
-    	menuFunction();
-    	dataMenuFunction();
 	if (menuPLOT === "plotPerformer") {
             menuPLOT = "plotEditor";
             $('.plotPerformerBUTTON').hide();
@@ -375,36 +373,34 @@ var menuControl = function() {
             $('.d16').show();
             $('.d15').show();
             $('.d14').show();
-            $('.d13').show();
-            $('.d12').show();
-            $('.d11').show();
-            $('.d10').show();
-            $('.d9').show();
-            $('.d8').show();
-            $('.d7').show();
-            $('.d6').show();
-            $('.d5').show();
-            $('.d4').show();
-            $('.d3').show();
-            $('.d2').show();
-            $('.d1').show();
+            $('.d13').hide();
+            $('.d12').hide();
+            $('.d11').hide();
+            $('.d10').hide();
+            $('.d9').hide();
+            $('.d8').hide();
+            $('.d7').hide();
+            $('.d6').hide();
+            $('.d5').hide();
+            $('.d4').hide();
+            $('.d3').hide();
+            $('.d2').hide();
+            $('.d1').hide();
             var listofEditors = ["Bartok", "Bischoff", "Czerny",
-                "Hughes", "Mugellini", "Palmer",
+                "Hughes", "Mugellini", "", "Palmer", "",
                 "Bodky", "Keller"
             ];
-            multiplier = 1.9;
+            multiplier = 1.25;
             numberOffset = 0;
-            var listofEditorLocations = [];
             for (i = 0; i < listofEditors.length; i++) {
                 var currentText = listofEditors[i];
                 var currentTextLength = currentText.length;
                 if (currentTextLength > 0) {
-                    var currentSpot = ".d" + (i+13);
-                    $(currentSpot).css("left", (31 * i) + "px");
-                    listofEditorLocations.push(31 * i);
+                    var currentSpot = ".d" + (i+14-numberOffset);
+                    $(currentSpot).css("left", (24 * i * multiplier) + "px");
                 } else {
                     numberOffset = numberOffset + 1;
-                }
+                } 
             }
         }
 	
@@ -440,22 +436,21 @@ var menuControl = function() {
             $('.d2').show();
             $('.d1').show();
             var listofCombined = ["Fischer", "Tureck", "Gould",
-                "Martins", "Demus", "Richter", "Gulda",
+                "Martins", "Demus", "Richter", "Gulda", "",
                 "Landowska", "Galling", "Hamilton",
-                "Kirkpatrick", "Leonhardt", "Newman",
+                "Kirkpatrick", "Leonhardt", "Newman", "",
                 "Bartok", "Bischoff", "Czerny", "Hughes",
-                "Mugellini", "Palmer", "Bodky",
+                "Mugellini", "", "Palmer", "", "Bodky",
                 "Keller"
             ];
-            multiplier = 0.9;
+            multiplier = 0.587;
             numberOffset = 0;
             for (i = 0; i < listofCombined.length; i++) {
                 var currentText = listofCombined[i];
                 var currentTextLength = currentText.length;
                 if (currentTextLength > 0) {
-                    var currentSpot = ".d" + (i);
-                    $(currentSpot).css("left", (31 * i) + "px");
-                    listofCombinedLocations.push(31 * i);
+                    var currentSpot = ".d" + (i+1-numberOffset);
+                    $(currentSpot).css("left", (24 * i * multiplier) + "px");
                 } else {
                     numberOffset = numberOffset + 1;
                 }
@@ -471,14 +466,14 @@ var menuControl = function() {
             $('#performerXaxis').show();
             $('#editorXaxis').hide();
             $('#combinedXaxis').hide();
-            $('.d21').show();
-            $('.d20').show();
-            $('.d19').show();
-            $('.d18').show();
-            $('.d17').show();
-            $('.d16').show();
-            $('.d15').show();
-            $('.d14').show();
+            $('.d21').hide();
+            $('.d20').hide();
+            $('.d19').hide();
+            $('.d18').hide();
+            $('.d17').hide();
+            $('.d16').hide();
+            $('.d15').hide();
+            $('.d14').hide();
             $('.d13').show();
             $('.d12').show();
             $('.d11').show();
@@ -497,20 +492,18 @@ var menuControl = function() {
                 "Landowska", "Galling", "Hamilton", "Kirkpat.",
                 "Leonhardt", "Newman"
             ];
-            multiplier = 1.5;
+            multiplier = 0.98;
             numberOffset = 0;
-            var listofPerformerLocations = [];
             for (i = 0; i < listofPerformers.length; i++) {
                 var currentText = listofPerformers[i];
                 var currentTextLength = currentText.length;
                 //var currentTick = ".x" + listofPerformers[i];
-                if (currentTextLength > 0) {
-                    var currentSpot = ".d" + (i);
-                    $(currentSpot).css("left", (24 * i) + "px");
-                    listofPerformerLocations.push(24 * i);
-                } else {
-                    numberOffset = numberOffset + 1;
-                }
+	        if (currentTextLength > 0) {
+	    	    var currentSpot = ".d" + (i+1-numberOffset);
+	            $(currentSpot).css("left", (24 * i * multiplier) + "px");
+	        } else {
+	            numberOffset = numberOffset + 1;
+	        }
             }
         }
     });
@@ -824,7 +817,16 @@ var composerFX = function() {
     });
 };
 //
-//Play Pause button
+// Tempo Plot Button
+var tempoPlotButtonFX = function() {
+	$('.tempoPlotButton').hover(function() {
+		$(this).toggleClass('menuhovered');
+	}, function() {
+		$('.tempoPlotButton').removeClass('menuhovered');
+	});
+};
+//
+// Play Pause button
 var playPauseFX = function() {
     $('.playPause').hover(function() {
         if ($(this).hasClass('menuclicked')) {
@@ -1068,6 +1070,7 @@ $(document).ready(playPauseFX);
 $(document).ready(playPauseFunction);
 $(document).ready(resetBTN);
 $(document).ready(tabBTN);
+$(document).ready(tempoPlotButtonFX);
 //
 //////////////////////////////
 // Performer Button Artwork //
@@ -1275,26 +1278,27 @@ $(document).ready(function() {
     lineLength = 70;
     // Draw x-axis labels
     cPerformerarea.rotate(-50 * Math.PI / 180);
-    var listofPerformers = ["Fischer", "Tureck", "Gould", "Martins",
-        "Demus", "Richter", "Gulda", "", "Landowska", "Galling",
-        "Hamilton", "Kirkpat.", "Leonhardt", "Newman"
-    ];
     // Draw x-axis names
     namePOSx = 10;
     namePOSy = 12;
-    multiplier = 1.5;
-    numberOffset = 0;
-    var listofPerformerLocations = [];
+var listofPerformers = ["Fischer", "Tureck", "Gould",
+    "Martins", "Demus", "Richter", "Gulda", "",
+    "Landowska", "Galling", "Hamilton", "Kirkpat.",
+    "Leonhardt", "Newman"
+];
+multiplier = 1.5;
+numberOffset = 0;
     cPerformerarea.font = "10px Courier New";
-    for (i = 0; i < listofPerformers.length; i++) {
-        var currentText = listofPerformers[i];
-        var currentTextLength = currentText.length;
-        //var currentTick = ".x" + listofPerformers[i];
-        if (currentTextLength > 0) {
-            listofPerformerLocations.push(24 * i);
-        } else {
-            numberOffset = numberOffset + 1;
-        }
+for (i = 0; i < listofPerformers.length; i++) {
+    var currentText = listofPerformers[i];
+    var currentTextLength = currentText.length;
+    //var currentTick = ".x" + listofPerformers[i];
+    if (currentTextLength > 0) {
+	    var currentSpot = ".d" + (i+1-numberOffset);
+        $(currentSpot).css("left", (24 * i*0.98) + "px");
+    } else {
+        numberOffset = numberOffset + 1;
+    }
         //$(currentTick).css("left", (20*i) + "px");
         cPerformerarea.fillText(currentText, (-218 + namePOSx *
             multiplier * i) - (currentTextLength - 4) * 5, (270 +
@@ -2240,14 +2244,14 @@ if (appMODE == "bacheditorMODE") {
         $('.defbutton').hide();
         $('.defbutton.cBach_WTC1').show();
         $('.editorModeText').hide();
-        $('.d21').show();
-        $('.d20').show();
-        $('.d19').show();
-        $('.d18').show();
-        $('.d17').show();
-        $('.d16').show();
-        $('.d15').show();
-        $('.d14').show();
+        $('.d21').hide();
+        $('.d20').hide();
+        $('.d19').hide();
+        $('.d18').hide();
+        $('.d17').hide();
+        $('.d16').hide();
+        $('.d15').hide();
+        $('.d14').hide();
         $('.d13').show();
         $('.d12').show();
         $('.d11').show();
@@ -2292,14 +2296,14 @@ if (appMODE == "bacheditorMODE") {
         $('.defbutton').hide();
         $('.defbutton.cBach_WTC1').show();
         $('.editorModeText').hide();
-        $('.d21').show();
-        $('.d20').show();
-        $('.d19').show();
-        $('.d18').show();
-        $('.d17').show();
-        $('.d16').show();
-        $('.d15').show();
-        $('.d14').show();
+        $('.d21').hide();
+        $('.d20').hide();
+        $('.d19').hide();
+        $('.d18').hide();
+        $('.d17').hide();
+        $('.d16').hide();
+        $('.d15').hide();
+        $('.d14').hide();
         $('.d13').show();
         $('.d12').show();
         $('.d11').show();
@@ -2339,14 +2343,14 @@ if (appMODE == "bacheditorMODE") {
         $('.defbutton').hide();
         $('.defbutton.cBach_WTC1').show();
         $('.editorModeText').hide();
-        $('.d21').show();
-        $('.d20').show();
-        $('.d19').show();
-        $('.d18').show();
-        $('.d17').show();
-        $('.d16').show();
-        $('.d15').show();
-        $('.d14').show();
+        $('.d21').hide();
+        $('.d20').hide();
+        $('.d19').hide();
+        $('.d18').hide();
+        $('.d17').hide();
+        $('.d16').hide();
+        $('.d15').hide();
+        $('.d14').hide();
         $('.d13').show();
         $('.d12').show();
         $('.d11').show();

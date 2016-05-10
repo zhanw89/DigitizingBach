@@ -260,8 +260,8 @@ function audioFile(OnOff, composer, piece, PerfvsEdit, performer, note,
             "Bartok", "Bischoff", "Czerny", "Hughes", "Mugellini",
             "Palmer", "Bodky", "Keller"
         ];
-	for (i=1; i<listPerformers.length; i++) {
-	    	dict.push({position:i,thisname:listPerformers[i]});
+	for (i=0; i<listPerformers.length; i++) {
+	    	dict.push({position:i+1,thisname:listPerformers[i]});
 	    }
     var dictSize = dict.length;
     for (i = 0; i < dictSize; i++) {
@@ -371,16 +371,41 @@ function audioFile(OnOff, composer, piece, PerfvsEdit, performer, note,
         }
     } else {
         this.dataInitialize = function() {
-            $('.d' + position).append(
-                '<div class="data redDot unselected ' +
-                instrumentData + ' ' + contentPiece + ' ' +
-                contentPerformer + ' ' + contentForm + ' ' +
-                contentChroma + ' ' + contentKey + ' ' + this.name +
-                '"><div class="actualData">' + roundActualData +
-                '</div><div class="tempoData">' + roundData +
-                '</div><div class="attackData">' + roundAttack +
-                '</div><div class="toolTipBoxT"></div><div class="toolTipBoxA"></div></div>'
-            );
+		if (instrumentData === "pianoData") {
+	    	    $('.d' + position).append(
+	                    '<div class="data redPDot unselected ' +
+	                    instrumentData + ' ' + contentPiece + ' ' +
+	                    contentPerformer + ' ' + contentForm + ' ' +
+	                    contentChroma + ' ' + contentKey + ' ' + this.name +
+	                    '"><div class="actualData">' + roundActualData +
+	                    '</div><div class="tempoData">' + roundData +
+	                    '</div><div class="attackData">' + roundAttack +
+	                    '</div><div class="toolTipBoxT"></div><div class="toolTipBoxA"></div></div>'
+	                );
+		} else if (instrumentData === "harpData") {
+    	    	    $('.d' + position).append(
+    	                    '<div class="data redHSquare unselected ' +
+    	                    instrumentData + ' ' + contentPiece + ' ' +
+    	                    contentPerformer + ' ' + contentForm + ' ' +
+    	                    contentChroma + ' ' + contentKey + ' ' + this.name +
+    	                    '"><div class="actualData">' + roundActualData +
+    	                    '</div><div class="tempoData">' + roundData +
+    	                    '</div><div class="attackData">' + roundAttack +
+    	                    '</div><div class="toolTipBoxT"></div><div class="toolTipBoxA"></div></div>'
+    	                );	
+		} else {
+    	    	    $('.d' + position).append(
+    	                    '<div class="data graySquare unselected ' +
+    	                    instrumentData + ' ' + contentPiece + ' ' +
+    	                    contentPerformer + ' ' + contentForm + ' ' +
+    	                    contentChroma + ' ' + contentKey + ' ' + this.name +
+    	                    '"><div class="actualData">' + roundActualData +
+    	                    '</div><div class="tempoData">' + roundData +
+    	                    '</div><div class="attackData">' + roundAttack +
+    	                    '</div><div class="toolTipBoxT"></div><div class="toolTipBoxA"></div></div>'
+    	                );
+		}
+	    
         };
         this.play = function() {
             $(className).click(function() {
