@@ -325,7 +325,7 @@ var menuControl = function() {
             });
             dataMenuFunction();
             $('.noteDisplay').animate({
-                left: "430px"
+                left: "420px"
             }, {
                 queue: false
             });
