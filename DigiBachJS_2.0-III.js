@@ -342,6 +342,7 @@ var menuControl = function() {
             });
             $('.cSMajor').css("background-color", "gray");
             $('.cSMinor').css("background-color", "gray");
+	    $("."+scatterFORM+"."+scatterCHROMA+"."+scatterKEY).css("box-shadow", "0px 0px 10px #000");
         } else {
             scatterColortoggle = "scatterColorOn";
             $('.scatterdataToggleDot').animate({
@@ -351,6 +352,11 @@ var menuControl = function() {
             });
             $('.cSMajor').css("background-color", "red");
             $('.cSMinor').css("background-color", "blue");
+	    if (menuKEY === "cMajor") {
+                    $("."+scatterFORM+"."+scatterCHROMA+"."+scatterKEY).css("box-shadow", "0px 0px 10px red");
+                } else {
+                    $("."+scatterFORM+"."+scatterCHROMA+"."+scatterKEY).css("box-shadow", "0px 0px 10px blue");
+                } 
         }
     });
     //
