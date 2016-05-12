@@ -2189,12 +2189,6 @@ if (appMODE == "bacheditorMODE") {
         $('#pieceNum').css("border-top-right-radius", "15px");
         $('#pieceNum').show();
         $('#lvlCOMPOSER').hide();
-        $('#formBUT, .lvlONEBUTTON').css("border-top-left-radius",
-            "15px");
-        $('#prelude, .lvlONEBUTTON').css("border-top-left-radius",
-            "15px");
-        $('#fugue, .lvlONEBUTTON').css("border-top-left-radius",
-            ":15px");
         menuPIECE = "cBacheditor_WTC1";
         $('.content').hide();
         $('.contentBach').hide();
@@ -2238,12 +2232,6 @@ if (appMODE == "bacheditorMODE") {
         $('#pieceNum').css("border-bottom-right-radius", "0px");
         $('#pieceNum').show();
         $('#lvlCOMPOSER').hide();
-        $('#formBUT, .lvlONEBUTTON').css("border-top-left-radius",
-            "15px");
-        $('#prelude, .lvlONEBUTTON').css("border-top-left-radius",
-            "15px");
-        $('#fugue, .lvlONEBUTTON').css("border-top-left-radius",
-            ":15px");
         menuPIECE = "cBach_WTC1";
         $('.content').hide();
         $('.contentBach').show();
@@ -2291,11 +2279,6 @@ if (appMODE == "bacheditorMODE") {
         $('#pieceNum').css("border-top-right-radius", "15px");
         $('#pieceNum').show();
         $('#lvlCOMPOSER').show();
-        $('#formBUT, .lvlONEBUTTON').css("border-top-left-radius",
-            "0px");
-        $('#prelude, .lvlONEBUTTON').css("border-top-left-radius",
-            "0px");
-        $('#fugue, .lvlONEBUTTON').css("border-top-left-radius", ":0px");
         menuPIECE = "cBach_WTC1";
         $('.content').hide();
         $('.contentBach').show();
@@ -2338,11 +2321,6 @@ if (appMODE == "bacheditorMODE") {
         $('#pieceNum').css("border-bottom-right-radius", "0px");
         $('#pieceNum').show();
         $('#lvlCOMPOSER').show();
-        $('#formBUT, .lvlONEBUTTON').css("border-top-left-radius",
-            "0px");
-        $('#prelude, .lvlONEBUTTON').css("border-top-left-radius",
-            "0px");
-        $('#fugue, .lvlONEBUTTON').css("border-top-left-radius", ":0px");
         menuPIECE = "cBach_WTC1";
         $('.content').hide();
         $('.contentBach').show();
