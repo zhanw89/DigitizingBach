@@ -373,6 +373,8 @@ var menuControl = function() {
             $('#combinedXaxis').fadeOut("fast");
             $('.d21, .d20, .d19, .d18, .d17, .d16, .d15, .d14').show();
 	    $('.d13, .d12, .d11, .d10, .d9, .d8, .d7, .d6, .d5, .d4, .d3, .d2, .d1').hide();
+            $('.dx21, .dx20, .dx19, .dx18, .dx17, .dx16, .dx15, .dx14').show();
+	    $('.dx13, .dx12, .dx11, .dx10, .dx9, .dx8, .dx7, .dx6, .dx5, .dx4, .dx3, .dx2, .dx1').hide();
             var listofEditors = ["Bartok", "Bischoff", "Czerny",
                 "Hughes", "Mugellini", "", "Palmer", "",
                 "Bodky", "Keller"
@@ -384,8 +386,10 @@ var menuControl = function() {
                 var currentTextLength = currentText.length;
                 if (currentTextLength > 0) {
                     var currentSpot = ".d" + (i+14-numberOffset);
+		    var currentTick = ".dx" + (i+14-numberOffset);
                     var newLocal = 24*i*multiplier + "px";
 		    $(currentSpot).css("left", newLocal);
+		    $(currentTick).css("left", newLocal);
                 } else {
                     numberOffset = numberOffset + 1;
                 } 
@@ -402,7 +406,10 @@ var menuControl = function() {
             $('#performerXaxis').fadeOut("fast");
             $('#editorXaxis').fadeOut("fast");
             $('#combinedXaxis').fadeIn("fast");
-	    $('.d21, .d20, .d19, .d18, .d17, .d16, .d15, .d14, .d13, .d12, .d11, .d10, .d9, .d8, .d7, .d6, .d5, .d4, .d3, .d2, .d1').show();
+            $('.d21, .d20, .d19, .d18, .d17, .d16, .d15, .d14').show();
+	    $('.d13, .d12, .d11, .d10, .d9, .d8, .d7, .d6, .d5, .d4, .d3, .d2, .d1').show();
+            $('.dx21, .dx20, .dx19, .dx18, .dx17, .dx16, .dx15, .dx14').show();
+	    $('.dx13, .dx12, .dx11, .dx10, .dx9, .dx8, .dx7, .dx6, .dx5, .dx4, .dx3, .dx2, .dx1').show();
             var listofCombined = ["Fischer", "Tureck", "Gould",
                 "Martins", "Demus", "Richter", "Gulda", "",
                 "Landowska", "Galling", "Hamilton",
@@ -418,8 +425,10 @@ var menuControl = function() {
                 var currentTextLength = currentText.length;
                 if (currentTextLength > 0) {
                     var currentSpot = ".d" + (i+1-numberOffset);
+		    var currentTick = ".dx" + (i+1-numberOffset);
 		    var newLocal = 24*i*multiplier + "px";
                     $(currentSpot).css("left", newLocal);
+		    $(currentTick).css("left", newLocal);
                 } else {
                     numberOffset = numberOffset + 1;
                 }
@@ -437,6 +446,8 @@ var menuControl = function() {
             $('#combinedXaxis').fadeOut("fast");
             $('.d21, .d20, .d19, .d18, .d17, .d16, .d15, .d14').hide();
 	    $('.d13, .d12, .d11, .d10, .d9, .d8, .d7, .d6, .d5, .d4, .d3, .d2, .d1').show();
+            $('.dx21, .dx20, .dx19, .dx18, .dx17, .dx16, .dx15, .dx14').hide();
+	    $('.dx13, .dx12, .dx11, .dx10, .dx9, .dx8, .dx7, .dx6, .dx5, .dx4, .dx3, .dx2, .dx1').show();
             var listofPerformers = ["Fischer", "Tureck", "Gould",
                 "Martins", "Demus", "Richter", "Gulda", "",
                 "Landowska", "Galling", "Hamilton", "Kirkpat.",
@@ -450,8 +461,10 @@ var menuControl = function() {
                 //var currentTick = ".x" + listofPerformers[i];
 	        if (currentTextLength > 0) {
 	    	    var currentSpot = ".d" + (i+1-numberOffset);
+		    var currentTick = ".dx" + (i+1-numberOffset);
 		    var newLocal = 24*i*multiplier + "px";
                     $(currentSpot).css("left", newLocal);
+		    $(currentTick).css("left", newLocal);
 	        } else {
 	            numberOffset = numberOffset + 1;
 	        }
@@ -1245,8 +1258,11 @@ for (i = 0; i < listofPerformers.length; i++) {
     var currentTextLength = currentText.length;
     //var currentTick = ".x" + listofPerformers[i];
     if (currentTextLength > 0) {
-	    var currentSpot = ".d" + (i+1-numberOffset);
-        $(currentSpot).css("left", (24 * i*0.98) + "px");
+        var currentSpot = ".d" + (i+1-numberOffset);
+    	var currentTick = ".dx" + (i+1-numberOffset);
+    	var newLocal = 24*i*0.98 + "px";
+        $(currentSpot).css("left", newLocal);
+    	$(currentTick).css("left", newLocal);
     } else {
         numberOffset = numberOffset + 1;
     }
@@ -1295,13 +1311,11 @@ for (i = 0; i < listofPerformers.length; i++) {
     namePOSy = 14;
     multiplier = 1.6;
     numberOffset = 0;
-    var listofEditorLocations = [];
     cEditorarea.font = "10px Consolas";
     for (i = 0; i < listofEditors.length; i++) {
         var currentText = listofEditors[i];
         var currentTextLength = currentText.length;
         if (currentTextLength > 0) {
-            listofEditorLocations.push(31 * i);
         } else {
             numberOffset = numberOffset + 1;
         }
@@ -1352,13 +1366,11 @@ for (i = 0; i < listofPerformers.length; i++) {
     namePOSy = 14;
     multiplier = 0.75;
     numberOffset = 0;
-    var listofCombinedLocations = [];
     cCombinedarea.font = "10px Consolas";
     for (i = 0; i < listofCombined.length; i++) {
         var currentText = listofCombined[i];
         var currentTextLength = currentText.length;
         if (currentTextLength > 0) {
-            listofCombinedLocations.push(0.1 * i);
         } else {
             numberOffset = numberOffset + 1;
         }

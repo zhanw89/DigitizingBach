@@ -298,7 +298,7 @@ text-align: left;
     position: absolute;
     z-index: 5;
     top: 755px;
-    left: 460px;
+    left: 480px;
     width: 400px;
 }
 
@@ -432,7 +432,7 @@ text-align: left;
     line-height: 15px !important;
     text-align: center;
     height: 20px;
-    border: 2px solid #000;
+    border: 1px solid #000;
     background: #fff;
     cursor: pointer;
     border-bottom-left-radius: 15px;
@@ -446,7 +446,7 @@ text-align: left;
     line-height: 15px !important;
     text-align: center;
     height: 20px;
-    border: 2px solid #000;
+    border: 1px solid #000;
     background: #fff;
     cursor: pointer;
     border-bottom-left-radius: 15px;
@@ -460,7 +460,7 @@ text-align: left;
     line-height: 15px !important;
     text-align: center;
     height: 20px;
-    border: 2px solid #000;
+    border: 1px solid #000;
     background: #fff;
     cursor: pointer;
     border-bottom-left-radius: 15px;
@@ -1197,8 +1197,13 @@ text-align: left;
     top: 310px;
     z-index: 14;
 }
-
-
+.xAxisTicks {
+	position: absolute;
+	left: 82px;
+}
+.xEdit {
+	display: none;
+}
 
 /****/
 
