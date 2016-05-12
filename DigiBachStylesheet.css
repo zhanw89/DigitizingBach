@@ -1126,7 +1126,7 @@ text-align: left;
 .noteDisplay {
     position: absolute;
     font-size: 25px;
-    left: 470px;
+    left: 430px;
     top: 390px;
     z-index: 50;
 }

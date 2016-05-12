@@ -325,7 +325,7 @@ var menuControl = function() {
             });
             dataMenuFunction();
             $('.noteDisplay').animate({
-                left: "470px"
+                left: "430px"
             }, {
                 queue: false
             });
@@ -368,30 +368,11 @@ var menuControl = function() {
             $('.plotPerformerBUTTON').hide();
             $('.plotEditorBUTTON').show();
             $('.plotCombinedBUTTON').hide();
-            $('#performerXaxis').hide();
-            $('#editorXaxis').show();
-            $('#combinedXaxis').hide();
-            $('.d21').show();
-            $('.d20').show();
-            $('.d19').show();
-            $('.d18').show();
-            $('.d17').show();
-            $('.d16').show();
-            $('.d15').show();
-            $('.d14').show();
-            $('.d13').hide();
-            $('.d12').hide();
-            $('.d11').hide();
-            $('.d10').hide();
-            $('.d9').hide();
-            $('.d8').hide();
-            $('.d7').hide();
-            $('.d6').hide();
-            $('.d5').hide();
-            $('.d4').hide();
-            $('.d3').hide();
-            $('.d2').hide();
-            $('.d1').hide();
+            $('#performerXaxis').fadeOut("fast");
+            $('#editorXaxis').fadeIn("fast");
+            $('#combinedXaxis').fadeOut("fast");
+            $('.d21, .d20, .d19, .d18, .d17, .d16, .d15, .d14').show();
+	    $('.d13, .d12, .d11, .d10, .d9, .d8, .d7, .d6, .d5, .d4, .d3, .d2, .d1').hide();
             var listofEditors = ["Bartok", "Bischoff", "Czerny",
                 "Hughes", "Mugellini", "", "Palmer", "",
                 "Bodky", "Keller"
@@ -403,7 +384,8 @@ var menuControl = function() {
                 var currentTextLength = currentText.length;
                 if (currentTextLength > 0) {
                     var currentSpot = ".d" + (i+14-numberOffset);
-                    $(currentSpot).css("left", (24 * i * multiplier) + "px");
+                    var newLocal = 24*i*multiplier + "px";
+		    $(currentSpot).css("left", newLocal);
                 } else {
                     numberOffset = numberOffset + 1;
                 } 
@@ -417,46 +399,27 @@ var menuControl = function() {
             $('.plotPerformerBUTTON').hide();
             $('.plotEditorBUTTON').hide();
             $('.plotCombinedBUTTON').show();
-            $('#performerXaxis').hide();
-            $('#editorXaxis').hide();
-            $('#combinedXaxis').show();
-            $('.d21').show();
-            $('.d20').show();
-            $('.d19').show();
-            $('.d18').show();
-            $('.d17').show();
-            $('.d16').show();
-            $('.d15').show();
-            $('.d14').show();
-            $('.d13').show();
-            $('.d12').show();
-            $('.d11').show();
-            $('.d10').show();
-            $('.d9').show();
-            $('.d8').show();
-            $('.d7').show();
-            $('.d6').show();
-            $('.d5').show();
-            $('.d4').show();
-            $('.d3').show();
-            $('.d2').show();
-            $('.d1').show();
+            $('#performerXaxis').fadeOut("fast");
+            $('#editorXaxis').fadeOut("fast");
+            $('#combinedXaxis').fadeIn("fast");
+	    $('.d21, .d20, .d19, .d18, .d17, .d16, .d15, .d14, .d13, .d12, .d11, .d10, .d9, .d8, .d7, .d6, .d5, .d4, .d3, .d2, .d1').show();
             var listofCombined = ["Fischer", "Tureck", "Gould",
                 "Martins", "Demus", "Richter", "Gulda", "",
                 "Landowska", "Galling", "Hamilton",
-                "Kirkpatrick", "Leonhardt", "Newman", "",
+                "Kirkpat.", "Leonhardt", "Newman", "",
                 "Bartok", "Bischoff", "Czerny", "Hughes",
                 "Mugellini", "", "Palmer", "", "Bodky",
                 "Keller"
             ];
-            multiplier = 0.587;
+            multiplier = 0.58;
             numberOffset = 0;
             for (i = 0; i < listofCombined.length; i++) {
                 var currentText = listofCombined[i];
                 var currentTextLength = currentText.length;
                 if (currentTextLength > 0) {
                     var currentSpot = ".d" + (i+1-numberOffset);
-                    $(currentSpot).css("left", (24 * i * multiplier) + "px");
+		    var newLocal = 24*i*multiplier + "px";
+                    $(currentSpot).css("left", newLocal);
                 } else {
                     numberOffset = numberOffset + 1;
                 }
@@ -469,30 +432,11 @@ var menuControl = function() {
             $('.plotPerformerBUTTON').show();
             $('.plotEditorBUTTON').hide();
             $('.plotCombinedBUTTON').hide();
-            $('#performerXaxis').show();
-            $('#editorXaxis').hide();
-            $('#combinedXaxis').hide();
-            $('.d21').hide();
-            $('.d20').hide();
-            $('.d19').hide();
-            $('.d18').hide();
-            $('.d17').hide();
-            $('.d16').hide();
-            $('.d15').hide();
-            $('.d14').hide();
-            $('.d13').show();
-            $('.d12').show();
-            $('.d11').show();
-            $('.d10').show();
-            $('.d9').show();
-            $('.d8').show();
-            $('.d7').show();
-            $('.d6').show();
-            $('.d5').show();
-            $('.d4').show();
-            $('.d3').show();
-            $('.d2').show();
-            $('.d1').show();
+            $('#performerXaxis').fadeIn("fast");;
+            $('#editorXaxis').fadeOut("fast");
+            $('#combinedXaxis').fadeOut("fast");
+            $('.d21, .d20, .d19, .d18, .d17, .d16, .d15, .d14').hide();
+	    $('.d13, .d12, .d11, .d10, .d9, .d8, .d7, .d6, .d5, .d4, .d3, .d2, .d1').show();
             var listofPerformers = ["Fischer", "Tureck", "Gould",
                 "Martins", "Demus", "Richter", "Gulda", "",
                 "Landowska", "Galling", "Hamilton", "Kirkpat.",
@@ -506,7 +450,8 @@ var menuControl = function() {
                 //var currentTick = ".x" + listofPerformers[i];
 	        if (currentTextLength > 0) {
 	    	    var currentSpot = ".d" + (i+1-numberOffset);
-	            $(currentSpot).css("left", (24 * i * multiplier) + "px");
+		    var newLocal = 24*i*multiplier + "px";
+                    $(currentSpot).css("left", newLocal);
 	        } else {
 	            numberOffset = numberOffset + 1;
 	        }
@@ -1285,16 +1230,16 @@ $(document).ready(function() {
     // Draw x-axis labels
     cPerformerarea.rotate(-50 * Math.PI / 180);
     // Draw x-axis names
-    namePOSx = 10;
-    namePOSy = 12;
+    namePOSx = 12;
+    namePOSy = 14;
 var listofPerformers = ["Fischer", "Tureck", "Gould",
     "Martins", "Demus", "Richter", "Gulda", "",
     "Landowska", "Galling", "Hamilton", "Kirkpat.",
     "Leonhardt", "Newman"
 ];
-multiplier = 1.5;
+multiplier = 1.28;
 numberOffset = 0;
-    cPerformerarea.font = "10px Courier New";
+    cPerformerarea.font = "10px Consolas";
 for (i = 0; i < listofPerformers.length; i++) {
     var currentText = listofPerformers[i];
     var currentTextLength = currentText.length;
@@ -1346,12 +1291,12 @@ for (i = 0; i < listofPerformers.length; i++) {
     var listofEditors = ["Bartok", "Bischoff", "Czerny", "Hughes",
         "Mugellini", "", "Palmer", "", "Bodky", "Keller"
     ];
-    namePOSx = 10;
-    namePOSy = 12;
-    multiplier = 1.9;
+    namePOSx = 12;
+    namePOSy = 14;
+    multiplier = 1.6;
     numberOffset = 0;
     var listofEditorLocations = [];
-    cEditorarea.font = "10px Courier New";
+    cEditorarea.font = "10px Consolas";
     for (i = 0; i < listofEditors.length; i++) {
         var currentText = listofEditors[i];
         var currentTextLength = currentText.length;
@@ -1398,17 +1343,17 @@ for (i = 0; i < listofPerformers.length; i++) {
     cCombinedarea.rotate(-50 * Math.PI / 180);
     var listofCombined = ["Fischer", "Tureck", "Gould", "Martins",
         "Demus", "Richter", "Gulda", "", "Landowska", "Galling",
-        "Hamilton", "Kirkpatrick", "Leonhardt", "Newman", "",
+        "Hamilton", "Kirkpat.", "Leonhardt", "Newman", "",
         "Bartok", "Bischoff", "Czerny", "Hughes", "Mugellini", "",
         "Palmer", "", "Bodky", "Keller"
     ];
     // Draw x-axis names
-    namePOSx = 10;
-    namePOSy = 12;
-    multiplier = 0.9;
+    namePOSx = 12;
+    namePOSy = 14;
+    multiplier = 0.75;
     numberOffset = 0;
     var listofCombinedLocations = [];
-    cCombinedarea.font = "10px Courier New";
+    cCombinedarea.font = "10px Consolas";
     for (i = 0; i < listofCombined.length; i++) {
         var currentText = listofCombined[i];
         var currentTextLength = currentText.length;
@@ -1425,7 +1370,7 @@ for (i = 0; i < listofPerformers.length; i++) {
     cCombinedarea.rotate(50 * Math.PI / 180);
     // Draw x-axis
     cCombinedarea.moveTo(lineLength, lineHeight);
-    cCombinedarea.lineTo(438, lineHeight);
+    cCombinedarea.lineTo(430, lineHeight);
     // Draw 0 tick tick
     cCombinedarea.moveTo(lineLength, lineHeight);
     cCombinedarea.lineTo(lineLength - 5, lineHeight);
