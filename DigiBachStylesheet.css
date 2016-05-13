@@ -235,6 +235,7 @@ text-align: left;
 }
 
 /******/
+
 .autoButton {
     position: absolute;
     z-index: 4;
@@ -251,6 +252,34 @@ text-align: left;
     cursor: pointer;
     border-top-right-radius: 15px;
     display: none;
+}
+#audioButtonContainer {
+        left: 20px;
+        top: 10px;
+        z-index: 30;
+        position: absolute;
+      }
+.playPauseBut {
+  float: left;
+  margin: 3px;
+  padding: 0;
+  height: 30px;
+  width: 30px;
+  position: absolute;
+  background-size: 30px 30px;
+  background-repeat: no-repeat;
+  position: absolute;
+  opacity: 0.6;
+  background-repeat: no-repeat;
+}
+.playBut {
+  background-image: url("http://www.maplelab.net/virtualPianist/AmplitudeEnv/playButton.png");
+  display: none;
+}
+
+.pauseBut {
+  background-image: url("http://www.maplelab.net/virtualPianist/AmplitudeEnv/pauseButton.png");
+  display: show;
 }
 /******/
 #pieceNum {
@@ -1324,8 +1353,7 @@ text-align: left;
     left: 80px;
     top: 363px;
     z-index: 80;
-    border-bottom-left-radius: 15px;
-    border: 2px solid #000;
+    border: 1px solid #000;
     border-radius: 0;
     text-align: center;
     cursor: pointer;
@@ -1339,8 +1367,7 @@ text-align: left;
     left: 132px;
     top: 363px;
     z-index: 80;
-    border-bottom-left-radius: 15px;
-    border: 2px solid #000;
+    border: 1px solid #000;
     border-radius: 0;
     text-align: center;
     cursor: pointer;
@@ -1354,8 +1381,7 @@ text-align: left;
     left: 183px;
     top: 363px;
     z-index: 80;
-    border-bottom-left-radius: 15px;
-    border: 2px solid #000;
+    border: 1px solid #000;
     border-radius: 0;
     text-align: center;
     cursor: pointer;

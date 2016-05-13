@@ -1191,7 +1191,7 @@ $(document).ready(function() {
     // Draw font on an angle
     cScatterYarea.rotate(-90 * Math.PI / 180);
     cScatterYarea.font = "20px Arial";
-    cScatterYarea.fillText("Attack Rate (notes/sec)", -300, 30);
+    cScatterYarea.fillText("Attack Rate (notes/sec)", -260, 30);
     cScatterYarea.rotate(90 * Math.PI / 180);
     cScatterYarea.font = "10px Arial";
     // height of graph
@@ -1409,7 +1409,7 @@ for (i = 0; i < listofPerformers.length; i++) {
     interData = rangeData / 13;
     cdA.rotate(-90 * Math.PI / 180);
     cdA.font = "20px Arial";
-    cdA.fillText("Attack Rate (notes/sec)", -290, 25);
+    cdA.fillText("Attack Rate (notes/sec)", -260, 25);
     cdA.rotate(90 * Math.PI / 180);
     cdA.font = "10px Arial";
     //height of graph

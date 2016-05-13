@@ -25,26 +25,37 @@ Object.size = function(obj) {
 var playPiece = function(volume, carryperformer, audioURL, currentPieceName) {
     //Load audio tag into aPiece
     aPiece = document.getElementById('audio');
-    if (currentPieceName === currentPiecePlaying) {
-        if (aPiece.paused === false) {
-            aPiece.pause();
-            aPiece.currentTime = 0;
-            $('.playPause').removeClass('menuclicked');
-        } else {
-            aPiece.volume = volume;
-            aPiece.play();
-            $('.playPause').addClass('menuclicked');
-        }
+    if ($('.playPause').hasClass('firstClicked')) {
+	    $('.playPause').addClass('firstClicked');
+	    if (currentPieceName === currentPiecePlaying) {
+	        if (aPiece.paused === false) {
+	            aPiece.pause();
+	            aPiece.currentTime = 0;
+	            $('.playPause').removeClass('menuclicked');
+	            $('.pauseBut').hide();
+	            $('.playBut').show();
+	        } else {
+	            aPiece.volume = volume;
+	            aPiece.play();
+	            $('.playPause').addClass('menuclicked');
+	            $('.pauseBut').show();
+	            $('.playBut').hide();   
+	        }
+	    } else {
+	        currentPiecePlaying = currentPieceName;
+	        aPiece.src = audioURL;
+	        aPiece.load();
+	        aPiece.volume = volume;
+	        aPiece.play();
+	        $('.caption').fadeOut(250);
+	        $('.' + carryperformer).fadeIn(250);
+	        $('.playPause').addClass('menuclicked');
+            $('.pauseBut').show();
+            $('.playBut').hide(); 
+	    }
     } else {
-        currentPiecePlaying = currentPieceName;
-        aPiece.src = audioURL;
-        aPiece.load();
-        aPiece.volume = volume;
-        aPiece.play();
-        $('.caption').fadeOut(250);
-        $('.' + carryperformer).fadeIn(250);
-        $('.playPause').addClass('menuclicked');
-    }
+	    $('.playPause').addClass('firstClicked');
+}
 };
 //
 //Empty arrays
