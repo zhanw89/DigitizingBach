@@ -66,7 +66,7 @@
             <!--Level 1 is the "Type" Button, where you can switch from Fugue and Prelude-->
             <!--formBUT is the default button that shows, but it is hidden as soon as an option is made-->
             <!--default click goes to Prelude-->
-            <div id="lvlONE">
+            <div id="lvlONE" title="Toggles between Preludes and Fugues">
                 <div id="formBUT">
                     <p class="lvlONEBUTTON"><br>
                     type</p>
@@ -98,7 +98,7 @@
             </div><!--Level 3 is the "mode" Major/Minor toggle-->
             <!--modeBUT is the default button that shows, but it is hidden as soon as an option is made-->
             <!--default click goes to Major-->
-            <div id="lvlTHREE">
+            <div id="lvlTHREE" title="Toggles between Major and Minor pieces">
                 <div id="modeBUT">
                     <p class="lvlTHREEBUTTON"><br>
                     mode</p>
@@ -129,11 +129,11 @@
                 <div class="completeGraph">
                     Com
                 </div>
-                <div class="autoButton">
+                <div class="autoButton" title="Autoplays a single performer while navigating through menu">
                     Auto
                 </div><!--Pauses or Plays the piece, keeping the time tracking.-->
-                <div class="playPause"></div>
-                <div id="scatterTab">
+                <div class="playPause" title="Prevents audio from playing while navigating applet"></div>
+                <div id="scatterTab" title="Displays scatterplot of Pitch Height vs Attack Rate per piece">
                     Plot
                 </div>
                 <!--A Stop button that stops everything from playing and resets the entire system. This isn't displayed or coded yet.-->
@@ -145,13 +145,13 @@
             <div id="menuBackground"></div>
         </div><!--Extra stuff within the applet-->
         <!--Container for the note image that appears on top of the plot-->
-        <div class="noteDisplay"></div><!--Applet Background-->
+        <div class="noteDisplay" title="Common note duration"></div><!--Applet Background-->
         <div id="containerBackground"></div><!--Background for the score display-->
         <div class="scoreOutline"></div>
         <!--Toggle button for plot to switch between Attack rate and Temp display-->
         <p class="toggleTag">Tempo<br>
         Attack</p>
-        <div class="dataToggle">
+        <div class="dataToggle" title="Toggles between plotting for Tempo vs Attack Rate">
             <div class="dataToggleDot"></div>
         </div>
 	<!--PlayPause indicator image-->
@@ -265,17 +265,17 @@
         <div id="scatterplotContainer">
             <p class="scattertoggleTitle">Major/Minor Color</p>
             <p class="scattertoggleTag">On<br>Off</p>
-            <div class="scatterdataToggle">
+            <div class="scatterdataToggle" title="Toggles displayig Major and Minor colouring">
                 <div class="scatterdataToggleDot"></div>
             </div>
             <div id="scatterplotPad">
-                <div id="scatterPrelude">
+                <div id="scatterPrelude" title="Chooses between displaying Preludes, Fugues, or All pieces">
                     Prelude
                 </div>
-                <div id="scatterFugue">
+                <div id="scatterFugue" title="Chooses between displaying Preludes, Fugues, or All pieces">
                     Fugue
                 </div>
-                <div id="scatterAll">
+                <div id="scatterAll" title="Chooses between displaying Preludes, Fugues, or All pieces" class="menuclicked">
                     All
                 </div>
                 <canvas height="400px" id="scatterplotYaxis" width="429px"></canvas>

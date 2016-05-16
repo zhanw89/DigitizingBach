@@ -176,27 +176,13 @@ var menuFunction = function() {
             $('.' + menuPIECE + '.' + menuFORM + '.' + menuCHROMA + '.' +
                 menuKEY + '.' + menuPERFORMER).show();
             $('.noData').show();
-            aPiece = document.getElementById('audio');
-            aPiece.pause();
-            aPiece.currentTime = 0;
             if ($('.playPause').hasClass('menuclicked') === true) {
+            } else {
                 $('.data.' + menuPIECE + '.' + menuFORM + '.' + menuCHROMA +
                     '.' + menuKEY + '.' + menuPERFORMER).trigger(
-                    "click");
-                $('.' + menuPIECE + '.' + menuFORM + '.' + menuCHROMA + '.' +
-                    menuKEY + '.' + menuPERFORMER).addClass(
-                    'btnclicked');
-                $('.data.' + menuPIECE + '.' + menuFORM + '.' + menuCHROMA +
-                    '.' + menuKEY + '.' + menuPERFORMER).addClass(
-                    'btnclicked');
-            } else {}
-            $('.display').replaceWith('<p class="display">' + menuPIECE +
-                ' ' + menuFORM + ' ' + menuCHROMA + ' ' + menuKEY + ' ' +
-                menuPERFORMER + '</p>');
+			    "click");
+            }
         } else {
-            $('.display').replaceWith('<p class="display">' + menuPIECE +
-                ' ' + menuFORM + ' ' + menuCHROMA + ' ' + menuKEY + ' ' +
-                menuPERFORMER + ': Nothing Found</p>');
         }
     } else {
         //When quickPerformer is OFF
@@ -208,13 +194,7 @@ var menuFunction = function() {
                 '.' + menuKEY).show();
             $('.' + menuPIECE + '.' + menuFORM + '.' + menuCHROMA + '.' +
                 menuKEY).show();
-            $('.display').replaceWith('<p class="display">' + menuPIECE +
-                ' ' + menuFORM + ' ' + menuCHROMA + ' ' + menuKEY +
-                '</p>');
         } else {
-            $('.display').replaceWith('<p class="display">' + menuPIECE +
-                ' ' + menuFORM + ' ' + menuCHROMA + ' ' + menuKEY +
-                ': Nothing Found</p>');
         }
     }
 };
@@ -809,18 +789,30 @@ var playPauseFunction = function() {
     aPiece = document.getElementById('audio');
     $('.playPause').click(function() {
         if (aPiece.paused === false) {
-            aPiece.pause();
-            $('.' + menuPIECE + '.' + menuFORM + '.' + menuCHROMA +
-                '.' + menuKEY + '.' + menuPERFORMER).removeClass(
-                'btnclicked');
-            $('.playPause').removeClass('menuclicked');
+		aPiece = document.getElementById('audio');
+                aPiece.pause();
+                aPiece.currentTime = 0;
+                $('.pauseBut').show();
+                $('.playBut').hide(); 
+                $('.' + menuPIECE + '.' + menuFORM + '.' + menuCHROMA +
+                    '.' + menuKEY + '.' + menuPERFORMER).removeClass(
+                    'btnclicked');
+		    $('.playPause').addClass('menuclicked');
         } else {
-            $('.playPause').addClass('menuclicked');
             $('.' + menuPIECE + '.' + menuFORM + '.' + menuCHROMA +
                 '.' + menuKEY + '.' + menuPERFORMER).addClass(
                 'btnclicked');
+                $('.pauseBut').hide();
+                $('.playBut').show(); 
+		$('.playPause').removeClass('menuclicked');
+		aPiece = document.getElementById('audio');
             aPiece.play();
         }
+	if (quickPerformer === true) {
+            $('.data.' + menuPIECE + '.' + menuFORM + '.' + menuCHROMA +
+                '.' + menuKEY + '.' + menuPERFORMER).trigger(
+		    "click");
+	} else {}
     });
 };
 //
