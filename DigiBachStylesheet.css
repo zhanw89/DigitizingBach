@@ -254,21 +254,19 @@ text-align: left;
     display: none;
 }
 #audioButtonContainer {
-        left: 20px;
-        top: 10px;
-        z-index: 30;
         position: absolute;
+	left: 15px;
+        top: 0px;
+        z-index: 30;  
       }
 .playPauseBut {
+	position: absolute;
   float: left;
   margin: 3px;
   padding: 0;
   height: 30px;
   width: 30px;
-  position: absolute;
   background-size: 30px 30px;
-  background-repeat: no-repeat;
-  position: absolute;
   opacity: 0.6;
   background-repeat: no-repeat;
 }
@@ -345,7 +343,7 @@ text-align: left;
     text-align: left;
     z-index: 20;
     left: -80px;
-    width: 350px;
+    width: 370px;
     top: 460px;
     display: none;
 }
