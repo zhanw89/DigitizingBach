@@ -353,8 +353,8 @@ var menuControl = function() {
             $('#combinedXaxis').fadeOut("fast");
             $('.d21, .d20, .d19, .d18, .d17, .d16, .d15, .d14').show();
 	    $('.d13, .d12, .d11, .d10, .d9, .d8, .d7, .d6, .d5, .d4, .d3, .d2, .d1').hide();
-            $('.dx21, .dx20, .dx19, .dx18, .dx17, .dx16, .dx15, .dx14').show();
-	    $('.dx13, .dx12, .dx11, .dx10, .dx9, .dx8, .dx7, .dx6, .dx5, .dx4, .dx3, .dx2, .dx1').hide();
+            $('.dx21, .dx20, .dx19, .dx18, .dx17, .dx16, .dx15, .dx14').fadeIn("fast");
+	    $('.dx13, .dx12, .dx11, .dx10, .dx9, .dx8, .dx7, .dx6, .dx5, .dx4, .dx3, .dx2, .dx1').fadeOut("fast");
             var listofEditors = ["Bartok", "Bischoff", "Czerny",
                 "Hughes", "Mugellini", "", "Palmer", "",
                 "Bodky", "Keller"
@@ -388,8 +388,8 @@ var menuControl = function() {
             $('#combinedXaxis').fadeIn("fast");
             $('.d21, .d20, .d19, .d18, .d17, .d16, .d15, .d14').show();
 	    $('.d13, .d12, .d11, .d10, .d9, .d8, .d7, .d6, .d5, .d4, .d3, .d2, .d1').show();
-            $('.dx21, .dx20, .dx19, .dx18, .dx17, .dx16, .dx15, .dx14').show();
-	    $('.dx13, .dx12, .dx11, .dx10, .dx9, .dx8, .dx7, .dx6, .dx5, .dx4, .dx3, .dx2, .dx1').show();
+            $('.dx21, .dx20, .dx19, .dx18, .dx17, .dx16, .dx15, .dx14').fadeIn("fast");
+	    $('.dx13, .dx12, .dx11, .dx10, .dx9, .dx8, .dx7, .dx6, .dx5, .dx4, .dx3, .dx2, .dx1').fadeIn("fast");
             var listofCombined = ["Fischer", "Tureck", "Gould",
                 "Martins", "Demus", "Richter", "Gulda", "",
                 "Landowska", "Galling", "Hamilton",
@@ -426,8 +426,8 @@ var menuControl = function() {
             $('#combinedXaxis').fadeOut("fast");
             $('.d21, .d20, .d19, .d18, .d17, .d16, .d15, .d14').hide();
 	    $('.d13, .d12, .d11, .d10, .d9, .d8, .d7, .d6, .d5, .d4, .d3, .d2, .d1').show();
-            $('.dx21, .dx20, .dx19, .dx18, .dx17, .dx16, .dx15, .dx14').hide();
-	    $('.dx13, .dx12, .dx11, .dx10, .dx9, .dx8, .dx7, .dx6, .dx5, .dx4, .dx3, .dx2, .dx1').show();
+            $('.dx21, .dx20, .dx19, .dx18, .dx17, .dx16, .dx15, .dx14').fadeOut("fast");
+	    $('.dx13, .dx12, .dx11, .dx10, .dx9, .dx8, .dx7, .dx6, .dx5, .dx4, .dx3, .dx2, .dx1').fadeIn("fast");
             var listofPerformers = ["Fischer", "Tureck", "Gould",
                 "Martins", "Demus", "Richter", "Gulda", "",
                 "Landowska", "Galling", "Hamilton", "Kirkpat.",
@@ -1301,19 +1301,25 @@ for (i = 0; i < listofPerformers.length; i++) {
     ];
     namePOSx = 12;
     namePOSy = 14;
-    multiplier = 1.6;
+    multipliera = 1.6;
     numberOffset = 0;
     cEditorarea.font = "10px Consolas";
+    multiplier = 1.25;
     for (i = 0; i < listofEditors.length; i++) {
         var currentText = listofEditors[i];
         var currentTextLength = currentText.length;
         if (currentTextLength > 0) {
+                var currentSpot = ".d" + (i+14-numberOffset);
+    	    var currentTick = ".dx" + (i+14-numberOffset);
+                var newLocal = 24*i*multiplier + "px";
+    	    $(currentSpot).css("left", newLocal);
+    	    $(currentTick).css("left", newLocal);
         } else {
             numberOffset = numberOffset + 1;
         }
-        cEditorarea.fillText(currentText, (-220 + namePOSx * multiplier *
+        cEditorarea.fillText(currentText, (-220 + namePOSx * multipliera *
             i) - (currentTextLength - 5) * 5, (270 + namePOSy *
-            multiplier * i));
+            multipliera * i));
     }
     cEditorarea.rotate(50 * Math.PI / 180);
     // Draw x-axis
@@ -2145,6 +2151,13 @@ if (appMODE == "bacheditorMODE") {
         $('.defbutton').hide();
         $('.defbutton.cBacheditor_WTC1').show();
         $('.editorModeText').show();
+        $('#performerXaxis').hide();
+        $('#editorXaxis').show();
+        $('#combinedXaxis').hide();
+        $('.d21, .d20, .d19, .d18, .d17, .d16, .d15, .d14').show();
+    $('.d13, .d12, .d11, .d10, .d9, .d8, .d7, .d6, .d5, .d4, .d3, .d2, .d1').hide();
+        $('.dx21, .dx20, .dx19, .dx18, .dx17, .dx16, .dx15, .dx14').show();
+    $('.dx13, .dx12, .dx11, .dx10, .dx9, .dx8, .dx7, .dx6, .dx5, .dx4, .dx3, .dx2, .dx1').hide();
         $('.d21').show();
         $('.d20').show();
         $('.d19').show();
