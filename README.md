@@ -1,5 +1,7 @@
 # DigitizingBach
 
+![Bach Portrait](DigitizingBach/Elements/Bachpor.png)
+
 Created for the [Maple Lab](http://maplelab.net/) , McMaster University
 Written by Kyle Gauder
 
