@@ -1203,7 +1203,7 @@ text-align: left;
 /*Each tick goes up by 33px when dot is 5px. 28px when dot is 8px*/
 .dataHolder {
     position: absolute;
-    left: 9px;
+    left: 8px;
 }
 
 .point {
@@ -1216,7 +1216,7 @@ text-align: left;
 
 
 .xAtick {
-    width: 4px;
+    width: 2px;
     height: 6px;
     opacity: .7;
     background-color: grey;

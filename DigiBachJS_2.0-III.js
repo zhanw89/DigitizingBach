@@ -44,7 +44,10 @@ var scoreActivater = function() {
 var buttonActivater = function() {
     list_of_files.forEach(function(value) {
         button = eval(value);
-        button.initialize();
+        if (appMODE == "demoMODE") {
+        } else {
+            button.initialize();
+        }
         button.dataInitialize();
         button.autoEnable();
         button.toolTIPS();
@@ -2152,8 +2155,9 @@ if (appMODE == "bacheditorMODE") {
         $('.defbutton.cBacheditor_WTC1').show();
         $('.editorModeText').show();
         $('#performerXaxis').hide();
-        $('#editorXaxis').show();
         $('#combinedXaxis').hide();
+        $('.contentBachAxis').hide();
+        $('#editorXaxis').show();
         $('.d21, .d20, .d19, .d18, .d17, .d16, .d15, .d14').show();
     $('.d13, .d12, .d11, .d10, .d9, .d8, .d7, .d6, .d5, .d4, .d3, .d2, .d1').hide();
         $('.dx21, .dx20, .dx19, .dx18, .dx17, .dx16, .dx15, .dx14').show();
@@ -2197,6 +2201,8 @@ if (appMODE == "bacheditorMODE") {
         menuPIECE = "cBach_WTC1";
         $('.content').hide();
         $('.contentBach').show();
+        $('.contentBachAxis').hide();
+        $('#performerXaxis').show();
         $('.defbutton').hide();
         $('.defbutton.cBach_WTC1').show();
         $('.editorModeText').hide();
@@ -2225,7 +2231,7 @@ if (appMODE == "bacheditorMODE") {
         dataMenuFunction();
     });
 } else if (appMODE == "allMODE") {
-    $(document).ready(function() {
+    $(document).ready(function () {
         //CSS changes
         $('.playPause').show();
         $('.playPause').css("left", "215px");
@@ -2244,9 +2250,64 @@ if (appMODE == "bacheditorMODE") {
         menuPIECE = "cBach_WTC1";
         $('.content').hide();
         $('.contentBach').show();
+        $('.contentBachAxis').hide();
+        $('#performerXaxis').show();
         $('.defbutton').hide();
         $('.defbutton.cBach_WTC1').show();
         $('.editorModeText').hide();
+        $('.d21').hide();
+        $('.d20').hide();
+        $('.d19').hide();
+        $('.d18').hide();
+        $('.d17').hide();
+        $('.d16').hide();
+        $('.d15').hide();
+        $('.d14').hide();
+        $('.d13').show();
+        $('.d12').show();
+        $('.d11').show();
+        $('.d10').show();
+        $('.d9').show();
+        $('.d8').show();
+        $('.d7').show();
+        $('.d6').show();
+        $('.d5').show();
+        $('.d4').show();
+        $('.d3').show();
+        $('.d2').show();
+        $('.d1').show();
+        menuFunction();
+        dataMenuFunction();
+    });
+} else if (appMODE == "demoMODE") {
+    $(document).ready(function() {
+        //CSS changes
+        $('.pauseBut').hide();
+        $('.playBut').hide();
+        $('.playPause').hide();
+        $('.playPause').css("left", "215px");
+        $('.playPause').css("border-bottom-right-radius", "0px");
+        $('.autoButton').hide();
+        $('.autoButton').css("left", "156px");
+        $('.autoButton').css("border-top-left-radius", "15px");
+        $('.autoButton').css("border-top-right-radius", "0px");
+        $('#scatterTab').css("left", "250px"); //left: 155px !important;
+        $('#scatterTab').css("border-top-left-radius", "15px");
+        $('#scatterTab').show();
+        $('#pieceNum').css("left", "280px");
+        $('#pieceNum').css("border-top-right-radius", "15px");
+        $('#pieceNum').show();
+        $('#lvlCOMPOSER').show();
+        menuPIECE = "cBach_WTC1";
+        $('.content').hide();
+        $('.contentBach').show();
+        $('.contentBachAxis').hide();
+        $('#performerXaxis').show();
+        $('.contentBacheditor').show();
+        $('.defbutton').hide();
+        $('.defbutton.cBach_WTC1').hide();
+        $('.editorModeText').show();
+        $('.instrumentTitle').hide();
         $('.d21').hide();
         $('.d20').hide();
         $('.d19').hide();

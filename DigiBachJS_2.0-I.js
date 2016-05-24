@@ -22,54 +22,76 @@ Object.size = function(obj) {
 };
 //
 //Play Music button functionality
-var playPiece = function(volume, carryperformer, audioURL, currentPieceName,
-    instrument) {
-    //Load audio tag into aPiece
-    aPiece = document.getElementById('audio');
-    if ($('.playPause').hasClass('menuclicked')) {
-	    aPiece.src = audioURL;
-	    aPiece.load();
-        if (currentPieceName === currentPiecePlaying) {
-            if (aPiece.paused === false) {} else {}
-        } else {
-            $('.caption').fadeOut(250);
-            $('.' + carryperformer).fadeIn(250);
-        }
-    } else {
-        if (instrument === "harpData" || instrument === "pianoData") {
+if (appMODE == "demoMODE") {
+    var playPiece = function (volume, carryperformer, audioURL, currentPieceName,
+                              instrument) {
+            if (currentPieceName === currentPiecePlaying) {
+                $('.caption').fadeOut(250);
+                $('.' + carryperformer).fadeIn(250);
+            } else {
+                if (instrument === "harpData" || instrument === "pianoData") {
+                    $('.caption').fadeOut(250);
+                    $('.' + carryperformer).fadeIn(250);
+                } else {
+                    $('.caption').fadeOut(250);
+                    $('.' + carryperformer).fadeIn(250);
+                }
+            }
+    };
+} else {
+    var playPiece = function (volume, carryperformer, audioURL, currentPieceName,
+                              instrument) {
+        //Load audio tag into aPiece
+        aPiece = document.getElementById('audio');
+        if ($('.playPause').hasClass('menuclicked')) {
+            aPiece.src = audioURL;
+            aPiece.load();
             if (currentPieceName === currentPiecePlaying) {
                 if (aPiece.paused === false) {
-                    aPiece.pause();
-                    aPiece.currentTime = 0;
-                    $('.pauseBut').show();
-                    $('.playBut').hide();
                 } else {
+                }
+            } else {
+                $('.caption').fadeOut(250);
+                $('.' + carryperformer).fadeIn(250);
+            }
+        } else {
+            if (instrument === "harpData" || instrument === "pianoData") {
+                if (currentPieceName === currentPiecePlaying) {
+                    if (aPiece.paused === false) {
+                        aPiece.pause();
+                        aPiece.currentTime = 0;
+                        $('.pauseBut').show();
+                        $('.playBut').hide();
+                    } else {
+                        aPiece.volume = volume;
+                        aPiece.play();
+                        $('.pauseBut').hide();
+                        $('.playBut').show();
+                    }
+                } else {
+                    currentPiecePlaying = currentPieceName;
+                    aPiece.src = audioURL;
+                    aPiece.load();
                     aPiece.volume = volume;
                     aPiece.play();
+                    $('.caption').fadeOut(250);
+                    $('.' + carryperformer).fadeIn(250);
                     $('.pauseBut').hide();
                     $('.playBut').show();
                 }
             } else {
-                currentPiecePlaying = currentPieceName;
-                aPiece.src = audioURL;
-                aPiece.load();
-                aPiece.volume = volume;
-                aPiece.play();
-                $('.caption').fadeOut(250);
-                $('.' + carryperformer).fadeIn(250);
-                $('.pauseBut').hide();
-                $('.playBut').show();
-            }
-        } else {
-            if (currentPieceName === currentPiecePlaying) {
-                if (aPiece.paused === false) {} else {}
-            } else {
-                $('.caption').fadeOut(250);
-                $('.' + carryperformer).fadeIn(250);
+                if (currentPieceName === currentPiecePlaying) {
+                    if (aPiece.paused === false) {
+                    } else {
+                    }
+                } else {
+                    $('.caption').fadeOut(250);
+                    $('.' + carryperformer).fadeIn(250);
+                }
             }
         }
-    }
-};
+    };
+}
 //
 //Empty arrays
 var list_of_files = [];

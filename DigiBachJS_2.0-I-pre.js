@@ -37,6 +37,11 @@ if (appMODE == "bacheditorMODE") {
 	var loadBachEditor = true;
 	var loadBachScatterplot = true;
 	var menuPIECE = "cBach_WTC1";
+} else if (appMODE == "demoMODE") {
+	var loadBachWTC = true;
+	var loadBachEditor = true;
+	var loadBachScatterplot = true;
+	var menuPIECE = "cBach_WTC1";
 } else { //default values
 	var loadBachWTC = true;
 	var loadBachEditor = true;
