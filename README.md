@@ -5,7 +5,11 @@
 Created for the [Maple Lab](http://maplelab.net/) , McMaster University
 Written by Kyle Gauder
 
-The purpose of this application is to visualize a large dataset in an easy-to-understand way
+The purpose of this application is to visualize a large dataset in an easy-to-understand way.
+
+[You can see it live here!](http://maplelab.net/bachtempi)
+
+![Example image of applet](https://github.com/gauderkd/DigitizingBach/blob/master/Elements/BachTempi_Example.png)
 
 Bach's Well-Tempered Clavier is a collection of 48 pieces written in 1722 by Johann Sebastian Bach. It is split between Preludes and Fugues and has a Major and Minor key piece for every pitch. It was written as a sort of learning study for the harpsichord, clavichord, and piano.
 
