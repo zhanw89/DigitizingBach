@@ -1,0 +1,7 @@
+*.xml
+*.iml
+*.idea
+.idea/DigitizingBach.iml
+.idea/modules.xml
+.idea/workspace.xml
+.idea/vcs.xml
