@@ -512,6 +512,9 @@ function audioFile(OnOff, composer, piece, PerfvsEdit, performer, note,
         var dTempo = $('.data.' + contentPiece + '.' + contentPerformer +
             '.' + contentForm + '.' + contentChroma + '.' +
             contentKey).children('.tempoData').text();
+        var dActualTempo = $('.data.' + contentPiece + '.' + contentPerformer +
+            '.' + contentForm + '.' + contentChroma + '.' +
+            contentKey).children('.actualData').text();
         var dAttack = $('.data.' + contentPiece + '.' +
             contentPerformer + '.' + contentForm + '.' +
             contentChroma + '.' + contentKey).children(
@@ -520,39 +523,39 @@ function audioFile(OnOff, composer, piece, PerfvsEdit, performer, note,
             $('.data.' + contentPiece + '.' + contentPerformer + '.' +
                 contentForm + '.' + contentChroma + '.' +
                 contentKey).children(".toolTipBoxT").append("♩= " +
-                dTempo);
+                dTempo + "/" + dActualTempo);
         }
         if (note === "DQ") {
             $('.data.' + contentPiece + '.' + contentPerformer + '.' +
                 contentForm + '.' + contentChroma + '.' +
                 contentKey).children(".toolTipBoxT").append("♩.= " +
-                dTempo);
+                dTempo + "/" + dActualTempo);
         }
         if (note === "E") {
             $('.data.' + contentPiece + '.' + contentPerformer + '.' +
                 contentForm + '.' + contentChroma + '.' +
                 contentKey).children(".toolTipBoxT").append("♪= " +
-                dTempo);
+                dTempo + "/" + dActualTempo);
         }
         if (note === "DE") {
             $('.data.' + contentPiece + '.' + contentPerformer + '.' +
                 contentForm + '.' + contentChroma + '.' +
                 contentKey).children(".toolTipBoxT").append("♪.= " +
-                dTempo);
+                dTempo + "/" + dActualTempo);
         }
         if (note === "H") {
             $('.data.' + contentPiece + '.' + contentPerformer + '.' +
                 contentForm + '.' + contentChroma + '.' +
                 contentKey).children(".toolTipBoxT").append(
                 '<div class="halfnotePICtooltip">  </div>   = ' +
-                dTempo);
+                dTempo + "/" + dActualTempo);
         }
 		if (note === "DH") {
             $('.data.' + contentPiece + '.' + contentPerformer + '.' +
                 contentForm + '.' + contentChroma + '.' +
                 contentKey).children(".toolTipBoxT").append(
                 '<div class="halfnoteDOTPICtooltip">  </div>    = ' +
-                dTempo);
+                dTempo + "/" + dActualTempo);
         }
         $('.data.' + contentPiece + '.' + contentPerformer + '.' +
             contentForm + '.' + contentChroma + '.' + contentKey).children(
