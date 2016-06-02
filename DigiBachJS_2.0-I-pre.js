@@ -23,30 +23,35 @@
 // You can set this app to only load specific portions, forcing it into different modes.
 // The available modes are BachEditor, BachPerformer, and ALL 
 if (appMODE == "bacheditorMODE") {
-	var loadBachWTC = true;
+	var loadBachWTC = false;
 	var loadBachEditor = true;
 	var loadBachScatterplot = true;
 	var menuPIECE = "cBacheditor_WTC1";
+	var menuPLOT = "plotEditor";
 } else if (appMODE == "bachperformerMODE") {
 	var loadBachWTC = true;
 	var loadBachEditor = false;
 	var loadBachScatterplot = true;
 	var menuPIECE = "cBach_WTC1";
+	var menuPLOT = "plotPerformer";
 } else if (appMODE == "allMODE") {
 	var loadBachWTC = true;
 	var loadBachEditor = true;
 	var loadBachScatterplot = true;
 	var menuPIECE = "cBach_WTC1";
+	var menuPLOT = "plotCombined";
 } else if (appMODE == "demoMODE") {
 	var loadBachWTC = true;
 	var loadBachEditor = true;
 	var loadBachScatterplot = true;
 	var menuPIECE = "cBach_WTC1";
+	var menuPLOT = "plotCombined";
 } else { //default values
 	var loadBachWTC = true;
 	var loadBachEditor = true;
 	var loadBachScatterplot = true;
 	var menuPIECE = "cBach_WTC1";
+	var menuPLOT = "plotCombined";
 }
 
 // Menu variables
@@ -55,7 +60,6 @@ var menuCHROMA;
 var menuKEY;
 var menuEDITOR = "cPerf";
 var menuScorechooser = "cCzernyscore";
-var menuPLOT = "plotPerformer"
 var fileType = "mp3";
 var quickPerformer = false;
 var menuPERFORMER = "cTureck";

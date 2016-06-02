@@ -77,6 +77,15 @@ note that piano and harpsichord sets are in seperate containers*/
     top: 85px;
 }
 
+.buttonPOS14 {
+    left: 255px;
+    top: 85px;
+}
+
+.buttonPOS15 {
+    left: 170px;
+    top: 85px;
+}
 
 /**/
 /*The display containers are being used for development purposes only to see what's going on with variables*/
@@ -453,6 +462,7 @@ text-align: left;
 /**/
 /*LEVEL COMPOSER*/
 .plotPerformerBUTTON {
+    display: none;
     position: absolute;
     width: 68px;
     font-size: 14px !important;
@@ -971,6 +981,7 @@ text-align: left;
 }
 
 #performerXaxis {
+    display: none;
     position: absolute;
     z-index: 4;
 }

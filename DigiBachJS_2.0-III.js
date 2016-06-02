@@ -375,10 +375,41 @@ var menuControl = function() {
 		    $(currentTick).css("left", newLocal);
                 } else {
                     numberOffset = numberOffset + 1;
-                } 
+                }
+            }
+        } else {
+        menuPLOT = "plotEditor";
+        $('.plotPerformerBUTTON').hide();
+        $('.plotEditorBUTTON').show();
+        $('.plotCombinedBUTTON').hide();
+        $('#performerXaxis').fadeOut("fast");
+        $('#editorXaxis').fadeIn("fast");
+        $('#combinedXaxis').fadeOut("fast");
+        $('.d21, .d20, .d19, .d18, .d17, .d16, .d15, .d14').show();
+        $('.d13, .d12, .d11, .d10, .d9, .d8, .d7, .d6, .d5, .d4, .d3, .d2, .d1').hide();
+        $('.dx21, .dx20, .dx19, .dx18, .dx17, .dx16, .dx15, .dx14').fadeIn("fast");
+        $('.dx13, .dx12, .dx11, .dx10, .dx9, .dx8, .dx7, .dx6, .dx5, .dx4, .dx3, .dx2, .dx1').fadeOut("fast");
+        var listofEditors = ["Bartok", "Bischoff", "Czerny",
+            "Hughes", "Mugellini", "", "Palmer", "",
+            "Bodky", "Keller"
+        ];
+        multiplier = 1.25;
+        numberOffset = 0;
+        for (i = 0; i < listofEditors.length; i++) {
+            var currentText = listofEditors[i];
+            var currentTextLength = currentText.length;
+            if (currentTextLength > 0) {
+                var currentSpot = ".d" + (i+14-numberOffset);
+                var currentTick = ".dx" + (i+14-numberOffset);
+                var newLocal = 24*i*multiplier + "px";
+                $(currentSpot).css("left", newLocal);
+                $(currentTick).css("left", newLocal);
+            } else {
+                numberOffset = numberOffset + 1;
             }
         }
-	
+    }
+
     });
     $('.plotEditorBUTTON').click(function() {
         if (menuPLOT === "plotEditor") {
@@ -412,6 +443,37 @@ var menuControl = function() {
 		    var newLocal = 24*i*multiplier + "px";
                     $(currentSpot).css("left", newLocal);
 		    $(currentTick).css("left", newLocal);
+                } else {
+                    numberOffset = numberOffset + 1;
+                }
+            }
+        } else {
+            menuPLOT = "plotEditor";
+            $('.plotPerformerBUTTON').hide();
+            $('.plotEditorBUTTON').show();
+            $('.plotCombinedBUTTON').hide();
+            $('#performerXaxis').fadeOut("fast");
+            $('#editorXaxis').fadeIn("fast");
+            $('#combinedXaxis').fadeOut("fast");
+            $('.d21, .d20, .d19, .d18, .d17, .d16, .d15, .d14').show();
+            $('.d13, .d12, .d11, .d10, .d9, .d8, .d7, .d6, .d5, .d4, .d3, .d2, .d1').hide();
+            $('.dx21, .dx20, .dx19, .dx18, .dx17, .dx16, .dx15, .dx14').fadeIn("fast");
+            $('.dx13, .dx12, .dx11, .dx10, .dx9, .dx8, .dx7, .dx6, .dx5, .dx4, .dx3, .dx2, .dx1').fadeOut("fast");
+            var listofEditors = ["Bartok", "Bischoff", "Czerny",
+                "Hughes", "Mugellini", "", "Palmer", "",
+                "Bodky", "Keller"
+            ];
+            multiplier = 1.25;
+            numberOffset = 0;
+            for (i = 0; i < listofEditors.length; i++) {
+                var currentText = listofEditors[i];
+                var currentTextLength = currentText.length;
+                if (currentTextLength > 0) {
+                    var currentSpot = ".d" + (i+14-numberOffset);
+                    var currentTick = ".dx" + (i+14-numberOffset);
+                    var newLocal = 24*i*multiplier + "px";
+                    $(currentSpot).css("left", newLocal);
+                    $(currentTick).css("left", newLocal);
                 } else {
                     numberOffset = numberOffset + 1;
                 }
@@ -451,6 +513,37 @@ var menuControl = function() {
 	        } else {
 	            numberOffset = numberOffset + 1;
 	        }
+            }
+        } else {
+            menuPLOT = "plotEditor";
+            $('.plotPerformerBUTTON').hide();
+            $('.plotEditorBUTTON').show();
+            $('.plotCombinedBUTTON').hide();
+            $('#performerXaxis').fadeOut("fast");
+            $('#editorXaxis').fadeIn("fast");
+            $('#combinedXaxis').fadeOut("fast");
+            $('.d21, .d20, .d19, .d18, .d17, .d16, .d15, .d14').show();
+            $('.d13, .d12, .d11, .d10, .d9, .d8, .d7, .d6, .d5, .d4, .d3, .d2, .d1').hide();
+            $('.dx21, .dx20, .dx19, .dx18, .dx17, .dx16, .dx15, .dx14').fadeIn("fast");
+            $('.dx13, .dx12, .dx11, .dx10, .dx9, .dx8, .dx7, .dx6, .dx5, .dx4, .dx3, .dx2, .dx1').fadeOut("fast");
+            var listofEditors = ["Bartok", "Bischoff", "Czerny",
+                "Hughes", "Mugellini", "", "Palmer", "",
+                "Bodky", "Keller"
+            ];
+            multiplier = 1.25;
+            numberOffset = 0;
+            for (i = 0; i < listofEditors.length; i++) {
+                var currentText = listofEditors[i];
+                var currentTextLength = currentText.length;
+                if (currentTextLength > 0) {
+                    var currentSpot = ".d" + (i+14-numberOffset);
+                    var currentTick = ".dx" + (i+14-numberOffset);
+                    var newLocal = 24*i*multiplier + "px";
+                    $(currentSpot).css("left", newLocal);
+                    $(currentTick).css("left", newLocal);
+                } else {
+                    numberOffset = numberOffset + 1;
+                }
             }
         }
     });
@@ -1256,8 +1349,10 @@ for (i = 0; i < listofPerformers.length; i++) {
         var currentSpot = ".d" + (i+1-numberOffset);
     	var currentTick = ".dx" + (i+1-numberOffset);
     	var newLocal = 24*i*0.98 + "px";
-        $(currentSpot).css("left", newLocal);
-    	$(currentTick).css("left", newLocal);
+        if (menuPLOT == "plotPerformer") {
+            $(currentSpot).css("left", newLocal);
+            $(currentTick).css("left", newLocal);
+        }
     } else {
         numberOffset = numberOffset + 1;
     }
@@ -1313,10 +1408,12 @@ for (i = 0; i < listofPerformers.length; i++) {
         var currentTextLength = currentText.length;
         if (currentTextLength > 0) {
                 var currentSpot = ".d" + (i+14-numberOffset);
-    	    var currentTick = ".dx" + (i+14-numberOffset);
+    	        var currentTick = ".dx" + (i+14-numberOffset);
                 var newLocal = 24*i*multiplier + "px";
-    	    $(currentSpot).css("left", newLocal);
-    	    $(currentTick).css("left", newLocal);
+            if (menuPLOT == "plotEditor") {
+                $(currentSpot).css("left", newLocal);
+                $(currentTick).css("left", newLocal);
+            }
         } else {
             numberOffset = numberOffset + 1;
         }
@@ -1372,6 +1469,13 @@ for (i = 0; i < listofPerformers.length; i++) {
         var currentText = listofCombined[i];
         var currentTextLength = currentText.length;
         if (currentTextLength > 0) {
+            var currentSpot = ".d" + (i+1-numberOffset);
+            var currentTick = ".dx" + (i+1-numberOffset);
+            var newLocal = 24*i*0.58 + "px";
+            if (menuPLOT == "plotCombined") {
+                $(currentSpot).css("left", newLocal);
+                $(currentTick).css("left", newLocal);
+            }
         } else {
             numberOffset = numberOffset + 1;
         }
@@ -2146,43 +2250,26 @@ if (appMODE == "bacheditorMODE") {
         $('#pieceNum').css("left", "280px");
         $('#pieceNum').css("border-top-right-radius", "15px");
         $('#pieceNum').show();
-        $('#lvlCOMPOSER').hide();
-        menuPIECE = "cBacheditor_WTC1";
+        $('#lvlCOMPOSER').show();
+        $('.instrumentTitle').hide();
+        menuPIECE = "cBach_WTC1";
+        $('#audioButtonContainer').hide();
         $('.content').hide();
-        $('.contentBach').hide();
-        $('.contentBacheditor').show();
+        $('.contentBach').show();
         $('.defbutton').hide();
-        $('.defbutton.cBacheditor_WTC1').show();
+        $('.defbutton.cBach_WTC1').hide();
         $('.editorModeText').show();
+        $('.plotCombinedBUTTON').hide();
+        $('.plotEditorBUTTON').hide();
+        $('.plotPerformerBUTTON').hide();
+        $('.contentBachAxis').hide();
         $('#performerXaxis').hide();
         $('#combinedXaxis').hide();
-        $('.contentBachAxis').hide();
         $('#editorXaxis').show();
         $('.d21, .d20, .d19, .d18, .d17, .d16, .d15, .d14').show();
-    $('.d13, .d12, .d11, .d10, .d9, .d8, .d7, .d6, .d5, .d4, .d3, .d2, .d1').hide();
+        $('.d13, .d12, .d11, .d10, .d9, .d8, .d7, .d6, .d5, .d4, .d3, .d2, .d1').hide();
         $('.dx21, .dx20, .dx19, .dx18, .dx17, .dx16, .dx15, .dx14').show();
-    $('.dx13, .dx12, .dx11, .dx10, .dx9, .dx8, .dx7, .dx6, .dx5, .dx4, .dx3, .dx2, .dx1').hide();
-        $('.d21').show();
-        $('.d20').show();
-        $('.d19').show();
-        $('.d18').show();
-        $('.d17').show();
-        $('.d16').show();
-        $('.d15').show();
-        $('.d14').show();
-        $('.d13').hide();
-        $('.d12').hide();
-        $('.d11').hide();
-        $('.d10').hide();
-        $('.d9').hide();
-        $('.d8').hide();
-        $('.d7').hide();
-        $('.d6').hide();
-        $('.d5').hide();
-        $('.d4').hide();
-        $('.d3').hide();
-        $('.d2').hide();
-        $('.d1').hide();
+        $('.dx13, .dx12, .dx11, .dx10, .dx9, .dx8, .dx7, .dx6, .dx5, .dx4, .dx3, .dx2, .dx1').hide();
         menuFunction();
         dataMenuFunction();
     });
@@ -2206,27 +2293,17 @@ if (appMODE == "bacheditorMODE") {
         $('.defbutton').hide();
         $('.defbutton.cBach_WTC1').show();
         $('.editorModeText').hide();
-        $('.d21').hide();
-        $('.d20').hide();
-        $('.d19').hide();
-        $('.d18').hide();
-        $('.d17').hide();
-        $('.d16').hide();
-        $('.d15').hide();
-        $('.d14').hide();
-        $('.d13').show();
-        $('.d12').show();
-        $('.d11').show();
-        $('.d10').show();
-        $('.d9').show();
-        $('.d8').show();
-        $('.d7').show();
-        $('.d6').show();
-        $('.d5').show();
-        $('.d4').show();
-        $('.d3').show();
-        $('.d2').show();
-        $('.d1').show();
+        $('.plotCombinedBUTTON').hide();
+        $('.plotEditorBUTTON').hide();
+        $('.plotPerformerBUTTON').show();
+        $('.contentBachAxis').hide();
+        $('#performerXaxis').show();
+        $('#combinedXaxis').hide();
+        $('#editorXaxis').hide();
+        $('.d21, .d20, .d19, .d18, .d17, .d16, .d15, .d14').hide();
+        $('.d13, .d12, .d11, .d10, .d9, .d8, .d7, .d6, .d5, .d4, .d3, .d2, .d1').show();
+        $('.dx21, .dx20, .dx19, .dx18, .dx17, .dx16, .dx15, .dx14').hide();
+        $('.dx13, .dx12, .dx11, .dx10, .dx9, .dx8, .dx7, .dx6, .dx5, .dx4, .dx3, .dx2, .dx1').show();
         menuFunction();
         dataMenuFunction();
     });
@@ -2250,32 +2327,20 @@ if (appMODE == "bacheditorMODE") {
         menuPIECE = "cBach_WTC1";
         $('.content').hide();
         $('.contentBach').show();
-        $('.contentBachAxis').hide();
-        $('#performerXaxis').show();
         $('.defbutton').hide();
         $('.defbutton.cBach_WTC1').show();
         $('.editorModeText').hide();
-        $('.d21').hide();
-        $('.d20').hide();
-        $('.d19').hide();
-        $('.d18').hide();
-        $('.d17').hide();
-        $('.d16').hide();
-        $('.d15').hide();
-        $('.d14').hide();
-        $('.d13').show();
-        $('.d12').show();
-        $('.d11').show();
-        $('.d10').show();
-        $('.d9').show();
-        $('.d8').show();
-        $('.d7').show();
-        $('.d6').show();
-        $('.d5').show();
-        $('.d4').show();
-        $('.d3').show();
-        $('.d2').show();
-        $('.d1').show();
+        $('.plotCombinedBUTTON').show();
+        $('.plotEditorBUTTON').hide();
+        $('.plotPerformerBUTTON').hide();
+        $('.contentBachAxis').hide();
+        $('#performerXaxis').hide();
+        $('#combinedXaxis').show();
+        $('#editorXaxis').hide();
+        $('.d21, .d20, .d19, .d18, .d17, .d16, .d15, .d14').show();
+        $('.d13, .d12, .d11, .d10, .d9, .d8, .d7, .d6, .d5, .d4, .d3, .d2, .d1').show();
+        $('.dx21, .dx20, .dx19, .dx18, .dx17, .dx16, .dx15, .dx14').show();
+        $('.dx13, .dx12, .dx11, .dx10, .dx9, .dx8, .dx7, .dx6, .dx5, .dx4, .dx3, .dx2, .dx1').show();
         menuFunction();
         dataMenuFunction();
     });
@@ -2308,27 +2373,17 @@ if (appMODE == "bacheditorMODE") {
         $('.defbutton.cBach_WTC1').hide();
         $('.editorModeText').show();
         $('.instrumentTitle').hide();
-        $('.d21').hide();
-        $('.d20').hide();
-        $('.d19').hide();
-        $('.d18').hide();
-        $('.d17').hide();
-        $('.d16').hide();
-        $('.d15').hide();
-        $('.d14').hide();
-        $('.d13').show();
-        $('.d12').show();
-        $('.d11').show();
-        $('.d10').show();
-        $('.d9').show();
-        $('.d8').show();
-        $('.d7').show();
-        $('.d6').show();
-        $('.d5').show();
-        $('.d4').show();
-        $('.d3').show();
-        $('.d2').show();
-        $('.d1').show();
+        $('.plotCombinedBUTTON').show();
+        $('.plotEditorBUTTON').hide();
+        $('.plotPerformerBUTTON').hide();
+        $('.contentBachAxis').hide();
+        $('#performerXaxis').hide();
+        $('#combinedXaxis').show();
+        $('#editorXaxis').hide();
+        $('.d21, .d20, .d19, .d18, .d17, .d16, .d15, .d14').show();
+        $('.d13, .d12, .d11, .d10, .d9, .d8, .d7, .d6, .d5, .d4, .d3, .d2, .d1').show();
+        $('.dx21, .dx20, .dx19, .dx18, .dx17, .dx16, .dx15, .dx14').show();
+        $('.dx13, .dx12, .dx11, .dx10, .dx9, .dx8, .dx7, .dx6, .dx5, .dx4, .dx3, .dx2, .dx1').show();
         menuFunction();
         dataMenuFunction();
     });
@@ -2350,27 +2405,17 @@ if (appMODE == "bacheditorMODE") {
         $('.defbutton').hide();
         $('.defbutton.cBach_WTC1').show();
         $('.editorModeText').hide();
-        $('.d21').hide();
-        $('.d20').hide();
-        $('.d19').hide();
-        $('.d18').hide();
-        $('.d17').hide();
-        $('.d16').hide();
-        $('.d15').hide();
-        $('.d14').hide();
-        $('.d13').show();
-        $('.d12').show();
-        $('.d11').show();
-        $('.d10').show();
-        $('.d9').show();
-        $('.d8').show();
-        $('.d7').show();
-        $('.d6').show();
-        $('.d5').show();
-        $('.d4').show();
-        $('.d3').show();
-        $('.d2').show();
-        $('.d1').show();
+        $('.plotCombinedBUTTON').show();
+        $('.plotEditorBUTTON').hide();
+        $('.plotPerformerBUTTON').hide();
+        $('.contentBachAxis').hide();
+        $('#performerXaxis').hide();
+        $('#combinedXaxis').show();
+        $('#editorXaxis').hide();
+        $('.d21, .d20, .d19, .d18, .d17, .d16, .d15, .d14').show();
+        $('.d13, .d12, .d11, .d10, .d9, .d8, .d7, .d6, .d5, .d4, .d3, .d2, .d1').show();
+        $('.dx21, .dx20, .dx19, .dx18, .dx17, .dx16, .dx15, .dx14').show();
+        $('.dx13, .dx12, .dx11, .dx10, .dx9, .dx8, .dx7, .dx6, .dx5, .dx4, .dx3, .dx2, .dx1').show();
         menuFunction();
         dataMenuFunction();
     });
