@@ -1249,7 +1249,7 @@ text-align: left;
 /**/
 /*TOOLTIPS*/
 .toolTipBoxA {
-    width: 100px;
+    width: 100px; /* = 50*/
     height: 16px;
     top: -3px;
     left: -90px;
@@ -1268,7 +1268,7 @@ text-align: left;
 }
 
 .toolTipBoxT {
-    width: 100px;
+    width: 100px; /* = 50*/
     height: 16px;
     top: -3px;
     left: -70px;
