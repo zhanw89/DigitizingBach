@@ -68,3 +68,20 @@ var toolTipHolder = "toolTipBoxT";
 var currentPiecePlaying = "NA";
 var scatterColortoggle = "scatterColorOff";
 //
+//with spaces
+var masterList = ["Fischer", "Tureck", "Gould", "Martins",
+	"Demus", "Richter", "Gulda", "", "Landowska", "Galling",
+	"Hamilton", "Kirkpatrick", "Leonhardt", "Newman", "",
+	"Bartok", "Bischoff", "Czerny", "Hughes", "Mugellini", "", "Bodky", "Keller"
+];
+var listPerformers = masterList.filter(Boolean);
+// without spaces
+var listofEditors = masterList.slice(15);
+var listofPerformers = masterList.slice(0,14);
+var listofCombined = masterList;
+//
+// Building Data "collections" for display purposes
+var editorPoints = ".d20, .d19, .d18, .d17, .d16, .d15, .d14";
+var performerPoints = ".d13, .d12, .d11, .d10, .d9, .d8, .d7, .d6, .d5, .d4, .d3, .d2, .d1";
+var editorTicks = ".dx20, .dx19, .dx18, .dx17, .dx16, .dx15, .dx14";
+var performerTicks = ".dx13, .dx12, .dx11, .dx10, .dx9, .dx8, .dx7, .dx6, .dx5, .dx4, .dx3, .dx2, .dx1";
