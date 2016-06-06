@@ -813,8 +813,6 @@ text-align: left;
     left: 400px;
     border-right: 1px solid #000;
     border-bottom-left-radius: 5px;
-    background-color: gray;
-    cursor: not-allowed;
 }
 
 .bischoffTAB {
@@ -840,8 +838,6 @@ text-align: left;
     left: 649px;
     border-right: 1px solid #000;
     border-left: 1px solid #000;
-    background-color: gray;
-    cursor: not-allowed;
 }
 
 .mugelliniTAB {

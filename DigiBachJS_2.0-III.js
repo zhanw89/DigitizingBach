@@ -1066,6 +1066,20 @@ var tabBTN = function() {
             $(this).addClass('scoretabselected');
             $('.' + menuScorechooser).show();
         });
+        $('.hughesTAB').click(function() {
+            $('.scoreAuthor, .scorePic').hide();
+            menuScorechooser = "cHughesscore";
+            $('.tab').removeClass('scoretabselected');
+            $('.HughesTAB').addClass('scoretabselected');
+            $('.' + menuScorechooser).show();
+        });
+    $('.bartokTAB').click(function() {
+        $('.scoreAuthor, .scorePic').hide();
+        menuScorechooser = "cBartokscore";
+        $('.tab').removeClass('scoretabselected');
+        $('.bartokTAB').addClass('scoretabselected');
+        $('.' + menuScorechooser).show();
+    });
 }
 //
 ////////////////////////////

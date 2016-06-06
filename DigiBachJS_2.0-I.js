@@ -139,6 +139,10 @@ function scoreFile(composer, piece, form, number, chroma, chromatrans, key,
             "/scores/mugellini/" + scoreURLPRE + "Mugellini.png";
         var scoreURLPalmer = urlPrefix + this.composer.toLowerCase() + this.piece +
             "/scores/palmer/" + scoreURLPRE + "Palmer.png";
+        var scoreURLHughes = urlPrefix + this.composer.toLowerCase() + this.piece +
+            "/scores/hughes/" + scoreURLPRE + "Hughes.png";
+        var scoreURLBartok = urlPrefix + this.composer.toLowerCase() + this.piece +
+            "/scores/bartok/" + scoreURLPRE + "Bartok.png";
         this.putinNote = function() {
             if (note === "Q") {
                 $('.noteDisplay').append(
@@ -166,11 +170,6 @@ function scoreFile(composer, piece, form, number, chroma, chromatrans, key,
                     scoreContentLABEL + ' ' + scoreContenteditorLABEL + '"></div>');
             }
         }
-        this.putinLine = function() {
-            $('.palmerLINE').append(
-                '<div class="pLineData cBach_WTC1 cPrelude c11 cMinor">64</div>'
-            );
-        };
         //http://maplelab.net/virtualPianist/bachWTC1/scores/mugellini/Bach_WTC1_Prelude_0_Minor_SCORE_Mugellini.png
         this.createScore = function() {
             $('.scoreContainer').append(
@@ -187,7 +186,13 @@ function scoreFile(composer, piece, form, number, chroma, chromatrans, key,
                 '" /><img height="210px" width="500px" class="scorePic cMugelliniscore" src="' +
                 scoreURLMugellini +
                 '" /><img height="210px" width="500px" class="scorePic cPalmerscore" src="' +
-                scoreURLPalmer + '" /></div>');
+                scoreURLPalmer +
+                '" /><img height="210px" width="500px" class="scorePic cHughesscore" src="' +
+                scoreURLHughes +
+                '" /><img height="210px" width="500px" class="scorePic cBartokscore" src="' +
+                scoreURLBartok +
+                '" />' +
+                '</div>');
         };
         //
         //
