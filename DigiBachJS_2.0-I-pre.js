@@ -71,6 +71,8 @@ var toolTipHolder = "toolTipBoxT";
 var currentPiecePlaying = "NA";
 var scatterColortoggle = "scatterColorOff";
 //
+var loadOpti = "ON";
+//
 //with spaces
 var masterList = ["Fischer", "Tureck", "Gould", "Martins",
 	"Demus", "Richter", "Gulda", "", "Landowska", "Galling",

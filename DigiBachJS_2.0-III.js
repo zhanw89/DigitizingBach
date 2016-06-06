@@ -37,6 +37,9 @@ var scoreActivater = function() {
         button.insertAAxis();
         button.insertTAxis();
         button.putinNote();
+        if (loadOpti == "OFF") {
+            button.createScore();
+        } else {};
     });
 };
 //Activating file
@@ -148,7 +151,7 @@ var listOfActivated = [];
 var menuFunction = function() {
     // Optimization
     // Bach_WTC1_Prelude_0_Minor_SCORE
-    if (optiFORM === "default") {} else if (optiCHROMA === "default") {} else if (optiKEY === "default") {
+    if (optiFORM === "default") {} else if (optiCHROMA === "default") {} else if (optiKEY === "default") else if (loadOpti == "OFF") {
 
     } else {
         // SCORES
