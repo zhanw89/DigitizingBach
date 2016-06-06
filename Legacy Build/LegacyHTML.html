@@ -1,0 +1,960 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<!---->
+
+<!---Javascript--->
+<script>
+    function openScore(scoreName) {
+        if ($('#' + scoreName).is(":visible") === true) {
+        } else {
+            $('.score').fadeOut(250);
+            $('#' + scoreName).fadeIn(250);
+        }
+    }
+
+    function playPiece(vol, perf, audioURL) {
+        //Load audio tag into aPiece
+        aPiece = document.getElementById('audio')
+        if (aPiece.src === audioURL) {
+            if (aPiece.paused == false) {
+                aPiece.pause();
+                aPiece.currentTime = 0;
+            } else {
+                aPiece.volume = vol;
+                aPiece.play();
+            }
+        } else {
+            aPiece.src = audioURL
+            aPiece.load();
+            aPiece.volume = vol;
+            $('.volumeText').replaceWith('<p class="volumeText">Volume Modifier: ' + vol*100 + '%</p>');
+            aPiece.play();
+            $('.caption').fadeOut(250);
+            $('.' + perf).fadeIn(250);
+        }
+    }
+
+    function openMM(keyPitch) {
+        if ($(keyPitch).length > 0) {
+            $('.maj, .min').hide();
+            $('.content').hide();
+            $('.defaultMM').show();
+            $(keyPitch).show();
+
+        };
+
+    }
+
+    function plotData(newPlot, y1, y2, y3, y4,y5,y6,y7,y8,y9,y10,y11,y12,y13) {
+        //Canvas Tool
+        //
+        //
+        //Clear Canvas
+        //Establish connection to canvas into ctx
+        var c = document.getElementById("chartArea");
+        var ctx = c.getContext("2d");
+        ctx.clearRect(0, 0, chartArea.width, chartArea.height);
+
+
+
+        //Set up empty step variable.
+        step = 0;
+
+        //Collect Data
+        data = [0, 20, 40, 60,80,100,y7,y8,y9,y10,y11,y12,150]
+        //Set up bounds
+        lowData = Math.min.apply(Math, data);
+        highData = Math.max.apply(Math, data);
+        rangeData = highData - lowData;
+        interData = rangeData / 10
+
+        //Draw 0 tick tick
+        ctx.moveTo(80, 345);
+        ctx.lineTo(75, 345);
+        ctx.moveTo(80, 345);
+
+        //Draw squiggle
+        squigSize = 4;
+        ctx.lineTo(80, 339);
+        ctx.lineTo(80 + squigSize, 334);
+        ctx.lineTo(80 - squigSize, 329);
+        ctx.lineTo(80, 324);
+        ctx.lineTo(80, 315);
+
+        //First number and tick
+        ctx.lineTo(75, 315);
+        ctx.moveTo(80, 315);
+        ctx.fillText(lowData, 50, 318);
+
+
+        //Draw sequential ticks
+        for (i = 0; i < 10; i++) {
+            step = step + 30;
+            ctx.lineTo(80, 315 - step);
+            ctx.lineTo(75, 315 - step);
+            ctx.fillText((lowData + interData * (i + 1)).toFixed(0), 50, 318 - step);
+            ctx.moveTo(80, 315 - step);
+
+        }
+
+        //Finally, stroke in the path we drew
+        ctx.strokeStyle = '#000000'
+        ctx.stroke();
+        //
+        //
+
+        //
+
+
+
+
+        $('.dataPlot').hide()
+        $(newPlot).show();
+        $('.d1').animate({
+            top: (315 - ((y1-lowData)/rangeData)*300) + "px"
+        });
+        $('.d2').animate({
+            top: (315 - ((y2-lowData)/rangeData)*300) + "px"
+        });
+        $('.d3').animate({
+            top: (315 - ((y3-lowData)/rangeData)*300) + "px"
+        });
+        $('.d4').animate({
+            top: (315 - ((y4-lowData)/rangeData)*300) + "px"
+        });
+        $('.d5').animate({
+            top: (315 - ((y5-lowData)/rangeData)*300) + "px"
+        });
+        $('.d6').animate({
+            top: (315 - ((y6-lowData)/rangeData)*300) + "px"
+        });
+        $('.d7').animate({
+            top: (315 - ((y7-lowData)/rangeData)*300) + "px"
+        });
+        $('.d8').animate({
+            top: (315 - ((y8-lowData)/rangeData)*300) + "px"
+        });
+        $('.d9').animate({
+            top: (315 - ((y9-lowData)/rangeData)*300) + "px"
+        });
+        $('.d10').animate({
+            top: (315 - ((y10-lowData)/rangeData)*300) + "px"
+        });
+        $('.d11').animate({
+            top: (315 - ((y11-lowData)/rangeData)*300) + "px"
+        });
+        $('.d12').animate({
+            top: (315 - ((y12-lowData)/rangeData)*300) + "px"
+        });
+        $('.d13').animate({
+            top: (315 - ((y13-lowData)/rangeData)*300) + "px"
+        });
+
+    }
+    //
+    //
+    function plotDefault() {
+        $('.dataPlot').hide();
+        $('#defaultPlot').show();
+        var offset = 341;
+        $('.d1').animate({top: (offset) +"px"});
+        $('.d2').animate({top: (offset) +"px"});
+        $('.d3').animate({top: (offset) +"px"});
+        $('.d4').animate({top: (offset) +"px"});
+        $('.d5').animate({top: (offset) +"px"});
+        $('.d6').animate({top: (offset) +"px"});
+        $('.d7').animate({top: (offset) +"px"});
+        $('.d8').animate({top: (offset) +"px"});
+        $('.d9').animate({top: (offset) +"px"});
+        $('.d10').animate({top: (offset) +"px"});
+        $('.d11').animate({top: (offset) +"px"});
+        $('.d12').animate({top: (offset) +"px"});
+        $('.d13').animate({top: (offset) +"px"});
+    }
+</script>
+<!----->
+<!----->
+<!---Explanation: The menu is set up into a hierarchy system. There are three main levels; Prelude vs Fugue, the keyboard, and Major/Minor. The P/F buttons display their respective keyboard, hiding the other from view. <!----->
+<!---Menu Heirarchy--->
+<!---P/F> Keyboard > Major/Minor > Content --->
+<div id="mainmenu">
+    <!---Easy-to-access--->
+    <div id="notice">
+        <p class="noticeText">Note: Graph is re-scaled based on the data. <br/>Tempo's are calculated for common note duration.</p>
+    </div>
+    <div id="defaultKeyboard">
+        <div class="keyboard">
+            <div class="keypair">
+                <!---C--->
+                <div>
+                    <div class="key"></div>
+                </div>
+                <!---Dflat/C#--->
+                <div>
+                    <div class="blackkey"></div>
+                </div>
+            </div>
+            <div class="keypair">
+                <!---D--->
+                <div>
+                    <div class="key"></div>
+                </div>
+                <!---Eflat/D#--->
+                <div>
+                    <div class="blackkey"></div>
+                </div>
+            </div>
+            <div class="keypair">
+                <!---E--->
+                <div>
+                    <div class="key"></div>
+                </div>
+            </div>
+            <div class="keypair">
+                <!---F--->
+                <div>
+                    <div class="key"></div>
+                </div>
+                <!---Gflat/F#--->
+                <div>
+                    <div class="blackkey"></div>
+                </div>
+            </div>
+            <div class="keypair">
+                <!---G--->
+                <div>
+                    <div class="key"></div>
+                </div>
+                <!---Aflat/G#--->
+                <div>
+                    <div class="blackkey"></div>
+                </div>
+            </div>
+            <div class="keypair">
+                <!---A--->
+                <div>
+                    <div class="key"></div>
+                </div>
+                <!---Bflat/A#--->
+                <div>
+                    <div class="blackkey"></div>
+                </div>
+            </div>
+            <div class="keypair">
+                <!---B--->
+                <div>
+                    <div class="key"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="prelude">
+        <p class="lvl1BUTTON">
+            <br/>Prelude</p>
+        <div class="keyboard">
+            <div class="keypair">
+                <!---C--->
+                <div>
+                    <div class="key activeWhite" onclick="openMM('.pC')"></div>
+                    <p class="empty">Empty</p>
+                </div>
+                <!---Dflat/C#--->
+                <div>
+                    <div class="blackkey" onclick="openMM('.pDflat')"></div>
+                </div>
+            </div>
+            <div class="keypair">
+                <!---D--->
+                <div>
+                    <div class="key" onclick="openMM('.pD')"></div>
+                </div>
+                <!---Eflat/D#--->
+                <div>
+                    <div class="blackkey" onclick="openMM('.pEflat')"></div>
+                </div>
+            </div>
+            <div class="keypair">
+                <!---E--->
+                <div>
+                    <div class="key" onclick="openMM('.pE')"></div>
+                </div>
+            </div>
+            <div class="keypair">
+                <!---F--->
+                <div>
+                    <div class="key " onclick="openMM('.pF')"></div>
+                </div>
+                <!---Gflat/F#--->
+                <div>
+                    <div class="blackkey" onclick="openMM('.pGflat')"></div>
+                </div>
+            </div>
+            <div class="keypair">
+                <!---G--->
+                <div>
+                    <div class="key" onclick="openMM('.pG')"></div>
+                </div>
+                <!---Aflat/G#--->
+                <div>
+                    <div class="blackkey" onclick="openMM('.pAflat')"></div>
+                </div>
+            </div>
+            <div class="keypair">
+                <!---A--->
+                <div>
+                    <div class="key" onclick="openMM('.pA')"></div>
+                </div>
+                <!---Bflat/A#--->
+                <div>
+                    <div class="blackkey" onclick="openMM('.pBFlat')"></div>
+                </div>
+            </div>
+            <div class="keypair">
+                <!---B--->
+                <div>
+                    <div class="key activeWhite" onclick="openMM('.pB')"></div>
+                    <p class="empty">Empty</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="fugue">
+        <p class="lvl1BUTTON">
+            <br/>Fugue</p>
+        <div class="keyboard">
+            <div class="keypair">
+                <!---C--->
+                <div>
+                    <div class="key" onclick="openMM('.fC')"></div>
+                </div>
+                <!---Dflat/C#--->
+                <div>
+                    <div class="blackkey" onclick="openMM('.fDflat')"></div>
+                </div>
+            </div>
+            <div class="keypair">
+                <!---D--->
+                <div>
+                    <div class="key" onclick="openMM('.fD')"></div>
+                </div>
+                <!---Eflat/D#--->
+                <div>
+                    <div class="blackkey activeBlack" onclick="openMM('.fEflat')"></div>
+                    <p class="empty">Empty</p>
+                </div>
+            </div>
+            <div class="keypair">
+                <!---E--->
+                <div>
+                    <div class="key activeWhite" onclick="openMM('.fE')"></div>
+                    <p class="empty">Empty</p>
+                </div>
+            </div>
+            <div class="keypair">
+                <!---F--->
+                <div>
+                    <div class="key" onclick="openMM('.fF')"></div>
+                </div>
+                <!---Gflat/F#--->
+                <div>
+                    <div class="blackkey" onclick="openMM('.fGflat')"></div>
+                </div>
+            </div>
+            <div class="keypair">
+                <!---G--->
+                <div>
+                    <div class="key" onclick="openMM('.fG')"></div>
+                </div>
+                <!---Aflat/G#--->
+                <div>
+                    <div class="blackkey" onclick="openMM('.fAflat')"></div>
+                </div>
+            </div>
+            <div class="keypair">
+                <!---A--->
+                <div>
+                    <div class="key" onclick="openMM('.fA')"></div>
+                </div>
+                <!---Bflat/A#--->
+                <div>
+                    <div class="blackkey" onclick="openMM('.fBflat')"></div>
+                </div>
+            </div>
+            <div class="keypair">
+                <!---B--->
+                <div>
+                    <div class="key" onclick="openMM('.fB')"></div>
+                </div>
+            </div>
+        </div>
+
+        <div id="stopALL">
+            <p class="stopTXT">RESET</p>
+        </div>
+        <img class="logoMAPLE" src="http://maplelab.net/wp-content/uploads/2015/05/cropped-maple-logo-e1432153001147.png" />
+        <h1 class="logoTitle">Well-Tempered Clavier</h1>
+        <div class="bachPlaceholder">
+            <img class="bachPor" src="http://maplelab.net/wp-content/uploads/2015/06/Johann-Sebastian-Bach.png"/>
+            <h1>Johann Sebastian Bach</h1>
+        </div>
+        <p class="volumeText">Volume Modifier: </p>
+        <div class="menuBackground"></div>
+        <div class="mainBackground"></div>
+    </div>
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---Major/Minor Submenu--->
+    <!---->
+    <!--Default buttons-->
+
+
+    <div class="defaultMM min">
+        <div class="defaultContent">
+            <div class="piano">
+                <h4 class="harpianoTitle">Piano</h4>
+                <div class="noPiece button fischerButton"></div>
+                <div class="noPiece button tureckButton" ></div>
+                <div class="noPiece button gouldButton" ></div>
+                <div class="noPiece button martinsButton"></div>
+                <div class="noPiece button demusButton" ></div>
+                <div class="noPiece button richterButton" ></div>
+                <div class="noPiece button guldaButton" ></div>
+            </div>
+            <div class="harpsichord">
+                <h4 class="harpianoTitle">Harpsichord</h4>
+                <div class="noPiece button landowskaButton"></div>
+                <div class="noPiece button gallingButton" ></div>
+                <div class="noPiece button hamiltonButton" ></div>
+                <div class="noPiece button kirkpatrickButton"></div>
+                <div class="noPiece button leonhardtButton"></div>
+                <div class="noPiece button newmanButton"></div>
+            </div>
+        </div>
+    </div>
+    <!--fugue E-->
+    <div class="fEflat min">
+        <p class="fEflat minItem" onclick="openScore('sfEflatmin');plotData('#fEflatMinPlot','60','58','72','69','69','56','60','52','66','48','84','52','84')">
+            <br/>Minor</p>
+        <div class="content">
+            <div class="piano">
+                <h4 class="harpianoTitle">Piano</h4>
+                <div class="fade button linkFischer fischerButton" onclick="playPiece('0.5', 'fischer', 'http://maplelab.net/wp-content/uploads/2015/06/Bach_WTC1_Fischer_Fugue_3_MinorP1.wav')"></div>
+                <div class="fade button linkTureck tureckButton" onclick="playPiece('0.5', 'tureck', 'http://maplelab.net/wp-content/uploads/2015/06/Bach_WTC1_Tureck_Fugue_3_MinorP1.wav')"></div>
+                <div class="fade button linkGould gouldButton" onclick="playPiece('0.5', 'gould', 'http://maplelab.net/wp-content/uploads/2015/06/Bach_WTC1_Gould_Fugue_3_Minor-P1.wav')" ></div>
+                <div class="fade button linkMartins martinsButton" onclick="playPiece('0.5', 'martins', 'http://maplelab.net/wp-content/uploads/2015/06/Bach_WTC1_Martins_Fugue_3_MinorP1.wav')"></div>
+                <div class="fade button linkDemus demusButton" onclick="playPiece('0.5','demus','http://maplelab.net/wp-content/uploads/2015/06/Bach_WTC1_Demus_Fugue_3_Minor-P1.mp3')" ></div>
+                <div class="fade button linkRichter richterButton" onclick="playPiece('0.5', 'richter', 'http://maplelab.net/wp-content/uploads/2015/06/Bach_WTC1_Richter_Fugue_3_Minor-P1.wav')"></div>
+                <div class="fade button linkGulda guldaButton" onclick="playPiece('0.5', 'gulda', 'http://maplelab.net/wp-content/uploads/2015/06/Bach_WTC1_Gulda_Fugue_3_minor-P1.wav')" ></div>
+            </div>
+            <div class="harpsichord">
+                <h4 class="harpianoTitle">Harpsichord</h4>
+                <div class="noPiece button landowskaButton"></div>
+                <div class="fade button linkGalling gallingButton" onclick="playPiece('0.5', 'galling', 'http://maplelab.net/wp-content/uploads/2015/06/Bach_WTC1_Galling_Fugue_3_Minor-H1.wav')" ></div>
+                <div class="fade button linkHamilton hamiltonButton" onclick="playPiece('0.5', 'hamilton', 'http://maplelab.net/wp-content/uploads/2015/06/Bach_WTC1_Hamilton_Fugue_3_Minor-H1.wav')" ></div>
+                <div class="noPiece button kirkpatrickButton"></div>
+                <div class="noPiece button leonhardtButton"></div>
+                <div class="noPiece button newmanButton"></div>
+            </div>
+        </div>
+    </div>
+    <div class="fEflat maj">
+        <p class="fEflat majItem" onclick="openScore('sfEflatmaj');plotDefault()">
+            <br/>Major</p>
+    </div>
+
+    <!---->
+    <!--fugue E-->
+    <div class="fE maj">
+        <p class="fE majItem" onclick="openScore('sfEmaj');plotData('#fEMajPlot','96','84','112','104','100','104','112','84','80','80','104','72','96')">
+            <br/>Major</p>
+        <div class="content">
+            <div class="piano">
+                <h4 class="harpianoTitle">Piano</h4>
+                <div class="fade button linkFischer fischerButton" onclick="playPiece('0.5', 'fischer', 'http://maplelab.net/wp-content/uploads/2015/06/Bach_WTC1_Fischer_Fugue_4_MajorP1.wav')"></div>
+                <div class="fade button linkTureck tureckButton" onclick="playPiece('0.5', 'tureck', 'http://maplelab.net/wp-content/uploads/2015/06/Bach_WTC1_Tureck_Fugue_4_MajorP1.wav')"></div>
+                <div class="fade button linkGould gouldButton" onclick="playPiece('0.5', 'gould', 'http://maplelab.net/wp-content/uploads/2015/06/Bach_WTC1_Gould_Fugue_4_Major-P1.wav')" ></div>
+                <div class="fade button linkMartins martinsButton" onclick="playPiece('0.5', 'martins', 'http://maplelab.net/wp-content/uploads/2015/06/Bach_WTC1_Martins_Fugue_4_MajorP1.wav')"></div>
+                <div class="fade button linkDemus demusButton" onclick="playPiece('0.5','demus','http://maplelab.net/wp-content/uploads/2015/06/Bach_WTC1_Demus_Fugue_4_Major-P1.wav')" ></div>
+                <div class="fade button linkRichter richterButton" onclick="playPiece('0.5', 'richter', 'http://maplelab.net/wp-content/uploads/2015/06/Bach_WTC1_Richter_Fugue_4_Major-P1.wav')"></div>
+                <div class="fade button linkGulda guldaButton" onclick="playPiece('0.5', 'gulda', 'http://maplelab.net/wp-content/uploads/2015/06/Bach_WTC1_Gulda_Fugue_4_Major-P1.wav')" ></div>
+            </div>
+            <div class="harpsichord">
+                <h4 class="harpianoTitle">Harpsichord</h4>
+                <div class="fade button linkLandowska landowskaButton" onclick="playPiece('0.5','landowska','http://maplelab.net/wp-content/uploads/2015/06/Bach_WTC1_Landowska_Fugue_4_Major-H1.wav')"></div>
+                <div class="fade button linkGalling gallingButton" onclick="playPiece('0.5', 'galling', 'http://maplelab.net/wp-content/uploads/2015/06/Bach_WTC1_Galling_Fugue_4_Major-H1.wav')" ></div>
+                <div class="fade button linkHamilton hamiltonButton" onclick="playPiece('0.5', 'hamilton', 'http://maplelab.net/wp-content/uploads/2015/06/Bach_WTC1_Hamilton_Fugue_4_Major-H1.wav')" ></div>
+                <div class="fade button linkKirkpatrick kirkpatrickButton" onclick="playPiece('0.5','kirkpatrick','http://maplelab.net/wp-content/uploads/2015/06/Bach_WTC1_Kirkpatrick_Fugue_4_Major-H1.wav')"></div>
+                <div class="fade button linkLeonhardt leonhardtButton" onclick="playPiece('0.5','leonhardt','http://maplelab.net/wp-content/uploads/2015/06/Bach_WTC1_Leonhardt_Fugue_4_Major-H1.wav')"></div>
+                <div class="fade button linkNewman newmanButton" onclick="playPiece('0.5','newman','http://maplelab.net/wp-content/uploads/2015/06/Bach_WTC1_Newman_Fugue_4_Major-H1.wav')"></div>
+            </div>
+        </div>
+    </div>
+    <div class="fE min">
+        <p class="fE minItem" onclick="openScore('sfEmin');plotData('#fEMinPlot','104','69','132','112','96','102','120','104','80','80','84','92','116')">
+            <br/>Minor</p>
+        <div class="content">
+            <div class="piano">
+                <h4 class="harpianoTitle">Piano</h4>
+                <div class="fade button linkFischer fischerButton" onclick="playPiece('0.5', 'fischer', 'http://maplelab.net/wp-content/uploads/2015/06/Bach_WTC1_Fischer_Fugue_4_MinorP1.wav')"></div>
+                <div class="fade button linkTureck tureckButton" onclick="playPiece('0.5', 'tureck', 'http://maplelab.net/wp-content/uploads/2015/06/Bach_WTC1_Tureck_Fugue_4_MinorP1.wav')"></div>
+                <div class="fade button linkGould gouldButton" onclick="playPiece('0.5', 'gould', 'http://maplelab.net/wp-content/uploads/2015/06/Bach_WTC1_Gould_Fugue_4_Minor-P1.wav')" ></div>
+                <div class="fade button linkMartins martinsButton" onclick="playPiece('0.5', 'martins', 'http://maplelab.net/wp-content/uploads/2015/06/Bach_WTC1_Martins_Fugue_4_MinorP1.wav')"></div>
+                <div class="fade button linkDemus demusButton" onclick="playPiece('0.5','demus','http://maplelab.net/wp-content/uploads/2015/06/Bach_WTC1_Demus_Fugue_4_Minor-P1.wav')" ></div>
+                <div class="fade button linkRichter richterButton" onclick="playPiece('0.5', 'richter', 'http://maplelab.net/wp-content/uploads/2015/06/Bach_WTC1_Richter_Fugue_4_Minor-P1.wav')"></div>
+                <div class="fade button linkGulda guldaButton" onclick="playPiece('0.5', 'gulda', 'http://maplelab.net/wp-content/uploads/2015/06/Bach_WTC1_Gulda_Fugue_4_minor-P1.wav')" ></div>
+            </div>
+            <div class="harpsichord">
+                <h4 class="harpianoTitle">Harpsichord</h4>
+                <div class="fade button linkLandowska landowskaButton" onclick="playPiece('0.5','landowska','http://maplelab.net/wp-content/uploads/2015/06/Bach_WTC1_Landowska_Fugue_10_Minor-H1.wav')"></div>
+                <div class="fade button linkGalling gallingButton" onclick="playPiece('0.5', 'galling', 'http://maplelab.net/wp-content/uploads/2015/06/Bach_WTC1_Galling_Fugue_4_Minor-H1.wav')" ></div>
+                <div class="fade button linkHamilton hamiltonButton" onclick="playPiece('0.5', 'hamilton', 'http://maplelab.net/wp-content/uploads/2015/06/Bach_WTC1_Hamilton_Fugue_4_Minor-H1.wav')" ></div>
+                <div class="fade button linkKirkpatrick kirkpatrickButton" onclick="playPiece('0.5','kirkpatrick','http://maplelab.net/wp-content/uploads/2015/06/Bach_WTC1_Kirkpatrick_Fugue_4_minor-H1.wav')"></div>
+                <div class="fade button linkLeonhardt leonhardtButton" onclick="playPiece('0.5','leonhardt','http://maplelab.net/wp-content/uploads/2015/06/Bach_WTC1_Leonhardt_Fugue_4_Minor-H1.wav')"></div>
+                <div class="fade button linkNewman newmanButton" onclick="playPiece('0.5','newman','http://maplelab.net/wp-content/uploads/2015/06/Bach_WTC1_Newman_Fugue_4_Minor-H1.wav')"></div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!---->
+    <!--prelude C-->
+    <div class="pC maj">
+        <p class="pC majItem" onclick="openScore('spCmaj');plotDefault()">
+            <br/>Major</p>
+        <div class="content"></div>
+    </div>
+    <div class="pC min">
+        <p class="pC minItem" onclick="openScore('spCmin');plotData('#pCMinPlot','132','108','80','132','120','132','63','112','66','120','104','96','80')">
+            <br/>Minor</p>
+        <div class="content">
+            <div class="piano">
+                <h4 class="harpianoTitle">Piano</h4>
+                <div class="fade button linkFischer fischerButton" onclick="playPiece('0.5', 'fischer', 'http://maplelab.net/wp-content/uploads/2015/06/Bach_WTC1_Fischer_Prelude_0_MinorP1.wav')"></div>
+                <div class="fade button linkTureck tureckButton" onclick="playPiece('0.5', 'tureck', 'http://maplelab.net/wp-content/uploads/2015/06/Bach_WTC1_Tureck_Prelude_0_MinorP1.wav')"></div>
+                <div class="fade button linkGould gouldButton" onclick="playPiece('0.5', 'gould', 'http://maplelab.net/wp-content/uploads/2015/06/Bach_WTC1_Gould_Prelude_0_Minor-P1.wav')" ></div>
+                <div class="fade button linkMartins martinsButton" onclick="playPiece('0.5', 'martins', 'http://maplelab.net/wp-content/uploads/2015/06/Bach_WTC1_Martins_Prelude_0_MinorP1.wav')"></div>
+                <div class="fade button linkDemus demusButton" onclick="playPiece('0.5','demus','http://maplelab.net/wp-content/uploads/2015/06/Bach_WTC1_Demus_Prelude_0_Minor-P1fix.wav')" ></div>
+                <div class="fade button linkRichter richterButton" onclick="playPiece('0.5', 'richter', 'http://maplelab.net/wp-content/uploads/2015/06/Bach_WTC1_Richter_Prelude_0_MinorP1.wav')"></div>
+                <div class="fade button linkGulda guldaButton" onclick="playPiece('0.5', 'gulda', 'http://maplelab.net/wp-content/uploads/2015/06/Bach_WTC1_Gulda_Prelude_0_minor-P1.wav')" ></div>
+            </div>
+            <div class="harpsichord">
+                <h4 class="harpianoTitle">Harpsichord</h4>
+                <div class="fade button linkLandowska landowskaButton" onclick="playPiece('0.5', 'landowska', 'http://maplelab.net/wp-content/uploads/2015/06/Bach_WTC1_Landowska_Prelude_0_Minor-H1.wav')"></div>
+                <div class="fade button linkGalling gallingButton" onclick="playPiece('0.5', 'galling', 'http://maplelab.net/wp-content/uploads/2015/06/Bach_WTC1_Galling_Prelude_0_Minor-H1.wav')" ></div>
+                <div class="fade button linkHamilton hamiltonButton" onclick="playPiece('0.5', 'hamilton', 'http://maplelab.net/wp-content/uploads/2015/06/Bach_WTC1_Hamilton_Prelude_0_Minor-H1.wav')" ></div>
+                <div class="fade button linkKirkpatrick kirkpatrickButton" onclick="playPiece('0.5', 'kirkpatrick', 'http://maplelab.net/wp-content/uploads/2015/06/Bach_WTC1_Kirkpatrick_Prelude_0_Minor-H1.wav')"></div>
+                <div class="fade button linkLeonhardt leonhardtButton" onclick="playPiece('0.5', 'leonhardt', 'http://maplelab.net/wp-content/uploads/2015/06/Bach_WTC1_Leonhardt_Prelude_0_Minor-H1.wav')"></div>
+                <div class="fade button linkNewman newmanButton" onclick="playPiece('0.5', 'newman', 'http://maplelab.net/wp-content/uploads/2015/06/Bach_WTC1_Newman_Prelude_0_Minor-H1.wav')"></div>
+            </div>
+        </div>
+    </div>
+
+
+    <!---->
+    <!--prelude B-->
+    <div class="pB maj">
+        <p class="pB majItem" onclick="openScore('sBmaj');plotDefault()">
+            <br/>Major</p>
+        <div class="content"></div>
+    </div>
+
+    <div class="pB min">
+        <p class="pB minItem" onclick="openScore('spBmin');plotData('#pBMinPlot','66','69','84','69','72','52','44','69','69','40','84','96','132')">
+            <br/>Minor</p>
+        <div class="content">
+            <div class="piano">
+                <h4 class="harpianoTitle">Piano</h4>
+                <div class="fade button linkFischer fischerButton" onclick="playPiece('0.7', 'fischer', 'http://maplelab.net/wp-content/uploads/2015/06/Bach_WTC1_Fischer_Prelude_11_Minor-P1.wav')"></div>
+                <div class="fade button linkTureck tureckButton" onclick="playPiece('0.6', 'tureck', 'http://maplelab.net/wp-content/uploads/2015/05/Bach_WTC1_Tureck_Prelude_11_MinorP1.wav')"></div>
+                <div class="fade button linkGould gouldButton" onclick="playPiece('0.3', 'gould', 'http://maplelab.net/wp-content/uploads/2015/05/Bach_WTC1_Gould_Prelude_11_Minor-P1.wav')"></div>
+                <div class="fade button linkMartins martinsButton" onclick="playPiece('0.5', 'martins', 'http://maplelab.net/wp-content/uploads/2015/05/Bach_WTC1_Martins_Prelude_11_MinorP1.wav')"></div>
+                <div class="fade button linkDemus demusButton" onclick="playPiece('0.6', 'demus', 'http://maplelab.net/wp-content/uploads/2015/06/Bach_WTC1_Demus_Prelude_11_Minor-P1.wav')"></div>
+                <div class="fade button linkRichter richterButton" onclick="playPiece('0.5', 'richter', 'http://maplelab.net/wp-content/uploads/2015/05/Bach_WTC1_Richter_Prelude_11_Minor-P1.wav')"></div>
+                <div class="fade button linkGulda guldaButton" onclick="playPiece('0.9', 'gulda', 'http://maplelab.net/wp-content/uploads/2015/05/Bach_WTC1_Gulda_Prelude_11_minor-P1.wav')"></div>
+            </div>
+            <div class="harpsichord">
+                <h4 class="harpianoTitle">Harpsichord</h4>
+                <div class="fade button linkLandowska landowskaButton" onclick="playPiece('0.5','landowska','http://maplelab.net/wp-content/uploads/2015/06/Bach_WTC1_Landowska_Prelude_11_Minor-H1.wav')"></div>
+                <div class="fade button linkGalling gallingButton" onclick="playPiece('0.2', 'galling', 'http://maplelab.net/wp-content/uploads/2015/05/Bach_WTC1_Galling_Prelude_11_Minor-H1.wav')"></div>
+                <div class="fade button linkHamilton hamiltonButton" onclick="playPiece('0.2', 'hamilton', 'http://maplelab.net/wp-content/uploads/2015/05/Bach_WTC1_Hamilton_Prelude_11_Minor-H1.wav')"></div>
+                <div class="fade button linkKirkpatrick kirkpatrickButton" onclick="playPiece('0.5','kirkpatrick','http://maplelab.net/wp-content/uploads/2015/06/Bach_WTC1_Kirkpatrick_Prelude_11_Minor-H1.wav')"></div>
+                <div class="fade button linkLeonhardt leonhardtButton" onclick="playPiece('0.5','leonhardt','http://maplelab.net/wp-content/uploads/2015/06/Bach_-WTC1_Leonhardt_-Prelude_11_Minor-H1.wav')"></div>
+                <div class="fade button linkNewman newmanButton" onclick="playPiece('0.5','newman','http://maplelab.net/wp-content/uploads/2015/06/Bach_WTC1_Newman_Prelude_11_Minor-H1.wav')"></div>
+            </div>
+        </div>
+    </div>
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <div id="chartPad">
+        <!--Default plot-->
+        <div id="defaultPlot" class="dataPlot">
+            <div class="data noData pianoData fade d1 "></div>
+            <div class="data noData pianoData fade d2 "></div>
+            <div class="data noData pianoData fade d3 "></div>
+            <div class="data noData pianoData fade d4 "></div>
+            <div class="data noData pianoData fade d5 "></div>
+            <div class="data noData pianoData fade d6 "></div>
+            <div class="data noData pianoData fade d7 "></div>
+            <div class="data noData harpData fade d8 "></div>
+            <div class="data noData harpData fade d9 "></div>
+            <div class="data noData harpData fade d10 "></div>
+            <div class="data noData harpData fade d11 "></div>
+            <div class="data noData harpData fade d12 "></div>
+            <div class="data noData harpData fade d13 "></div>
+        </div>
+
+
+        <div id="fEflatMajPlot" class="dataPlot">
+            <div class="data noData fade d1 linkFischer"><div class='toolTipBox'></div></div>
+            <div class="data noData fade d2 linkTureck"><div class='toolTipBox'></div></div>
+            <div class="data noData fade d3 linkGould"><div class='toolTipBox'></div></div>
+            <div class="data noData fade d4 linkMartins"><div class='toolTipBox'></div></div>
+            <div class="data noData fade d5 linkDemus"><div class='toolTipBox'></div></div>
+            <div class="data noData fade d6 linkRichter" ><div class='toolTipBox'></div></div>
+            <div class="data noData fade d7 linkGulda"><div class='toolTipBox'></div></div>
+            <div class="data noData fade d8 linkLandowska"><div class='toolTipBox'></div></div>
+            <div class="data noData fade d9 linkGalling"><div class='toolTipBox'></div></div>
+            <div class="data noData fade d10 linkHamilton"><div class='toolTipBox'></div></div>
+            <div class="data noData fade d11 linkKirkpatrick"><div class='toolTipBox'></div></div>
+            <div class="data noData fade d12 linkLeonhardt"><div class='toolTipBox'></div></div>
+            <div class="data noData fade d13 linkNewman"><div class='toolTipBox'></div></div>
+        </div>
+        <!--pC  Min DATA plot-->
+        <div id="fEflatMinPlot" class="dataPlot">
+            <div class="data pianoData fade d1 linkFischer" onclick="playPiece('0.5', 'fischer', 'http://maplelab.net/wp-content/uploads/2015/06/Bach_WTC1_Fischer_Fugue_3_MinorP1.wav')"><div class='toolTipBox'>Tempo: 60</div></div>
+            <div class="data pianoData fade d2 linkTureck" onclick="playPiece('0.6', 'tureck', 'http://maplelab.net/wp-content/uploads/2015/06/Bach_WTC1_Tureck_Fugue_3_MinorP1.wav')"><div class='toolTipBox'>Tempo: 58</div></div>
+            <div class="data pianoData fade d3 linkGould" onclick="playPiece('0.3', 'gould', 'http://maplelab.net/wp-content/uploads/2015/06/Bach_WTC1_Gould_Fugue_3_Minor-P1.wav')"><div class='toolTipBox'>Tempo: 72</div></div>
+            <div class="data pianoData fade d4 linkMartins" onclick="playPiece('0.5', 'martins', 'http://maplelab.net/wp-content/uploads/2015/06/Bach_WTC1_Martins_Fugue_3_MinorP1.wav')"><div class='toolTipBox'>Tempo: 69</div></div>
+            <div class="data pianoData fade d5 linkDemus" onclick="playPiece('0.6', 'demus', 'http://maplelab.net/wp-content/uploads/2015/06/Bach_WTC1_Demus_Fugue_3_Minor-P1.mp3')"><div class='toolTipBox'>Tempo: 69</div></div>
+            <div class="data pianoData fade d6 linkRichter" onclick="playPiece('0.5', 'richter', 'http://maplelab.net/wp-content/uploads/2015/06/Bach_WTC1_Richter_Fugue_3_Minor-P1.wav')"><div class='toolTipBox'>Tempo: 56</div></div>
+            <div class="data pianoData fade d7 linkGulda" onclick="playPiece('0.7', 'gulda', 'http://maplelab.net/wp-content/uploads/2015/06/Bach_WTC1_Gulda_Fugue_3_minor-P1.wav')"><div class='toolTipBox'>Tempo: 60</div></div>
+            <div class="data noData fade d8 linkLandowska"></div>
+            <div class="data harpData fade d9 linkGalling" onclick="playPiece('0.2', 'galling', 'http://maplelab.net/wp-content/uploads/2015/06/Bach_WTC1_Galling_Fugue_3_Minor-H1.wav')"><div class='toolTipBox'>Tempo: 66</div></div>
+            <div class="data harpData fade d10 linkHamilton" onclick="playPiece('0.2', 'hamilton', 'http://maplelab.net/wp-content/uploads/2015/06/Bach_WTC1_Hamilton_Fugue_3_Minor-H1.wav')"><div class='toolTipBox'>Tempo 48</div></div>
+            <div class="data noData fade d11 linkKirkpatrick"></div>
+            <div class="data noData fade d12 linkLeonhardt"></div>
+            <div class="data noData fade d13 linkNewman"></div>
+        </div>
+
+
+
+        <!--fE Maj  Min DATA plot-->
+        <div id="fEMajPlot" class="dataPlot">
+            <div class="data pianoData fade d1 linkFischer" onclick="playPiece('0.5', 'fischer', 'http://maplelab.net/wp-content/uploads/2015/06/Bach_WTC1_Fischer_Fugue_4_MajorP1.wav')"><div class='toolTipBox'>Tempo: 96</div></div>
+            <div class="data pianoData fade d2 linkTureck" onclick="playPiece('0.6', 'tureck', 'http://maplelab.net/wp-content/uploads/2015/06/Bach_WTC1_Tureck_Fugue_4_MajorP1.wav')"><div class='toolTipBox'>Tempo:84</div></div>
+            <div class="data pianoData fade d3 linkGould"  onclick="playPiece('0.6', 'gould', 'http://maplelab.net/wp-content/uploads/2015/06/Bach_WTC1_Gould_Fugue_4_Major-P1.wav')"><div class='toolTipBox'>Tempo: 112</div></div>
+            <div class="data pianoData fade d4 linkMartins" onclick="playPiece('0.5', 'martins', 'http://maplelab.net/wp-content/uploads/2015/06/Bach_WTC1_Martins_Fugue_4_MajorP1.wav')"><div class='toolTipBox'>Tempo: 104</div></div>
+            <div class="data pianoData fade d5 linkDemus" onclick="playPiece('0.6', 'demus', 'http://maplelab.net/wp-content/uploads/2015/06/Bach_WTC1_Demus_Fugue_4_Major-P1.wav')"><div class='toolTipBox'>Tempo: 100</div></div>
+            <div class="data pianoData fade d6 linkRichter" onclick="playPiece('0.5', 'richter', 'http://maplelab.net/wp-content/uploads/2015/06/Bach_WTC1_Richter_Fugue_4_Major-P1.wav')"><div class='toolTipBox'>Tempo: 104</div></div>
+            <div class="data pianoData fade d7 linkGulda" onclick="playPiece('0.7', 'gulda', 'http://maplelab.net/wp-content/uploads/2015/06/Bach_WTC1_Gulda_Fugue_4_Major-P1.wav')"><div class='toolTipBox'>Tempo: 112</div></div>
+            <div class="data harpData fade d8 linkLandowska" onclick="playPiece('0.7', 'landowska', 'http://maplelab.net/wp-content/uploads/2015/06/Bach_WTC1_Landowska_Fugue_4_Major-H1.wav')"><div class='toolTipBox'>Tempo: 84</div></div>
+            <div class="data harpData fade d9 linkGalling" onclick="playPiece('0.2', 'galling', 'http://maplelab.net/wp-content/uploads/2015/06/Bach_WTC1_Galling_Fugue_4_Major-H1.wav')"><div class='toolTipBox'>Tempo: 80</div></div>
+            <div class="data harpData fade d10 linkHamilton" onclick="playPiece('0.2', 'hamilton', 'http://maplelab.net/wp-content/uploads/2015/06/Bach_WTC1_Hamilton_Fugue_4_Major-H1.wav')"><div class='toolTipBox'>Tempo: 80</div></div>
+            <div class="data harpData fade d11 linkKirkpatrick" onclick="playPiece('0.7', 'kirkpatrick', 'http://maplelab.net/wp-content/uploads/2015/06/Bach_WTC1_Kirkpatrick_Fugue_4_Major-H1.wav')"><div class='toolTipBox'>Tempo: 104</div></div>
+            <div class="data harpData fade d12 linkLeonhardt" onclick="playPiece('0.7', 'leonhardt', 'http://maplelab.net/wp-content/uploads/2015/06/Bach_WTC1_Leonhardt_Fugue_4_Major-H1.wav')"><div class='toolTipBox'>Tempo: 72</div></div>
+            <div class="data harpData fade d13 linkNewman" onclick="playPiece('0.7', 'newman', 'http://maplelab.net/wp-content/uploads/2015/06/Bach_WTC1_Newman_Fugue_4_Major-H1.wav')"><div class='toolTipBox'>Tempo: 96</div></div>
+        </div>
+        <!--fE  Min DATA plot-->
+        <div id="fEMinPlot" class="dataPlot">
+            <div class="data pianoData fade d1 linkFischer" onclick="playPiece('0.5', 'fischer', 'http://maplelab.net/wp-content/uploads/2015/06/Bach_WTC1_Fischer_Fugue_4_MinorP1.wav')"><div class='toolTipBox'>Tempo: 104</div></div>
+            <div class="data pianoData fade d2 linkTureck" onclick="playPiece('0.6', 'tureck', 'http://maplelab.net/wp-content/uploads/2015/06/Bach_WTC1_Tureck_Fugue_4_MinorP1.wav')"><div class='toolTipBox'>Tempo: 69</div></div>
+            <div class="data pianoData fade d3 linkGould" onclick="playPiece('0.3', 'gould', 'http://maplelab.net/wp-content/uploads/2015/06/Bach_WTC1_Gould_Fugue_4_Minor-P1.wav')"><div class='toolTipBox'>Tempo: 132</div></div>
+            <div class="data pianoData fade d4 linkMartins" onclick="playPiece('0.5', 'martins', 'http://maplelab.net/wp-content/uploads/2015/06/Bach_WTC1_Martins_Fugue_4_MinorP1.wav')"><div class='toolTipBox'>Tempo: 112</div></div>
+            <div class="data pianoData fade d5 linkDemus" onclick="playPiece('0.6', 'demus', 'http://maplelab.net/wp-content/uploads/2015/06/Bach_WTC1_Demus_Fugue_4_Minor-P1.wav')"><div class='toolTipBox'>Tempo: 96</div></div>
+            <div class="data pianoData fade d6 linkRichter" onclick="playPiece('0.5', 'richter', 'http://maplelab.net/wp-content/uploads/2015/06/Bach_WTC1_Richter_Fugue_4_Minor-P1.wav')"><div class='toolTipBox'>Tempo: 102</div></div>
+            <div class="data pianoData fade d7 linkGulda" onclick="playPiece('0.7', 'gulda', 'http://maplelab.net/wp-content/uploads/2015/06/Bach_WTC1_Gulda_Fugue_4_minor-P1.wav')"><div class='toolTipBox'>Tempo: 120</div></div>
+            <div class="data harpData fade d8 linkLandowska"onclick="playPiece('0.7', 'landowska', 'http://maplelab.net/wp-content/uploads/2015/06/Bach_WTC1_Landowska_Fugue_10_Minor-H1.wav')"><div class='toolTipBox'>Tempo: 104</div></div>
+            <div class="data harpData fade d9 linkGalling" onclick="playPiece('0.2', 'galling', 'http://maplelab.net/wp-content/uploads/2015/06/Bach_WTC1_Galling_Fugue_4_Minor-H1.wav')"><div class='toolTipBox'>Tempo: 80</div></div>
+            <div class="data harpData fade d10 linkHamilton" onclick="playPiece('0.2', 'hamilton', 'http://maplelab.net/wp-content/uploads/2015/06/Bach_WTC1_Hamilton_Fugue_4_Minor-H1.wav')"><div class='toolTipBox'>Tempo: 80</div></div>
+            <div class="data harpData fade d11 linkKirkpatrick" onclick="playPiece('0.7', 'kirkpatrick', 'http://maplelab.net/wp-content/uploads/2015/06/Bach_WTC1_Kirkpatrick_Fugue_4_minor-H1.wav')"><div class='toolTipBox'>Tempo: 84</div></div>
+            <div class="data harpData fade d12 linkLeonhardt" onclick="playPiece('0.7', 'leonhardt', 'http://maplelab.net/wp-content/uploads/2015/06/Bach_WTC1_Leonhardt_Fugue_4_Minor-H1.wav')"><div class='toolTipBox'>Tempo: 92</div></div>
+            <div class="data harpData fade d13 linkNewman" onclick="playPiece('0.7', 'newman', 'http://maplelab.net/wp-content/uploads/2015/06/Bach_WTC1_Newman_Fugue_4_Minor-H1.wav')"><div class='toolTipBox'>Tempo: 116</div></div>
+        </div>
+        <!--pC  Maj DATA plot-->
+        <div id="pCMajPlot" class="dataPlot">
+            <div class="data noData fade d1 linkFischer"><div class='toolTipBox'></div></div>
+            <div class="data noData fade d2 linkTureck"><div class='toolTipBox'></div></div>
+            <div class="data noData fade d3 linkGould"><div class='toolTipBox'></div></div>
+            <div class="data noData fade d4 linkMartins"><div class='toolTipBox'></div></div>
+            <div class="data noData fade d5 linkDemus"><div class='toolTipBox'></div></div>
+            <div class="data noData fade d6 linkRichter" ><div class='toolTipBox'></div></div>
+            <div class="data noData fade d7 linkGulda"><div class='toolTipBox'></div></div>
+            <div class="data noData fade d8 linkLandowska"><div class='toolTipBox'></div></div>
+            <div class="data noData fade d9 linkGalling"><div class='toolTipBox'></div></div>
+            <div class="data noData fade d10 linkHamilton"><div class='toolTipBox'></div></div>
+            <div class="data noData fade d11 linkKirkpatrick"><div class='toolTipBox'></div></div>
+            <div class="data noData fade d12 linkLeonhardt"><div class='toolTipBox'></div></div>
+            <div class="data noData fade d13 linkNewman"><div class='toolTipBox'></div></div>
+        </div>
+        <!--pC  Min DATA plot-->
+        <div id="pCMinPlot" class="dataPlot">
+            <div class="data pianoData fade d1 linkFischer" onclick="playPiece('0.5', 'fischer', 'http://maplelab.net/wp-content/uploads/2015/06/Bach_WTC1_Fischer_Prelude_0_MinorP1.wav')"><div class='toolTipBox'>Tempo: 132</div></div>
+            <div class="data pianoData fade d2 linkTureck" onclick="playPiece('0.6', 'tureck', 'http://maplelab.net/wp-content/uploads/2015/06/Bach_WTC1_Tureck_Prelude_0_MinorP1.wav')"><div class='toolTipBox'>Tempo: 108</div></div>
+            <div class="data pianoData fade d3 linkGould" onclick="playPiece('0.3', 'gould', 'http://maplelab.net/wp-content/uploads/2015/06/Bach_WTC1_Gould_Prelude_0_Minor-P1.wav')"><div class='toolTipBox'>Tempo: 80</div></div>
+            <div class="data pianoData fade d4 linkMartins" onclick="playPiece('0.5', 'martins', 'http://maplelab.net/wp-content/uploads/2015/06/Bach_WTC1_Martins_Prelude_0_MinorP1.wav')"><div class='toolTipBox'>Tempo: 132</div></div>
+            <div class="data pianoData fade d5 linkDemus" onclick="playPiece('0.6', 'demus', 'http://maplelab.net/wp-content/uploads/2015/06/Bach_WTC1_Demus_Prelude_0_Minor-P1fix.wav')"><div class='toolTipBox'>Tempo: 120</div></div>
+            <div class="data pianoData fade d6 linkRichter" onclick="playPiece('0.5', 'richter', 'http://maplelab.net/wp-content/uploads/2015/06/Bach_WTC1_Richter_Prelude_0_MinorP1.wav')"><div class='toolTipBox'>Tempo: 132</div></div>
+            <div class="data pianoData fade d7 linkGulda" onclick="playPiece('0.7', 'gulda', 'http://maplelab.net/wp-content/uploads/2015/06/Bach_WTC1_Gulda_Prelude_0_minor-P1.wav')"><div class='toolTipBox'>Tempo: 63</div></div>
+            <div class="data harpData fade d8 linkLandowska" onclick="playPiece('0.7', 'landowska', 'http://maplelab.net/wp-content/uploads/2015/06/Bach_WTC1_Landowska_Prelude_0_Minor-H1.wav')"><div class='toolTipBox'>Tempo: 112</div></div>
+            <div class="data harpData fade d9 linkGalling" onclick="playPiece('0.2', 'galling', 'http://maplelab.net/wp-content/uploads/2015/06/Bach_WTC1_Galling_Prelude_0_Minor-H1.wav')"><div class='toolTipBox'>Tempo: 66</div></div>
+            <div class="data harpData fade d10 linkHamilton" onclick="playPiece('0.2', 'hamilton', 'http://maplelab.net/wp-content/uploads/2015/06/Bach_WTC1_Hamilton_Prelude_0_Minor-H1.wav')"><div class='toolTipBox'>Tempo 120</div></div>
+            <div class="data harpData fade d11 linkKirkpatrick" onclick="playPiece('0.7', 'kickpatrick', 'http://maplelab.net/wp-content/uploads/2015/06/Bach_WTC1_Kirkpatrick_Prelude_0_Minor-H1.wav')"><div class='toolTipBox'>Tempo: 104</div></div>
+            <div class="data harpData fade d12 linkLeonhardt" onclick="playPiece('0.7', 'leonhardt', 'http://maplelab.net/wp-content/uploads/2015/06/Bach_WTC1_Leonhardt_Prelude_0_Minor-H1.wav')"><div class='toolTipBox'>Tempo: 96</div></div>
+            <div class="data harpData fade d13 linkNewman" onclick="playPiece('0.7', 'newman', 'http://maplelab.net/wp-content/uploads/2015/06/Bach_WTC1_Newman_Prelude_0_Minor-H1.wav')"><div class='toolTipBox'>Tempo: 80</div></div>
+        </div>
+        <!--pB  Maj DATA plot-->
+        <div id="pBMajPlot" class="dataPlot">
+            <div class="data noData fade d1 linkFischer"><div class='toolTipBox'></div></div>
+            <div class="data noData fade d2 linkTureck"><div class='toolTipBox'></div></div>
+            <div class="data noData fade d3 linkGould"><div class='toolTipBox'></div></div>
+            <div class="data noData fade d4 linkMartins"><div class='toolTipBox'></div></div>
+            <div class="data noData fade d5 linkDemus"><div class='toolTipBox'></div></div>
+            <div class="data noData fade d6 linkRichter"><div class='toolTipBox'></div></div>
+            <div class="data noData fade d7 linkGulda"><div class='toolTipBox'></div></div>
+            <div class="data noData fade d8 linkLandowska"><div class='toolTipBox'></div></div>
+            <div class="data noData fade d9 linkGalling"><div class='toolTipBox'></div></div>
+            <div class="data noData fade d10 linkHamilton"><div class='toolTipBox'></div></div>
+            <div class="data noData fade d11 linkKirkpatrick"><div class='toolTipBox'></div></div>
+            <div class="data noData fade d12 linkLeonhardt"><div class='toolTipBox'></div></div>
+            <div class="data noData fade d13 linkNewman"><div class='toolTipBox'></div></div>
+        </div>
+        <!--pB  Min DATA plot-->
+        <div id="pBMinPlot" class="dataPlot">
+            <div class="data pianoData fade d1 linkFischer" onclick="playPiece('0.5', 'fischer', 'http://maplelab.net/wp-content/uploads/2015/06/Bach_WTC1_Fischer_Prelude_11_Minor-P1.wav')"><div class='toolTipBox'>Tempo: 66</div></div>
+            <div class="data pianoData fade d2 linkTureck" onclick="playPiece('0.6', 'tureck', 'http://maplelab.net/wp-content/uploads/2015/05/Bach_WTC1_Tureck_Prelude_11_MinorP1.wav')"><div class='toolTipBox'>Tempo: 69</div></div>
+            <div class="data pianoData fade d3 linkGould" onclick="playPiece('0.3', 'gould', 'http://maplelab.net/wp-content/uploads/2015/05/Bach_WTC1_Gould_Prelude_11_Minor-P1.wav')"><div class='toolTipBox'>Tempo: 84</div></div>
+            <div class="data pianoData fade d4 linkMartins" onclick="playPiece('0.5', 'martins', 'http://maplelab.net/wp-content/uploads/2015/05/Bach_WTC1_Martins_Prelude_11_MinorP1.wav')"><div class='toolTipBox'>Tempo: 69</div></div>
+            <div class="data pianoData fade d5 linkDemus" onclick="playPiece('0.6', 'demus', 'http://maplelab.net/wp-content/uploads/2015/06/Bach_WTC1_Demus_Prelude_11_Minor-P1.wav')"><div class='toolTipBox'>Tempo: 72</div></div>
+            <div class="data pianoData fade d6 linkRichter" onclick="playPiece('0.5', 'richter', 'http://maplelab.net/wp-content/uploads/2015/05/Bach_WTC1_Richter_Prelude_11_Minor-P1.wav')"><div class='toolTipBox'>Tempo: 52</div></div>
+            <div class="data pianoData fade d7 linkGulda" onclick="playPiece('0.7', 'gulda', 'http://maplelab.net/wp-content/uploads/2015/05/Bach_WTC1_Gulda_Prelude_11_minor-P1.wav')"><div class='toolTipBox'>Tempo: 44</div></div>
+            <div class="data harpData fade d8 linkLandowska" onclick="playPiece('0.5','landowska','http://maplelab.net/wp-content/uploads/2015/06/Bach_WTC1_Landowska_Prelude_11_Minor-H1.wav')"><div class='toolTipBox'>Tempo: 69</div></div>
+            <div class="data harpData fade d9 linkGalling" onclick="playPiece('0.2', 'galling', 'http://maplelab.net/wp-content/uploads/2015/05/Bach_WTC1_Galling_Prelude_11_Minor-H1.wav')"><div class='toolTipBox'>Tempo: 69</div></div>
+            <div class="data harpData fade d10 linkHamilton" onclick="playPiece('0.2', 'hamilton', 'http://maplelab.net/wp-content/uploads/2015/05/Bach_WTC1_Hamilton_Prelude_11_Minor-H1.wav')"><div class='toolTipBox'>Tempo: 40</div></div>
+            <div class="data harpData fade d11 linkKirkpatrick" onclick="playPiece('0.5','kirkpatrick','http://maplelab.net/wp-content/uploads/2015/06/Bach_WTC1_Kirkpatrick_Prelude_11_Minor-H1.wav')"><div class='toolTipBox'>Tempo: 84</div></div>
+            <div class="data harpData fade d12 linkLeonhardt" onclick="playPiece('0.5','leonhardt','http://maplelab.net/wp-content/uploads/2015/06/Bach_-WTC1_Leonhardt_-Prelude_11_Minor-H1.wav')"><div class='toolTipBox'>Tempo: 96</div></div>
+            <div class="data harpData fade d13 linkNewman" onclick="playPiece('0.5','newman','http://maplelab.net/wp-content/uploads/2015/06/Bach_WTC1_Newman_Prelude_11_Minor-H1.wav')"><div class='toolTipBox'>Tempo: 132</div></div>
+        </div>
+        <canvas id="chartArea" width="400px" height="400px"></canvas>
+        <div id="chartBackground"></div>
+    </div>
+
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---Info files--->
+    <div class="martins">
+        <div class="caption martins">
+            <img class="portrait martins" src="http://maplelab.net/wp-content/uploads/2015/05/martins-portrait.jpg" />
+            <h1>João Carlos Martins</h1>
+
+            <h4>June 25, 1940 – </h4>
+            <h5>Recorded in 1964</h5>
+
+
+            <p><br/>Acclaimed Brazillian classical Pianist and Conductor. His collection of the complete keyboard works of Bach are the most extensive series of Bach keyboard recordings by a single pianist. When an unsuccessful operation in his right hand left it essentially useless, Martins continued playing with only his left hand, and afterwards he then turned to conducting.   </p>
+        </div>
+    </div>
+    <!---->
+    <div class="tureck">
+        <div class="caption tureck">
+            <img class="portrait tureck" src="http://maplelab.net/wp-content/uploads/2015/05/tureck-portrait.jpg" />
+            <h1>Rosalyn Tureck</h1>
+
+            <h4>December 19, 1914 – July 17, 2003</h4>
+            <h5>Recorded in 1953</h5>
+
+            <p><br/>American Pianist and Harpsichordist from Chicago, Illinois. She has inspired the likes of Glenn Gould and Diamon's Piana Sonata No. 1. Tureck played Bach's pieces on the harpsichord following Landowska for a while before returning to the piano.</p>
+        </div>
+    </div>
+    <!---->
+    <div class="demus">
+        <div class="caption demus">
+            <img class="portrait demus" src="http://maplelab.net/wp-content/uploads/2015/06/jorg-portrait2.jpg" />
+            <h1>Jörg Demus</h1>
+
+            <h4>December 2, 1928 –</h4>
+            <h5>Recorded in 1970</h5>
+
+            <p><br/>An Austrian pianist. He has been active as a Lied accompanist and a chamber music partner. He received the Mozart Medal of the Mozartgemeinde Wien in 1979. Among his students is the pianist Domenico Piccichè.</p>
+        </div>
+    </div>
+    <!---->
+    <div class="fischer">
+        <div class="caption fischer">
+            <img class="portrait fischer" src="http://maplelab.net/wp-content/uploads/2015/05/fix-edwin-fischer.jpg" />
+            <h1>Edwin Fischer</h1>
+
+            <h4>October 6, 1886 – January 24, 1960</h4>
+            <h5>Recorded in 1934-1935</h5>
+
+            <p><br/>Swiss classical pianist and conductor, he is widely regarded as one of the greatest interpreters of traditional Germanic repertoire of the twentieth century, and one of the finest piano pedagogues of the modern era.</p>
+        </div>
+        <!---->
+        <div class="gould">
+            <div class="caption gould">
+                <img class="portrait gould" src="http://maplelab.net/wp-content/uploads/2015/05/gould-portrait.jpg" />
+                <h1>Glenn Gould</h1>
+
+                <h4>September 25, 1932 – October 4, 1982</h4>
+                <h5>Recorded between 1962-1965</h5>
+
+                <p><br/>Celebrated Canadian Pianist. Of significant influence upon the teenage Gould were Artur Schnabel, Rosalyn Tureck's recordings of Bach ("upright, with a sense of repose and positiveness"), and Leopold Stokowski.</p>
+            </div>
+        </div>
+        <!---->
+        <div class="gulda">
+            <div class="caption gulda">
+                <img class="portrait gulda" src="http://maplelab.net/wp-content/uploads/2015/05/friedrich-gulda-portrait.jpg" />
+                <h1>Friedrich Gulda</h1>
+
+                <h4>May 16, 1930 – January 27, 2000</h4>
+                <h5>Recorded in 1972</h5>
+
+                <p><br/>Austrian Pianist and composer who worked in both the classical and jazz fields. Was awarded the Austian Cross of Honour for Science and art (1959), and the Honorary Ring of Vienna (1989).</p>
+            </div>
+        </div>
+        <!---->
+        <div class="richter">
+            <div class="caption richter">
+                <img class="portrait richter" src="http://maplelab.net/wp-content/uploads/2015/05/richter-portrait.jpg" />
+                <h1>Sviatoslav Richter</h1>
+
+                <h4>March 7, 1915 – August 1, 1997</h4>
+                <h5>Recorded between 1972-1973</h5>
+
+                <p><br/>Soviet pianist known for the depth of his interpretations, virtuoso technique, and vast repertoire. He is considered one of the greatest pianists of the 20th century.</p>
+            </div>
+        </div>
+        <!---->
+        <div class="hamilton">
+            <div class="caption hamilton">
+                <img class="portrait hamilton" src="http://maplelab.net/wp-content/uploads/2015/05/hamilton-portrait.jpg" />
+                <h1>Malcolm Hamilton</h1>
+
+                <h4>December 14, 1932 – November 22, 2003</h4>
+                <h5>Recorded in 1965</h5>
+
+                <p><br/>Harpsichordist from Victoria, Canada. He studied harpsichord at the University of Washington in Seattle and then taught piano and harpsichord at the University of Southern California for 30 years.</p>
+            </div>
+        </div>
+        <!---->
+        <div class="galling">
+            <div class="caption galling">
+                <img class="portrait galling" src="http://maplelab.net/wp-content/uploads/2015/05/Martin-Galling-portait.jpg" />
+                <h1>Martin Galling</h1>
+
+                <h4>1935 – </h4>
+                <h5>Recorded in 1964</h5>
+
+                <p><br/>German pianist, harpsichordist and chamber musician. In 2003 he founded the piano duo Galling-Olivieri. Galling used a "revival" instrument, a modern harpsichord with stops not found on harpsichords modeled on ancient instruments, including a 16-foot stop (one octave below the two 8-foot stops).</p>
+            </div>
+        </div>
+        <!---->
+        <div class="landowska">
+            <div class="caption landowska">
+                <img class="portrait landowska" src="http://maplelab.net/wp-content/uploads/2015/06/landowska-pic.jpg" />
+                <h1>Wanda Landowska</h1>
+
+                <h4>July 5, 1879 – August 16, 1959</h4>
+                <h5>Recorded between 1949-1951</h5>
+
+                <p><br/></p>
+            </div>
+        </div>
+        <!---->
+        <div class="kirkpatrick">
+            <div class="caption kirkpatrick">
+                <img class="portrait kirkpatrick" src="http://maplelab.net/wp-content/uploads/2015/06/kirkfix.jpg" />
+                <h1>Ralph Kirkpatrick</h1>
+
+                <h4>June 10, 1911 – April 13, 1984</h4>
+                <h5>Recorded in 1959</h5>
+
+                <p><br/></p>
+            </div>
+        </div>
+        <!---->
+        <div class="leonhardt">
+            <div class="caption leonhardt">
+                <img class="portrait leonhardt" src="http://maplelab.net/wp-content/uploads/2015/06/fixleonhardt.jpg" />
+                <h1>Gustav Leonhardt</h1>
+
+                <h4>May 30, 1928 – January 16, 2012</h4>
+                <h5>Recorded in 1967</h5>
+
+                <p><br/></p>
+            </div>
+        </div>
+        <!---->
+        <div class="newman">
+            <div class="caption newman">
+                <img class="portrait newman" src="http://maplelab.net/wp-content/uploads/2015/06/fixnewmanpic.jpg" />
+                <h1>Anthony Newman</h1>
+
+                <h4>May 12, 1941 –</h4>
+                <h5>Recorded in 2000</h5>
+
+                <p><br/></p>
+            </div>
+        </div>
+        <!---->
+        <!---->
+        <!---->
+        <!--Scores: 400 width, 170 height-->
+        <div id="spBmin" class="score">
+            <h2 class="scoreTitle">Prelude No. 24 in B Minor</h2>
+            <img  class="scorePic czerny" src="http://maplelab.net/wp-content/uploads/2015/06/b-min-pre-24.jpg" />
+        </div>
+        <div id="spCmin" class="score">
+            <h2 class="scoreTitle">Prelude No. 2 in C Minor</h2>
+            <img  class="scorePic czerny" src="http://maplelab.net/wp-content/uploads/2015/06/prelude-no-2-c-minor.png" />
+        </div>
+        <div id="sfEmaj" class="score">
+            <h2 class="scoreTitle">Fugue No. 9 in E Major</h2>
+            <img  class="scorePic czerny" src="http://maplelab.net/wp-content/uploads/2015/06/fugue-no-9-E-major.png" />
+        </div>
+        <div id="sfEmin" class="score">
+            <h2 class="scoreTitle">Fugue No. 10 in E Minor</h2>
+            <img  class="scorePic czerny" src="http://maplelab.net/wp-content/uploads/2015/06/fugue-no-10-E-minor.png" />
+        </div>
+        <div id="sfEflatmin" class="score">
+            <h2 class="scoreTitle">Fugue No. 8 in E flat Minor</h2>
+            <img class="scorePic czerny" src="http://maplelab.net/wp-content/uploads/2015/06/e-flat-minor-fugue-score.png"/>
+        </div>
+        <!---->
+        <!---->
+        <!---->
+        <!---->
+        <!---->
+        <!---->
+        <!---->
+        <!---Here is the audio tag that is continually changed.--->
+        <!---Audio--->
+        <audio type="audio/wav" id="audio" src="http://schutzm-maplelab.mcmaster.ca/test/wp-content/uploads/2015/05/Bach_WTC1_Martins_Prelude_11_MinorP1.wav"></audio>

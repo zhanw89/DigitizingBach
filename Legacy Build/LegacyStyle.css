@@ -1,0 +1,745 @@
+/*Emotional Piano Visualizer*/
+/*MAPLE Lab*/
+/******/
+/*Created by Kyle Gauder*/
+/******/
+/******/
+/******/
+/******/
+/******/
+/******/
+/***quick page styling***/
+#content  {
+    width: 1000px;
+}
+/*note*/
+#notice {
+    position: absolute;
+    z-index: 5;
+    top: 750px;
+    left: 520px;
+    width: 400px;
+}
+.noticeText {
+    font-size: 12px !important;
+}
+.volumeText {
+    position: absolute;
+    top: 785px;
+    left: 60px;
+    z-index: 5;
+    font-size:  12px !important;
+}
+/*"Well-Tempered Clavier" title*/
+.logoTitle {
+    position: absolute;
+    left: 550px;
+    text-align: left;
+    width: 600px;
+    top: 25px;
+    z-index: 3;
+    font-weight: bold !important;
+    font-size: 250% !important;
+}
+/***Bach text and pic***/
+.bachPlaceholder {
+    position: absolute;
+    top: 125px;
+    left: 525px;
+    z-index: 2;
+    width: 400px;
+}
+.bachPor {
+    width: 100px;
+}
+/******/
+/*MAPLE lab Logo*/
+.logoMAPLE {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    left: 898px;
+    top: 5px;
+    z-index: 2;
+}
+/******/
+
+
+/*Container for the entire applet. Can control entire position of Everything */
+#mainmenu {
+    width: 350px;
+    margin: 1px auto;
+    position: relative;
+    left: -330px;
+    height: 1075px;
+}
+/******/
+/*The background containers*/
+/*Main background*/
+.mainBackground {
+    background: lightgrey;
+    position: absolute;
+    z-index: 1;
+    left: 50px;
+    width: 900px;
+    height: 800px;
+    border-radius: 20px;
+    box-shadow: 3px 3px 15px #000000;
+}
+
+
+
+/*Menu Background*/
+.menuBackground {
+    background: gray;
+    position: absolute;
+    z-index: 2;
+    left: 77px;
+    top: 25px;
+    width: 385px;
+    height: 130px;
+    border-radius: 20px;
+    box-shadow: 3px 3px 15px #000000;
+}
+/******/
+/*The STOP button at the bottom right.*/
+#stopALL {
+    position: absolute;
+    width: 70px;
+    height: 25px;
+    background: white;
+    z-index: 20;
+    top: 760px;
+    left: 860px;
+    border: 2px solid black;
+    border-radius: 20px;
+    cursor: pointer;
+}
+.stopTXT {
+    font-family:'Kreon', serif;
+    text-align: center;
+    font-size: 50px;
+    line-height: 25px !important;
+}
+/******/
+/******/
+/******/
+/******/
+/******/
+/******/
+/******/
+/*LEVEL 1*/
+/*Prelude and Fugue menu containers.*/
+#prelude, #fugue {
+    text-align: center;
+    color: black;
+    font-family:'Kreon', serif;
+}
+#prelude {
+    float: left;
+    margin: 5px;
+}
+#fugue {
+    float: right;
+    margin: 5px;
+}
+/*The prelude/Fugue BUTTONS. The vertical is controlled individually.*/
+.lvl1BUTTON {
+    position: absolute;
+    width: 80px;
+    left: 93px;
+    font-size: 18px !important;
+    line-height: 15px !important;
+    height: 47px;
+    border: 2px solid black;
+    background: white;
+    cursor: pointer;
+    z-index: 3;
+}
+#prelude .lvl1BUTTON {
+    /*prelude Button specifics*/
+    top: 39px;
+    border-top-left-radius: 15px;
+}
+#fugue .lvl1BUTTON {
+    /*Fugue Button specifics*/
+    top: 88px;
+    border-bottom-left-radius: 15px;
+}
+/******/
+/******/
+/******/
+/******/
+/******/
+/******/
+/******/
+/*LEVEL 2*/
+/*CSS KEYBOARD*/
+/*General Keyboard container*/
+.keyboard {
+    position: absolute;
+    top: 39px;
+    left: 175px;
+    z-index: 5;
+    border: 1px solid black;
+    width: 224px;
+}
+/*prelude Keys*/
+#prelude .keyboard {
+    display: none;
+}
+/*Fugue Keys*/
+#fugue .keyboard {
+    display: none;
+}
+
+#defaultKeyboard {
+    display: show;
+}
+/******/
+/*Keyboard CSS*/
+.keypair { /*Black and White keys are grouped into "pairs"*/
+    float: left;
+    position: relative;
+}
+.key { /*White key styling*/
+    float: left;
+    height: 96px;
+    width: 30px;
+    background: #CFCFCF; /*Default grayed-out look of the key*/
+    border:1px solid #3F3F3F;
+    z-index: 4;
+}
+.blackkey { /*Black key styling*/
+    float: left;
+    position: absolute;
+    left: 23px;
+    width: 15px;
+    height: 57px;
+    background: #A6A6A6; /*Default grayed-out look of the key*/
+    border: 1px solid #3F3F3F;
+    z-index: 5;
+}
+/*Additional Styling when key is "full" of content*/
+.activeWhite {
+    background: white;
+    cursor: pointer;
+}
+.activeBlack {
+    background: black;
+    cursor: pointer;
+}
+/*jQuery adds hover effect to key when there is another element inside the key in the DOM*/
+/* Thus, an empty class to pseudo-fill the key*/
+.empty {
+    display: none;
+    position: absolute;
+}
+/******/
+/******/
+/******/
+/******/
+/******/
+/******/
+/******/
+/*LEVEL 3*/
+/*Major and minor menu*/
+/*Major/Minor Containers*/
+.maj, .min {
+    position: absolute;
+    left: 420px;
+}
+/*Major/Minor BUTTONS*/
+.majItem, .minItem {
+    display: none;
+    width: 45px;
+    height: 47px;
+    left: -21px;
+    position: absolute;
+    border: 2px solid black;
+    text-align: center;
+    background: white;
+    cursor: pointer;
+    font-size: 15px !important;
+    line-height: 15px !important;
+    color: black;
+    font-family:'Kreon', serif;
+}
+/*Major Button*/
+.majItem {
+    top: 39px;
+    border-top-right-radius: 15px;
+    z-index: 7;
+}
+/*Minor Button*/
+.minItem {
+    top: 88px;
+    border-bottom-right-radius: 15px;
+    z-index: 8;
+}
+/******/
+/******/
+/******/
+/******/
+/******/
+/******/
+/******/
+/*LEVEL 4*/
+/*Actual content*/
+/*Performer Name, caption and portrait container*/
+.caption {
+    font-size: 15px;
+    line-height: 15px !important;
+    position: absolute;
+    text-align: left;
+    z-index: 40;
+    left: 75px;
+    width: 425px;
+    top: 560px;
+    display: none;
+}
+.portrait {
+    display: none;
+    width: 125px;
+    height: 125px;
+    float: right;
+    border-radius: 5px;
+    box-shadow: 3px 3px 10px #000000;
+
+}
+/*Container for Album-Music Buttons*/
+.defaultContent {
+    top: 150px;
+    left: -340px;
+    width: 400px;
+    float: left;
+    position: absolute;
+    z-index: 1;
+}
+.content {
+    display: none;
+    top: 150px;
+    left: -340px;
+    width: 400px;
+    float: left;
+    position: absolute;
+    z-index: 12;
+}
+/*Album Button style*/
+.button {
+    float: left;
+    margin: 3px;
+    padding: 0px;
+    border-radius: 5px;
+    height: 75px;
+    width: 75px;
+    position: relative;
+    border: 2px solid black;
+    cursor: pointer;
+    background-size: 75px 75px;
+}
+/*When button is "empty", so you know not to bother clicking*/
+.noPiece {
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
+    cursor: not-allowed !important;
+    box-shadow: inset 0px 0px 0px 0px #000000;
+    opacity: 0.2 !important;
+}
+/****Properties Styles File******/
+.fischerButton {
+    background-image: url("http://maplelab.net/wp-content/uploads/2015/05/afix-edwin-fischer-album.jpg");
+}
+.tureckButton {
+    background-image: url("http://maplelab.net/wp-content/uploads/2015/06/tureckalbum.png");
+}
+.gouldButton {
+    background-image: url("http://maplelab.net/wp-content/uploads/2015/05/fixGlenn-Gould-album.jpg");
+}
+.martinsButton {
+    background-image: url("http://maplelab.net/wp-content/uploads/2015/05/fixjoao-carlos-martins-album.jpg");
+}
+.demusButton {
+    background-image: url("http://maplelab.net/wp-content/uploads/2015/06/demus-album-art.jpg");
+}
+.richterButton {
+    background-image: url("http://maplelab.net/wp-content/uploads/2015/05/fixrichter-album.jpg");
+}
+.guldaButton {
+    background-image: url("http://maplelab.net/wp-content/uploads/2015/06/gulda.png");
+}
+/*Harpsichord Buttons */
+.landowskaButton {
+    background-image: url("http://maplelab.net/wp-content/uploads/2015/06/landowska-albumfix.jpg");
+}
+.gallingButton {
+    background-image: url("http://maplelab.net/wp-content/uploads/2015/05/fixMartin-Galling-album.jpg");
+}
+.hamiltonButton {
+    background-image: url("http://maplelab.net/wp-content/uploads/2015/06/Hamilton-album.png");
+}
+.kirkpatrickButton {
+    background-image: url("http://maplelab.net/wp-content/uploads/2015/06/kirkpatrickthing.png");
+}
+.leonhardtButton {
+    background-image: url("http://maplelab.net/wp-content/uploads/2015/06/leonhardt-album-fix.jpg");
+}
+.newmanButton {
+    background-image: url("http://maplelab.net/wp-content/uploads/2015/06/newmanalbum.png");
+}
+/*********/
+/*Styles for specific "types"*/
+.piano, .harpsichord {
+    float: left;
+}
+/*Styles for Instrument title*/
+.harpianoTitle {
+    line-height: 1px;
+    margin: 10px;
+    padding-top: 8px;
+}
+/*Score Display*/
+.score {
+    display: none;
+    position: absolute;
+    float: left;
+    width: 400px;
+    left: 520px;
+    top: 85px;
+    z-index: 30;
+}
+.scorePic {
+    border-radius: 5px;
+    box-shadow: 3px 3px 15px #000000;
+    width: 400px;
+}
+.scoreTitle {
+    text-align: center;
+}
+/******/
+/******/
+/******/
+/******/
+/******/
+/******/
+/******/
+/*DATA PLOT*/
+#chartPad {
+    position: absolute;
+    left: 520px;
+    top: 330px;
+    width: 400px;
+}
+#chartArea {
+
+
+    position: absolute;
+    border: 1px solid black;
+    z-index: 2;
+    background-image: url("http://maplelab.net/wp-content/uploads/2015/06/Data-Plot-type-3.jpg");
+}
+#chartBackground {
+    top: -10px;
+    left: -10px;
+    position: absolute;
+    border-radius: 10px;
+    box-shadow: 3px 3px 10px #000000;
+    background: gray;
+    width: 420px;
+    height: 420px;
+    z-index: 1;
+}
+
+.data { /*Default values for data points*/
+
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    z-index: 3;
+    left: 71px;
+    float: center;
+    top: 341px;
+    cursor: pointer;
+    background-color: red;
+}
+.pianoData {
+    border-radius: 5px;
+}
+.harpData {
+    border-radius: 0px;
+}
+.noData {
+    background-color: black;
+    cursor: not-allowed;
+}
+.dataPlot {
+    display: none;
+}
+#defaultPlot {
+    display: block;
+}
+/*x-axis default/*
+/*Each tick goes up by 33px when dot is 5px. 28px when dot is 8px*/
+.d1 {left: 105px;}
+.d2 {left: 123px;}
+.d3 {left: 142px;}
+.d4 {left: 161px;}
+.d5 {left: 180px;}
+.d6 {left: 199px;}
+.d7 {left: 218px;}
+.d8 {left: 256px;}
+.d9 {left: 275px;}
+.d10 {left: 294px;}
+.d11 {left: 313px;}
+.d12 {left: 332px;}
+.d13 {left: 351px;}
+/*****/
+/******/
+/******/
+/******/
+/******/
+/******/
+/******/
+/*TOOLTIPS*/
+.toolTipBox {
+    width: 100px;
+    height: 15px;
+    top: -3px;
+    left: -110px;
+    opacity: 1;
+    background-color: gray;
+    box-shadow: 3px 3px 20px #000;
+    border-radius: 5px;
+    z-index: 100;
+    position: absolute;
+    display: none;
+    color: #FFFFFF;
+    text-align: center;
+    padding-bottom: 5px;
+    cursor: auto;
+}
+
+/******/
+/******/
+/******/
+/******/
+/******/
+/******/
+/******/
+/*ADDITIONAL SETTINGS*/
+/*Effects for jQ and other manipulation*/
+/******/
+/*HOVER*/
+/*Hover effect with grey inset AND SHADOW*/
+/*Used for P/F and Maj/Min menu items, so that hovering doesn't remove shadow*/
+.selected {
+    box-shadow: inset 0px 0px 15px #939393, 3px 3px 5px #000000;
+}
+/*Hover effect with grey inset NO SHADOW*/
+/*Used with keyboard and STOP*/
+.selectedNoS {
+    box-shadow: inset 0px 0px 15px #939393;
+}
+/******/
+/*CLICK*/
+/*PF/MajMin click effect with shadow*/
+.clicked {
+    box-shadow: inset 0px 0px 30px #C42026;
+}
+/*HKeyboard click effect no shadow for individual keys*/
+.clickedKeyboard {
+    box-shadow: inset 0px 0px 30px #C42026 !important;
+}
+.clickSTOP {
+    box-shadow: inset 0px 0px 30px #C42026;
+}
+/******/
+/*OPACITY changes*/
+/*Fade effect of Album buttons*/
+.fade {
+    opacity: 0.50;
+    box-shadow: inset 0px 0px 0px 0px #000000;
+}
+/*Look when the button is clicked*/
+.btnclicked {
+
+    box-shadow: 0px 0px 10px 3px #000000;
+    opacity: 1 !important;
+}
+/*Hover Fade Effect*/
+.fadeIN {
+    opacity:0.7;
+    box-shadow: 0px 0px 15px 3px #C11B17;
+}
+/******/
+/******/
+/******/
+/******/
+/******/
+/******/
+/******/
+/*Screen size adjustments*/
+/*@1000px,
+@600px
+@400px
+*/
+@media screen and (max-width: 1000px) {
+    #mainmenu {
+        left: -330px;
+    }
+    #notice {
+        left: 300px;
+    }
+    .logoMAPLE {
+        left: 650px;
+    }
+    .logoTitle {
+        left: 360px;
+        top: 30px;
+        font-size: 30px !important;
+    }
+    #stopALL {
+        left: 610px;
+    }
+    .bachPlaceholder {
+        left: 300px;
+        top: 150px;
+    }
+    .bachPor {
+        width: 75px;
+    }
+    .mainBackground {
+        width: 650px;
+        height: 1020px;
+    }
+    .menuBackground {
+        left: 50px;
+        top: 5px;
+        width: 300px;
+        height: 110px;
+    }
+    .lvl1BUTTON {
+        left: 55px;
+        width: 50px;
+        font-size: 15px !important;
+    }
+    #prelude .lvl1BUTTON {
+        top: 9px;
+    }
+    #fugue .lvl1BUTTON {
+        top: 58px;
+    }
+    .keyboard {
+        top: 9px;
+        left: 105px;
+        width: 189px;
+    }
+    .key {
+        width: 25px;
+    }
+    .blackkey {
+        width: 14px;
+        left: 19px;
+    }
+    .majItem, .minItem {
+        left: -126px;
+    }
+    .majItem {
+        top: 9px;
+    }
+    .minItem {
+        top: 58px;
+    }
+    #chartPad {
+        left: 290px;
+    }
+    .score {
+        width: 400px;
+        left: 290px;
+        top: 100px;
+    }
+    .content, .defaultContent {
+        width: 250px;
+        top: 110px;
+        left: -365px;
+    }
+    .button {
+        width: 65px;
+        height: 65px;
+    }
+    .caption {
+        top: 825px;
+        width: 600px;
+    }
+    #chartBackground {
+        width: 408px;
+        left: -3px;
+    }
+
+}
+
+@media screen and (max-width: 800px) {
+    #mainmenu {
+        left: -200px;
+    }
+}
+
+/*MORE CONTROLS*/
+/*List of Classes and ID's that aren't necessarily used in the CSS, but used to select w/jQ*/
+/******/
+/*CLASSES
+**********
+Prelude Keys
+pC
+pDflat
+pD
+pEflat
+pE
+pF
+pGflat
+pG
+pAflat
+pA
+pBflat
+pB
+**********
+Fugue Keys
+fC
+fDflat
+fD
+fEflat
+fE
+fF
+fGflat
+fG
+fAflat
+fA
+fBflat
+fB
+**********
+Performers Names
+martins
+galling
+hamilton
+richter
+gulda
+gould
+fischer
+hewitt
+tureck
+martins
+*/
+/******/
+/*ID's
+**********
+audio
+**********
+Scores
+sBflatmin
+*/
+/******/
+/*FUNCTIONS
+openScore('scoreName')
+playPiece('vol', 'performerClass', 'audioURL')
+openMM('keyPitch')
+*/
