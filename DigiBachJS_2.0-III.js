@@ -62,8 +62,8 @@ var buttonActivater = function() {
         button.toolTIPSFX();
     });
 };
-$(document).ready(scoreActivater);
-$(document).ready(buttonActivater);
+//$(document).ready(scoreActivater);
+//$(document).ready(buttonActivater);
 var list_of_keys = ["C", "Dflat", "D", "Eflat", "E", "F", "Gflat", "G", "Aflat",
     "A", "Bflat", "B"
 ];
