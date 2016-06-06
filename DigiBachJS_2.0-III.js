@@ -151,7 +151,7 @@ var listOfActivated = [];
 var menuFunction = function() {
     // Optimization
     // Bach_WTC1_Prelude_0_Minor_SCORE
-    if (optiFORM === "default") {} else if (optiCHROMA === "default") {} else if (optiKEY === "default") else if (loadOpti == "OFF") {
+    if (optiFORM === "default") {} else if (optiCHROMA === "default") {} else if (optiKEY === "default") {} else if (loadOpti == "OFF") {
 
     } else {
         // SCORES
