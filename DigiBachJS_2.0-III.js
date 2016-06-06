@@ -34,7 +34,6 @@
 var scoreActivater = function() {
     list_of_pieces.forEach(function(value) {
         button = eval(value);
-        button.createScore();
         button.insertAAxis();
         button.insertTAxis();
         button.putinNote();
@@ -62,8 +61,8 @@ var buttonActivater = function() {
         button.toolTIPSFX();
     });
 };
-//$(document).ready(scoreActivater);
-//$(document).ready(buttonActivater);
+$(document).ready(scoreActivater);
+$(document).ready(buttonActivater);
 var list_of_keys = ["C", "Dflat", "D", "Eflat", "E", "F", "Gflat", "G", "Aflat",
     "A", "Bflat", "B"
 ];
@@ -145,7 +144,42 @@ var dataMenuFunction = function() {
 //
 ////////////////////
 //
+var listOfActivated = [];
 var menuFunction = function() {
+    // Optimization
+    // Bach_WTC1_Prelude_0_Minor_SCORE
+    if (optiFORM === "default") {} else if (optiCHROMA === "default") {} else if (optiKEY === "default") {
+
+    } else {
+        // SCORES
+        var currentScoreName = "Bach_WTC1_" + optiFORM + "_" + optiCHROMA + "_" + optiKEY + "_SCORE";
+        var evalCurrentScoreName = eval(currentScoreName);
+        var listActiveLength = listOfActivated.length;
+        // Iterate across already-added scores
+        var scoreFlag = "no";
+        for (i = 0; i < listActiveLength; i++) {
+            var thisScoreName = listOfActivated[i];
+            if (evalCurrentScoreName === thisScoreName) {
+                scoreFlag = "yes";
+            } else {
+            }
+        }
+        // If flag was found, do nothing
+        if (scoreFlag === "yes") {
+        } else { // else, add to the list and initiate score
+            listOfActivated.push(evalCurrentScoreName);
+            evalCurrentScoreName.createScore();
+        }
+        //
+        // BUTTONS AND DATA
+        // Bach_WTC1_Demus_Prelude_0_Major
+        //var currentObjectName = "Bach_WTC1_" + optiFORM + "_" + optiCHROMA + "_" + optiKEY;
+        //var currentObjectName = "Bach_WTC1_Demus_Prelude_0_Major";
+        //var evalCurrObject = eval(currentObjectName);
+
+
+    }
+    // Rest of the Function
     $('.button').hide();
     $('.data').hide();
     $('.score').hide();
@@ -542,6 +576,7 @@ var menuControl = function() {
         $('#prelude .lvlONEBUTTON').show();
         menuFORM = "cPrelude";
         scatterFORM = "cSPrelude";
+        optiFORM = "Prelude";
         menuFunction();
         dataMenuFunction();
     });
@@ -550,6 +585,7 @@ var menuControl = function() {
         $('#fugue .lvlONEBUTTON').show();
         menuFORM = "cFugue";
         scatterFORM = "cSFugue";
+        optiFORM = "Fugue";
         menuFunction();
         dataMenuFunction();
     });
@@ -558,6 +594,7 @@ var menuControl = function() {
         $('#prelude .lvlONEBUTTON').show();
         menuFORM = "cPrelude";
         scatterFORM = "cSPrelude";
+        optiFORM = "Prelude";
         menuFunction();
         dataMenuFunction();
     });
@@ -575,6 +612,7 @@ var menuControl = function() {
             }
             menuCHROMA = "c0";
             scatterCHROMA = "cS0";
+            optiCHROMA = "0";
             menuFunction();
             dataMenuFunction();
         });
@@ -589,7 +627,8 @@ var menuControl = function() {
             }
             menuCHROMA = "c1";
             scatterCHROMA = "cS1";
-            menuFunction();
+            optiCHROMA = "1";
+                menuFunction();
             dataMenuFunction();
         });
     }
@@ -603,7 +642,8 @@ var menuControl = function() {
             }
             menuCHROMA = "c2";
             scatterCHROMA = "cS2";
-            menuFunction();
+            optiCHROMA = "2";
+                menuFunction();
             dataMenuFunction();
         });
     }
@@ -617,7 +657,8 @@ var menuControl = function() {
             }
             menuCHROMA = "c3";
             scatterCHROMA = "cS3";
-            menuFunction();
+            optiCHROMA = "3";
+                menuFunction();
             dataMenuFunction();
         });
     }
@@ -631,7 +672,8 @@ var menuControl = function() {
             }
             menuCHROMA = "c4";
             scatterCHROMA = "cS4";
-            menuFunction();
+            optiCHROMA = "4";
+                menuFunction();
             dataMenuFunction();
         });
     }
@@ -645,7 +687,8 @@ var menuControl = function() {
             }
             menuCHROMA = "c5";
             scatterCHROMA = "cS5";
-            menuFunction();
+            optiCHROMA = "5";
+                menuFunction();
             dataMenuFunction();
         });
     }
@@ -659,7 +702,8 @@ var menuControl = function() {
             }
             menuCHROMA = "c6";
             scatterCHROMA = "cS6";
-            menuFunction();
+            optiCHROMA = "6";
+                menuFunction();
             dataMenuFunction();
         });
     }
@@ -673,7 +717,8 @@ var menuControl = function() {
             }
             menuCHROMA = "c7";
             scatterCHROMA = "cS7";
-            menuFunction();
+            optiCHROMA = "7";
+                menuFunction();
             dataMenuFunction();
         });
     }
@@ -687,7 +732,8 @@ var menuControl = function() {
             }
             menuCHROMA = "c8";
             scatterCHROMA = "cS8";
-            menuFunction();
+            optiCHROMA = "8";
+                menuFunction();
             dataMenuFunction();
         });
     }
@@ -701,7 +747,8 @@ var menuControl = function() {
             }
             menuCHROMA = "c9";
             scatterCHROMA = "cS9";
-            menuFunction();
+            optiCHROMA = "9";
+                menuFunction();
             dataMenuFunction();
         });
     }
@@ -715,7 +762,8 @@ var menuControl = function() {
             }
             menuCHROMA = "c10";
             scatterCHROMA = "cS10";
-            menuFunction();
+            optiCHROMA = "10";
+                menuFunction();
             dataMenuFunction();
         });
     }
@@ -729,7 +777,8 @@ var menuControl = function() {
             }
             menuCHROMA = "c11";
             scatterCHROMA = "cS11";
-            menuFunction();
+            optiCHROMA = "11";
+                menuFunction();
             dataMenuFunction();
         });
     }
@@ -739,7 +788,8 @@ var menuControl = function() {
         $('#major .lvlTHREEBUTTON').show();
         menuKEY = "cMajor";
         scatterKEY = "cSMajor";
-        menuFunction();
+        optiKEY = "Major";
+            menuFunction();
         dataMenuFunction();
     });
     $('#major .lvlTHREEBUTTON').click(function() {
@@ -747,7 +797,8 @@ var menuControl = function() {
         $('#minor .lvlTHREEBUTTON').show();
         menuKEY = "cMinor";
         scatterKEY = "cSMinor";
-        menuFunction();
+        optiKEY = "Minor";
+            menuFunction();
         dataMenuFunction();
     });
     $('#minor .lvlTHREEBUTTON').click(function() {
@@ -755,7 +806,8 @@ var menuControl = function() {
         $('#major .lvlTHREEBUTTON').show();
         menuKEY = "cMajor";
         scatterKEY = "cSMajor";
-        menuFunction();
+        optiKEY = "Major";
+            menuFunction();
         dataMenuFunction();
     });
 };

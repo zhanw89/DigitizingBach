@@ -55,6 +55,9 @@ if (appMODE == "bacheditorMODE") {
 }
 
 // Menu variables
+var optiFORM = "default";
+var optiCHROMA = "default";
+var optiKEY = "default";
 var menuFORM;
 var menuCHROMA;
 var menuKEY;
