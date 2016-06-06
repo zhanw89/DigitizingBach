@@ -1125,14 +1125,14 @@ var tabBTN = function() {
             $('.scoreAuthor, .scorePic').hide();
             menuScorechooser = "cHughesscore";
             $('.tab').removeClass('scoretabselected');
-            $('.HughesTAB').addClass('scoretabselected');
+            $(this).addClass('scoretabselected');
             $('.' + menuScorechooser).show();
         });
     $('.bartokTAB').click(function() {
         $('.scoreAuthor, .scorePic').hide();
         menuScorechooser = "cBartokscore";
         $('.tab').removeClass('scoretabselected');
-        $('.bartokTAB').addClass('scoretabselected');
+        $(this).addClass('scoretabselected');
         $('.' + menuScorechooser).show();
     });
 }
