@@ -71,7 +71,7 @@ var toolTipHolder = "toolTipBoxT";
 var currentPiecePlaying = "NA";
 var scatterColortoggle = "scatterColorOff";
 //
-var loadOpti = "ON";
+var loadOpti = "OFF";
 var scoreLoadFlag = false;
 //
 //with spaces
