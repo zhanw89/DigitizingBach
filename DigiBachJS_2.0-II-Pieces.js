@@ -2,12 +2,13 @@
 // A subset of the Emotional Piano Experiment
 // MAPLE Lab, McMaster
 //
-// 
+//
 // Written by Kyle Gauder
-
-// v2.0
+// Git Repo: https://github.com/gauderkd/DigitizingBach
 // file 3: Object injection for information per piece
-
+//
+///////////////////////////////////////////////////////
+//
 //Bach WTC Performers
 if (loadBachWTC == true) {
 	//data.... (tooltip,tempoaxis,attackaxis&tooltip)

@@ -4,10 +4,11 @@
 //
 //
 // Written by Kyle Gauder
-
-// v2.0
+// Git Repo: https://github.com/gauderkd/DigitizingBach
 // file 4: Object injection for information per score
-
+//
+///////////////////////////////////////////////////////
+//
 
 var Bach_WTC1_Prelude_0_Major_SCORE = new scoreFile('Bach','WTC1','Prelude','1','0','C','Major','Q',4);
 var Bach_WTC1_Prelude_0_Minor_SCORE = new scoreFile('Bach','WTC1','Prelude','2','0','C','Minor','Q',4);

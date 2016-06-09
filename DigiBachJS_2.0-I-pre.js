@@ -3,22 +3,17 @@
 // MAPLE Lab, McMaster
 //
 //
-// This application was written to provide an interactive visualization of a large dataset for Bach's Well-Tempered Clavier,
-// used in research projects by the MAPLE Lab
-//
-//
 // Written by Kyle Gauder
- 
-// v2.0
+// Git Repo: https://github.com/gauderkd/DigitizingBach
 // File 1: initial variables
-
+//
 // This application is split into multiple javascript files that load in sequence. 
-
 // Local vs Online
 // You can set this application to pull from a local directory for its images and mp3 files
 // This is handled by the variable "urlPrefix" at the beginning of the HTML
-
-
+//
+///////////////////////////////////////////////////////
+//
 // Type MODE
 // You can set this app to only load specific portions, forcing it into different modes.
 // The available modes are BachEditor, BachPerformer, and ALL 

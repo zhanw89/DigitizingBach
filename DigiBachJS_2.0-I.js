@@ -4,10 +4,11 @@
 //
 //
 // Written by Kyle Gauder
-
-// v2.0
+// Git Repo: https://github.com/gauderkd/DigitizingBach
 // File 2: Object Prototype Creation
-
+//
+///////////////////////////////////////////////////////
+//
 //Capitalize the first letter method
 String.prototype.caps = function() {
     return this.charAt(0).toUpperCase() + this.slice(1);

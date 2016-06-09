@@ -1,33 +1,26 @@
-<!--Digitizing Bach Application-->
-<!--A subset of the Emotional Piano Experiment-->
-<!--MAPLE Lab, McMaster-->
-<!---->
-<!---->
-<!--Written by Kyle Gauder-->
-<!--v2.0-->
-<!--HTML-->
+<!--
+Digitizing Bach Application
+LOCAL DEVELOPMENT BUILD
+A subset of the Emotional Piano Experiment
+MAPLE Lab, McMaster
+
+
+Written by Kyle Gauder
+Git Repo: https://github.com/gauderkd/DigitizingBach
+-->
 <!DOCTYPE html>
 <html>
 <head>
+    <!--
+    If using with local files, make sure to set urlPrefix accordingly
+    Also, if using on website/online, or in a different folder, set your script/css sources to your new locations.
+    -->
 <link href="file:///Users/kyle/Documents/DigitizingBach/DigiBachStylesheet.css" type="text/css" rel="stylesheet" />
     <!--Initial variables for application (local vs online, type mode-->
     <script>
           var appMODE = "allMODE";
           // Options: "allMODE" , "demoMODE", "bacheditorMODE" , "bachperformerMODE" NOTE EDITOR MODE IS BROKEN CURRENTLY
           var urlPrefix = "http://maplelab.net/virtualPianist/";
-          // Change this to a local directory if you wish to load applet offline
-          // ie "file:///Users/kyle/Desktop/DigiBachBuild/Resources/"
-          //
-              // Unimplemented code for controlling mode by URL variable
-              //var URLcode = window.location.href;
-              //var URLcodeLOCATION = URLcode.indexOf('local=true');
-              //if (URLcodeLOCATION > 0) {
-              //    urlPrefix = prompt("You're entering Local mode! Please enter the local 'Resources' folder. The default is set to a 'DigiBachBuild' folder on your desktop","file:///Users/kyle/Desktop/DigiBachBuild/Resources/");
-              //}  else if (URLcodeLOCATION === -1) {
-              //    urlPrefix = "http://maplelab.net/virtualPianist/";
-              //} else {
-              //    urlPrefix = "http://maplelab.net/virtualPianist/";
-              //}
     </script>
     <script src=
     "file:///Users/kyle/Documents/DigitizingBach/jquery-2.2.3.min.js">
@@ -46,6 +39,12 @@
     </script>
     <script src=
     "file:///Users/kyle/Documents/DigitizingBach/DigiBachJS_2.0-III.js">
+    </script>
+    <script src=
+                    "file:///Users/kyle/Documents/DigitizingBach/DigiBachJS-IV-Hotkeys.js">
+    </script>
+    <script src=
+                    "file:///Users/kyle/Documents/DigitizingBach/DigiBachJS-IV-Init.js">
     </script>
     <title></title>
 </head><!--jQuery load-->
