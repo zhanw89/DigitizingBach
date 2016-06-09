@@ -280,12 +280,12 @@ text-align: left;
   background-repeat: no-repeat;
 }
 .playBut {
-  background-image: url("http://www.maplelab.net/virtualPianist/AmplitudeEnv/playButton.png");
+  background-image: url("https://www.maplelab.net/virtualPianist/AmplitudeEnv/playButton.png");
   display: none;
 }
 
 .pauseBut {
-  background-image: url("http://www.maplelab.net/virtualPianist/AmplitudeEnv/pauseButton.png");
+  background-image: url("https://www.maplelab.net/virtualPianist/AmplitudeEnv/pauseButton.png");
   display: show;
 }
 /******/

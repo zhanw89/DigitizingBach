@@ -72,6 +72,7 @@ var currentPiecePlaying = "NA";
 var scatterColortoggle = "scatterColorOff";
 //
 var loadOpti = "ON";
+var scoreLoadFlag = false;
 //
 //with spaces
 var masterList = ["Fischer", "Tureck", "Gould", "Martins",

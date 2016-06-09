@@ -69,6 +69,7 @@ $(document).ready(buttonActivater);
 var list_of_keys = ["C", "Dflat", "D", "Eflat", "E", "F", "Gflat", "G", "Aflat",
     "A", "Bflat", "B"
 ];
+
 //
 /////////////////////////////
 // Data Menu Functionality //
@@ -1093,13 +1094,6 @@ var tabBTN = function() {
             $('.czernyTAB').addClass('scoretabselected');
             $('.' + menuScorechooser).show();
         });
-        $('.busoniTAB').click(function() {
-            $('.scoreAuthor, .scorePic').hide();
-            menuScorechooser = "cBusoniscore";
-            $('.tab').removeClass('scoretabselected');
-            $(this).addClass('scoretabselected');
-            $('.' + menuScorechooser).show();
-        });
         $('.mugelliniTAB').click(function() {
             $('.scoreAuthor, .scorePic').hide();
             menuScorechooser = "cMugelliniscore";
@@ -1637,6 +1631,16 @@ function validate(evt) {
 $(document).ready(function() {
     $(document).keydown(function(key) {
         switch (parseInt(key.which, 10)) {
+            case 189:
+                if(key.ctrlKey) {
+                    if (scoreLoadFlag == true) {} else {
+                        scoreLoadFlag = true;
+                        list_of_pieces.forEach(function (value) {
+                            button = eval(value);gu
+                            button.createScore();
+                        });
+                    }
+                }
             //# Hotkeys for Chroma
             case 192: //~ key = 0
                 if (!$('#pieceNum').hasClass('pNumSelect')) {
@@ -1729,16 +1733,21 @@ $(document).ready(function() {
                 $('#major .lvlTHREEBUTTON').trigger("click");
                 break;
             case 190:
+                if ($('.bartokTAB').hasClass(
+                        'scoretabselected')) {
+                    $('.bischoffTAB').trigger("click");
+                    break;
+                }
                 if ($('.bischoffTAB').hasClass(
                     'scoretabselected')) {
                     $('.czernyTAB').trigger("click");
                     break;
                 }
-                //if ( $('.busoniTAB').hasClass('scoretabselected') ) {
-                //$('.czernyTAB').trigger("click");
-                //break;
-                //} 
                 if ($('.czernyTAB').hasClass('scoretabselected')) {
+                    $('.hughesTAB').trigger("click");
+                    break;
+                }
+                if ($('.hughesTAB').hasClass('scoretabselected')) {
                     $('.mugelliniTAB').trigger("click");
                     break;
                 }
@@ -1748,15 +1757,20 @@ $(document).ready(function() {
                     break;
                 }
                 if ($('.palmerTAB').hasClass('scoretabselected')) {
-                    $('.bischoffTAB').trigger("click");
+                    $('.bartokTAB').trigger("click");
                     break;
                 } else {
                     break;
                 }
             case 188:
+                if ($('.bartokTAB').hasClass(
+                        'scoretabselected')) {
+                    $('.palmerTAB').trigger("click");
+                    break;
+                }
                 if ($('.bischoffTAB').hasClass(
                     'scoretabselected')) {
-                    $('.palmerTAB').trigger("click");
+                    $('.bartokTAB').trigger("click");
                     break;
                 }
                 //if ( $('.busoniTAB').hasClass('scoretabselected') ) {
@@ -1767,9 +1781,13 @@ $(document).ready(function() {
                     $('.bischoffTAB').trigger("click");
                     break;
                 }
+                if ($('.hughesTAB').hasClass('scoretabselected')) {
+                    $('.czernyTAB').trigger("click");
+                    break;
+                }
                 if ($('.mugelliniTAB').hasClass(
                     'scoretabselected')) {
-                    $('.czernyTAB').trigger("click");
+                    $('.hughesTAB').trigger("click");
                     break;
                 }
                 if ($('.palmerTAB').hasClass('scoretabselected')) {
