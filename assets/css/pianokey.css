@@ -1,0 +1,114 @@
+/*Digitizing Bach Application
+A subset of the Emotional Piano Experiment
+MAPLE Lab, McMaster
+
+
+Written by Kyle Gauder
+Git Repo: https://github.com/gauderkd/DigitizingBach
+
+
+Piano Keyboard in CSS
+Used as menu main LEVEL 2 selector
+*/
+
+#regularKeyboard {
+    position: absolute;
+}
+
+#fugKeyboard {
+    position: absolute;
+    display: none;
+}
+
+#defKeyboard {
+    position: absolute;
+}
+
+.keypair {
+    /*Black and White keys are grouped into "pairs"*/
+    float: left;
+    position: relative;
+}
+
+.key {
+    /*White key styling*/
+    position: absolute;
+    height: 96px;
+    width: 36px;
+    background: #CFCFCF;
+    /*Default grayed-out look of the key*/
+    border: 1px solid #3F3F3F;
+    z-index: 4;
+    border-bottom: 2px solid #000;
+    border-top: 2px solid #000;
+}
+
+.blackkey {
+    /*Black key styling*/
+    position: absolute;
+    left: 29px;
+    width: 17px;
+    height: 57px;
+    background: #A6A6A6;
+    /*Default grayed-out look of the key*/
+    border: 1px solid #3F3F3F;
+    border-top: 2px solid #000;
+    z-index: 5;
+}
+
+.chromaC {
+    border-left: 2px solid #000;
+
+}
+
+.chromaD {
+    left: 38px;
+}
+
+.chromaEflat {
+    left: 66px;
+}
+
+.chromaE {
+    left: 75px;
+}
+
+.chromaF {
+    left: 112px;
+}
+
+.chromaGflat {
+    left: 140px;
+}
+
+.chromaG {
+    left: 149px;
+}
+
+.chromaAflat {
+    left: 177px;
+}
+
+.chromaA {
+    left: 186px;
+}
+
+.chromaBflat {
+    left: 214px;
+}
+
+.chromaB {
+    left: 223px;
+    border-bottom-right-radius: 15px;
+    border-right: 2px solid #000;
+}
+
+.activeWhite {
+    background: #fff;
+    cursor: pointer;
+}
+
+.activeBlack {
+    background: #000;
+    cursor: pointer;
+}

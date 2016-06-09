@@ -1,0 +1,408 @@
+/*Digitizing Bach Application
+A subset of the Emotional Piano Experiment
+MAPLE Lab, McMaster
+
+
+Written by Kyle Gauder
+Git Repo: https://github.com/gauderkd/DigitizingBach
+
+
+Styling for Tempo plot
+*/
+#chartPad {
+    position: absolute;
+    left: 409px;
+    top: 380px;
+    width: 454px;
+}
+
+.palmerLINE {
+    position: absolute;
+    left: 71px;
+    width: 300px;
+    height: 2px;
+    background: blue;
+    opacity: .75;
+    z-index: 50;
+}
+
+.attackAxis {
+    position: absolute;
+    z-index: 3;
+    display: none;
+}
+
+.tempoAxis {
+    position: absolute;
+    z-index: 3;
+    display: none;
+}
+
+#performerXaxis {
+    display: none;
+    position: absolute;
+    z-index: 4;
+}
+
+#editorXaxis {
+    position: absolute;
+    z-index: 4;
+    display: none;
+}
+
+#combinedXaxis {
+    position: absolute;
+    z-index: 4;
+    display: none;
+}
+
+#chartAreaChopin {
+    position: absolute;
+    z-index: 4;
+    display: none;
+}
+
+#defaultAttackaxis {
+    position: absolute;
+    z-index: 5;
+    display: none;
+}
+
+#defaultTempoaxis {
+    position: absolute;
+    z-index: 6;
+}
+
+#chartAreaWhiteBack {
+    position: absolute;
+    z-index: 2;
+    height: 360px;
+    width: 480px;
+    background: #fff;
+    border: 1px solid #000;
+}
+
+#chartBackground {
+    top: -10px;
+    left: -9px;
+    position: absolute;
+    border-radius: 10px;
+    box-shadow: 3px 3px 10px #000;
+    background: gray;
+    width: 500px;
+    height: 380px;
+    z-index: 1;
+}
+
+.data {
+    /*Default values for data points*/
+    display: none;
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    z-index: 6;
+    left: 71px;
+    float: center;
+    top: 306px;
+    cursor: pointer;
+    z-index: 15;
+}
+
+.redDot {
+    background-color: red;
+}
+
+.redPDot {
+    background-color: red;
+    border-radius: 5px;
+}
+
+.redHSquare {
+    background-color: red;
+    border-radius: 0px !important;
+
+}
+
+.blackDot {
+    background-color: #000;
+    cursor: not-allowed;
+}
+
+.graySquare {
+    border-radius: 0px;
+    background-color: gray;
+}
+
+.pianoData {
+    border-radius: 5px;
+}
+
+.harpData {
+    border-radius: 0;
+}
+
+.commentData {
+    border-radius: 0;
+    background-color: gray;
+}
+
+.editorData {
+    border-radius: 0px;
+    background-color: gray;
+}
+
+.noData {
+    background-color: #000;
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    z-index: 3;
+    left: 71px;
+    float: center;
+    background-color: gray;
+    top: 306px;
+}
+
+.palmData {
+    border-radius: 5px;
+    background-color: gray !important;
+}
+
+/*Toggle text and display*/
+.toggleTag {
+    text-align: right;
+    position: absolute;
+    z-index: 10;
+    font-size: 14px;
+    left: 835px;
+    top: 755px;
+}
+
+.dataToggle {
+    width: 15px;
+    height: 30px;
+    border-radius: 5px;
+    background: gray;
+    position: absolute;
+    z-index: 10;
+    left: 880px;
+    top: 760px;
+    cursor: pointer;
+    box-shadow: 3px 3px 10px #000;
+}
+
+.dataToggleDot {
+    background: #d3d3d3;
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
+    left: 2px;
+    top: 3px;
+    position: absolute;
+    border: 1px solid #000;
+}
+
+.palmerHolder {
+    position: absolute;
+    top: 310px;
+    left: -10px;
+    display: none;
+}
+
+.noteDisplay {
+    position: absolute;
+    font-size: 25px;
+    left: 420px;
+    top: 390px;
+    z-index: 50;
+}
+
+.halfnotePICaxis {
+    top: 0;
+    left: 0;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    background-size: 30px 30px;
+    background-repeat: no-repeat;
+    background-position: right;
+    z-index: 50;
+}
+
+.halfnotePICtooltip {
+    top: -5px;
+    left: -5px;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    background-size: 30px 30px;
+    background-repeat: no-repeat;
+    background-position: right;
+    z-index: 50;
+}
+
+.halfnoteDOTPICtooltip {
+    top: -5px;
+    left: -5px;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    background-size: 30px 30px;
+    background-repeat: no-repeat;
+    background-position: right;
+    z-index: 50;
+}
+
+.scoreNote {
+    display: none;
+    font-size: 20px !important;
+}
+
+/*x-axis default positions/*
+/*Each tick goes up by 33px when dot is 5px. 28px when dot is 8px*/
+.dataHolder {
+    position: absolute;
+    left: 8px;
+}
+
+.point {
+    position: absolute;
+}
+
+/*editor Dots*/
+
+.xAtick {
+    width: 2px;
+    height: 6px;
+    opacity: .7;
+    background-color: grey;
+    position: absolute;
+    top: 310px;
+    z-index: 14;
+}
+
+.xAxisTicks {
+    position: absolute;
+    left: 82px;
+}
+
+.xEdit {
+    display: none;
+}
+
+/****/
+
+/**/
+/*TOOLTIPS*/
+.toolTipBoxA {
+    width: 50px; /* = 50*/
+    height: 16px;
+    top: -3px;
+    left: -90px;
+    opacity: 1;
+    background-color: gray;
+    box-shadow: 3px 3px 20px #000;
+    border-radius: 5px;
+    z-index: 100;
+    position: absolute;
+    display: none;
+    color: #FFFFFF;
+    text-align: center;
+    padding-bottom: 5px;
+    cursor: auto;
+    font-family: "Times New Roman", Times, serif;
+}
+
+.toolTipBoxT {
+    width: 50px; /* = 50*/
+    height: 16px;
+    top: -3px;
+    left: -70px;
+    opacity: 1;
+    background-color: gray;
+    box-shadow: 3px 3px 20px #000;
+    border-radius: 5px;
+    z-index: 100;
+    position: absolute;
+    display: none;
+    color: #FFFFFF;
+    text-align: center;
+    padding-bottom: 5px;
+    cursor: auto;
+    font-family: "Times New Roman", Times, serif;
+}
+
+.actualData, .tempoData, .attackData {
+    display: none;
+}
+
+.movenoteRight {
+    left: 860px;
+    color: grey;
+}
+
+.scoretabselected {
+    background: #fff;
+}
+
+.contentBach {
+    display: none;
+}
+
+.performerContainer {
+    z-index: 50;
+    position: absolute;
+    left: 100px;
+    top: 100px;
+}
+
+.performerGraph {
+    position: absolute;
+    z-index: 4;
+    top: 353px;
+    left: 400px;
+    position: absolute;
+    width: 40px;
+    font-size: 18px !important;
+    line-height: 15px !important;
+    text-align: center;
+    height: 15px;
+    border: 2px solid #000;
+    background: #fff;
+    cursor: pointer;
+    display: none;
+}
+
+.editorGraph {
+    position: absolute;
+    z-index: 4;
+    top: 353px;
+    left: 440px;
+    position: absolute;
+    width: 40px;
+    font-size: 18px !important;
+    line-height: 15px !important;
+    text-align: center;
+    height: 15px;
+    border: 2px solid #000;
+    background: #fff;
+    cursor: pointer;
+    display: none;
+}
+
+.completeGraph {
+    position: absolute;
+    z-index: 4;
+    top: 353px;
+    left: 480px;
+    position: absolute;
+    width: 40px;
+    font-size: 18px !important;
+    line-height: 15px !important;
+    text-align: center;
+    height: 15px;
+    border: 2px solid #000;
+    background: #fff;
+    cursor: pointer;
+    display: none;
+}

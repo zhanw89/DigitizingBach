@@ -29,20 +29,22 @@
 //
 //////////////////////////////
 //
-var scoreActivater = function() {
-    list_of_pieces.forEach(function(value) {
+var scoreActivater = function () {
+    list_of_pieces.forEach(function (value) {
         button = eval(value);
         button.insertAAxis();
         button.insertTAxis();
         button.putinNote();
         if (loadOpti == "OFF") {
             button.createScore();
-        } else {};
+        } else {
+        }
+        ;
     });
 };
 //Activating file
-var buttonActivater = function() {
-    list_of_files.forEach(function(value) {
+var buttonActivater = function () {
+    list_of_files.forEach(function (value) {
         button = eval(value);
         if (appMODE == "demoMODE") {
         } else {
@@ -55,7 +57,7 @@ var buttonActivater = function() {
         button.play();
         button.fX();
     });
-    list_of_OFFfiles.forEach(function(value) {
+    list_of_OFFfiles.forEach(function (value) {
         button = eval(value);
         button.dataInitialize();
         button.toolTIPS();
@@ -83,7 +85,7 @@ var list_of_keys = ["C", "Dflat", "D", "Eflat", "E", "F", "Gflat", "G", "Aflat",
 //
 //////////////////////////////
 //
-var dataMenuFunction = function() {
+var dataMenuFunction = function () {
     $('.attackAxis').hide();
     $('.tempoAxis').hide();
     $('#defaultAttackaxis').hide();
@@ -147,10 +149,13 @@ var dataMenuFunction = function() {
 ////////////////////
 //
 var listOfActivated = [];
-var menuFunction = function() {
+var menuFunction = function () {
     // Optimization
     // Bach_WTC1_Prelude_0_Minor_SCORE
-    if (optiFORM === "default") {} else if (optiCHROMA === "default") {} else if (optiKEY === "default") {} else if (loadOpti == "OFF") {
+    if (optiFORM === "default") {
+    } else if (optiCHROMA === "default") {
+    } else if (optiKEY === "default") {
+    } else if (loadOpti == "OFF") {
 
     } else {
         // SCORES
@@ -193,7 +198,7 @@ var menuFunction = function() {
         'scatterClicked');
     if (scatterColortoggle === "scatterColorOn") {
         if ($('.' + scatterFORM + '.' + scatterCHROMA + '.' + scatterKEY).hasClass(
-            'cSMajor') === true) {
+                'cSMajor') === true) {
             $('.' + scatterFORM + '.' + scatterCHROMA + '.' + scatterKEY).css(
                 "box-shadow", "0px 0px 10px red");
         } else {
@@ -207,7 +212,7 @@ var menuFunction = function() {
     if (quickPerformer === true) {
         //When quickPerformer is ON
         if ($('.' + menuPIECE + '.' + menuFORM + '.' + menuCHROMA + '.' +
-            menuKEY).length) {
+                menuKEY).length) {
             $('.score.' + menuPIECE + '.' + menuFORM + '.' + menuCHROMA +
                 '.' + menuKEY).show();
             $('.scoreNote.' + menuPIECE + '.' + menuFORM + '.' + menuCHROMA +
@@ -219,14 +224,14 @@ var menuFunction = function() {
             } else {
                 $('.data.' + menuPIECE + '.' + menuFORM + '.' + menuCHROMA +
                     '.' + menuKEY + '.' + menuPERFORMER).trigger(
-			    "click");
+                    "click");
             }
         } else {
         }
     } else {
         //When quickPerformer is OFF
         if ($('.' + menuPIECE + '.' + menuFORM + '.' + menuCHROMA + '.' +
-            menuKEY).length) {
+                menuKEY).length) {
             $('.score.' + menuPIECE + '.' + menuFORM + '.' + menuCHROMA +
                 '.' + menuKEY).show();
             $('.scoreNote.' + menuPIECE + '.' + menuFORM + '.' + menuCHROMA +
@@ -252,13 +257,13 @@ var menuFunction = function() {
 //
 //////////////////////////////
 //
-var menuControl = function() {
-    $('#pieceNum').click(function() {
+var menuControl = function () {
+    $('#pieceNum').click(function () {
         $(this).addClass('pNumSelect');
     });
-    $('#scatterTab').click(function() {
+    $('#scatterTab').click(function () {
         if (!$('#scatterplotContainer').hasClass(
-            'scatterplotVISIBLE')) {
+                'scatterplotVISIBLE')) {
             $('#scatterplotContainer').css('top', 120 + "px");
             $('#scatterplotContainer').css('opacity', 0);
             $('#scatterplotContainer').show();
@@ -282,19 +287,19 @@ var menuControl = function() {
                 'scatterplotVISIBLE');
         }
     });
-    $('#scatterPrelude').click(function() {
+    $('#scatterPrelude').click(function () {
         $('.cSFugue').fadeOut();
         $('.cSPrelude').fadeIn();
     });
-    $('#scatterFugue').click(function() {
+    $('#scatterFugue').click(function () {
         $('.cSFugue').fadeIn();
         $('.cSPrelude').fadeOut();
     });
-    $('#scatterAll').click(function() {
+    $('#scatterAll').click(function () {
         $('.cSFugue').fadeIn();
         $('.cSPrelude').fadeIn();
     });
-    $('.autoButton').click(function() {
+    $('.autoButton').click(function () {
         if (quickPerformer === true) {
             $('.noData').hide();
             quickPerformer = false;
@@ -319,7 +324,7 @@ var menuControl = function() {
     });
     //
     //
-    $('.dataToggle').click(function() {
+    $('.dataToggle').click(function () {
         if (currentdataType === "tempoData") {
             currentdataType = "attackData";
             toolTipHolder = "toolTipBoxA";
@@ -351,7 +356,7 @@ var menuControl = function() {
         }
     });
     //
-    $('.scatterdataToggle').click(function() {
+    $('.scatterdataToggle').click(function () {
         if (scatterColortoggle === "scatterColorOn") {
             scatterColortoggle = "scatterColorOff";
             $('.scatterdataToggleDot').animate({
@@ -361,7 +366,7 @@ var menuControl = function() {
             });
             $('.cSMajor').css("background-color", "gray");
             $('.cSMinor').css("background-color", "gray");
-	    $("."+scatterFORM+"."+scatterCHROMA+"."+scatterKEY).css("box-shadow", "0px 0px 10px #000");
+            $("." + scatterFORM + "." + scatterCHROMA + "." + scatterKEY).css("box-shadow", "0px 0px 10px #000");
         } else {
             scatterColortoggle = "scatterColorOn";
             $('.scatterdataToggleDot').animate({
@@ -371,18 +376,18 @@ var menuControl = function() {
             });
             $('.cSMajor').css("background-color", "red");
             $('.cSMinor').css("background-color", "blue");
-	    if (menuKEY === "cMajor") {
-                    $("."+scatterFORM+"."+scatterCHROMA+"."+scatterKEY).css("box-shadow", "0px 0px 10px red");
-                } else {
-                    $("."+scatterFORM+"."+scatterCHROMA+"."+scatterKEY).css("box-shadow", "0px 0px 10px blue");
-                } 
+            if (menuKEY === "cMajor") {
+                $("." + scatterFORM + "." + scatterCHROMA + "." + scatterKEY).css("box-shadow", "0px 0px 10px red");
+            } else {
+                $("." + scatterFORM + "." + scatterCHROMA + "." + scatterKEY).css("box-shadow", "0px 0px 10px blue");
+            }
         }
     });
     //
     //Menu functions
     //Composers
-    $('.plotPerformerBUTTON').click(function() {
-	if (menuPLOT === "plotPerformer") {
+    $('.plotPerformerBUTTON').click(function () {
+        if (menuPLOT === "plotPerformer") {
             menuPLOT = "plotEditor";
             $('.plotPerformerBUTTON').hide();
             $('.plotEditorBUTTON').show();
@@ -391,55 +396,55 @@ var menuControl = function() {
             $('#editorXaxis').fadeIn("fast");
             $('#combinedXaxis').fadeOut("fast");
             $(editorPoints).show();
-	        $(performerPoints).hide();
+            $(performerPoints).hide();
             $(editorTicks).fadeIn("fast");
-	        $(performerTicks).fadeOut("fast");
+            $(performerTicks).fadeOut("fast");
             multiplier = 1.25;
             numberOffset = 0;
             for (i = 0; i < listofEditors.length; i++) {
                 var currentText = listofEditors[i];
                 var currentTextLength = currentText.length;
                 if (currentTextLength > 0) {
-                    var currentSpot = ".d" + (i+14-numberOffset);
-		    var currentTick = ".dx" + (i+14-numberOffset);
-                    var newLocal = 24*i*multiplier + "px";
-		    $(currentSpot).css("left", newLocal);
-		    $(currentTick).css("left", newLocal);
+                    var currentSpot = ".d" + (i + 14 - numberOffset);
+                    var currentTick = ".dx" + (i + 14 - numberOffset);
+                    var newLocal = 24 * i * multiplier + "px";
+                    $(currentSpot).css("left", newLocal);
+                    $(currentTick).css("left", newLocal);
                 } else {
                     numberOffset = numberOffset + 1;
                 }
             }
         } else {
-        menuPLOT = "plotEditor";
-        $('.plotPerformerBUTTON').hide();
-        $('.plotEditorBUTTON').show();
-        $('.plotCombinedBUTTON').hide();
-        $('#performerXaxis').fadeOut("fast");
-        $('#editorXaxis').fadeIn("fast");
-        $('#combinedXaxis').fadeOut("fast");
-        $(editorPoints).show();
-        $(performerPoints).hide();
-        $(editorTicks).fadeIn("fast");
-        $(performerTicks).fadeOut("fast");
-        multiplier = 1.25;
-        numberOffset = 0;
-        for (i = 0; i < listofEditors.length; i++) {
-            var currentText = listofEditors[i];
-            var currentTextLength = currentText.length;
-            if (currentTextLength > 0) {
-                var currentSpot = ".d" + (i+14-numberOffset);
-                var currentTick = ".dx" + (i+14-numberOffset);
-                var newLocal = 24*i*multiplier + "px";
-                $(currentSpot).css("left", newLocal);
-                $(currentTick).css("left", newLocal);
-            } else {
-                numberOffset = numberOffset + 1;
+            menuPLOT = "plotEditor";
+            $('.plotPerformerBUTTON').hide();
+            $('.plotEditorBUTTON').show();
+            $('.plotCombinedBUTTON').hide();
+            $('#performerXaxis').fadeOut("fast");
+            $('#editorXaxis').fadeIn("fast");
+            $('#combinedXaxis').fadeOut("fast");
+            $(editorPoints).show();
+            $(performerPoints).hide();
+            $(editorTicks).fadeIn("fast");
+            $(performerTicks).fadeOut("fast");
+            multiplier = 1.25;
+            numberOffset = 0;
+            for (i = 0; i < listofEditors.length; i++) {
+                var currentText = listofEditors[i];
+                var currentTextLength = currentText.length;
+                if (currentTextLength > 0) {
+                    var currentSpot = ".d" + (i + 14 - numberOffset);
+                    var currentTick = ".dx" + (i + 14 - numberOffset);
+                    var newLocal = 24 * i * multiplier + "px";
+                    $(currentSpot).css("left", newLocal);
+                    $(currentTick).css("left", newLocal);
+                } else {
+                    numberOffset = numberOffset + 1;
+                }
             }
         }
-    }
 
     });
-    $('.plotEditorBUTTON').click(function() {
+    $('.plotEditorBUTTON').click(function () {
         if (menuPLOT === "plotEditor") {
             menuPLOT = "plotCombined";
             $('.plotPerformerBUTTON').hide();
@@ -449,20 +454,20 @@ var menuControl = function() {
             $('#editorXaxis').fadeOut("fast");
             $('#combinedXaxis').fadeIn("fast");
             $(editorPoints).show();
-	    $(performerPoints).show();
+            $(performerPoints).show();
             $(editorTicks).fadeIn("fast");
-	    $(performerTicks).fadeIn("fast");
+            $(performerTicks).fadeIn("fast");
             multiplier = 0.58;
             numberOffset = 0;
             for (i = 0; i < listofCombined.length; i++) {
                 var currentText = listofCombined[i];
                 var currentTextLength = currentText.length;
                 if (currentTextLength > 0) {
-                    var currentSpot = ".d" + (i+1-numberOffset);
-		    var currentTick = ".dx" + (i+1-numberOffset);
-		    var newLocal = 24*i*multiplier + "px";
+                    var currentSpot = ".d" + (i + 1 - numberOffset);
+                    var currentTick = ".dx" + (i + 1 - numberOffset);
+                    var newLocal = 24 * i * multiplier + "px";
                     $(currentSpot).css("left", newLocal);
-		    $(currentTick).css("left", newLocal);
+                    $(currentTick).css("left", newLocal);
                 } else {
                     numberOffset = numberOffset + 1;
                 }
@@ -485,9 +490,9 @@ var menuControl = function() {
                 var currentText = listofEditors[i];
                 var currentTextLength = currentText.length;
                 if (currentTextLength > 0) {
-                    var currentSpot = ".d" + (i+14-numberOffset);
-                    var currentTick = ".dx" + (i+14-numberOffset);
-                    var newLocal = 24*i*multiplier + "px";
+                    var currentSpot = ".d" + (i + 14 - numberOffset);
+                    var currentTick = ".dx" + (i + 14 - numberOffset);
+                    var newLocal = 24 * i * multiplier + "px";
                     $(currentSpot).css("left", newLocal);
                     $(currentTick).css("left", newLocal);
                 } else {
@@ -496,34 +501,35 @@ var menuControl = function() {
             }
         }
     });
-    $('.plotCombinedBUTTON').click(function() {
+    $('.plotCombinedBUTTON').click(function () {
         if (menuPLOT === "plotCombined") {
             menuPLOT = "plotPerformer";
             $('.plotPerformerBUTTON').show();
             $('.plotEditorBUTTON').hide();
             $('.plotCombinedBUTTON').hide();
-            $('#performerXaxis').fadeIn("fast");;
+            $('#performerXaxis').fadeIn("fast");
+            ;
             $('#editorXaxis').fadeOut("fast");
             $('#combinedXaxis').fadeOut("fast");
             $(editorPoints).hide();
-	    $(performerPoints).show();
+            $(performerPoints).show();
             $(editorTicks).fadeOut("fast");
-	    $(performerTicks).fadeIn("fast");
+            $(performerTicks).fadeIn("fast");
             multiplier = 0.98;
             numberOffset = 0;
             for (i = 0; i < listofPerformers.length; i++) {
                 var currentText = listofPerformers[i];
                 var currentTextLength = currentText.length;
                 //var currentTick = ".x" + listofPerformers[i];
-	        if (currentTextLength > 0) {
-	    	    var currentSpot = ".d" + (i+1-numberOffset);
-		    var currentTick = ".dx" + (i+1-numberOffset);
-		    var newLocal = 24*i*multiplier + "px";
+                if (currentTextLength > 0) {
+                    var currentSpot = ".d" + (i + 1 - numberOffset);
+                    var currentTick = ".dx" + (i + 1 - numberOffset);
+                    var newLocal = 24 * i * multiplier + "px";
                     $(currentSpot).css("left", newLocal);
-		    $(currentTick).css("left", newLocal);
-	        } else {
-	            numberOffset = numberOffset + 1;
-	        }
+                    $(currentTick).css("left", newLocal);
+                } else {
+                    numberOffset = numberOffset + 1;
+                }
             }
         } else {
             menuPLOT = "plotEditor";
@@ -543,9 +549,9 @@ var menuControl = function() {
                 var currentText = listofEditors[i];
                 var currentTextLength = currentText.length;
                 if (currentTextLength > 0) {
-                    var currentSpot = ".d" + (i+14-numberOffset);
-                    var currentTick = ".dx" + (i+14-numberOffset);
-                    var newLocal = 24*i*multiplier + "px";
+                    var currentSpot = ".d" + (i + 14 - numberOffset);
+                    var currentTick = ".dx" + (i + 14 - numberOffset);
+                    var newLocal = 24 * i * multiplier + "px";
                     $(currentSpot).css("left", newLocal);
                     $(currentTick).css("left", newLocal);
                 } else {
@@ -557,8 +563,9 @@ var menuControl = function() {
     //
     //
     //
-    $('.chopinBUTTON').click(function() {
-        if (menuPIECE === "cChopin") {} else {
+    $('.chopinBUTTON').click(function () {
+        if (menuPIECE === "cChopin") {
+        } else {
             menuPIECE = "cChopin";
             $('.bachPlaceholder').hide();
             $('.chopinPlaceholder').show();
@@ -573,7 +580,7 @@ var menuControl = function() {
     });
     //
     //Prelude vs Fugue
-    $('#formBUT .lvlONEBUTTON').click(function() {
+    $('#formBUT .lvlONEBUTTON').click(function () {
         $(this).hide();
         $('#prelude .lvlONEBUTTON').show();
         menuFORM = "cPrelude";
@@ -582,7 +589,7 @@ var menuControl = function() {
         menuFunction();
         dataMenuFunction();
     });
-    $('#prelude .lvlONEBUTTON').click(function() {
+    $('#prelude .lvlONEBUTTON').click(function () {
         $(this).hide();
         $('#fugue .lvlONEBUTTON').show();
         menuFORM = "cFugue";
@@ -591,7 +598,7 @@ var menuControl = function() {
         menuFunction();
         dataMenuFunction();
     });
-    $('#fugue .lvlONEBUTTON').click(function() {
+    $('#fugue .lvlONEBUTTON').click(function () {
         $(this).hide();
         $('#prelude .lvlONEBUTTON').show();
         menuFORM = "cPrelude";
@@ -606,8 +613,9 @@ var menuControl = function() {
     //Prelude Keyboard controls
     if ($('.cPrelude.c0').length) {
         $('#regularKeyboard .chromaC').addClass('activeWhite');
-        $('#regularKeyboard .chromaC').click(function() {
-            if ($(this).hasClass('menuclicked')) {} else {
+        $('#regularKeyboard .chromaC').click(function () {
+            if ($(this).hasClass('menuclicked')) {
+            } else {
                 $('.key.activeWhite, .blackkey.activeBlack').removeClass(
                     'menuclicked');
                 $(this).addClass('menuclicked');
@@ -621,8 +629,9 @@ var menuControl = function() {
     }
     if ($('.cPrelude.c1').length) {
         $('#regularKeyboard .chromaDflat').addClass('activeBlack');
-        $('#regularKeyboard .chromaDflat').click(function() {
-            if ($(this).hasClass('menuclicked')) {} else {
+        $('#regularKeyboard .chromaDflat').click(function () {
+            if ($(this).hasClass('menuclicked')) {
+            } else {
                 $('.key.activeWhite, .blackkey.activeBlack').removeClass(
                     'menuclicked');
                 $(this).addClass('menuclicked');
@@ -630,14 +639,15 @@ var menuControl = function() {
             menuCHROMA = "c1";
             scatterCHROMA = "cS1";
             optiCHROMA = "1";
-                menuFunction();
+            menuFunction();
             dataMenuFunction();
         });
     }
     if ($('.cPrelude.c2').length) {
         $('#regularKeyboard .chromaD').addClass('activeWhite');
-        $('#regularKeyboard .chromaD').click(function() {
-            if ($(this).hasClass('menuclicked')) {} else {
+        $('#regularKeyboard .chromaD').click(function () {
+            if ($(this).hasClass('menuclicked')) {
+            } else {
                 $('.key.activeWhite, .blackkey.activeBlack').removeClass(
                     'menuclicked');
                 $(this).addClass('menuclicked');
@@ -645,14 +655,15 @@ var menuControl = function() {
             menuCHROMA = "c2";
             scatterCHROMA = "cS2";
             optiCHROMA = "2";
-                menuFunction();
+            menuFunction();
             dataMenuFunction();
         });
     }
     if ($('.cPrelude.c3').length) {
         $('#regularKeyboard .chromaEflat').addClass('activeBlack');
-        $('#regularKeyboard .chromaEflat').click(function() {
-            if ($(this).hasClass('menuclicked')) {} else {
+        $('#regularKeyboard .chromaEflat').click(function () {
+            if ($(this).hasClass('menuclicked')) {
+            } else {
                 $('.key.activeWhite, .blackkey.activeBlack').removeClass(
                     'menuclicked');
                 $(this).addClass('menuclicked');
@@ -660,14 +671,15 @@ var menuControl = function() {
             menuCHROMA = "c3";
             scatterCHROMA = "cS3";
             optiCHROMA = "3";
-                menuFunction();
+            menuFunction();
             dataMenuFunction();
         });
     }
     if ($('.cPrelude.c4').length) {
         $('#regularKeyboard .chromaE').addClass('activeWhite');
-        $('#regularKeyboard .chromaE').click(function() {
-            if ($(this).hasClass('menuclicked')) {} else {
+        $('#regularKeyboard .chromaE').click(function () {
+            if ($(this).hasClass('menuclicked')) {
+            } else {
                 $('.key.activeWhite, .blackkey.activeBlack').removeClass(
                     'menuclicked');
                 $(this).addClass('menuclicked');
@@ -675,14 +687,15 @@ var menuControl = function() {
             menuCHROMA = "c4";
             scatterCHROMA = "cS4";
             optiCHROMA = "4";
-                menuFunction();
+            menuFunction();
             dataMenuFunction();
         });
     }
     if ($('.cPrelude.c5').length) {
         $('#regularKeyboard .chromaF').addClass('activeWhite');
-        $('#regularKeyboard .chromaF').click(function() {
-            if ($(this).hasClass('menuclicked')) {} else {
+        $('#regularKeyboard .chromaF').click(function () {
+            if ($(this).hasClass('menuclicked')) {
+            } else {
                 $('.key.activeWhite, .blackkey.activeBlack').removeClass(
                     'menuclicked');
                 $(this).addClass('menuclicked');
@@ -690,14 +703,15 @@ var menuControl = function() {
             menuCHROMA = "c5";
             scatterCHROMA = "cS5";
             optiCHROMA = "5";
-                menuFunction();
+            menuFunction();
             dataMenuFunction();
         });
     }
     if ($('.cPrelude.c6').length) {
         $('#regularKeyboard .chromaGflat').addClass('activeBlack');
-        $('#regularKeyboard .chromaGflat').click(function() {
-            if ($(this).hasClass('menuclicked')) {} else {
+        $('#regularKeyboard .chromaGflat').click(function () {
+            if ($(this).hasClass('menuclicked')) {
+            } else {
                 $('.key.activeWhite, .blackkey.activeBlack').removeClass(
                     'menuclicked');
                 $(this).addClass('menuclicked');
@@ -705,14 +719,15 @@ var menuControl = function() {
             menuCHROMA = "c6";
             scatterCHROMA = "cS6";
             optiCHROMA = "6";
-                menuFunction();
+            menuFunction();
             dataMenuFunction();
         });
     }
     if ($('.cPrelude.c7').length) {
         $('#regularKeyboard .chromaG').addClass('activeWhite');
-        $('#regularKeyboard .chromaG').click(function() {
-            if ($(this).hasClass('menuclicked')) {} else {
+        $('#regularKeyboard .chromaG').click(function () {
+            if ($(this).hasClass('menuclicked')) {
+            } else {
                 $('.key.activeWhite, .blackkey.activeBlack').removeClass(
                     'menuclicked');
                 $(this).addClass('menuclicked');
@@ -720,14 +735,15 @@ var menuControl = function() {
             menuCHROMA = "c7";
             scatterCHROMA = "cS7";
             optiCHROMA = "7";
-                menuFunction();
+            menuFunction();
             dataMenuFunction();
         });
     }
     if ($('.cPrelude.c8').length) {
         $('#regularKeyboard .chromaAflat').addClass('activeBlack');
-        $('#regularKeyboard .chromaAflat').click(function() {
-            if ($(this).hasClass('menuclicked')) {} else {
+        $('#regularKeyboard .chromaAflat').click(function () {
+            if ($(this).hasClass('menuclicked')) {
+            } else {
                 $('.key.activeWhite, .blackkey.activeBlack').removeClass(
                     'menuclicked');
                 $(this).addClass('menuclicked');
@@ -735,14 +751,15 @@ var menuControl = function() {
             menuCHROMA = "c8";
             scatterCHROMA = "cS8";
             optiCHROMA = "8";
-                menuFunction();
+            menuFunction();
             dataMenuFunction();
         });
     }
     if ($('.cPrelude.c9').length) {
         $('#regularKeyboard  .chromaA').addClass('activeWhite');
-        $('#regularKeyboard  .chromaA').click(function() {
-            if ($(this).hasClass('menuclicked')) {} else {
+        $('#regularKeyboard  .chromaA').click(function () {
+            if ($(this).hasClass('menuclicked')) {
+            } else {
                 $('.key.activeWhite, .blackkey.activeBlack').removeClass(
                     'menuclicked');
                 $(this).addClass('menuclicked');
@@ -750,14 +767,15 @@ var menuControl = function() {
             menuCHROMA = "c9";
             scatterCHROMA = "cS9";
             optiCHROMA = "9";
-                menuFunction();
+            menuFunction();
             dataMenuFunction();
         });
     }
     if ($('.cPrelude.c10').length) {
         $('#regularKeyboard  .chromaBflat').addClass('activeBlack');
-        $('#regularKeyboard  .chromaBflat').click(function() {
-            if ($(this).hasClass('menuclicked')) {} else {
+        $('#regularKeyboard  .chromaBflat').click(function () {
+            if ($(this).hasClass('menuclicked')) {
+            } else {
                 $('.key.activeWhite, .blackkey.activeBlack').removeClass(
                     'menuclicked');
                 $(this).addClass('menuclicked');
@@ -765,14 +783,15 @@ var menuControl = function() {
             menuCHROMA = "c10";
             scatterCHROMA = "cS10";
             optiCHROMA = "10";
-                menuFunction();
+            menuFunction();
             dataMenuFunction();
         });
     }
     if ($('.cPrelude.c11').length) {
         $('#regularKeyboard  .chromaB').addClass('activeWhite');
-        $('#regularKeyboard  .chromaB').click(function() {
-            if ($(this).hasClass('menuclicked')) {} else {
+        $('#regularKeyboard  .chromaB').click(function () {
+            if ($(this).hasClass('menuclicked')) {
+            } else {
                 $('.key.activeWhite, .blackkey.activeBlack').removeClass(
                     'menuclicked');
                 $(this).addClass('menuclicked');
@@ -780,36 +799,36 @@ var menuControl = function() {
             menuCHROMA = "c11";
             scatterCHROMA = "cS11";
             optiCHROMA = "11";
-                menuFunction();
+            menuFunction();
             dataMenuFunction();
         });
     }
     //Major Minor Controls
-    $('#modeBUT .lvlTHREEBUTTON').click(function() {
+    $('#modeBUT .lvlTHREEBUTTON').click(function () {
         $(this).hide();
         $('#major .lvlTHREEBUTTON').show();
         menuKEY = "cMajor";
         scatterKEY = "cSMajor";
         optiKEY = "Major";
-            menuFunction();
+        menuFunction();
         dataMenuFunction();
     });
-    $('#major .lvlTHREEBUTTON').click(function() {
+    $('#major .lvlTHREEBUTTON').click(function () {
         $(this).hide();
         $('#minor .lvlTHREEBUTTON').show();
         menuKEY = "cMinor";
         scatterKEY = "cSMinor";
         optiKEY = "Minor";
-            menuFunction();
+        menuFunction();
         dataMenuFunction();
     });
-    $('#minor .lvlTHREEBUTTON').click(function() {
+    $('#minor .lvlTHREEBUTTON').click(function () {
         $(this).hide();
         $('#major .lvlTHREEBUTTON').show();
         menuKEY = "cMajor";
         scatterKEY = "cSMajor";
         optiKEY = "Major";
-            menuFunction();
+        menuFunction();
         dataMenuFunction();
     });
 };
@@ -828,8 +847,8 @@ $(document).ready(menuControl);
 //
 //////////////////////////////
 //
-var composerFX = function() {
-    $('.bachBUTTON').hover(function() {
+var composerFX = function () {
+    $('.bachBUTTON').hover(function () {
         if ($(this).hasClass('menuclicked')) {
             $(this).removeClass('menuhovered');
             $(this).toggleClass('menuclickedhover');
@@ -837,11 +856,11 @@ var composerFX = function() {
             $(this).toggleClass('menuhovered');
             $(this).removeClass('menuclickedhover');
         }
-    }, function() {
+    }, function () {
         $(this).removeClass('menuhovered');
         $(this).removeClass('menuclickedhover');
     });
-    $('.bachBUTTON').click(function() {
+    $('.bachBUTTON').click(function () {
         if ($(this).hasClass('menuclicked')) {
             $('.bachBUTTON').removeClass('menuclicked');
         } else {
@@ -851,7 +870,7 @@ var composerFX = function() {
             $(this).removeClass('menuclicked');
         }
     });
-    $('.chopinBUTTON').hover(function() {
+    $('.chopinBUTTON').hover(function () {
         if ($(this).hasClass('menuclicked')) {
             $(this).removeClass('menuhovered');
             $(this).toggleClass('menuclickedhover');
@@ -859,22 +878,24 @@ var composerFX = function() {
             $(this).toggleClass('menuhovered');
             $(this).removeClass('menuclickedhover');
         }
-    }, function() {
+    }, function () {
         $(this).removeClass('menuhovered');
         $(this).removeClass('menuclickedhover');
     });
-    $('.chopinBUTTON').click(function() {
-        if ($(this).hasClass('menuclicked')) {} else {
+    $('.chopinBUTTON').click(function () {
+        if ($(this).hasClass('menuclicked')) {
+        } else {
             $('.bachBUTTON').removeClass('menuclicked');
             $('.editorBUTTON').removeClass('menuclicked');
             $(this).addClass('menuclicked');
         }
     });
-    $('.editorBUTTON').hover(function() {
+    $('.editorBUTTON').hover(function () {
         $(this).toggleClass('menuhovered');
     });
-    $('.editorBUTTON').click(function() {
-        if ($(this).hasClass('menuclicked')) {} else {
+    $('.editorBUTTON').click(function () {
+        if ($(this).hasClass('menuclicked')) {
+        } else {
             $('.bachBUTTON').removeClass('menuclicked');
             $('.chopinBUTTON').removeClass('menuclicked');
             $(this).addClass('menuclicked');
@@ -883,17 +904,17 @@ var composerFX = function() {
 };
 //
 // Tempo Plot Button
-var tempoPlotButtonFX = function() {
-	$('.tempoPlotButton').hover(function() {
-		$(this).toggleClass('menuhovered');
-	}, function() {
-		$('.tempoPlotButton').removeClass('menuhovered');
-	});
+var tempoPlotButtonFX = function () {
+    $('.tempoPlotButton').hover(function () {
+        $(this).toggleClass('menuhovered');
+    }, function () {
+        $('.tempoPlotButton').removeClass('menuhovered');
+    });
 };
 //
 // Play Pause button
-var playPauseFX = function() {
-    $('.playPause').hover(function() {
+var playPauseFX = function () {
+    $('.playPause').hover(function () {
         if ($(this).hasClass('menuclicked')) {
             $(this).removeClass('menuhovered');
             $(this).toggleClass('menuclickedhover');
@@ -901,44 +922,45 @@ var playPauseFX = function() {
             $(this).toggleClass('menuhovered');
             $(this).removeClass('menuclickedhover');
         }
-    }, function() {
+    }, function () {
         $(this).removeClass('menuhovered');
         $(this).removeClass('menuclickedhover');
     });
 };
-var playPauseFunction = function() {
+var playPauseFunction = function () {
     aPiece = document.getElementById('audio');
-    $('.playPause').click(function() {
+    $('.playPause').click(function () {
         if (aPiece.paused === false) {
-		aPiece = document.getElementById('audio');
-                aPiece.pause();
-                aPiece.currentTime = 0;
-                $('.pauseBut').show();
-                $('.playBut').hide(); 
-                $('.' + menuPIECE + '.' + menuFORM + '.' + menuCHROMA +
-                    '.' + menuKEY + '.' + menuPERFORMER).removeClass(
-                    'btnclicked');
-		    $('.playPause').addClass('menuclicked');
+            aPiece = document.getElementById('audio');
+            aPiece.pause();
+            aPiece.currentTime = 0;
+            $('.pauseBut').show();
+            $('.playBut').hide();
+            $('.' + menuPIECE + '.' + menuFORM + '.' + menuCHROMA +
+                '.' + menuKEY + '.' + menuPERFORMER).removeClass(
+                'btnclicked');
+            $('.playPause').addClass('menuclicked');
         } else {
             $('.' + menuPIECE + '.' + menuFORM + '.' + menuCHROMA +
                 '.' + menuKEY + '.' + menuPERFORMER).addClass(
                 'btnclicked');
-                $('.pauseBut').hide();
-                $('.playBut').show(); 
-		$('.playPause').removeClass('menuclicked');
-		aPiece = document.getElementById('audio');
+            $('.pauseBut').hide();
+            $('.playBut').show();
+            $('.playPause').removeClass('menuclicked');
+            aPiece = document.getElementById('audio');
             aPiece.play();
         }
-	if (quickPerformer === true) {
+        if (quickPerformer === true) {
             $('.data.' + menuPIECE + '.' + menuFORM + '.' + menuCHROMA +
                 '.' + menuKEY + '.' + menuPERFORMER).trigger(
-		    "click");
-	} else {}
+                "click");
+        } else {
+        }
     });
 };
 //
-var autoFX = function() {
-    $('.autoButton').hover(function() {
+var autoFX = function () {
+    $('.autoButton').hover(function () {
         if ($(this).hasClass('menuclicked')) {
             $(this).removeClass('menuhovered');
             $(this).toggleClass('menuclickedhover');
@@ -946,17 +968,17 @@ var autoFX = function() {
             $(this).toggleClass('menuhovered');
             $(this).removeClass('menuclickedhover');
         }
-    }, function() {
+    }, function () {
         $(this).removeClass('menuhovered');
         $(this).removeClass('menuclickedhover');
     });
-    $('.autoButton').click(function() {
+    $('.autoButton').click(function () {
         $(this).toggleClass('menuclicked');
     });
 };
 //
-var scatterTabFX = function() {
-    $('#scatterTab').hover(function() {
+var scatterTabFX = function () {
+    $('#scatterTab').hover(function () {
         if ($(this).hasClass('menuclicked')) {
             $(this).removeClass('menuhovered');
             $(this).toggleClass('menuclickedhover');
@@ -964,16 +986,16 @@ var scatterTabFX = function() {
             $(this).toggleClass('menuhovered');
             $(this).removeClass('menuclickedhover');
         }
-    }, function() {
+    }, function () {
         $(this).removeClass('menuhovered');
         $(this).removeClass('menuclickedhover');
     });
-    $('#scatterTab').click(function() {
+    $('#scatterTab').click(function () {
         $(this).toggleClass('menuclicked');
     });
 };
-var scatterPreludeFX = function() {
-    $('#scatterPrelude').hover(function() {
+var scatterPreludeFX = function () {
+    $('#scatterPrelude').hover(function () {
         if ($(this).hasClass('menuclicked')) {
             $(this).removeClass('menuhovered');
             $(this).toggleClass('menuclickedhover');
@@ -981,18 +1003,18 @@ var scatterPreludeFX = function() {
             $(this).toggleClass('menuhovered');
             $(this).removeClass('menuclickedhover');
         }
-    }, function() {
+    }, function () {
         $(this).removeClass('menuhovered');
         $(this).removeClass('menuclickedhover');
     });
-    $('#scatterPrelude').click(function() {
+    $('#scatterPrelude').click(function () {
         $(this).addClass('menuclicked');
         $('#scatterFugue').removeClass('menuclicked');
         $('#scatterAll').removeClass('menuclicked');
     });
 };
-var scatterFugueFX = function() {
-    $('#scatterFugue').hover(function() {
+var scatterFugueFX = function () {
+    $('#scatterFugue').hover(function () {
         if ($(this).hasClass('menuclicked')) {
             $(this).removeClass('menuhovered');
             $(this).toggleClass('menuclickedhover');
@@ -1000,18 +1022,18 @@ var scatterFugueFX = function() {
             $(this).toggleClass('menuhovered');
             $(this).removeClass('menuclickedhover');
         }
-    }, function() {
+    }, function () {
         $(this).removeClass('menuhovered');
         $(this).removeClass('menuclickedhover');
     });
-    $('#scatterFugue').click(function() {
+    $('#scatterFugue').click(function () {
         $(this).addClass('menuclicked');
         $('#scatterPrelude').removeClass('menuclicked');
         $('#scatterAll').removeClass('menuclicked');
     });
 };
-var scatterAllFX = function() {
-    $('#scatterAll').hover(function() {
+var scatterAllFX = function () {
+    $('#scatterAll').hover(function () {
         if ($(this).hasClass('menuclicked')) {
             $(this).removeClass('menuhovered');
             $(this).toggleClass('menuclickedhover');
@@ -1019,30 +1041,31 @@ var scatterAllFX = function() {
             $(this).toggleClass('menuhovered');
             $(this).removeClass('menuclickedhover');
         }
-    }, function() {
+    }, function () {
         $(this).removeClass('menuhovered');
         $(this).removeClass('menuclickedhover');
     });
-    $('#scatterAll').click(function() {
+    $('#scatterAll').click(function () {
         $(this).addClass('menuclicked');
         $('#scatterFugue').removeClass('menuclicked');
         $('#scatterPrelude').removeClass('menuclicked');
     });
 };
 //
-var formFX = function() {
-    $('.lvlONEBUTTON').hover(function() {
+var formFX = function () {
+    $('.lvlONEBUTTON').hover(function () {
         $(this).toggleClass('menuclickedhover');
     });
-    $('.lvlONEBUTTON').click(function() {
-        if ($(this).hasClass('menuclicked')) {} else {
+    $('.lvlONEBUTTON').click(function () {
+        if ($(this).hasClass('menuclicked')) {
+        } else {
             $('.lvlONEBUTTON').removeClass('menuclicked');
             $(this).addClass('menuclicked');
         }
     });
 };
-var chromaFX = function() {
-    $('.key.activeWhite, .blackkey.activeBlack').hover(function() {
+var chromaFX = function () {
+    $('.key.activeWhite, .blackkey.activeBlack').hover(function () {
         if ($(this).hasClass('menuclicked')) {
             $(this).removeClass('menuhovered');
             $(this).toggleClass('menuclickedhover');
@@ -1050,77 +1073,78 @@ var chromaFX = function() {
             $(this).toggleClass('menuhovered');
             $(this).removeClass('menuclickedhover');
         }
-    }, function() {
+    }, function () {
         $(this).removeClass('menuhovered');
         $(this).removeClass('menuclickedhover');
     });
 };
-var keyFX = function() {
-    $('.lvlTHREEBUTTON').hover(function() {
+var keyFX = function () {
+    $('.lvlTHREEBUTTON').hover(function () {
         $(this).toggleClass('menuclickedhover');
     });
-    $('.lvlTHREEBUTTON').click(function() {
-        if ($(this).hasClass('menuclicked')) {} else {
+    $('.lvlTHREEBUTTON').click(function () {
+        if ($(this).hasClass('menuclicked')) {
+        } else {
             $('.lvlTHREEBUTTON').removeClass('menuclicked');
             $(this).addClass('menuclicked');
         }
     });
 };
-var scoreButtonsFX = function() {
-    $('.nextScore, .prevScore').hover(function() {
+var scoreButtonsFX = function () {
+    $('.nextScore, .prevScore').hover(function () {
         $(this).toggleClass('scoreButtonHover');
     });
 };
 //
-var resetBTN = function() {
-    $('#stopALL').hover(function() {
+var resetBTN = function () {
+    $('#stopALL').hover(function () {
         $(this).toggleClass('menuhovered');
     });
-    $('#stopAll').click(function() {
+    $('#stopAll').click(function () {
         $('.lvlONEBUTTON').removeClass('menuclicked');
     });
 };
 //
-var tabBTN = function() {
-        $('.tab').hover(function() {
-            $(this).toggleClass('menuhovered');
-        });
-        $('.czernyTAB').click(function() {
-            $('.scoreAuthor, .scorePic').hide();
-            menuScorechooser = "cCzernyscore";
-            $('.tab').removeClass('scoretabselected');
-            $('.czernyTAB').addClass('scoretabselected');
-            $('.' + menuScorechooser).show();
-        });
-        $('.mugelliniTAB').click(function() {
-            $('.scoreAuthor, .scorePic').hide();
-            menuScorechooser = "cMugelliniscore";
-            $('.tab').removeClass('scoretabselected');
-            $(this).addClass('scoretabselected');
-            $('.' + menuScorechooser).show();
-        });
-        $('.palmerTAB').click(function() {
-            $('.scoreAuthor, .scorePic').hide();
-            menuScorechooser = "cPalmerscore";
-            $('.tab').removeClass('scoretabselected');
-            $(this).addClass('scoretabselected');
-            $('.' + menuScorechooser).show();
-        });
-        $('.bischoffTAB').click(function() {
-            $('.scoreAuthor, .scorePic').hide();
-            menuScorechooser = "cBischoffscore";
-            $('.tab').removeClass('scoretabselected');
-            $(this).addClass('scoretabselected');
-            $('.' + menuScorechooser).show();
-        });
-        $('.hughesTAB').click(function() {
-            $('.scoreAuthor, .scorePic').hide();
-            menuScorechooser = "cHughesscore";
-            $('.tab').removeClass('scoretabselected');
-            $(this).addClass('scoretabselected');
-            $('.' + menuScorechooser).show();
-        });
-    $('.bartokTAB').click(function() {
+var tabBTN = function () {
+    $('.tab').hover(function () {
+        $(this).toggleClass('menuhovered');
+    });
+    $('.czernyTAB').click(function () {
+        $('.scoreAuthor, .scorePic').hide();
+        menuScorechooser = "cCzernyscore";
+        $('.tab').removeClass('scoretabselected');
+        $('.czernyTAB').addClass('scoretabselected');
+        $('.' + menuScorechooser).show();
+    });
+    $('.mugelliniTAB').click(function () {
+        $('.scoreAuthor, .scorePic').hide();
+        menuScorechooser = "cMugelliniscore";
+        $('.tab').removeClass('scoretabselected');
+        $(this).addClass('scoretabselected');
+        $('.' + menuScorechooser).show();
+    });
+    $('.palmerTAB').click(function () {
+        $('.scoreAuthor, .scorePic').hide();
+        menuScorechooser = "cPalmerscore";
+        $('.tab').removeClass('scoretabselected');
+        $(this).addClass('scoretabselected');
+        $('.' + menuScorechooser).show();
+    });
+    $('.bischoffTAB').click(function () {
+        $('.scoreAuthor, .scorePic').hide();
+        menuScorechooser = "cBischoffscore";
+        $('.tab').removeClass('scoretabselected');
+        $(this).addClass('scoretabselected');
+        $('.' + menuScorechooser).show();
+    });
+    $('.hughesTAB').click(function () {
+        $('.scoreAuthor, .scorePic').hide();
+        menuScorechooser = "cHughesscore";
+        $('.tab').removeClass('scoretabselected');
+        $(this).addClass('scoretabselected');
+        $('.' + menuScorechooser).show();
+    });
+    $('.bartokTAB').click(function () {
         $('.scoreAuthor, .scorePic').hide();
         menuScorechooser = "cBartokscore";
         $('.tab').removeClass('scoretabselected');
@@ -1169,8 +1193,8 @@ $(document).ready(tempoPlotButtonFX);
 //
 //////////////////////////////
 //
-var setButtonArt = function() {
-    list_of_performers.forEach(function(name) {
+var setButtonArt = function () {
+    list_of_performers.forEach(function (name) {
         $("<style>").prop("type", "text/css").html("\
         ." +
             name.toLowerCase().caps() +
@@ -1181,7 +1205,7 @@ var setButtonArt = function() {
             "album.jpg');\
     }\
         ." + name.toLowerCase()
-            .caps() +
+                .caps() +
             "portrait {\
         background-image: url('" +
             urlPrefix + "bachWTC1/" + name.toLowerCase() + "/" +
@@ -1191,7 +1215,7 @@ var setButtonArt = function() {
     });
 };
 $(document).ready(setButtonArt);
-var setExtraElements = function() {
+var setExtraElements = function () {
     $("<style>").prop("type", "text/css").html(
         "\
         .playPause{\
@@ -1231,8 +1255,8 @@ var setExtraElements = function() {
 };
 $(document).ready(setExtraElements);
 //
-var scatterActivater = function() {
-    list_of_scatterpoints.forEach(function(value) {
+var scatterActivater = function () {
+    list_of_scatterpoints.forEach(function (value) {
         scatterVal = eval(value);
         scatterVal.scatterdataInitialize();
         scatterVal.scatterfX();
@@ -1253,7 +1277,7 @@ $(document).ready(scatterActivater);
 //
 //////////////////////////////
 //
-$(document).ready(function() {
+$(document).ready(function () {
     /////////////////////////
     // Scatter Plot Canvas //
     /////////////////////////
@@ -1369,25 +1393,25 @@ $(document).ready(function() {
     multiplier = 1.27;
     numberOffset = 0;
     cPerformerarea.font = "9px Consolas";
-for (i = 0; i < listofPerformers.length; i++) {
-    var currentText = listofPerformers[i];
-    var currentTextLength = currentText.length;
-    //var currentTick = ".x" + listofPerformers[i];
-    if (currentTextLength > 0) {
-        var currentSpot = ".d" + (i+1-numberOffset);
-    	var currentTick = ".dx" + (i+1-numberOffset);
-    	var newLocal = 24*i*0.98 + "px";
-        if (menuPLOT == "plotPerformer") {
-            $(currentSpot).css("left", newLocal);
-            $(currentTick).css("left", newLocal);
+    for (i = 0; i < listofPerformers.length; i++) {
+        var currentText = listofPerformers[i];
+        var currentTextLength = currentText.length;
+        //var currentTick = ".x" + listofPerformers[i];
+        if (currentTextLength > 0) {
+            var currentSpot = ".d" + (i + 1 - numberOffset);
+            var currentTick = ".dx" + (i + 1 - numberOffset);
+            var newLocal = 24 * i * 0.98 + "px";
+            if (menuPLOT == "plotPerformer") {
+                $(currentSpot).css("left", newLocal);
+                $(currentTick).css("left", newLocal);
+            }
+        } else {
+            numberOffset = numberOffset + 1;
         }
-    } else {
-        numberOffset = numberOffset + 1;
-    }
         //$(currentTick).css("left", (20*i) + "px");
-        cPerformerarea.fillText(currentText, (-nameStart+5 + namePOSx *
+        cPerformerarea.fillText(currentText, (-nameStart + 5 + namePOSx *
             multiplier * i) - (currentTextLength - 4) * 5, (270.1 +
-            namePOSy * multiplier * i));
+        namePOSy * multiplier * i));
     }
     cPerformerarea.font = "10px Arial";
     cPerformerarea.rotate(50 * Math.PI / 180);
@@ -1430,9 +1454,9 @@ for (i = 0; i < listofPerformers.length; i++) {
         var currentText = listofEditors[i];
         var currentTextLength = currentText.length;
         if (currentTextLength > 0) {
-                var currentSpot = ".d" + (i+14-numberOffset);
-    	        var currentTick = ".dx" + (i+14-numberOffset);
-                var newLocal = 24*i*multiplier + "px";
+            var currentSpot = ".d" + (i + 14 - numberOffset);
+            var currentTick = ".dx" + (i + 14 - numberOffset);
+            var newLocal = 24 * i * multiplier + "px";
             if (menuPLOT == "plotEditor") {
                 $(currentSpot).css("left", newLocal);
                 $(currentTick).css("left", newLocal);
@@ -1442,7 +1466,7 @@ for (i = 0; i < listofPerformers.length; i++) {
         }
         cEditorarea.fillText(currentText, (-nameStart + namePOSx * multipliera *
             i) - (currentTextLength - 5) * 5, (270 + namePOSy *
-            multipliera * i));
+        multipliera * i));
     }
     cEditorarea.rotate(50 * Math.PI / 180);
     // Draw x-axis
@@ -1484,9 +1508,9 @@ for (i = 0; i < listofPerformers.length; i++) {
         var currentText = listofCombined[i];
         var currentTextLength = currentText.length;
         if (currentTextLength > 0) {
-            var currentSpot = ".d" + (i+1-numberOffset);
-            var currentTick = ".dx" + (i+1-numberOffset);
-            var newLocal = 24*i*0.58 + "px";
+            var currentSpot = ".d" + (i + 1 - numberOffset);
+            var currentTick = ".dx" + (i + 1 - numberOffset);
+            var newLocal = 24 * i * 0.58 + "px";
             if (menuPLOT == "plotCombined") {
                 $(currentSpot).css("left", newLocal);
                 $(currentTick).css("left", newLocal);
@@ -1496,7 +1520,7 @@ for (i = 0; i < listofPerformers.length; i++) {
         }
         cCombinedarea.fillText(currentText, (-nameStart + namePOSx *
             multiplier * i) - (currentTextLength - 5) * 5, (270 +
-            namePOSy * multiplier * i));
+        namePOSy * multiplier * i));
     }
     cCombinedarea.font = "10px Arial";
     cCombinedarea.rotate(50 * Math.PI / 180);

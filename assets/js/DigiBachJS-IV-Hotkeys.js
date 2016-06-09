@@ -18,7 +18,7 @@
 //
 ////////////////////////
 //
-window.onkeydown = function(e) {
+window.onkeydown = function (e) {
     return !(e.keyCode == 32);
 };
 //
@@ -33,15 +33,17 @@ function validate(evt) {
     }
 }
 //Keypress listeners
-$(document).ready(function() {
-    $(document).keydown(function(key) {
+$(document).ready(function () {
+    $(document).keydown(function (key) {
         switch (parseInt(key.which, 10)) {
             case 189:
-                if(key.ctrlKey) {
-                    if (scoreLoadFlag == true) {} else {
+                if (key.ctrlKey) {
+                    if (scoreLoadFlag == true) {
+                    } else {
                         scoreLoadFlag = true;
                         list_of_pieces.forEach(function (value) {
-                            button = eval(value);gu
+                            button = eval(value);
+                            gu
                             button.createScore();
                         });
                     }

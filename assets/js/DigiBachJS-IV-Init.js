@@ -18,11 +18,11 @@
 //
 //////////////////////////////
 //
-$(document).ready(function() {
+$(document).ready(function () {
     $('.point').hide();
 });
 if (appMODE == "bacheditorMODE") {
-    $(document).ready(function() {
+    $(document).ready(function () {
         //CSS changes
         $('.playPause').hide();
         $('.autoButton').hide();
@@ -56,7 +56,7 @@ if (appMODE == "bacheditorMODE") {
         dataMenuFunction();
     });
 } else if (appMODE == "bachperformerMODE") {
-    $(document).ready(function() {
+    $(document).ready(function () {
         //CSS changes
         $('.playPause').show();
         $('.autoButton').show();
@@ -127,7 +127,7 @@ if (appMODE == "bacheditorMODE") {
         dataMenuFunction();
     });
 } else if (appMODE == "demoMODE") {
-    $(document).ready(function() {
+    $(document).ready(function () {
         //CSS changes
         $('.pauseBut').hide();
         $('.playBut').hide();
@@ -170,7 +170,7 @@ if (appMODE == "bacheditorMODE") {
         dataMenuFunction();
     });
 } else {
-    $(document).ready(function() {
+    $(document).ready(function () {
         //CSS changes
         $('.playPause').show();
         $('.autoButton').show();

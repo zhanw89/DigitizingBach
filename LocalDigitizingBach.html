@@ -15,173 +15,184 @@ Git Repo: https://github.com/gauderkd/DigitizingBach
     If using with local files, make sure to set urlPrefix accordingly
     Also, if using on website/online, or in a different folder, set your script/css sources to your new locations.
     -->
-<link href="file:///Users/kyle/Documents/DigitizingBach/assets/css/DigiBachStylesheet.css" type="text/css" rel="stylesheet" />
+    <link href="file:///Users/kyle/Documents/DigitizingBach/assets/css/DigiBachStylesheet.css" type="text/css"
+          rel="stylesheet"/>
+    <link href="file:///Users/kyle/Documents/DigitizingBach/assets/css/menulevels.css" type="text/css"
+          rel="stylesheet"/>
+    <link href="file:///Users/kyle/Documents/DigitizingBach/assets/css/pianokey.css" type="text/css" rel="stylesheet"/>
+    <link href="file:///Users/kyle/Documents/DigitizingBach/assets/css/extrabuttons.css" type="text/css"
+          rel="stylesheet"/>
+    <link href="file:///Users/kyle/Documents/DigitizingBach/assets/css/scoredisplay.css" type="text/css"
+          rel="stylesheet"/>
+    <link href="file:///Users/kyle/Documents/DigitizingBach/assets/css/tempoplot.css" type="text/css" rel="stylesheet"/>
+    <link href="file:///Users/kyle/Documents/DigitizingBach/assets/css/scatterplot.css" type="text/css"
+          rel="stylesheet"/>
     <!--Initial variables for application (local vs online, type mode-->
     <script>
-          var appMODE = "allMODE";
-          // Options: "allMODE" , "demoMODE", "bacheditorMODE" , "bachperformerMODE" NOTE EDITOR MODE IS BROKEN CURRENTLY
-          var urlPrefix = "http://maplelab.net/virtualPianist/";
+        var appMODE = "allMODE";
+        // Options: "allMODE" , "demoMODE", "bacheditorMODE" , "bachperformerMODE" NOTE EDITOR MODE IS BROKEN CURRENTLY
+        var urlPrefix = "http://maplelab.net/virtualPianist/";
     </script>
     <script src=
-    "file:///Users/kyle/Documents/DigitizingBach/assets/lib/jquery-2.2.3.min.js">
+                    "file:///Users/kyle/Documents/DigitizingBach/assets/lib/jquery-2.2.3.min.js">
     </script>
     <script src=
-    "file:///Users/kyle/Documents/DigitizingBach/assets/js/DigiBachJS-I-pre.js">
+                    "file:///Users/kyle/Documents/DigitizingBach/assets/js/DigiBachJS-I-pre.js">
     </script>
     <script src=
-    "file:///Users/kyle/Documents/DigitizingBach/assets/js/DigiBachJS-I.js">
+                    "file:///Users/kyle/Documents/DigitizingBach/assets/js/DigiBachJS-I.js">
     </script>
     <script src=
-    "file:///Users/kyle/Documents/DigitizingBach/assets/js/DigiBachJS-II-Pieces.js">
+                    "file:///Users/kyle/Documents/DigitizingBach/assets/js/DigiBachJS-II-Pieces.js">
     </script>
     <script src=
-    "file:///Users/kyle/Documents/DigitizingBach/assets/js/DigiBachJS-II-Scores.js">
+                    "file:///Users/kyle/Documents/DigitizingBach/assets/js/DigiBachJS-II-Scores.js">
     </script>
     <script src=
-    "file:///Users/kyle/Documents/DigitizingBach/assets/js/DigiBachJS-III.js">
+                    "file:///Users/kyle/Documents/DigitizingBach/assets/js/DigiBachJS-III.js">
     </script>
     <script src=
-    "file:///Users/kyle/Documents/DigitizingBach/assets/js/DigiBachJS-IV-Hotkeys.js">
+                    "file:///Users/kyle/Documents/DigitizingBach/assets/js/DigiBachJS-IV-Hotkeys.js">
     </script>
     <script src=
-    "file:///Users/kyle/Documents/DigitizingBach/assets/js/DigiBachJS-IV-Init.js">
+                    "file:///Users/kyle/Documents/DigitizingBach/assets/js/DigiBachJS-IV-Init.js">
     </script>
     <title></title>
 </head><!--jQuery load-->
 <!--Digitizing Bach load-->
 <!--Everything in the applet is contained within MainContainer-->
 <body>
-    <div id="maincontainer">
-        <!--mainMenu contains the skeleton for the pianomenu-->
-        <div id="mainMenu">
-            <!--Level Composer contains the toggle to enter different "modes" (ie display performers vs editors-->
-            <!--NOTE: This will eventually be superceded by a dropdown menu-->
-            <div id="lvlCOMPOSER">
-                <p class="plotPerformerBUTTON tempoPlotButton">Performer</p>
-                <p class="plotEditorBUTTON tempoPlotButton">Editor</p>
-                <p class="plotCombinedBUTTON tempoPlotButton">Combined</p>
-                <p class="chopinBUTTON">Chopin</p>
-            </div>
-            <!--Level 1 is the "Type" Button, where you can switch from Fugue and Prelude-->
-            <!--formBUT is the default button that shows, but it is hidden as soon as an option is made-->
-            <!--default click goes to Prelude-->
-            <div id="lvlONE" title="Toggles between Preludes and Fugues">
-                <div id="formBUT">
-                    <p class="lvlONEBUTTON"><br>
+<div id="maincontainer">
+    <!--mainMenu contains the skeleton for the pianomenu-->
+    <div id="mainMenu">
+        <!--Level Composer contains the toggle to enter different "modes" (ie display performers vs editors-->
+        <!--NOTE: This will eventually be superceded by a dropdown menu-->
+        <div id="lvlCOMPOSER">
+            <p class="plotPerformerBUTTON tempoPlotButton">Performer</p>
+            <p class="plotEditorBUTTON tempoPlotButton">Editor</p>
+            <p class="plotCombinedBUTTON tempoPlotButton">Combined</p>
+            <p class="chopinBUTTON">Chopin</p>
+        </div>
+        <!--Level 1 is the "Type" Button, where you can switch from Fugue and Prelude-->
+        <!--formBUT is the default button that shows, but it is hidden as soon as an option is made-->
+        <!--default click goes to Prelude-->
+        <div id="lvlONE" title="Toggles between Preludes and Fugues">
+            <div id="formBUT">
+                <p class="lvlONEBUTTON"><br>
                     type</p>
-                </div>
-                <div id="prelude">
-                    <p class="lvlONEBUTTON cPreludemenu"><br>
+            </div>
+            <div id="prelude">
+                <p class="lvlONEBUTTON cPreludemenu"><br>
                     Prelude</p>
-                </div>
-                <div id="fugue">
-                    <p class="lvlONEBUTTON cFuguemenu"><br>
+            </div>
+            <div id="fugue">
+                <p class="lvlONEBUTTON cFuguemenu"><br>
                     Fugue</p>
-                </div>
-            </div><!--Level 2 is the piano keyboard-->
-            <div id="lvlTWO">
-                <div id="regularKeyboard">
-                    <div class="key chromaC c0menu"></div>
-                    <div class="blackkey chromaDflat c1menu"></div>
-                    <div class="key chromaD c2menu"></div>
-                    <div class="blackkey chromaEflat c3menu"></div>
-                    <div class="key chromaE c4menu"></div>
-                    <div class="key chromaF c5menu"></div>
-                    <div class="blackkey chromaGflat c6menu"></div>
-                    <div class="key chromaG c7menu"></div>
-                    <div class="blackkey chromaAflat c8menu"></div>
-                    <div class="key chromaA c9menu"></div>
-                    <div class="blackkey chromaBflat c10menu"></div>
-                    <div class="key chromaB c11menu"></div>
-                </div>
-            </div><!--Level 3 is the "mode" Major/Minor toggle-->
-            <!--modeBUT is the default button that shows, but it is hidden as soon as an option is made-->
-            <!--default click goes to Major-->
-            <div id="lvlTHREE" title="Toggles between Major and Minor pieces">
-                <div id="modeBUT">
-                    <p class="lvlTHREEBUTTON"><br>
+            </div>
+        </div><!--Level 2 is the piano keyboard-->
+        <div id="lvlTWO">
+            <div id="regularKeyboard">
+                <div class="key chromaC c0menu"></div>
+                <div class="blackkey chromaDflat c1menu"></div>
+                <div class="key chromaD c2menu"></div>
+                <div class="blackkey chromaEflat c3menu"></div>
+                <div class="key chromaE c4menu"></div>
+                <div class="key chromaF c5menu"></div>
+                <div class="blackkey chromaGflat c6menu"></div>
+                <div class="key chromaG c7menu"></div>
+                <div class="blackkey chromaAflat c8menu"></div>
+                <div class="key chromaA c9menu"></div>
+                <div class="blackkey chromaBflat c10menu"></div>
+                <div class="key chromaB c11menu"></div>
+            </div>
+        </div><!--Level 3 is the "mode" Major/Minor toggle-->
+        <!--modeBUT is the default button that shows, but it is hidden as soon as an option is made-->
+        <!--default click goes to Major-->
+        <div id="lvlTHREE" title="Toggles between Major and Minor pieces">
+            <div id="modeBUT">
+                <p class="lvlTHREEBUTTON"><br>
                     mode</p>
-                </div>
-                <div id="major">
-                    <p class="lvlTHREEBUTTON cMajormenu"><br>
+            </div>
+            <div id="major">
+                <p class="lvlTHREEBUTTON cMajormenu"><br>
                     Major</p>
-                </div>
-                <div id="minor">
-                    <p class="lvlTHREEBUTTON cMinormenu"><br>
+            </div>
+            <div id="minor">
+                <p class="lvlTHREEBUTTON cMinormenu"><br>
                     Minor</p>
-                </div>
             </div>
-            <!--Extra Menu Items-->
-            <!--These are miscellaneous options within the menu-->
-            <!---->
-            <!--text box to enter what piece number you'd like to navigate to-->
-            <div class="extraMenuItems">
-                <input id="pieceNum" onkeypress='validate(event)' placeholder="No." type=
-                "text"> 
-                <!--Auto performer button. This activates the 'performer' mode where the selected perfomer will play automatically when you click different menu options-->
-                <div class="performerGraph">
-                    Perf
-                </div>
-                <div class="editorGraph">
-                    Edit
-                </div>
-                <div class="completeGraph">
-                    Com
-                </div>
-                <div class="autoButton" title="Autoplays a single performer while navigating through menu">
-                    Auto
-                </div><!--Pauses or Plays the piece, keeping the time tracking.-->
-                <div class="playPause" title="Prevents audio from playing while navigating applet"></div>
-                <div id="scatterTab" title="Displays scatterplot of Pitch Height vs Attack Rate per piece">
-                    Plot
-                </div>
-                <!--A Stop button that stops everything from playing and resets the entire system. This isn't displayed or coded yet.-->
-                <div id="stopALL">
-                    <p class="stopTXT">RESET</p>
-                </div>
+        </div>
+        <!--Extra Menu Items-->
+        <!--These are miscellaneous options within the menu-->
+        <!---->
+        <!--text box to enter what piece number you'd like to navigate to-->
+        <div class="extraMenuItems">
+            <input id="pieceNum" onkeypress='validate(event)' placeholder="No." type=
+                    "text">
+            <!--Auto performer button. This activates the 'performer' mode where the selected perfomer will play automatically when you click different menu options-->
+            <div class="performerGraph">
+                Perf
             </div>
-            <!--Background of the Menu-->
-            <div id="menuBackground"></div>
-        </div><!--Extra stuff within the applet-->
-        <!--Container for the note image that appears on top of the plot-->
-        <div class="noteDisplay" title="Common note duration"></div><!--Applet Background-->
-        <div id="containerBackground"></div><!--Background for the score display-->
-        <div class="scoreOutline"></div>
-        <!--Toggle button for plot to switch between Attack rate and Temp display-->
-        <p class="toggleTag">Tempo<br>
+            <div class="editorGraph">
+                Edit
+            </div>
+            <div class="completeGraph">
+                Com
+            </div>
+            <div class="autoButton" title="Autoplays a single performer while navigating through menu">
+                Auto
+            </div><!--Pauses or Plays the piece, keeping the time tracking.-->
+            <div class="playPause" title="Prevents audio from playing while navigating applet"></div>
+            <div id="scatterTab" title="Displays scatterplot of Pitch Height vs Attack Rate per piece">
+                Plot
+            </div>
+            <!--A Stop button that stops everything from playing and resets the entire system. This isn't displayed or coded yet.-->
+            <div id="stopALL">
+                <p class="stopTXT">RESET</p>
+            </div>
+        </div>
+        <!--Background of the Menu-->
+        <div id="menuBackground"></div>
+    </div><!--Extra stuff within the applet-->
+    <!--Container for the note image that appears on top of the plot-->
+    <div class="noteDisplay" title="Common note duration"></div><!--Applet Background-->
+    <div id="containerBackground"></div><!--Background for the score display-->
+    <div class="scoreOutline"></div>
+    <!--Toggle button for plot to switch between Attack rate and Temp display-->
+    <p class="toggleTag">Tempo<br>
         Attack</p>
-        <div class="dataToggle" title="Toggles between plotting for Tempo vs Attack Rate">
-            <div class="dataToggleDot"></div>
-        </div>
-	<!--PlayPause indicator image-->
-        <div id="audioButtonContainer">
-          <div class="pauseBut playPauseBut">
+    <div class="dataToggle" title="Toggles between plotting for Tempo vs Attack Rate">
+        <div class="dataToggleDot"></div>
+    </div>
+    <!--PlayPause indicator image-->
+    <div id="audioButtonContainer">
+        <div class="pauseBut playPauseBut">
 
-          </div>
-          <div class="playBut playPauseBut">
-
-          </div>
         </div>
-        <!--A display text for development purposes. Currently shows the different menu selections. Not being displayed.-->
-        <p class="display">Display box</p>
-        <!--A text notice beneath the data display-->
-        <div id="notice">
-            <p class="noticeText">Tempo's are calculated for common note duration.<br>
+        <div class="playBut playPauseBut">
+
+        </div>
+    </div>
+    <!--A display text for development purposes. Currently shows the different menu selections. Not being displayed.-->
+    <p class="display">Display box</p>
+    <!--A text notice beneath the data display-->
+    <div id="notice">
+        <p class="noticeText">Tempo's are calculated for common note duration.<br>
             Displayed in the tooltip is Palmer's original tempo measurements.</p>
-        </div><!--Maple head logo-->
-        <div class="logoMAPLE"></div><!--Title-->
-        <h1 class="logoTitle">Well-Tempered Clavier</h1>
-        <!--Bach image inside score outline-->
-        <div class="bachPlaceholder">
-            <div class="bachPor"></div>
-            <h1 class="bachText">Johann Sebastian Bach</h1>
-        </div><!--Chopin image inside score outline-->
-        <div class="chopinPlaceholder">
-            <div class="chopinPor"></div>
-            <h1 class="chopinText">Frédéric Chopin</h1>
-        </div>
-        <div class="editorModeText">
-            <p>Welcome to the official MAPLE Lab Tempo Visualizer for JS Bach’s Well
+    </div><!--Maple head logo-->
+    <div class="logoMAPLE"></div><!--Title-->
+    <h1 class="logoTitle">Well-Tempered Clavier</h1>
+    <!--Bach image inside score outline-->
+    <div class="bachPlaceholder">
+        <div class="bachPor"></div>
+        <h1 class="bachText">Johann Sebastian Bach</h1>
+    </div><!--Chopin image inside score outline-->
+    <div class="chopinPlaceholder">
+        <div class="chopinPor"></div>
+        <h1 class="chopinText">Frédéric Chopin</h1>
+    </div>
+    <div class="editorModeText">
+        <p>Welcome to the official MAPLE Lab Tempo Visualizer for JS Bach’s Well
             Tempered Clavier (Book 1). This tool is an online supplement to our
             publication exploring the use of timing in this influential work (Poon &
             Schutz, 2015).<br>
@@ -195,419 +206,442 @@ Git Repo: https://github.com/gauderkd/DigitizingBach
             To see tempo guidelines for a particular piece, simply select the type
             (Prelude/Fugue) and mode (Major/minor) as well as the pertinent pitch from
             the keyboard.</p>
-        </div>
-        <div class="selfCredit">
-            <p class="selfCreditText">Created by Kyle Gauder</p>
-        </div><!---->
-        <!--Album buttons-->
-        <!--There are two sections for buttons: Piano, and Harpsichord-->
-        <!--Here are essentially empty containers for the buttons-->
-        <!--The buttons are then generated automatically in javascript for each piece are are placed in their respective container-->
-        <div class="content contentBach">
-            <div class="piano">
-                <h4 class="instrumentTitle">Piano</h4>
-                <div id="Fischer">
-                    <div class="defbutton inactive FischerButton buttonPOS1 cBach_WTC1"></div>
-                </div>
-                <div id="Tureck">
-                    <div class="defbutton inactive TureckButton buttonPOS2 cBach_WTC1"></div>
-                </div>
-                <div id="Gould">
-                    <div class="defbutton inactive GouldButton buttonPOS3 cBach_WTC1"></div>
-                </div>
-                <div id="Martins">
-                    <div class="defbutton inactive MartinsButton buttonPOS4 cBach_WTC1"></div>
-                </div>
-                <div id="Demus">
-                    <div class="defbutton inactive DemusButton buttonPOS5 cBach_WTC1"></div>
-                </div>
-                <div id="Richter">
-                    <div class="defbutton inactive RichterButton buttonPOS6 cBach_WTC1"></div>
-                </div>
-                <div id="Gulda">
-                    <div class="defbutton inactive GuldaButton buttonPOS7 cBach_WTC1"></div>
-                </div>
-            </div>
-            <div class="harpsichord">
-                <h4 class="instrumentTitle">Harpsichord</h4>
-                <div id="Landowska">
-                    <div class="defbutton inactive LandowskaButton buttonPOS1 cBach_WTC1">
-                    </div>
-                </div>
-                <div id="Galling">
-                    <div class="defbutton inactive GallingButton buttonPOS2 cBach_WTC1"></div>
-                </div>
-                <div id="Hamilton">
-                    <div class="defbutton inactive HamiltonButton buttonPOS3 cBach_WTC1">
-                    </div>
-                </div>
-                <div id="Kirkpatrick">
-                    <div class="defbutton inactive KirkpatrickButton buttonPOS4 cBach_WTC1">
-                    </div>
-                </div>
-                <div id="Leonhardt">
-                    <div class="defbutton inactive LeonhardtButton buttonPOS5 cBach_WTC1">
-                    </div>
-                </div>
-                <div id="Newman">
-                    <div class="defbutton inactive NewmanButton buttonPOS6 cBach_WTC1"></div>
-                </div>
-            </div>
-        </div>
-        <div class="content contentBacheditor">
-            <div class="piano">
-                <!--not really piano, just piggy-backing off of the system already here-->
-                <h4 class="instrumentTitle"></h4>
-            </div>
-        </div>
-        <!--scatterplot area-->
-        <div id="scatterplotContainer">
-            <p class="scattertoggleTitle">Major/Minor Color</p>
-            <p class="scattertoggleTag">On<br>Off</p>
-            <div class="scatterdataToggle" title="Toggles displayig Major and Minor colouring">
-                <div class="scatterdataToggleDot"></div>
-            </div>
-            <div id="scatterplotPad">
-                <div id="scatterPrelude" title="Chooses between displaying Preludes, Fugues, or All pieces">
-                    Prelude
-                </div>
-                <div id="scatterFugue" title="Chooses between displaying Preludes, Fugues, or All pieces">
-                    Fugue
-                </div>
-                <div id="scatterAll" title="Chooses between displaying Preludes, Fugues, or All pieces" class="menuclicked">
-                    All
-                </div>
-                <canvas height="400px" id="scatterplotYaxis" width="429px"></canvas>
-                <canvas height="400px" id="scatterplotXaxis" width="429px"></canvas>
-                <div id="scatterplotDataContainer"></div>
-            </div>
-            <div id="scatterchartAreaWhiteBack"></div>
-            <div id="scatterchartBackground"></div>
-        </div><!---->
-        <!--The chart area. each dot is essentially an empty container, and the points respective to each injected piece is generated through javascript-->
-        <div id="chartPad">
-            <!--Default plot-->
-            <div class="dataPlot" id="defaultPlot">
-                <div class="dataHolder">
-                    <div class="palmerHolder">
-                        <div class="palmerLINE"></div>
-                    </div>
-                    <div class="point d1">
-                        <div class="noData pianoData unselected"></div>
-                    </div>
-                    <div class="point d2">
-                        <div class="noData pianoData unselected"></div>
-                    </div>
-                    <div class="point d3">
-                        <div class="noData pianoData unselected"></div>
-                    </div>
-                    <div class="point d4">
-                        <div class="noData pianoData unselected"></div>
-                    </div>
-                    <div class="point d5">
-                        <div class="noData pianoData unselected"></div>
-                    </div>
-                    <div class="point d6">
-                        <div class="noData pianoData unselected"></div>
-                    </div>
-                    <div class="point d7">
-                        <div class="noData pianoData unselected"></div>
-                    </div>
-                    <div class="point d8">
-                        <div class="noData harpData unselected"></div>
-                    </div>
-                    <div class="point d9">
-                        <div class="noData harpData unselected"></div>
-                    </div>
-                    <div class="point d10">
-                        <div class="noData harpData unselected"></div>
-                    </div>
-                    <div class="point d11">
-                        <div class="noData harpData unselected"></div>
-                    </div>
-                    <div class="point d12">
-                        <div class="noData harpData unselected"></div>
-                    </div>
-                    <div class="point d13">
-                        <div class="noData harpData unselected"></div>
-                    </div>
-                     <div class="point d14">
-                        <div class="noData editorData unselected"></div>
-                    </div>
-                    <div class="point d15">
-                        <div class="noData editorData unselected"></div>
-                    </div>
-                    <div class="point d16">
-                        <div class="noData editorData unselected"></div>
-                    </div>
-                    <div class="point d17">
-                        <div class="noData editorData unselected"></div>
-                    </div>
-                    <div class="point d18">
-                        <div class="noData editorData unselected"></div>
-                    </div>
-                    <div class="point d19">
-                        <div class="noData palmData unselected"></div>
-                    </div>
-                    <div class="point d20">
-                        <div class="noData commentData unselected"></div>
-                    </div>
-                    <div class="point d21">
-                        <div class="noData commentData unselected"></div>
-                    </div>
-                </div>
-            </div>
-            <div id="containerAttackAxis"></div>
-            <div id="containerTempoAxis"></div>
-            <canvas class="contentBachAxis" height="360px" id="performerXaxis" width="450px">
-            </canvas>
-            <canvas class="contentBachAxis" height="360px" id="editorXaxis"
-            width="450px"></canvas>
-            <canvas class="contentBachAxis" height="360px" id="combinedXaxis"
-            width="450px"></canvas>
-            <canvas height="360px" id="chartAreaChopin" width="450px"></canvas>
-            <canvas height="360px" id="defaultTempoaxis" width="450px"></canvas>
-            <canvas height="360px" id="defaultAttackaxis" width="450px"></canvas>
-	    <div class="xAxisTicks">
-                <div class="xAtick dx2 xPerf xTureck"></div>
-                <div class="xAtick dx3 xPerf xGould"></div>
-                <div class="xAtick dx4 xPerf xMartins"></div>
-                <div class="xAtick dx1 xPerf xFischer"></div>
-                <div class="xAtick dx5 xPerf xDemus"></div>
-                <div class="xAtick dx6 xPerf xRichter"></div>
-                <div class="xAtick dx7 xPerf xGulda"></div>
-                <div class="xAtick dx8 xPerf xLandowska"></div>
-                <div class="xAtick dx9 xPerf xGalling"></div>
-                <div class="xAtick dx10 xPerf xHamilton"></div>
-                <div class="xAtick dx11 xPerf xKirkpatrick"></div>
-                <div class="xAtick dx12 xPerf xLeonhardt"></div>
-                <div class="xAtick dx13 xPerf xNewman"></div>
-                <!--<div class="xAtick dx21 xEdit xKeller"></div>-->
-                <div class="xAtick dx20 xEdit xKeller"></div>
-                <div class="xAtick dx14 xEdit xBartok"></div>
-                <div class="xAtick dx15 xEdit xBischoff"></div>
-                <div class="xAtick dx16 xEdit xCzerny"></div>
-                <div class="xAtick dx17 xEdit xHughes"></div>
-                <div class="xAtick dx18 xEdit xMugellini"></div>
-                <div class="xAtick dx19 xEdit xBodky"></div>
     </div>
-            <div id="chartAreaWhiteBack"></div>
-            <div id="chartBackground"></div>
-        </div><!---->
-        <!--Information dispalyed for each performer-->
-        <!--Eventually this will be generated through Javascript, but for the time being it's just in HTML-->
-        <div class="performerContainer contentBach">
-            <div class="caption martinsinfo">
-                <div class="portrait Martinsportrait"></div>
-                <h1>João Carlos Martins</h1>
-                <h4>June 25, 1940 –</h4>
-                <h5>Recorded in 1964 (age 24)</h5>
-                <p><br>
+    <div class="selfCredit">
+        <p class="selfCreditText">Created by Kyle Gauder</p>
+    </div><!---->
+    <!--Album buttons-->
+    <!--There are two sections for buttons: Piano, and Harpsichord-->
+    <!--Here are essentially empty containers for the buttons-->
+    <!--The buttons are then generated automatically in javascript for each piece are are placed in their respective container-->
+    <div class="content contentBach">
+        <div class="piano">
+            <h4 class="instrumentTitle">Piano</h4>
+            <div id="Fischer">
+                <div class="defbutton inactive FischerButton buttonPOS1 cBach_WTC1"></div>
+            </div>
+            <div id="Tureck">
+                <div class="defbutton inactive TureckButton buttonPOS2 cBach_WTC1"></div>
+            </div>
+            <div id="Gould">
+                <div class="defbutton inactive GouldButton buttonPOS3 cBach_WTC1"></div>
+            </div>
+            <div id="Martins">
+                <div class="defbutton inactive MartinsButton buttonPOS4 cBach_WTC1"></div>
+            </div>
+            <div id="Demus">
+                <div class="defbutton inactive DemusButton buttonPOS5 cBach_WTC1"></div>
+            </div>
+            <div id="Richter">
+                <div class="defbutton inactive RichterButton buttonPOS6 cBach_WTC1"></div>
+            </div>
+            <div id="Gulda">
+                <div class="defbutton inactive GuldaButton buttonPOS7 cBach_WTC1"></div>
+            </div>
+        </div>
+        <div class="harpsichord">
+            <h4 class="instrumentTitle">Harpsichord</h4>
+            <div id="Landowska">
+                <div class="defbutton inactive LandowskaButton buttonPOS1 cBach_WTC1">
+                </div>
+            </div>
+            <div id="Galling">
+                <div class="defbutton inactive GallingButton buttonPOS2 cBach_WTC1"></div>
+            </div>
+            <div id="Hamilton">
+                <div class="defbutton inactive HamiltonButton buttonPOS3 cBach_WTC1">
+                </div>
+            </div>
+            <div id="Kirkpatrick">
+                <div class="defbutton inactive KirkpatrickButton buttonPOS4 cBach_WTC1">
+                </div>
+            </div>
+            <div id="Leonhardt">
+                <div class="defbutton inactive LeonhardtButton buttonPOS5 cBach_WTC1">
+                </div>
+            </div>
+            <div id="Newman">
+                <div class="defbutton inactive NewmanButton buttonPOS6 cBach_WTC1"></div>
+            </div>
+        </div>
+    </div>
+    <div class="content contentBacheditor">
+        <div class="piano">
+            <!--not really piano, just piggy-backing off of the system already here-->
+            <h4 class="instrumentTitle"></h4>
+        </div>
+    </div>
+    <!--scatterplot area-->
+    <div id="scatterplotContainer">
+        <p class="scattertoggleTitle">Major/Minor Color</p>
+        <p class="scattertoggleTag">On<br>Off</p>
+        <div class="scatterdataToggle" title="Toggles displayig Major and Minor colouring">
+            <div class="scatterdataToggleDot"></div>
+        </div>
+        <div id="scatterplotPad">
+            <div id="scatterPrelude" title="Chooses between displaying Preludes, Fugues, or All pieces">
+                Prelude
+            </div>
+            <div id="scatterFugue" title="Chooses between displaying Preludes, Fugues, or All pieces">
+                Fugue
+            </div>
+            <div id="scatterAll" title="Chooses between displaying Preludes, Fugues, or All pieces" class="menuclicked">
+                All
+            </div>
+            <canvas height="400px" id="scatterplotYaxis" width="429px"></canvas>
+            <canvas height="400px" id="scatterplotXaxis" width="429px"></canvas>
+            <div id="scatterplotDataContainer"></div>
+        </div>
+        <div id="scatterchartAreaWhiteBack"></div>
+        <div id="scatterchartBackground"></div>
+    </div><!---->
+    <!--The chart area. each dot is essentially an empty container, and the points respective to each injected piece is generated through javascript-->
+    <div id="chartPad">
+        <!--Default plot-->
+        <div class="dataPlot" id="defaultPlot">
+            <div class="dataHolder">
+                <div class="palmerHolder">
+                    <div class="palmerLINE"></div>
+                </div>
+                <div class="point d1">
+                    <div class="noData pianoData unselected"></div>
+                </div>
+                <div class="point d2">
+                    <div class="noData pianoData unselected"></div>
+                </div>
+                <div class="point d3">
+                    <div class="noData pianoData unselected"></div>
+                </div>
+                <div class="point d4">
+                    <div class="noData pianoData unselected"></div>
+                </div>
+                <div class="point d5">
+                    <div class="noData pianoData unselected"></div>
+                </div>
+                <div class="point d6">
+                    <div class="noData pianoData unselected"></div>
+                </div>
+                <div class="point d7">
+                    <div class="noData pianoData unselected"></div>
+                </div>
+                <div class="point d8">
+                    <div class="noData harpData unselected"></div>
+                </div>
+                <div class="point d9">
+                    <div class="noData harpData unselected"></div>
+                </div>
+                <div class="point d10">
+                    <div class="noData harpData unselected"></div>
+                </div>
+                <div class="point d11">
+                    <div class="noData harpData unselected"></div>
+                </div>
+                <div class="point d12">
+                    <div class="noData harpData unselected"></div>
+                </div>
+                <div class="point d13">
+                    <div class="noData harpData unselected"></div>
+                </div>
+                <div class="point d14">
+                    <div class="noData editorData unselected"></div>
+                </div>
+                <div class="point d15">
+                    <div class="noData editorData unselected"></div>
+                </div>
+                <div class="point d16">
+                    <div class="noData editorData unselected"></div>
+                </div>
+                <div class="point d17">
+                    <div class="noData editorData unselected"></div>
+                </div>
+                <div class="point d18">
+                    <div class="noData editorData unselected"></div>
+                </div>
+                <div class="point d19">
+                    <div class="noData palmData unselected"></div>
+                </div>
+                <div class="point d20">
+                    <div class="noData commentData unselected"></div>
+                </div>
+                <div class="point d21">
+                    <div class="noData commentData unselected"></div>
+                </div>
+            </div>
+        </div>
+        <div id="containerAttackAxis"></div>
+        <div id="containerTempoAxis"></div>
+        <canvas class="contentBachAxis" height="360px" id="performerXaxis" width="450px">
+        </canvas>
+        <canvas class="contentBachAxis" height="360px" id="editorXaxis"
+                width="450px"></canvas>
+        <canvas class="contentBachAxis" height="360px" id="combinedXaxis"
+                width="450px"></canvas>
+        <canvas height="360px" id="chartAreaChopin" width="450px"></canvas>
+        <canvas height="360px" id="defaultTempoaxis" width="450px"></canvas>
+        <canvas height="360px" id="defaultAttackaxis" width="450px"></canvas>
+        <div class="xAxisTicks">
+            <div class="xAtick dx2 xPerf xTureck"></div>
+            <div class="xAtick dx3 xPerf xGould"></div>
+            <div class="xAtick dx4 xPerf xMartins"></div>
+            <div class="xAtick dx1 xPerf xFischer"></div>
+            <div class="xAtick dx5 xPerf xDemus"></div>
+            <div class="xAtick dx6 xPerf xRichter"></div>
+            <div class="xAtick dx7 xPerf xGulda"></div>
+            <div class="xAtick dx8 xPerf xLandowska"></div>
+            <div class="xAtick dx9 xPerf xGalling"></div>
+            <div class="xAtick dx10 xPerf xHamilton"></div>
+            <div class="xAtick dx11 xPerf xKirkpatrick"></div>
+            <div class="xAtick dx12 xPerf xLeonhardt"></div>
+            <div class="xAtick dx13 xPerf xNewman"></div>
+            <!--<div class="xAtick dx21 xEdit xKeller"></div>-->
+            <div class="xAtick dx20 xEdit xKeller"></div>
+            <div class="xAtick dx14 xEdit xBartok"></div>
+            <div class="xAtick dx15 xEdit xBischoff"></div>
+            <div class="xAtick dx16 xEdit xCzerny"></div>
+            <div class="xAtick dx17 xEdit xHughes"></div>
+            <div class="xAtick dx18 xEdit xMugellini"></div>
+            <div class="xAtick dx19 xEdit xBodky"></div>
+        </div>
+        <div id="chartAreaWhiteBack"></div>
+        <div id="chartBackground"></div>
+    </div><!---->
+    <!--Information dispalyed for each performer-->
+    <!--Eventually this will be generated through Javascript, but for the time being it's just in HTML-->
+    <div class="performerContainer contentBach">
+        <div class="caption martinsinfo">
+            <div class="portrait Martinsportrait"></div>
+            <h1>João Carlos Martins</h1>
+            <h4>June 25, 1940 –</h4>
+            <h5>Recorded in 1964 (age 24)</h5>
+            <p><br>
                 Acclaimed Brazillian classical Pianist and Conductor. His collection of the
                 complete keyboard works of Bach are the most extensive series of Bach
                 keyboard recordings by a single pianist.</p>
-            </div><!---->
-            <div class="caption tureckinfo">
-                <div class="portrait Tureckportrait"></div>
-                <h1>Rosalyn Tureck</h1>
-                <h4>Dec 19, 1914 – Jul 17, 2003</h4>
-                <h5>Recorded in 1953 (age 39)</h5>
-                <p><br>
+        </div><!---->
+        <div class="caption tureckinfo">
+            <div class="portrait Tureckportrait"></div>
+            <h1>Rosalyn Tureck</h1>
+            <h4>Dec 19, 1914 – Jul 17, 2003</h4>
+            <h5>Recorded in 1953 (age 39)</h5>
+            <p><br>
                 American Pianist and Harpsichordist from Chicago, Illinois. Tureck
                 played Bach's pieces on the harpsichord following Landowska for a while
                 before returning to the piano.</p>
-            </div><!---->
-            <div class="caption demusinfo">
-                <div class="portrait Demusportrait"></div>
-                <h1>Jörg Demus</h1>
-                <h4>Dec 2, 1928 –</h4>
-                <h5>Recorded in 1970 (age 42)</h5>
-                <p><br>
+        </div><!---->
+        <div class="caption demusinfo">
+            <div class="portrait Demusportrait"></div>
+            <h1>Jörg Demus</h1>
+            <h4>Dec 2, 1928 –</h4>
+            <h5>Recorded in 1970 (age 42)</h5>
+            <p><br>
                 An Austrian pianist. He has been active as a Lied accompanist and a chamber
                 music partner. He received the Mozart Medal of the Mozartgemeinde Wien in
                 1979. Among his students is the pianist Domenico Piccichè.</p>
-            </div><!---->
-            <div class="caption fischerinfo">
-                <div class="portrait Fischerportrait"></div>
-                <h1>Edwin Fischer</h1>
-                <h4>Oct 6, 1886 – Jan 24, 1960</h4>
-                <h5>Recorded in 1934-1935 (age 48-49)</h5>
-                <p><br>
+        </div><!---->
+        <div class="caption fischerinfo">
+            <div class="portrait Fischerportrait"></div>
+            <h1>Edwin Fischer</h1>
+            <h4>Oct 6, 1886 – Jan 24, 1960</h4>
+            <h5>Recorded in 1934-1935 (age 48-49)</h5>
+            <p><br>
                 Swiss classical pianist and conductor, he is widely regarded as one of the
                 greatest interpreters of traditional Germanic repertoire of the twentieth
                 century, and one of the finest piano pedagogues of the modern era.</p>
-            </div><!---->
-            <div class="caption gouldinfo">
-                <div class="portrait Gouldportrait"></div>
-                <h1>Glenn Gould</h1>
-                <h4>Sept 25, 1932 – Oct 4, 1982</h4>
-                <h5>Recorded between 1962-1965 (age 30-33)</h5>
-                <p><br>
-                    Celebrated Canadian pianist, five-time Grammy Award Winner, and Canadian Music Hall of Fame inductee. Gould was known for his eccentric habits, like always sitting very low at the piano on a chair his father made and practicing with loud background noise.</p>
-            </div><!---->
-            <div class="caption guldainfo">
-                <div class="portrait Guldaportrait"></div>
-                <h1>Friedrich Gulda</h1>
-                <h4>May 16, 1930 – Jan 27, 2000</h4>
-                <h5>Recorded in 1972 (age 42)</h5>
-                <p><br>
+        </div><!---->
+        <div class="caption gouldinfo">
+            <div class="portrait Gouldportrait"></div>
+            <h1>Glenn Gould</h1>
+            <h4>Sept 25, 1932 – Oct 4, 1982</h4>
+            <h5>Recorded between 1962-1965 (age 30-33)</h5>
+            <p><br>
+                Celebrated Canadian pianist, five-time Grammy Award Winner, and Canadian Music Hall of Fame inductee.
+                Gould was known for his eccentric habits, like always sitting very low at the piano on a chair his
+                father made and practicing with loud background noise.</p>
+        </div><!---->
+        <div class="caption guldainfo">
+            <div class="portrait Guldaportrait"></div>
+            <h1>Friedrich Gulda</h1>
+            <h4>May 16, 1930 – Jan 27, 2000</h4>
+            <h5>Recorded in 1972 (age 42)</h5>
+            <p><br>
                 Austrian Pianist and composer who worked in both the classical and jazz
                 fields. Was awarded the Austian Cross of Honour for Science and art (1959),
                 and the Honorary Ring of Vienna (1989).</p>
-            </div><!---->
-            <div class="caption richterinfo">
-                <div class="portrait Richterportrait"></div>
-                <h1>Sviatoslav Richter</h1>
-                <h4>Mar 7, 1915 – Aug 1, 1997</h4>
-                <h5>Recorded between 1972-1973 (age 57-58)</h5>
-                <p><br>
+        </div><!---->
+        <div class="caption richterinfo">
+            <div class="portrait Richterportrait"></div>
+            <h1>Sviatoslav Richter</h1>
+            <h4>Mar 7, 1915 – Aug 1, 1997</h4>
+            <h5>Recorded between 1972-1973 (age 57-58)</h5>
+            <p><br>
                 Soviet pianist known for the depth of his interpretations, virtuoso
                 technique, and vast repertoire. He is considered one of the greatest
                 pianists of the 20th century.</p>
-            </div><!---->
-            <div class="caption hamiltoninfo">
-                <div class="portrait Hamiltonportrait"></div>
-                <h1>Malcolm Hamilton</h1>
-                <h4>Dec 14, 1932 – Nov 22, 2003</h4>
-                <h5>Recorded in 1965 (age 33)</h5>
-                <p><br>
+        </div><!---->
+        <div class="caption hamiltoninfo">
+            <div class="portrait Hamiltonportrait"></div>
+            <h1>Malcolm Hamilton</h1>
+            <h4>Dec 14, 1932 – Nov 22, 2003</h4>
+            <h5>Recorded in 1965 (age 33)</h5>
+            <p><br>
                 Harpsichordist from Victoria, Canada. He studied harpsichord at the
                 University of Washington in Seattle and then taught piano and harpsichord
                 at the University of Southern California for 30 years.</p>
-            </div><!---->
-            <div class="caption gallinginfo">
-                <div class="portrait Gallingportrait"></div>
-                <h1>Martin Galling</h1>
-                <h4>1935 –</h4>
-                <h5>Recorded in 1964 (age 29)</h5>
-                <p><br>
-                German pianist, harpsichordist and chamber musician. In 2003 he founded the
-                piano duo Galling-Olivieri. Galling used a modern harpsichord with stops not found on harpsichords modeled on ancient
-                instruments, including a 16-foot stop.</p>
-            </div><!---->
-            <div class="caption landowskainfo">
-                <div class="portrait Landowskaportrait"></div>
-                <h1>Wanda Landowska</h1>
-                <h4>Jul 5, 1879 – Aug 16, 1959</h4>
-                <h5>Recorded between 1949-1951 (age 70-72)</h5>
-                <p><br>
-                    Polish harpsichordist, teacher, and influential figure in the revival of the harpsichord as a popular instrument. She established L’École de Musique Ancienne in Paris (1925) and was the first to record Bach’s Goldberg Variations on the harpsichord (1930s).</p>
-            </div><!---->
-            <div class="caption kirkpatrickinfo">
-                <div class="portrait Kirkpatrickportrait"></div>
-                <h1>Ralph Kirkpatrick</h1>
-                <h4>June 10, 1911 – Apr 13, 1984</h4>
-                <h5>Recorded in 1959 (age 48)</h5>
-                <p><br>
-                    American harpsichordist and scholar who studied Art History at Harvard University. He received the John Knowles Paine Traveling Scholarship, enabling him to study manuscripts in Europe, and later he became a lecturer and performer at Yale University.</p>
-            </div><!---->
-            <div class="caption leonhardtinfo">
-                <div class="portrait Leonhardtportrait"></div>
-                <h1>Gustav Leonhardt</h1>
-                <h4>May 30, 1928 – Jan 16, 2012</h4>
-                <h5>Recorded in 1967 (age 39)</h5>
-                <p><br>
-                    Dutch keyboardist, conductor, and musicologist. He was greatly influenced by Bach and interpreted Bach’s works as leader of the Leonhardt Baroque Ensemble (later the Leonhardt Consort).</p>
-            </div><!---->
-            <div class="caption newmaninfo">
-                <div class="portrait Newmanportrait"></div>
-                <h1>Anthony Newman</h1>
-                <h4>May 12, 1941 –</h4>
-                <h5>Published in 1994 (age 53)</h5>
-                <p><br>
-                    American organist, harpsichordist, and composer, he is considered by fellow artists as “The High Priest” of Bach and of the harpsichord. Newman directs Bach Works and Bedford Chamber Concerts, and continues to perform today. </p>
-            </div>
         </div><!---->
-        <div class="performerContainer contentBach">
-            <div class="caption palmerinfo">
-                <div class="portrait Palmerportrait"></div>
-                <h1>Dr. Willard A. Palmer</h1>
-                <h4>Jan 31, 1917 – Apr 30, 1996</h4>
-                <h5>Published in 1994</h5>
-                <p><br>
-                    American pianist, accordionist, composer, Doctor of Music (Millsaps College, 1983), and expert of Baroque ornamentation. He co-produced music technique books under Alfred Publishing Co., which are still popular amongst music students today.  </p>
-            </div>
-            <div class="caption bischoffinfo">
-                <div class="portrait Bischoffportrait"></div>
-                <h1>Dr. Hans Bischoff</h1>
-                <h4>Feb 17, 1852 – June 12, 1889</h4>
-                <h5>Published in 1883 (age 31)</h5>
-                <p><br>
-                    German concert pianist and teacher, highly influenced by Bach’s works. He studied under pianist Theodor Kullak and later taught piano and theory at Kullak’s music academy. Bischoff earned a PhD in philosophy and modern languages from the University of Gottingen (1873).</p>
-            </div>
-            <div class="caption bartokinfo">
-                <div class="portrait Bartokportrait"></div>
-                <h1>Béla Bartók</h1>
-                <h4>Mar 25, 1881 – Sept 26, 1945</h4>
-                <h5>Published in 1908 (age 27)</h5>
-                <p><br>
-                    Influential Hungarian composer and pianist. His musical works encompassed a wide range of styles, from string quartets to folk songs. Bartok was one of the early pioneers of ethnomusicology.</p>
-            </div>
-            <div class="caption czernyinfo">
-                <div class="portrait Czernyportrait"></div>
-                <h1>Carl Czerny</h1>
-                <h4>Feb 21, 1791 – Jul 15, 1857</h4>
-                <h5>Published in 1837 (age 46)</h5>
-                <p><br>
-                    Austrian pianist and composer. He trained under Beethoven and later taught acclaimed pianists such as Franz Liszt and Theodor Kullak. Czerny composed over a thousand pieces, many of which are still used by music students today. </p>
-            </div>
-            <div class="caption hughesinfo">
-                <div class="portrait Hughesportrait"></div>
-                <h1>Edwin Hughes</h1>
-                <h4>Aug 15, 1884 – Jul 17, 1965</h4>
-                <h5>Published in 1924 (age 40)</h5>
-                <p><br>
-                    American pianist and arranger. Hughes also taught at various schools, such as the Volpe Institute of Music, and performed recitals along with his wife, pianist Jewel Bethany. </p>
-            </div>
-            <div class="caption bodkyinfo">
-                <div class="portrait Bodkyportrait"></div>
-                <h1>Erwin Bodky</h1>
-                <h4>Mar 7, 1896 — Dec 6, 1958</h4>
-                <p><br>
-                    American pianist, harpsichordist, composer, teacher, and musicologist. Twice, he won the Felix Mendelssohn-Bartholdy Prize for exceptional music students. Bodky later founded the Cambridge Society for Early Music.</p>
-            </div>
-            <div class="caption kellerinfo">
-                <div class="portrait Kellerportrait"></div>
-                <h1>Hermann Keller</h1>
-                <h4>Nov 20, 1885 — Aug 17, 1967</h4>
-                <p><br>
-                    German musicologist and church organist. Keller taught at several institutions, such as the Grand Ducal School of Music and Institute of Technology, and was director of the Stuttgart Music Academy.</p>
-            </div>
-            <div class="caption mugelliniinfo">
-                <div class="portrait Mugelliniportrait"></div>
-                <h1>Bruno Mugellini</h1>
-                <h4>Dec 24, 1871 – Jan 15, 1912</h4>
-                <p><br>
-                    Italian pianist, composer, and teacher. He was a key figure in refining piano theory and technique and published musical works as well as books about teaching piano. </p>
-            </div>
-        </div><!--Score author tabs-->
-        <div class="contentBacheditor contentBach">
-            <div class="tab bartokTAB bartokLINK">
-                <p class="TABTEXT">Bartok</p>
-            </div>
-            <div class="tab bischoffTAB bischoffLINK">
-                <p class="TABTEXT">Bischoff</p>
-            </div>
-            <div class="tab busoniTAB">
-                <p class="TABTEXT">Busoni</p>
-            </div>
-            <div class="tab czernyTAB scoretabselected">
-                <p class="TABTEXT">Czerny</p>
-            </div>
-            <div class="tab hughesTAB">
-                <p class="TABTEXT">Hughes</p>
-            </div>
-            <div class="tab mugelliniTAB">
-                <p class="TABTEXT">Mugellini</p>
-            </div>
-            <div class="tab palmerTAB">
-                <p class="TABTEXT">Palmer</p>
-            </div><!---->
-            <!--Container that all the scores are injected into-->
-            <!--Scores: 400 width, 170 height-->
-            <div class="scoreContainer"></div>
-            <!--The audio tag that the audio file is injected to. Rather than loading everything upon page load, a new piece is loaded into this tag every time an album button is clicked.-->
-        </div><audio id="audio" src=""></audio>
+        <div class="caption gallinginfo">
+            <div class="portrait Gallingportrait"></div>
+            <h1>Martin Galling</h1>
+            <h4>1935 –</h4>
+            <h5>Recorded in 1964 (age 29)</h5>
+            <p><br>
+                German pianist, harpsichordist and chamber musician. In 2003 he founded the
+                piano duo Galling-Olivieri. Galling used a modern harpsichord with stops not found on harpsichords
+                modeled on ancient
+                instruments, including a 16-foot stop.</p>
+        </div><!---->
+        <div class="caption landowskainfo">
+            <div class="portrait Landowskaportrait"></div>
+            <h1>Wanda Landowska</h1>
+            <h4>Jul 5, 1879 – Aug 16, 1959</h4>
+            <h5>Recorded between 1949-1951 (age 70-72)</h5>
+            <p><br>
+                Polish harpsichordist, teacher, and influential figure in the revival of the harpsichord as a popular
+                instrument. She established L’École de Musique Ancienne in Paris (1925) and was the first to record
+                Bach’s Goldberg Variations on the harpsichord (1930s).</p>
+        </div><!---->
+        <div class="caption kirkpatrickinfo">
+            <div class="portrait Kirkpatrickportrait"></div>
+            <h1>Ralph Kirkpatrick</h1>
+            <h4>June 10, 1911 – Apr 13, 1984</h4>
+            <h5>Recorded in 1959 (age 48)</h5>
+            <p><br>
+                American harpsichordist and scholar who studied Art History at Harvard University. He received the John
+                Knowles Paine Traveling Scholarship, enabling him to study manuscripts in Europe, and later he became a
+                lecturer and performer at Yale University.</p>
+        </div><!---->
+        <div class="caption leonhardtinfo">
+            <div class="portrait Leonhardtportrait"></div>
+            <h1>Gustav Leonhardt</h1>
+            <h4>May 30, 1928 – Jan 16, 2012</h4>
+            <h5>Recorded in 1967 (age 39)</h5>
+            <p><br>
+                Dutch keyboardist, conductor, and musicologist. He was greatly influenced by Bach and interpreted Bach’s
+                works as leader of the Leonhardt Baroque Ensemble (later the Leonhardt Consort).</p>
+        </div><!---->
+        <div class="caption newmaninfo">
+            <div class="portrait Newmanportrait"></div>
+            <h1>Anthony Newman</h1>
+            <h4>May 12, 1941 –</h4>
+            <h5>Published in 1994 (age 53)</h5>
+            <p><br>
+                American organist, harpsichordist, and composer, he is considered by fellow artists as “The High Priest”
+                of Bach and of the harpsichord. Newman directs Bach Works and Bedford Chamber Concerts, and continues to
+                perform today. </p>
+        </div>
+    </div><!---->
+    <div class="performerContainer contentBach">
+        <div class="caption palmerinfo">
+            <div class="portrait Palmerportrait"></div>
+            <h1>Dr. Willard A. Palmer</h1>
+            <h4>Jan 31, 1917 – Apr 30, 1996</h4>
+            <h5>Published in 1994</h5>
+            <p><br>
+                American pianist, accordionist, composer, Doctor of Music (Millsaps College, 1983), and expert of
+                Baroque ornamentation. He co-produced music technique books under Alfred Publishing Co., which are still
+                popular amongst music students today. </p>
+        </div>
+        <div class="caption bischoffinfo">
+            <div class="portrait Bischoffportrait"></div>
+            <h1>Dr. Hans Bischoff</h1>
+            <h4>Feb 17, 1852 – June 12, 1889</h4>
+            <h5>Published in 1883 (age 31)</h5>
+            <p><br>
+                German concert pianist and teacher, highly influenced by Bach’s works. He studied under pianist Theodor
+                Kullak and later taught piano and theory at Kullak’s music academy. Bischoff earned a PhD in philosophy
+                and modern languages from the University of Gottingen (1873).</p>
+        </div>
+        <div class="caption bartokinfo">
+            <div class="portrait Bartokportrait"></div>
+            <h1>Béla Bartók</h1>
+            <h4>Mar 25, 1881 – Sept 26, 1945</h4>
+            <h5>Published in 1908 (age 27)</h5>
+            <p><br>
+                Influential Hungarian composer and pianist. His musical works encompassed a wide range of styles, from
+                string quartets to folk songs. Bartok was one of the early pioneers of ethnomusicology.</p>
+        </div>
+        <div class="caption czernyinfo">
+            <div class="portrait Czernyportrait"></div>
+            <h1>Carl Czerny</h1>
+            <h4>Feb 21, 1791 – Jul 15, 1857</h4>
+            <h5>Published in 1837 (age 46)</h5>
+            <p><br>
+                Austrian pianist and composer. He trained under Beethoven and later taught acclaimed pianists such as
+                Franz Liszt and Theodor Kullak. Czerny composed over a thousand pieces, many of which are still used by
+                music students today. </p>
+        </div>
+        <div class="caption hughesinfo">
+            <div class="portrait Hughesportrait"></div>
+            <h1>Edwin Hughes</h1>
+            <h4>Aug 15, 1884 – Jul 17, 1965</h4>
+            <h5>Published in 1924 (age 40)</h5>
+            <p><br>
+                American pianist and arranger. Hughes also taught at various schools, such as the Volpe Institute of
+                Music, and performed recitals along with his wife, pianist Jewel Bethany. </p>
+        </div>
+        <div class="caption bodkyinfo">
+            <div class="portrait Bodkyportrait"></div>
+            <h1>Erwin Bodky</h1>
+            <h4>Mar 7, 1896 — Dec 6, 1958</h4>
+            <p><br>
+                American pianist, harpsichordist, composer, teacher, and musicologist. Twice, he won the Felix
+                Mendelssohn-Bartholdy Prize for exceptional music students. Bodky later founded the Cambridge Society
+                for Early Music.</p>
+        </div>
+        <div class="caption kellerinfo">
+            <div class="portrait Kellerportrait"></div>
+            <h1>Hermann Keller</h1>
+            <h4>Nov 20, 1885 — Aug 17, 1967</h4>
+            <p><br>
+                German musicologist and church organist. Keller taught at several institutions, such as the Grand Ducal
+                School of Music and Institute of Technology, and was director of the Stuttgart Music Academy.</p>
+        </div>
+        <div class="caption mugelliniinfo">
+            <div class="portrait Mugelliniportrait"></div>
+            <h1>Bruno Mugellini</h1>
+            <h4>Dec 24, 1871 – Jan 15, 1912</h4>
+            <p><br>
+                Italian pianist, composer, and teacher. He was a key figure in refining piano theory and technique and
+                published musical works as well as books about teaching piano. </p>
+        </div>
+    </div><!--Score author tabs-->
+    <div class="contentBacheditor contentBach">
+        <div class="tab bartokTAB bartokLINK">
+            <p class="TABTEXT">Bartok</p>
+        </div>
+        <div class="tab bischoffTAB bischoffLINK">
+            <p class="TABTEXT">Bischoff</p>
+        </div>
+        <div class="tab busoniTAB">
+            <p class="TABTEXT">Busoni</p>
+        </div>
+        <div class="tab czernyTAB scoretabselected">
+            <p class="TABTEXT">Czerny</p>
+        </div>
+        <div class="tab hughesTAB">
+            <p class="TABTEXT">Hughes</p>
+        </div>
+        <div class="tab mugelliniTAB">
+            <p class="TABTEXT">Mugellini</p>
+        </div>
+        <div class="tab palmerTAB">
+            <p class="TABTEXT">Palmer</p>
+        </div><!---->
+        <!--Container that all the scores are injected into-->
+        <!--Scores: 400 width, 170 height-->
+        <div class="scoreContainer"></div>
+        <!--The audio tag that the audio file is injected to. Rather than loading everything upon page load, a new piece is loaded into this tag every time an album button is clicked.-->
     </div>
+    <audio id="audio" src=""></audio>
+</div>
 </body>
 </html>

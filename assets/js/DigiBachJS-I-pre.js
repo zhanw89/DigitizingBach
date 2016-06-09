@@ -18,35 +18,35 @@
 // You can set this app to only load specific portions, forcing it into different modes.
 // The available modes are BachEditor, BachPerformer, and ALL 
 if (appMODE == "bacheditorMODE") {
-	var loadBachWTC = false;
-	var loadBachEditor = true;
-	var loadBachScatterplot = true;
-	var menuPIECE = "cBacheditor_WTC1";
-	var menuPLOT = "plotEditor";
+    var loadBachWTC = false;
+    var loadBachEditor = true;
+    var loadBachScatterplot = true;
+    var menuPIECE = "cBacheditor_WTC1";
+    var menuPLOT = "plotEditor";
 } else if (appMODE == "bachperformerMODE") {
-	var loadBachWTC = true;
-	var loadBachEditor = false;
-	var loadBachScatterplot = true;
-	var menuPIECE = "cBach_WTC1";
-	var menuPLOT = "plotPerformer";
+    var loadBachWTC = true;
+    var loadBachEditor = false;
+    var loadBachScatterplot = true;
+    var menuPIECE = "cBach_WTC1";
+    var menuPLOT = "plotPerformer";
 } else if (appMODE == "allMODE") {
-	var loadBachWTC = true;
-	var loadBachEditor = true;
-	var loadBachScatterplot = true;
-	var menuPIECE = "cBach_WTC1";
-	var menuPLOT = "plotCombined";
+    var loadBachWTC = true;
+    var loadBachEditor = true;
+    var loadBachScatterplot = true;
+    var menuPIECE = "cBach_WTC1";
+    var menuPLOT = "plotCombined";
 } else if (appMODE == "demoMODE") {
-	var loadBachWTC = true;
-	var loadBachEditor = true;
-	var loadBachScatterplot = true;
-	var menuPIECE = "cBach_WTC1";
-	var menuPLOT = "plotCombined";
+    var loadBachWTC = true;
+    var loadBachEditor = true;
+    var loadBachScatterplot = true;
+    var menuPIECE = "cBach_WTC1";
+    var menuPLOT = "plotCombined";
 } else { //default values
-	var loadBachWTC = true;
-	var loadBachEditor = true;
-	var loadBachScatterplot = true;
-	var menuPIECE = "cBach_WTC1";
-	var menuPLOT = "plotCombined";
+    var loadBachWTC = true;
+    var loadBachEditor = true;
+    var loadBachScatterplot = true;
+    var menuPIECE = "cBach_WTC1";
+    var menuPLOT = "plotCombined";
 }
 
 // Menu variables
@@ -71,14 +71,14 @@ var scoreLoadFlag = false;
 //
 //with spaces
 var masterList = ["Fischer", "Tureck", "Gould", "Martins",
-	"Demus", "Richter", "Gulda", "", "Landowska", "Galling",
-	"Hamilton", "Kirkpatrick", "Leonhardt", "Newman", "",
-	"Bartok", "Bischoff", "Czerny", "Hughes", "Mugellini", "", "Bodky", "Keller"
+    "Demus", "Richter", "Gulda", "", "Landowska", "Galling",
+    "Hamilton", "Kirkpatrick", "Leonhardt", "Newman", "",
+    "Bartok", "Bischoff", "Czerny", "Hughes", "Mugellini", "", "Bodky", "Keller"
 ];
 var listPerformers = masterList.filter(Boolean);
 // without spaces
 var listofEditors = masterList.slice(15);
-var listofPerformers = masterList.slice(0,14);
+var listofPerformers = masterList.slice(0, 14);
 var listofCombined = masterList;
 //
 // Building Data "collections" for display purposes
