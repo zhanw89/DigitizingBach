@@ -24,7 +24,7 @@ $(document).ready(function () {
 if (appMODE == "bacheditorMODE") {
     $(document).ready(function () {
         //CSS changes
-        $('.playPause').hide();
+        $('.stopPlay').hide();
         $('.autoButton').hide();
         $('#scatterTab').css("left", "250px"); //left: 155px !important;
         $('#scatterTab').css("border-top-left-radius", "15px");
@@ -58,7 +58,7 @@ if (appMODE == "bacheditorMODE") {
 } else if (appMODE == "bachperformerMODE") {
     $(document).ready(function () {
         //CSS changes
-        $('.playPause').show();
+        $('.stopPlay').show();
         $('.autoButton').show();
         $('#scatterTab').css("left", "155px");
         $('#scatterTab').css("border-top-left-radius", "15px");
@@ -92,9 +92,9 @@ if (appMODE == "bacheditorMODE") {
 } else if (appMODE == "allMODE") {
     $(document).ready(function () {
         //CSS changes
-        $('.playPause').show();
-        $('.playPause').css("left", "215px");
-        $('.playPause').css("border-bottom-right-radius", "0px");
+        $('.stopPlay').show();
+        $('.stopPlay').css("left", "215px");
+        $('.stopPlay').css("border-bottom-right-radius", "0px");
         $('.autoButton').show();
         $('.autoButton').css("left", "156px");
         $('.autoButton').css("border-top-left-radius", "15px");
@@ -126,14 +126,14 @@ if (appMODE == "bacheditorMODE") {
         menuFunction();
         dataMenuFunction();
     });
-} else if (appMODE == "demoMODE") {
+} else if (appMODE == "mainMODE") {
     $(document).ready(function () {
         //CSS changes
         $('.pauseDisplay').hide();
         $('.playDisplay').hide();
-        $('.playPause').hide();
-        $('.playPause').css("left", "215px");
-        $('.playPause').css("border-bottom-right-radius", "0px");
+        $('.stopPlay').hide();
+        $('.stopPlay').css("left", "215px");
+        $('.stopPlay').css("border-bottom-right-radius", "0px");
         $('.autoButton').hide();
         $('.autoButton').css("left", "156px");
         $('.autoButton').css("border-top-left-radius", "15px");
@@ -172,7 +172,7 @@ if (appMODE == "bacheditorMODE") {
 } else {
     $(document).ready(function () {
         //CSS changes
-        $('.playPause').show();
+        $('.stopPlay').show();
         $('.autoButton').show();
         $('#scatterTab').css("left", "155px");
         $('#scatterTab').css("border-top-left-radius", "15px");

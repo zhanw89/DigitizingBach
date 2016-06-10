@@ -11,7 +11,7 @@ Styling for extra menu buttons
 */
 
 /*When active, stops all audio playback*/
-.playPause {
+.stopPlay {
     top: 7px;
     left: 223px;
     float: left;

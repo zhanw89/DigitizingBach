@@ -15,6 +15,7 @@
 // s_MenuVisuals
 // s_FXActivator
 // s_PerformerButton
+// s_HraphLegend
 // s_HTMLGraph
 //
 //////////////////////////////////////////////
@@ -46,7 +47,7 @@ var scoreActivater = function () {
 var buttonActivater = function () {
     list_of_files.forEach(function (value) {
         button = eval(value);
-        if (appMODE == "demoMODE") {
+        if (appMODE == "mainMODE") {
         } else {
             button.initialize();
         }
@@ -220,7 +221,7 @@ var menuFunction = function () {
             $('.' + menuPIECE + '.' + menuFORM + '.' + menuCHROMA + '.' +
                 menuKEY + '.' + menuPERFORMER).show();
             $('.noData').show();
-            if ($('.playPause').hasClass('menuclicked') === true) {
+            if ($('.stopPlay').hasClass('menuclicked') === true) { // If stopPlay is active, don't trigger clicks
             } else {
                 $('.data.' + menuPIECE + '.' + menuFORM + '.' + menuCHROMA +
                     '.' + menuKEY + '.' + menuPERFORMER).trigger(
@@ -913,8 +914,8 @@ var tempoPlotButtonFX = function () {
 };
 //
 // Play Pause button
-var playPauseFX = function () {
-    $('.playPause').hover(function () {
+var stopPlayFX = function () { // Sets the hover visuals only
+    $('.stopPlay').hover(function () {
         if ($(this).hasClass('menuclicked')) {
             $(this).removeClass('menuhovered');
             $(this).toggleClass('menuclickedhover');
@@ -927,10 +928,15 @@ var playPauseFX = function () {
         $(this).removeClass('menuclickedhover');
     });
 };
-var playPauseFunction = function () {
+var stopPlayFunction = function () { // The main functioning of Stop Play. Controls what happens when you click. State is read by other functions by .menuclicked class
     aPiece = document.getElementById('audio');
-    $('.playPause').click(function () {
-        if (aPiece.paused === false) {
+    $('.stopPlay').click(function () {
+        if ($(this).hasClass('menuclicked')) {
+            $('.stopPlay').removeClass('menuclicked');
+            $('.' + menuPIECE + '.' + menuFORM + '.' + menuCHROMA +
+                '.' + menuKEY + '.' + menuPERFORMER).removeClass(
+                'btnclicked');
+        } else {
             aPiece = document.getElementById('audio');
             aPiece.pause();
             aPiece.currentTime = 0;
@@ -939,16 +945,7 @@ var playPauseFunction = function () {
             $('.' + menuPIECE + '.' + menuFORM + '.' + menuCHROMA +
                 '.' + menuKEY + '.' + menuPERFORMER).removeClass(
                 'btnclicked');
-            $('.playPause').addClass('menuclicked');
-        } else {
-            $('.' + menuPIECE + '.' + menuFORM + '.' + menuCHROMA +
-                '.' + menuKEY + '.' + menuPERFORMER).addClass(
-                'btnclicked');
-            $('.pauseDisplay').hide();
-            $('.playDisplay').show();
-            $('.playPause').removeClass('menuclicked');
-            aPiece = document.getElementById('audio');
-            aPiece.play();
+            $('.stopPlay').addClass('menuclicked');
         }
         if (quickPerformer === true) {
             $('.data.' + menuPIECE + '.' + menuFORM + '.' + menuCHROMA +
@@ -1096,15 +1093,6 @@ var scoreButtonsFX = function () {
     });
 };
 //
-var resetBTN = function () {
-    $('#stopALL').hover(function () {
-        $(this).toggleClass('menuhovered');
-    });
-    $('#stopAll').click(function () {
-        $('.lvlONEBUTTON').removeClass('menuclicked');
-    });
-};
-//
 var tabBTN = function () {
     $('.tab').hover(function () {
         $(this).toggleClass('menuhovered');
@@ -1174,9 +1162,8 @@ $(document).ready(keyFX);
 $(document).ready(formFX);
 $(document).ready(chromaFX);
 $(document).ready(scoreButtonsFX);
-$(document).ready(playPauseFX);
-$(document).ready(playPauseFunction);
-$(document).ready(resetBTN);
+$(document).ready(stopPlayFX);
+$(document).ready(stopPlayFunction);
 $(document).ready(tabBTN);
 $(document).ready(tempoPlotButtonFX);
 //
@@ -1218,10 +1205,10 @@ $(document).ready(setButtonArt);
 var setExtraElements = function () {
     $("<style>").prop("type", "text/css").html(
         "\
-        .playPause{\
+        .stopPlay{\
         background-image: url('" +
         urlPrefix +
-        "Elements/play_pause.png');\
+        "Elements/stopPlay.png');\
 	}\
         .logoMAPLE{\
         background-image: url('" +
@@ -1237,6 +1224,16 @@ var setExtraElements = function () {
         background-image: url('" +
         urlPrefix +
         "Elements/halfnote.png');\
+    }\
+		.pauseDisplay{\
+        background-image: url('" +
+        urlPrefix +
+        "Elements/pauseDisplay.png');\
+    }\
+		.playDisplay{\
+        background-image: url('" +
+        urlPrefix +
+        "Elements/playDisplay.png');\
 	}\
 		.halfnotePICtooltip{\
         background-image: url('" +
@@ -1264,6 +1261,28 @@ var scatterActivater = function () {
     });
 };
 $(document).ready(scatterActivater);
+//
+//////////////////////////////
+// HTML Canvas Graph Drawer //
+//////////////////////////////
+//
+// s_GraphLegend
+//
+// This code puts in a legend hover "tooltip" at the bottom right corner of the plot
+//
+//////////////////////////////
+//
+var setLegendHover = function () {
+    $('#tempoLegend').hover(
+        function() {
+            $('.legendToolTip').show();
+        },
+        function() {
+            $('.legendToolTip').hide();
+        }
+    );
+};
+$(document).ready(setLegendHover);
 //
 //////////////////////////////
 // HTML Canvas Graph Drawer //

@@ -31,7 +31,6 @@ Git Repo: https://github.com/gauderkd/DigitizingBach
     <!--Initial variables for application (local vs online, type mode-->
     <script>
         var appMODE = "allMODE";
-        // Options: "allMODE" , "demoMODE", "bacheditorMODE" , "bachperformerMODE" NOTE EDITOR MODE IS BROKEN CURRENTLY
         var urlPrefix = "http://maplelab.net/virtualPianist/";
     </script>
     <!--Libraries-->
@@ -145,7 +144,7 @@ Git Repo: https://github.com/gauderkd/DigitizingBach
             <div class="autoButton" title="Autoplays a single performer while navigating through menu">
                 Auto
             </div><!--Pauses or Plays the piece, keeping the time tracking.-->
-            <div class="playPause" title="Prevents audio from playing while navigating applet"></div>
+            <div class="stopPlay" title="Prevents audio from playing while navigating applet"></div>
             <div id="scatterTab" title="Displays scatterplot of Pitch Height vs Attack Rate per piece">
                 Plot
             </div>
@@ -181,7 +180,7 @@ Git Repo: https://github.com/gauderkd/DigitizingBach
     <!--A text notice beneath the data display-->
     <div id="notice">
         <p class="noticeText">Tempo's are calculated for common note duration.<br>
-            Displayed in the tooltip is Palmer's original tempo measurements.</p>
+            Displayed in the tooltip are Palmer's original tempo measurements.</p>
     </div><!--Maple head logo-->
     <div class="logoMAPLE"></div><!--Title-->
     <h1 class="logoTitle">Well-Tempered Clavier</h1>
@@ -197,12 +196,12 @@ Git Repo: https://github.com/gauderkd/DigitizingBach
     <div class="editorModeText">
         <p>Welcome to the official MAPLE Lab Tempo Visualizer for JS Bach’s Well
             Tempered Clavier (Book 1). This tool is an online supplement to our
-            publication exploring the use of timing in this influential work (Poon &
-            Schutz, 2015).<br>
+            publication exploring the use of timing in this influential work <a href="http://journal.frontiersin.org/article/10.3389/fpsyg.2015.01419/full">(Poon &
+            Schutz, 2015)</a>.<br>
             <br>
             These values are based on a survey of tempi for seven different sets of
             tempo markings – two by commentators and five by editors. These are grouped
-            as two categories on the horizontal axis. We have also included Palmer’s
+            as two categories on the horizontal axis. We have also included Dr. Willard Palmer’s
             suggestions from this edition as a third category, in recognition to his
             contribution to understanding this set of 48 pieces.<br>
             <br>
@@ -303,9 +302,6 @@ Git Repo: https://github.com/gauderkd/DigitizingBach
         <!--Default plot-->
         <div class="dataPlot" id="defaultPlot">
             <div class="dataHolder">
-                <div class="palmerHolder">
-                    <div class="palmerLINE"></div>
-                </div>
                 <div class="point d1">
                     <div class="noData pianoData unselected"></div>
                 </div>
@@ -361,7 +357,7 @@ Git Repo: https://github.com/gauderkd/DigitizingBach
                     <div class="noData editorData unselected"></div>
                 </div>
                 <div class="point d19">
-                    <div class="noData palmData unselected"></div>
+                    <div class="noData editorData unselected"></div>
                 </div>
                 <div class="point d20">
                     <div class="noData commentData unselected"></div>
@@ -369,6 +365,26 @@ Git Repo: https://github.com/gauderkd/DigitizingBach
                 <div class="point d21">
                     <div class="noData commentData unselected"></div>
                 </div>
+            </div>
+        </div>
+        <div id="tempoLegend">
+            Legend
+            <div class="legendToolTip">
+                <div class="legendEntries">
+                    <div class="legEntry leg1">
+                        <div class="legData redPDot pianoData"></div>
+                         - Pianists
+                    </div>
+                    <div class="legEntry leg1">
+                        <div class="legData redHSquare harpData"></div>
+                         - Harpsichordists
+                    </div>
+                    <div class="legEntry leg1">
+                        <div class="legData graySquare editorData"></div>
+                         - Editors
+                    </div>
+                </div>
+                <div class="legendBackground"></div>
             </div>
         </div>
         <div id="containerAttackAxis"></div>
@@ -541,8 +557,6 @@ Git Repo: https://github.com/gauderkd/DigitizingBach
                 of Bach and of the harpsichord. Newman directs Bach Works and Bedford Chamber Concerts, and continues to
                 perform today. </p>
         </div>
-    </div><!---->
-    <div class="performerContainer contentBach">
         <div class="caption palmerinfo">
             <div class="portrait Palmerportrait"></div>
             <h1>Dr. Willard A. Palmer</h1>
@@ -616,7 +630,8 @@ Git Repo: https://github.com/gauderkd/DigitizingBach
                 Italian pianist, composer, and teacher. He was a key figure in refining piano theory and technique and
                 published musical works as well as books about teaching piano. </p>
         </div>
-    </div><!--Score author tabs-->
+    </div><!---->
+<!--Score author tabs-->
     <div class="contentBacheditor contentBach">
         <div class="tab bartokTAB bartokLINK">
             <p class="TABTEXT">Bartok</p>

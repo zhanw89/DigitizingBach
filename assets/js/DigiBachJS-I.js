@@ -23,7 +23,7 @@ Object.size = function (obj) {
 };
 //
 //Play Music button functionality
-if (appMODE == "demoMODE") {
+if (appMODE == "mainMODE") {
     var playPiece = function (volume, carryperformer, audioURL, currentPieceName,
                               instrument) {
         if (currentPieceName === currentPiecePlaying) {
@@ -44,7 +44,7 @@ if (appMODE == "demoMODE") {
                               instrument) {
         //Load audio tag into aPiece
         aPiece = document.getElementById('audio');
-        if ($('.playPause').hasClass('menuclicked')) {
+        if ($('.stopPlay').hasClass('menuclicked')) { // This has to be present because the Play function also holds the Performer Bio/Caption code
             aPiece.src = audioURL;
             aPiece.load();
             if (currentPieceName === currentPiecePlaying) {

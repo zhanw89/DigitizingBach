@@ -35,7 +35,7 @@ if (appMODE == "bacheditorMODE") {
     var loadBachScatterplot = true;
     var menuPIECE = "cBach_WTC1";
     var menuPLOT = "plotCombined";
-} else if (appMODE == "demoMODE") {
+} else if (appMODE == "mainMODE") {
     var loadBachWTC = true;
     var loadBachEditor = true;
     var loadBachScatterplot = true;
