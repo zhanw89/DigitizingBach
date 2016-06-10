@@ -40,7 +40,8 @@ Hotkeys for quick navigation are available to use (there is an image on the bott
 - "~,1,2...0,-" = Each key along the top keyboard row chooses a key from C to B, in order.
 - "Z,X,C,V" = Each chooses between 1 of 4 menu selections (Form/Key/Chroma) for quick navigation
 
-
+## Options
+"allMODE" , "mainMODE", "bacheditorMODE" , "bachperformerMODE"
 ## About the Project
 Bach's Well-Tempered Clavier is a collection of 48 pieces written in 1722 by Johann Sebastian Bach. It is split between Preludes and Fugues and has a Major and Minor key piece for every pitch. It was written as a sort of learning study for the harpsichord, clavichord, and piano.
 
