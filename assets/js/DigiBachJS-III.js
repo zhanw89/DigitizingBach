@@ -15,6 +15,7 @@
 // s_MenuVisuals
 // s_FXActivator
 // s_PerformerButton
+// s_HraphLegend
 // s_HTMLGraph
 //
 //////////////////////////////////////////////
@@ -1260,6 +1261,28 @@ var scatterActivater = function () {
     });
 };
 $(document).ready(scatterActivater);
+//
+//////////////////////////////
+// HTML Canvas Graph Drawer //
+//////////////////////////////
+//
+// s_GraphLegend
+//
+// This code puts in a legend hover "tooltip" at the bottom right corner of the plot
+//
+//////////////////////////////
+//
+var setLegendHover = function () {
+    $('#tempoLegend').hover(
+        function() {
+            $('.legendToolTip').show();
+        },
+        function() {
+            $('.legendToolTip').hide();
+        }
+    );
+};
+$(document).ready(setLegendHover);
 //
 //////////////////////////////
 // HTML Canvas Graph Drawer //
