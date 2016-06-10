@@ -206,7 +206,7 @@ note that piano and harpsichord sets are in seperate containers*/
 }
 
 /*Play and Pause Display on top left*/
-.playPauseBut {
+.playpauseDisplay {
     position: absolute;
     float: left;
     margin: 3px;
@@ -218,13 +218,13 @@ note that piano and harpsichord sets are in seperate containers*/
     background-repeat: no-repeat;
 }
 
-.playBut {
-    background-image: url("https://www.maplelab.net/virtualPianist/AmplitudeEnv/playButton.png");
+.playDisplay {
+    background-image: url("https://www.maplelab.net/virtualPianist/Elements/playDisplay.png");
     display: none;
 }
 
-.pauseBut {
-    background-image: url("https://www.maplelab.net/virtualPianist/AmplitudeEnv/pauseButton.png");
+.pauseDisplay {
+    background-image: url("https://www.maplelab.net/virtualPianist/Elements/pauseDisplay.png");
     display: show;
 }
 

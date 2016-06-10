@@ -934,8 +934,8 @@ var playPauseFunction = function () {
             aPiece = document.getElementById('audio');
             aPiece.pause();
             aPiece.currentTime = 0;
-            $('.pauseBut').show();
-            $('.playBut').hide();
+            $('.pauseDisplay').show();
+            $('.playDisplay').hide();
             $('.' + menuPIECE + '.' + menuFORM + '.' + menuCHROMA +
                 '.' + menuKEY + '.' + menuPERFORMER).removeClass(
                 'btnclicked');
@@ -944,8 +944,8 @@ var playPauseFunction = function () {
             $('.' + menuPIECE + '.' + menuFORM + '.' + menuCHROMA +
                 '.' + menuKEY + '.' + menuPERFORMER).addClass(
                 'btnclicked');
-            $('.pauseBut').hide();
-            $('.playBut').show();
+            $('.pauseDisplay').hide();
+            $('.playDisplay').show();
             $('.playPause').removeClass('menuclicked');
             aPiece = document.getElementById('audio');
             aPiece.play();

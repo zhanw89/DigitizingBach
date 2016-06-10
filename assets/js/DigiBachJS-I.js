@@ -61,13 +61,13 @@ if (appMODE == "demoMODE") {
                     if (aPiece.paused === false) {
                         aPiece.pause();
                         aPiece.currentTime = 0;
-                        $('.pauseBut').show();
-                        $('.playBut').hide();
+                        $('.pauseDisplay').show();
+                        $('.playDisplay').hide();
                     } else {
                         aPiece.volume = volume;
                         aPiece.play();
-                        $('.pauseBut').hide();
-                        $('.playBut').show();
+                        $('.pauseDisplay').hide();
+                        $('.playDisplay').show();
                     }
                 } else {
                     currentPiecePlaying = currentPieceName;
@@ -77,8 +77,8 @@ if (appMODE == "demoMODE") {
                     aPiece.play();
                     $('.caption').fadeOut(250);
                     $('.' + carryperformer).fadeIn(250);
-                    $('.pauseBut').hide();
-                    $('.playBut').show();
+                    $('.pauseDisplay').hide();
+                    $('.playDisplay').show();
                 }
             } else {
                 if (currentPieceName === currentPiecePlaying) {

@@ -129,8 +129,8 @@ if (appMODE == "bacheditorMODE") {
 } else if (appMODE == "demoMODE") {
     $(document).ready(function () {
         //CSS changes
-        $('.pauseBut').hide();
-        $('.playBut').hide();
+        $('.pauseDisplay').hide();
+        $('.playDisplay').hide();
         $('.playPause').hide();
         $('.playPause').css("left", "215px");
         $('.playPause').css("border-bottom-right-radius", "0px");
