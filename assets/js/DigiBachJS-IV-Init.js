@@ -126,7 +126,7 @@ if (appMODE == "bacheditorMODE") {
         menuFunction();
         dataMenuFunction();
     });
-} else if (appMODE == "demoMODE") {
+} else if (appMODE == "mainMODE") {
     $(document).ready(function () {
         //CSS changes
         $('.pauseDisplay').hide();

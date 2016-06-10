@@ -23,7 +23,7 @@ Object.size = function (obj) {
 };
 //
 //Play Music button functionality
-if (appMODE == "demoMODE") {
+if (appMODE == "mainMODE") {
     var playPiece = function (volume, carryperformer, audioURL, currentPieceName,
                               instrument) {
         if (currentPieceName === currentPiecePlaying) {

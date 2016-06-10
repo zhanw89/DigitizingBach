@@ -46,7 +46,7 @@ var scoreActivater = function () {
 var buttonActivater = function () {
     list_of_files.forEach(function (value) {
         button = eval(value);
-        if (appMODE == "demoMODE") {
+        if (appMODE == "mainMODE") {
         } else {
             button.initialize();
         }
