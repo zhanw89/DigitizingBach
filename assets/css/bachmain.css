@@ -219,12 +219,10 @@ note that piano and harpsichord sets are in seperate containers*/
 }
 
 .playDisplay {
-    background-image: url("https://www.maplelab.net/virtualPianist/Elements/playDisplay.png");
     display: none;
 }
 
 .pauseDisplay {
-    background-image: url("https://www.maplelab.net/virtualPianist/Elements/pauseDisplay.png");
     display: show;
 }
 

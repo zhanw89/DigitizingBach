@@ -1237,6 +1237,16 @@ var setExtraElements = function () {
         background-image: url('" +
         urlPrefix +
         "Elements/halfnote.png');\
+    }\
+		.pauseDisplay{\
+        background-image: url('" +
+        urlPrefix +
+        "Elements/pauseDisplay.png');\
+    }\
+		.playDisplay{\
+        background-image: url('" +
+        urlPrefix +
+        "Elements/playDisplay.png');\
 	}\
 		.halfnotePICtooltip{\
         background-image: url('" +
