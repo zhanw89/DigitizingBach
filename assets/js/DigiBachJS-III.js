@@ -1096,15 +1096,6 @@ var scoreButtonsFX = function () {
     });
 };
 //
-var resetBTN = function () {
-    $('#stopALL').hover(function () {
-        $(this).toggleClass('menuhovered');
-    });
-    $('#stopAll').click(function () {
-        $('.lvlONEBUTTON').removeClass('menuclicked');
-    });
-};
-//
 var tabBTN = function () {
     $('.tab').hover(function () {
         $(this).toggleClass('menuhovered');
