@@ -220,7 +220,7 @@ var menuFunction = function () {
             $('.' + menuPIECE + '.' + menuFORM + '.' + menuCHROMA + '.' +
                 menuKEY + '.' + menuPERFORMER).show();
             $('.noData').show();
-            if ($('.stopPlay').hasClass('menuclicked') === true) {
+            if ($('.stopPlay').hasClass('menuclicked') === true) { // If stopPlay is active, don't trigger clicks
             } else {
                 $('.data.' + menuPIECE + '.' + menuFORM + '.' + menuCHROMA +
                     '.' + menuKEY + '.' + menuPERFORMER).trigger(
@@ -913,7 +913,7 @@ var tempoPlotButtonFX = function () {
 };
 //
 // Play Pause button
-var stopPlayFX = function () {
+var stopPlayFX = function () { // Sets the hover visuals only
     $('.stopPlay').hover(function () {
         if ($(this).hasClass('menuclicked')) {
             $(this).removeClass('menuhovered');
@@ -927,10 +927,15 @@ var stopPlayFX = function () {
         $(this).removeClass('menuclickedhover');
     });
 };
-var stopPlayFunction = function () {
+var stopPlayFunction = function () { // The main functioning of Stop Play. Controls what happens when you click. State is read by other functions by .menuclicked class
     aPiece = document.getElementById('audio');
     $('.stopPlay').click(function () {
-        if (aPiece.paused === false) {
+        if ($(this).hasClass('menuclicked')) {
+            $('.stopPlay').removeClass('menuclicked');
+            $('.' + menuPIECE + '.' + menuFORM + '.' + menuCHROMA +
+                '.' + menuKEY + '.' + menuPERFORMER).removeClass(
+                'btnclicked');
+        } else {
             aPiece = document.getElementById('audio');
             aPiece.pause();
             aPiece.currentTime = 0;
@@ -940,15 +945,6 @@ var stopPlayFunction = function () {
                 '.' + menuKEY + '.' + menuPERFORMER).removeClass(
                 'btnclicked');
             $('.stopPlay').addClass('menuclicked');
-        } else {
-            $('.' + menuPIECE + '.' + menuFORM + '.' + menuCHROMA +
-                '.' + menuKEY + '.' + menuPERFORMER).addClass(
-                'btnclicked');
-            $('.pauseDisplay').hide();
-            $('.playDisplay').show();
-            $('.stopPlay').removeClass('menuclicked');
-            aPiece = document.getElementById('audio');
-            aPiece.play();
         }
         if (quickPerformer === true) {
             $('.data.' + menuPIECE + '.' + menuFORM + '.' + menuCHROMA +
