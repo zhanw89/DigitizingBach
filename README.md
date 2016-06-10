@@ -17,6 +17,7 @@ It organizes a lot of data from Bach's Well-Tempered Clavier into a contained to
 
 _Note that the current stable "viewable" build is behind the development in this repo_
 
+## Quick Explanation of controls
 All data is pulled from Dr. Willard A. Palmer's edition and analysis of Bach's Well-Tempered Clavier. For plotting purposes, tempi are calculated for common note duration. 
 
 If you over over any data point, you can see the original Palmer tempo (and what note timing it was encoded for) 
@@ -38,9 +39,9 @@ Hotkeys for quick navigation are available to use (there is an image on the bott
 - "->" = Scroll Key Forwards
 - "~,1,2...0,-" = Each key along the top keyboard row chooses a key from C to B, in order.
 - "Z,X,C,V" = Each chooses between 1 of 4 menu selections (Form/Key/Chroma) for quick navigation
-``
 
 
+## About the Project
 Bach's Well-Tempered Clavier is a collection of 48 pieces written in 1722 by Johann Sebastian Bach. It is split between Preludes and Fugues and has a Major and Minor key piece for every pitch. It was written as a sort of learning study for the harpsichord, clavichord, and piano.
 
 One of the major projects of the Maple Lab is focused on exploring how music connects with emotion and communication. Music shares many communicative parallels, for instance happiness is conveyed in both speech and music by an increased rate of articulation. The Well-Tempered Clavier offers a very unique dataset to work with as not only does it balances across key and chroma, but because Bach did not write down preferred tempo markings (as such a thing did not exist at the time), people are free to interpret how fast or slow they should play the pieces for themselves. Many performers have recorded their own performances of the entire set, and many editors over the years have republished the work with their own preferred tempo markings. This creates a huge set of data to research and explore any patterns that may lie within.
