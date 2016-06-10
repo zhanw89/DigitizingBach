@@ -447,7 +447,7 @@ $(document).ready(function () {
                 }
             // Space bar pressed
             case 32:
-                $('.playPause').trigger("click");
+                $('.stopPlay').trigger("click");
                 break;
             // #1 key pressed
             //PRESS P

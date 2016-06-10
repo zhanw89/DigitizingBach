@@ -914,7 +914,7 @@ var tempoPlotButtonFX = function () {
 //
 // Play Pause button
 var stopPlayFX = function () {
-    $('.').hover(function () {
+    $('.stopPlay').hover(function () {
         if ($(this).hasClass('menuclicked')) {
             $(this).removeClass('menuhovered');
             $(this).toggleClass('menuclickedhover');
@@ -1167,7 +1167,6 @@ $(document).ready(chromaFX);
 $(document).ready(scoreButtonsFX);
 $(document).ready(stopPlayFX);
 $(document).ready(stopPlayFunction);
-$(document).ready(resetBTN);
 $(document).ready(tabBTN);
 $(document).ready(tempoPlotButtonFX);
 //

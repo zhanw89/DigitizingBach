@@ -44,7 +44,7 @@ if (appMODE == "demoMODE") {
                               instrument) {
         //Load audio tag into aPiece
         aPiece = document.getElementById('audio');
-        if ($('.playPause').hasClass('menuclicked')) {
+        if ($('.stopPlay').hasClass('menuclicked')) {
             aPiece.src = audioURL;
             aPiece.load();
             if (currentPieceName === currentPiecePlaying) {
