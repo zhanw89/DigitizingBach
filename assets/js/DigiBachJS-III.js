@@ -220,7 +220,7 @@ var menuFunction = function () {
             $('.' + menuPIECE + '.' + menuFORM + '.' + menuCHROMA + '.' +
                 menuKEY + '.' + menuPERFORMER).show();
             $('.noData').show();
-            if ($('.playPause').hasClass('menuclicked') === true) {
+            if ($('.stopPlay').hasClass('menuclicked') === true) {
             } else {
                 $('.data.' + menuPIECE + '.' + menuFORM + '.' + menuCHROMA +
                     '.' + menuKEY + '.' + menuPERFORMER).trigger(
@@ -913,8 +913,8 @@ var tempoPlotButtonFX = function () {
 };
 //
 // Play Pause button
-var playPauseFX = function () {
-    $('.playPause').hover(function () {
+var stopPlayFX = function () {
+    $('.').hover(function () {
         if ($(this).hasClass('menuclicked')) {
             $(this).removeClass('menuhovered');
             $(this).toggleClass('menuclickedhover');
@@ -927,9 +927,9 @@ var playPauseFX = function () {
         $(this).removeClass('menuclickedhover');
     });
 };
-var playPauseFunction = function () {
+var stopPlayFunction = function () {
     aPiece = document.getElementById('audio');
-    $('.playPause').click(function () {
+    $('.stopPlay').click(function () {
         if (aPiece.paused === false) {
             aPiece = document.getElementById('audio');
             aPiece.pause();
@@ -939,14 +939,14 @@ var playPauseFunction = function () {
             $('.' + menuPIECE + '.' + menuFORM + '.' + menuCHROMA +
                 '.' + menuKEY + '.' + menuPERFORMER).removeClass(
                 'btnclicked');
-            $('.playPause').addClass('menuclicked');
+            $('.stopPlay').addClass('menuclicked');
         } else {
             $('.' + menuPIECE + '.' + menuFORM + '.' + menuCHROMA +
                 '.' + menuKEY + '.' + menuPERFORMER).addClass(
                 'btnclicked');
             $('.pauseDisplay').hide();
             $('.playDisplay').show();
-            $('.playPause').removeClass('menuclicked');
+            $('.stopPlay').removeClass('menuclicked');
             aPiece = document.getElementById('audio');
             aPiece.play();
         }
@@ -1165,8 +1165,8 @@ $(document).ready(keyFX);
 $(document).ready(formFX);
 $(document).ready(chromaFX);
 $(document).ready(scoreButtonsFX);
-$(document).ready(playPauseFX);
-$(document).ready(playPauseFunction);
+$(document).ready(stopPlayFX);
+$(document).ready(stopPlayFunction);
 $(document).ready(resetBTN);
 $(document).ready(tabBTN);
 $(document).ready(tempoPlotButtonFX);
@@ -1209,10 +1209,10 @@ $(document).ready(setButtonArt);
 var setExtraElements = function () {
     $("<style>").prop("type", "text/css").html(
         "\
-        .playPause{\
+        .stopPlay{\
         background-image: url('" +
         urlPrefix +
-        "Elements/play_pause.png');\
+        "Elements/stopPlay.png');\
 	}\
         .logoMAPLE{\
         background-image: url('" +
