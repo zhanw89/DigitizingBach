@@ -323,6 +323,11 @@ function audioFile(OnOff, composer, piece, PerfvsEdit, performer, note,
     var roundData = Math.round(palmerData);
     var roundAttack = (Math.round(100 * attackRate)) / 100;
     var roundActualData = Math.round(data);
+    if (roundData === 0) {
+        roundData = 168;
+        roundAttack = 13.6;
+        roundActualData = 168;
+    }
     var textNote;
     if (note === "Q") {
         textNote = "♩";
