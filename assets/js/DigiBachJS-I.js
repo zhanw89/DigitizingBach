@@ -44,7 +44,7 @@ if (appMODE == "mainMODE") {
                               instrument) {
         //Load audio tag into aPiece
         aPiece = document.getElementById('audio');
-        if ($('.stopPlay').hasClass('menuclicked')) { // This has to be present because the Play function also holds the Performer Bio/Caption code
+        if ($('.stopPlay').hasClass('menuclicked') === false) { // This has to be present because the Play function also holds the Performer Bio/Caption code
             aPiece.src = audioURL;
             aPiece.load();
             if (currentPieceName === currentPiecePlaying) {

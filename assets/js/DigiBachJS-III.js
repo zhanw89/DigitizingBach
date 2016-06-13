@@ -221,7 +221,7 @@ var menuFunction = function () {
             $('.' + menuPIECE + '.' + menuFORM + '.' + menuCHROMA + '.' +
                 menuKEY + '.' + menuPERFORMER).show();
             $('.noData').show();
-            if ($('.stopPlay').hasClass('menuclicked') === true) { // If stopPlay is active, don't trigger clicks
+            if ($('.stopPlay').hasClass('menuclicked') === false) { // If stopPlay is active, don't trigger clicks
             } else {
                 $('.data.' + menuPIECE + '.' + menuFORM + '.' + menuCHROMA +
                     '.' + menuKEY + '.' + menuPERFORMER).trigger(
@@ -933,15 +933,15 @@ var stopPlayFunction = function () { // The main functioning of Stop Play. Contr
     $('.stopPlay').click(function () {
         if ($(this).hasClass('menuclicked')) {
             $('.stopPlay').removeClass('menuclicked');
-            $('.' + menuPIECE + '.' + menuFORM + '.' + menuCHROMA +
-                '.' + menuKEY + '.' + menuPERFORMER).removeClass(
-                'btnclicked');
-        } else {
             aPiece = document.getElementById('audio');
             aPiece.pause();
             aPiece.currentTime = 0;
             $('.pauseDisplay').show();
             $('.playDisplay').hide();
+            $('.' + menuPIECE + '.' + menuFORM + '.' + menuCHROMA +
+                '.' + menuKEY + '.' + menuPERFORMER).removeClass(
+                'btnclicked');
+        } else {
             $('.' + menuPIECE + '.' + menuFORM + '.' + menuCHROMA +
                 '.' + menuKEY + '.' + menuPERFORMER).removeClass(
                 'btnclicked');
