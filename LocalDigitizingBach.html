@@ -28,10 +28,12 @@ Git Repo: https://github.com/gauderkd/DigitizingBach
     <link href="file:///Users/kyle/Documents/DigitizingBach/assets/css/tempoplot.css" type="text/css" rel="stylesheet"/>
     <link href="file:///Users/kyle/Documents/DigitizingBach/assets/css/scatterplot.css" type="text/css"
           rel="stylesheet"/>
+    <link href="file:///Users/kyle/Documents/DigitizingBach/assets/css/screen_360.css" type="text/css"
+          rel="stylesheet"/>
     <!--Initial variables for application (local vs online, type mode-->
     <script>
         var appMODE = "allMODE";
-        var urlPrefix = "http://maplelab.net/virtualPianist/";
+        var urlPrefix = "https://maplelab.net/virtualPianist/";
     </script>
     <!--Libraries-->
     <script src=
@@ -69,11 +71,17 @@ Git Repo: https://github.com/gauderkd/DigitizingBach
     <div id="mainMenu">
         <!--Level Composer contains the toggle to enter different "modes" (ie display performers vs editors-->
         <!--NOTE: This will eventually be superceded by a dropdown menu-->
-        <div id="lvlCOMPOSER">
-            <p class="plotPerformerBUTTON tempoPlotButton">Performer</p>
-            <p class="plotEditorBUTTON tempoPlotButton">Editor</p>
-            <p class="plotCombinedBUTTON tempoPlotButton">Combined</p>
-            <p class="chopinBUTTON">Chopin</p>
+        <div class="extraMenuItems">
+
+            <div class="autoButton" title="Autoplays a single performer while navigating through menu">
+                Auto
+            </div><!--Pauses or Plays the piece, keeping the time tracking.-->
+            <div class="stopPlay menuclicked" title="Prevents audio from playing while navigating applet"></div>
+            <div id="scatterTab" title="Displays scatterplot of Pitch Height vs Attack Rate per piece">
+                Plot
+            </div>
+                <input id="pieceNum" onkeypress='validate(event)' placeholder="No." type=
+                        "text">
         </div>
         <!--Level 1 is the "Type" Button, where you can switch from Fugue and Prelude-->
         <!--formBUT is the default button that shows, but it is hidden as soon as an option is made-->
@@ -95,16 +103,27 @@ Git Repo: https://github.com/gauderkd/DigitizingBach
         <div id="lvlTWO">
             <div id="regularKeyboard">
                 <div class="key chromaC c0menu"></div>
-                <div class="blackkey chromaDflat c1menu"></div>
+                <div class="innerKey">
+                    <div class="blackkey chromaDflat c1menu"></div>
+                </div>
+
                 <div class="key chromaD c2menu"></div>
-                <div class="blackkey chromaEflat c3menu"></div>
+                <div class="innerKey">
+                    <div class="blackkey chromaEflat c3menu"></div>
+                </div>
                 <div class="key chromaE c4menu"></div>
                 <div class="key chromaF c5menu"></div>
-                <div class="blackkey chromaGflat c6menu"></div>
+                <div class="innerKey">
+                    <div class="blackkey chromaGflat c6menu"></div>
+                </div>
                 <div class="key chromaG c7menu"></div>
-                <div class="blackkey chromaAflat c8menu"></div>
+                <div class="innerKey">
+                    <div class="blackkey chromaAflat c8menu"></div>
+                </div>
                 <div class="key chromaA c9menu"></div>
-                <div class="blackkey chromaBflat c10menu"></div>
+                <div class="innerKey">
+                    <div class="blackkey chromaBflat c10menu"></div>
+                </div>
                 <div class="key chromaB c11menu"></div>
             </div>
         </div><!--Level 3 is the "mode" Major/Minor toggle-->
@@ -128,44 +147,14 @@ Git Repo: https://github.com/gauderkd/DigitizingBach
         <!--These are miscellaneous options within the menu-->
         <!---->
         <!--text box to enter what piece number you'd like to navigate to-->
-        <div class="extraMenuItems">
-            <input id="pieceNum" onkeypress='validate(event)' placeholder="No." type=
-                    "text">
-            <!--Auto performer button. This activates the 'performer' mode where the selected perfomer will play automatically when you click different menu options-->
-            <div class="performerGraph">
-                Perf
-            </div>
-            <div class="editorGraph">
-                Edit
-            </div>
-            <div class="completeGraph">
-                Com
-            </div>
-            <div class="autoButton" title="Autoplays a single performer while navigating through menu">
-                Auto
-            </div><!--Pauses or Plays the piece, keeping the time tracking.-->
-            <div class="stopPlay menuclicked" title="Prevents audio from playing while navigating applet"></div>
-            <div id="scatterTab" title="Displays scatterplot of Pitch Height vs Attack Rate per piece">
-                Plot
-            </div>
-            <!--A Stop button that stops everything from playing and resets the entire system. This isn't displayed or coded yet.-->
-            <div id="stopALL">
-                <p class="stopTXT">RESET</p>
-            </div>
-        </div>
+
         <!--Background of the Menu-->
         <div id="menuBackground"></div>
     </div><!--Extra stuff within the applet-->
     <!--Container for the note image that appears on top of the plot-->
-    <div class="noteDisplay" title="Common note duration"></div><!--Applet Background-->
-    <div id="containerBackground"></div><!--Background for the score display-->
-    <div class="scoreOutline"></div>
+    <div id="containerBackground"></div><!--Main Background-->
+    <div class="scoreOutline"></div><!--Background for the score display-->
     <!--Toggle button for plot to switch between Attack rate and Temp display-->
-    <p class="toggleTag">Tempo<br>
-        Attack</p>
-    <div class="dataToggle" title="Toggles between plotting for Tempo vs Attack Rate">
-        <div class="dataToggleDot"></div>
-    </div>
     <!--PlayPause indicator image-->
     <div id="audioButtonContainer">
         <div class="pauseDisplay playpauseDisplay">
@@ -178,10 +167,6 @@ Git Repo: https://github.com/gauderkd/DigitizingBach
     <!--A display text for development purposes. Currently shows the different menu selections. Not being displayed.-->
     <p class="display">Display box</p>
     <!--A text notice beneath the data display-->
-    <div id="notice">
-        <p class="noticeText">Tempo's are calculated for common note duration.<br>
-            Displayed in the tooltip are Palmer's original tempo measurements.</p>
-    </div><!--Maple head logo-->
     <div class="logoMAPLE"></div><!--Title-->
     <h1 class="logoTitle">Well-Tempered Clavier</h1>
     <!--Bach image inside score outline-->
@@ -219,50 +204,50 @@ Git Repo: https://github.com/gauderkd/DigitizingBach
     <div class="content contentBach">
         <div class="piano">
             <h4 class="instrumentTitle">Piano</h4>
-            <div id="Fischer">
+            <div id="Fischer" class="albumButton">
                 <div class="defbutton inactive FischerButton buttonPOS1 cBach_WTC1"></div>
             </div>
-            <div id="Tureck">
+            <div id="Tureck" class="albumButton">
                 <div class="defbutton inactive TureckButton buttonPOS2 cBach_WTC1"></div>
             </div>
-            <div id="Gould">
+            <div id="Gould" class="albumButton">
                 <div class="defbutton inactive GouldButton buttonPOS3 cBach_WTC1"></div>
             </div>
-            <div id="Martins">
+            <div id="Martins" class="albumButton">
                 <div class="defbutton inactive MartinsButton buttonPOS4 cBach_WTC1"></div>
             </div>
-            <div id="Demus">
+            <div id="Demus" class="albumButton">
                 <div class="defbutton inactive DemusButton buttonPOS5 cBach_WTC1"></div>
             </div>
-            <div id="Richter">
+            <div id="Richter" class="albumButton">
                 <div class="defbutton inactive RichterButton buttonPOS6 cBach_WTC1"></div>
             </div>
-            <div id="Gulda">
+            <div id="Gulda" class="albumButton">
                 <div class="defbutton inactive GuldaButton buttonPOS7 cBach_WTC1"></div>
             </div>
         </div>
         <div class="harpsichord">
             <h4 class="instrumentTitle">Harpsichord</h4>
-            <div id="Landowska">
+            <div id="Landowska" class="albumButton">
                 <div class="defbutton inactive LandowskaButton buttonPOS1 cBach_WTC1">
                 </div>
             </div>
-            <div id="Galling">
+            <div id="Galling" class="albumButton">
                 <div class="defbutton inactive GallingButton buttonPOS2 cBach_WTC1"></div>
             </div>
-            <div id="Hamilton">
+            <div id="Hamilton" class="albumButton">
                 <div class="defbutton inactive HamiltonButton buttonPOS3 cBach_WTC1">
                 </div>
             </div>
-            <div id="Kirkpatrick">
+            <div id="Kirkpatrick" class="albumButton">
                 <div class="defbutton inactive KirkpatrickButton buttonPOS4 cBach_WTC1">
                 </div>
             </div>
-            <div id="Leonhardt">
+            <div id="Leonhardt" class="albumButton">
                 <div class="defbutton inactive LeonhardtButton buttonPOS5 cBach_WTC1">
                 </div>
             </div>
-            <div id="Newman">
+            <div id="Newman" class="albumButton">
                 <div class="defbutton inactive NewmanButton buttonPOS6 cBach_WTC1"></div>
             </div>
         </div>
@@ -299,6 +284,22 @@ Git Repo: https://github.com/gauderkd/DigitizingBach
     </div><!---->
     <!--The chart area. each dot is essentially an empty container, and the points respective to each injected piece is generated through javascript-->
     <div id="chartPad">
+        <div class="noteDisplay" title="Common note duration"></div><!--Note at top right of tempo plot-->
+        <p class="toggleTag">Tempo<br>
+            Attack</p>
+        <div class="dataToggle" title="Toggles between plotting for Tempo vs Attack Rate">
+            <div class="dataToggleDot"></div>
+        </div>
+        <div id="notice">
+            <p class="noticeText">Tempo's are calculated for common note duration.<br>
+                Displayed in the tooltip are Palmer's original tempo measurements.</p>
+        </div>
+        <div id="lvlCOMPOSER">
+            <p class="plotPerformerBUTTON tempoPlotButton">Performer</p>
+            <p class="plotEditorBUTTON tempoPlotButton">Editor</p>
+            <p class="plotCombinedBUTTON tempoPlotButton">Combined</p>
+            <p class="chopinBUTTON">Chopin</p>
+        </div>
         <!--Default plot-->
         <div class="dataPlot" id="defaultPlot">
             <div class="dataHolder">

@@ -11,8 +11,7 @@ Positioning of Pianokey.css and other menu options (Form, Key buttons)
 */
 #lvlCOMPOSER {
     position: absolute;
-    left: 409px;
-    top: 731px;
+    top: 347px;
     z-index: 6;
     text-align: center;
     display: none;
@@ -20,22 +19,22 @@ Positioning of Pianokey.css and other menu options (Form, Key buttons)
 
 #lvlONE {
     position: absolute;
-    left: 30px;
+    left: 3px;
     top: -25px;
     z-index: 4;
 }
 
 #lvlTWO {
     position: absolute;
-    left: 105px;
+    left: 78px;
     top: 32px;
-    width: 224px;
+    width: calc(98% - 78px);
     z-index: 5;
 }
 
 #lvlTHREE {
     position: absolute;
-    left: 30px;
+    left: 3px;
     top: 24px;
     z-index: 6;
 }

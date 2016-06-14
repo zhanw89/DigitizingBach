@@ -11,92 +11,75 @@ Styling for extra menu buttons
 */
 
 /*When active, stops all audio playback*/
-.stopPlay {
-    top: 7px;
-    left: 223px;
-    float: left;
-    margin: 3px;
-    padding: 0;
+.extraMenuItems {
+    position: absolute;
+    top: 10px;
+    width: 168px;
     height: 20px;
+    right: 0;
+    z-index: 8;
+}
+#extraMenuItems div {
+    float: left;
+    height: 20px;
+
+}
+.stopPlay {
+    margin-right: -1px;
+    margin-left: -1px;
+    float: left;
     width: 30px;
     background-size: 23px 23px;
     background-repeat: no-repeat;
     background-color: #fff;
     background-position: center;
-    position: absolute;
     border: 2px solid #000;
     cursor: pointer;
     z-index: 4;
-    display: none;
+    height: 20px;
 }
 
 /*Button when active, allows you to scroll between pieces and auto play selected performer*/
 .autoButton {
-    position: absolute;
+    margin-right: -1px;
+    margin-left: -1px;
+    float: left;
     z-index: 4;
-    top: 10px;
-    left: 257px;
-    position: absolute;
     width: 60px;
     font-size: 18px !important;
     line-height: 15px !important;
     text-align: center;
-    height: 20px;
     border: 2px solid #000;
     background: #fff;
     cursor: pointer;
     border-top-right-radius: 15px;
-    display: none;
+    height: 20px;
 }
 
 /*Input a number between 1-24 to automatically choose piece number*/
 #pieceNum {
-    position: absolute;
-    height: 10px;
-    width: 27px;
+    margin-right: -1px;
+    margin-left: -1px;
+    float: left;
+    width: 30px;
     background-color: #fff;
-    left: 185px;
-    top: 10px;
     z-index: 80;
     border: 2px solid #000;
     border-radius: 0;
     text-align: center;
-    display: none;
+    height: 20px;
 }
 
 /*Click to open scatter plot*/
 #scatterTab {
-    position: absolute;
-    height: 20px;
+    margin-right: -1px;
+    margin-left: -1px;
+    float: left;
     width: 30px;
     background-color: #fff;
-    top: 10px !important;
     z-index: 80;
-    border-top-left-radius: 15px;
     border: 2px solid #000;
-    border-radius: 0;
     text-align: center;
     cursor: pointer;
-}
-
-/*Stop playback button DEPRECIATED*/
-#stopALL {
-    position: absolute;
-    width: 70px;
-    height: 25px;
-    background: #fff;
-    z-index: 20;
-    top: 760px;
-    left: 820px;
-    border: 2px solid #000;
-    border-radius: 20px;
-    cursor: pointer;
-    display: none;
-}
-
-.stopTXT {
-    text-align: center;
-    position: absolute;
-    left: 11px;
-    top: -11px;
+    height: 20px;
 }

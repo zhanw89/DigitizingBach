@@ -26,10 +26,8 @@ if (appMODE == "bacheditorMODE") {
         //CSS changes
         $('.stopPlay').hide();
         $('.autoButton').hide();
-        $('#scatterTab').css("left", "250px"); //left: 155px !important;
         $('#scatterTab').css("border-top-left-radius", "15px");
         $('#scatterTab').show();
-        $('#pieceNum').css("left", "280px");
         $('#pieceNum').css("border-top-right-radius", "15px");
         $('#pieceNum').show();
         $('#lvlCOMPOSER').show();
@@ -60,10 +58,8 @@ if (appMODE == "bacheditorMODE") {
         //CSS changes
         $('.stopPlay').show();
         $('.autoButton').show();
-        $('#scatterTab').css("left", "155px");
         $('#scatterTab').css("border-top-left-radius", "15px");
         $('#scatterTab').show();
-        $('#pieceNum').css("left", "187px");
         $('#pieceNum').css("border-bottom-right-radius", "0px");
         $('#pieceNum').show();
         $('#lvlCOMPOSER').hide();
@@ -93,16 +89,12 @@ if (appMODE == "bacheditorMODE") {
     $(document).ready(function () {
         //CSS changes
         $('.stopPlay').show();
-        $('.stopPlay').css("left", "215px");
         $('.stopPlay').css("border-bottom-right-radius", "0px");
         $('.autoButton').show();
-        $('.autoButton').css("left", "156px");
         $('.autoButton').css("border-top-left-radius", "15px");
         $('.autoButton').css("border-top-right-radius", "0px");
-        $('#scatterTab').css("left", "250px"); //left: 155px !important;
         $('#scatterTab').css("border-top-left-radius", "0px");
         $('#scatterTab').show();
-        $('#pieceNum').css("left", "280px");
         $('#pieceNum').css("border-top-right-radius", "15px");
         $('#pieceNum').show();
         $('#lvlCOMPOSER').show();
@@ -132,16 +124,12 @@ if (appMODE == "bacheditorMODE") {
         $('.pauseDisplay').hide();
         $('.playDisplay').hide();
         $('.stopPlay').hide();
-        $('.stopPlay').css("left", "215px");
         $('.stopPlay').css("border-bottom-right-radius", "0px");
         $('.autoButton').hide();
-        $('.autoButton').css("left", "156px");
         $('.autoButton').css("border-top-left-radius", "15px");
         $('.autoButton').css("border-top-right-radius", "0px");
-        $('#scatterTab').css("left", "250px"); //left: 155px !important;
         $('#scatterTab').css("border-top-left-radius", "15px");
         $('#scatterTab').show();
-        $('#pieceNum').css("left", "280px");
         $('#pieceNum').css("border-top-right-radius", "15px");
         $('#pieceNum').show();
         $('#lvlCOMPOSER').show();
@@ -174,10 +162,8 @@ if (appMODE == "bacheditorMODE") {
         //CSS changes
         $('.stopPlay').show();
         $('.autoButton').show();
-        $('#scatterTab').css("left", "155px");
         $('#scatterTab').css("border-top-left-radius", "15px");
         $('#scatterTab').show();
-        $('#pieceNum').css("left", "187px");
         $('#pieceNum').css("border-bottom-right-radius", "0px");
         $('#pieceNum').show();
         $('#lvlCOMPOSER').show();

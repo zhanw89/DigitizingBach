@@ -336,7 +336,7 @@ var menuControl = function () {
             });
             dataMenuFunction();
             $('.noteDisplay').animate({
-                left: "860px"
+                left: "450px"
             }, {
                 queue: false
             });
@@ -350,7 +350,7 @@ var menuControl = function () {
             });
             dataMenuFunction();
             $('.noteDisplay').animate({
-                left: "420px"
+                left: "10px"
             }, {
                 queue: false
             });

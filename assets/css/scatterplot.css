@@ -43,22 +43,6 @@ Styling for Scatterplot
     z-index: 1;
 }
 
-#scatterTab {
-    position: absolute;
-    height: 20px;
-    width: 30px;
-    background-color: #fff;
-    left: 137px;
-    top: 130px;
-    z-index: 80;
-    border-radius: 15px;
-    border: 2px solid #000;
-    border-radius: 0;
-    text-align: center;
-    cursor: pointer;
-    display: none;
-}
-
 #scatterPrelude {
     position: absolute;
     height: 20px;
