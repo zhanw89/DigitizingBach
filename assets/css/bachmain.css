@@ -179,14 +179,20 @@ note that piano and harpsichord sets are in seperate containers*/
 /******/
 /****Properties Styles File******/
 /*Performer Name, caption and portrait container*/
+.performerContainer {
+    z-index: 50;
+    position: absolute;
+    left: 20px;
+    top: 100px;
+    width: 370px;
+}
 .caption {
     font-size: 15px;
     line-height: 15px !important;
     position: absolute;
     text-align: left;
     z-index: 20;
-    left: -80px;
-    width: 370px;
+    width: 100%;
     top: 460px;
     display: none;
 }
@@ -257,9 +263,9 @@ note that piano and harpsichord sets are in seperate containers*/
     display: none;
     position: absolute;
     left: 400px;
-    width: 500px;
-    height: 210px;
     top: 140px;
+    width: 500px;
+    height: calc(500px* 0.42);
 }
 
 .piano {

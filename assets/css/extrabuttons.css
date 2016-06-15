@@ -14,9 +14,8 @@ Styling for extra menu buttons
 .extraMenuItems {
     position: absolute;
     top: 10px;
-    width: 168px;
     height: 20px;
-    right: 0;
+    right: calc(0px + 2.2%);
     z-index: 8;
 }
 #extraMenuItems div {

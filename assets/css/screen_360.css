@@ -6,24 +6,22 @@
     }
     #containerBackground {
         left: 0px;
-        height: calc(100% - 50px);
+        height: 100%;
         box-shadow: 0px 0px 0px #000;
     }
-    .logoMAPLE {
-        left: 94%;
-    }
+
     #audioButtonContainer {
         left: 0.5%;
         top: 3px;
     }
-    #chartPad {
-        left: 25%;
-        top: 600px;
+    #chartBackground {
+        left: 0;
     }
+    /*Album Buttons*/
     .content {
-        top: 400px;
-        width: 300px;
-        left: 10px;
+        top: 530px;
+        width: 49%;
+        left: 0;
     }
     .albumButton {
         width: 60px;
@@ -37,13 +35,72 @@
         width: 60px;
         height: 60px;
     }
+    .harpsichord {
+        top: 0px;
+        left: 100%;
+    }
     /*menulevels.css*/
     #mainMenu {
         left: 0px;
+        top: 80px;
         width: 100%;
     }
     #menuBackground {
         box-shadow: 0px 2px 10px #000;
     }
-
+    /*Score Display*/
+    .contentBacheditor {
+        top: 280px;
+        left: 0px;
+        width: 100%;
+        height: calc(400px* 0.42)
+    }
+    .TABTEXT {
+        font-size: 0.8em;
+    }
+    .scoreTitle {
+        font-size: 5vw;
+    }
+    .scorePic {
+        box-shadow: 0px 0px 15px #000;
+    }
+    .logoTitle {
+        position: relative;
+        font-size: 9vw !important;
+        text-align: center;
+        left: 0;
+        top: 0;
+        padding-right: 40px;
+        padding-left: 40px;
+    }
+    .bachPlaceholder {
+        display: none;
+    }
+    #editorTabs {
+        height: 30px;
+        bottom: -30px;
+    }
+    .selfCredit {
+        top: 220px;
+    }
+/*Turned-off Elements (TODO)*/
+    #scatterTab {
+        display: none !important;
+    }
+    #chartPad {
+        left: 0;
+        top: 800px;
+        width: 100%;
+        display: none;
+    }
+    .performerContainer {
+        top: 350px;
+        width: 93%;
+        left: 0;
+        margin-left: 10px;
+    }
+    .logoMAPLE {
+        left: 91%;
+        display: none;
+    }
 }

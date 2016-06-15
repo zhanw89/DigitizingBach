@@ -380,12 +380,6 @@ Styling for Tempo plot
     display: none;
 }
 
-.performerContainer {
-    z-index: 50;
-    position: absolute;
-    left: 100px;
-    top: 100px;
-}
 
 .performerGraph {
     position: absolute;
