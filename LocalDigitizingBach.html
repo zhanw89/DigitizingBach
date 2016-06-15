@@ -16,19 +16,19 @@ Git Repo: https://github.com/gauderkd/DigitizingBach
     Also, if using on website/online, or in a different folder, set your script/css sources to your new locations.
     -->
     <!--CSS-->
-    <link href="file:///Users/kyle/Documents/DigitizingBach/assets/css/bachmain.css" type="text/css"
+    <link href="./assets/css/bachmain.css" type="text/css"
           rel="stylesheet"/>
-    <link href="file:///Users/kyle/Documents/DigitizingBach/assets/css/menulevels.css" type="text/css"
+    <link href="./assets/css/menulevels.css" type="text/css"
           rel="stylesheet"/>
-    <link href="file:///Users/kyle/Documents/DigitizingBach/assets/css/pianokey.css" type="text/css" rel="stylesheet"/>
-    <link href="file:///Users/kyle/Documents/DigitizingBach/assets/css/extrabuttons.css" type="text/css"
+    <link href="./assets/css/pianokey.css" type="text/css" rel="stylesheet"/>
+    <link href="./assets/css/extrabuttons.css" type="text/css"
           rel="stylesheet"/>
-    <link href="file:///Users/kyle/Documents/DigitizingBach/assets/css/scoredisplay.css" type="text/css"
+    <link href="./assets/css/scoredisplay.css" type="text/css"
           rel="stylesheet"/>
-    <link href="file:///Users/kyle/Documents/DigitizingBach/assets/css/tempoplot.css" type="text/css" rel="stylesheet"/>
-    <link href="file:///Users/kyle/Documents/DigitizingBach/assets/css/scatterplot.css" type="text/css"
+    <link href="./assets/css/tempoplot.css" type="text/css" rel="stylesheet"/>
+    <link href="./assets/css/scatterplot.css" type="text/css"
           rel="stylesheet"/>
-    <link href="file:///Users/kyle/Documents/DigitizingBach/assets/css/screen_360.css" type="text/css"
+    <link href="./assets/css/screen_360.css" type="text/css"
           rel="stylesheet"/>
     <!--Initial variables for application (local vs online, type mode-->
     <script>
@@ -37,29 +37,29 @@ Git Repo: https://github.com/gauderkd/DigitizingBach
     </script>
     <!--Libraries-->
     <script src=
-                    "file:///Users/kyle/Documents/DigitizingBach/assets/lib/jquery-2.2.3.min.js">
+                    "./assets/lib/jquery-2.2.3.min.js">
     </script>
     <!--Javascript-->
     <script src=
-                    "file:///Users/kyle/Documents/DigitizingBach/assets/js/DigiBachJS-I-pre.js">
+                    "./assets/js/DigiBachJS-I-pre.js">
     </script>
     <script src=
-                    "file:///Users/kyle/Documents/DigitizingBach/assets/js/DigiBachJS-I.js">
+                    "./assets/js/DigiBachJS-I.js">
     </script>
     <script src=
-                    "file:///Users/kyle/Documents/DigitizingBach/assets/js/DigiBachJS-II-Pieces.js">
+                    "./assets/js/DigiBachJS-II-Pieces.js">
     </script>
     <script src=
-                    "file:///Users/kyle/Documents/DigitizingBach/assets/js/DigiBachJS-II-Scores.js">
+                    "./assets/js/DigiBachJS-II-Scores.js">
     </script>
     <script src=
-                    "file:///Users/kyle/Documents/DigitizingBach/assets/js/DigiBachJS-III.js">
+                    "./assets/js/DigiBachJS-III.js">
     </script>
     <script src=
-                    "file:///Users/kyle/Documents/DigitizingBach/assets/js/DigiBachJS-IV-Hotkeys.js">
+                    "./assets/js/DigiBachJS-IV-Hotkeys.js">
     </script>
     <script src=
-                    "file:///Users/kyle/Documents/DigitizingBach/assets/js/DigiBachJS-IV-Init.js">
+                    "./assets/js/DigiBachJS-IV-Init.js">
     </script>
     <title></title>
 </head><!--jQuery load-->
@@ -257,7 +257,7 @@ Git Repo: https://github.com/gauderkd/DigitizingBach
             <!--not really piano, just piggy-backing off of the system already here-->
             <h4 class="instrumentTitle"></h4>
         </div>
-    </div>
+    </div><!--All of the score pictures and elements get loaded into here-->
     <!--scatterplot area-->
     <div id="scatterplotContainer">
         <p class="scattertoggleTitle">Major/Minor Color</p>
@@ -634,27 +634,26 @@ Git Repo: https://github.com/gauderkd/DigitizingBach
     </div><!---->
 <!--Score author tabs-->
     <div class="contentBacheditor contentBach">
-        <div class="tab bartokTAB bartokLINK">
-            <p class="TABTEXT">Bartok</p>
+        <div id="editorTabs">
+            <div class="tab bartokTAB bartokLINK">
+                <p class="TABTEXT">Bartok</p>
+            </div>
+            <div class="tab bischoffTAB bischoffLINK">
+                <p class="TABTEXT">Bischoff</p>
+            </div>
+            <div class="tab czernyTAB scoretabselected">
+                <p class="TABTEXT">Czerny</p>
+            </div>
+            <div class="tab hughesTAB">
+                <p class="TABTEXT">Hughes</p>
+            </div>
+            <div class="tab mugelliniTAB">
+                <p class="TABTEXT">Mugellini</p>
+            </div>
+            <div class="tab palmerTAB">
+                <p class="TABTEXT">Palmer</p>
+            </div><!---->
         </div>
-        <div class="tab bischoffTAB bischoffLINK">
-            <p class="TABTEXT">Bischoff</p>
-        </div>
-        <div class="tab busoniTAB">
-            <p class="TABTEXT">Busoni</p>
-        </div>
-        <div class="tab czernyTAB scoretabselected">
-            <p class="TABTEXT">Czerny</p>
-        </div>
-        <div class="tab hughesTAB">
-            <p class="TABTEXT">Hughes</p>
-        </div>
-        <div class="tab mugelliniTAB">
-            <p class="TABTEXT">Mugellini</p>
-        </div>
-        <div class="tab palmerTAB">
-            <p class="TABTEXT">Palmer</p>
-        </div><!---->
         <!--Container that all the scores are injected into-->
         <!--Scores: 400 width, 170 height-->
         <div class="scoreContainer"></div>

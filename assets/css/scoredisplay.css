@@ -13,15 +13,17 @@ Styling for Score displayer and editor tabs
 .scoreButtonHover {
     opacity: .8;
 }
-
+.scoreContainer{
+    height: 100%;
+    width: 100%;
+}
 .score {
-    position: absolute;
+    position: relative;
     display: none;
     float: left;
-    width: 500px;
-    left: 400px;
-    top: 96px;
+    width: 100%;
     z-index: 30;
+    height: 100%
 }
 
 .scorePic {
@@ -30,10 +32,8 @@ Styling for Score displayer and editor tabs
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
     box-shadow: 3px 3px 15px #000;
-    max-width: 500px;
-    min-width: 500px;
-    max-height: 210px;
-    min-height: 210px;
+    width: 100%;
+    height: 100%;
 }
 
 .scoreOutline {
@@ -42,10 +42,8 @@ Styling for Score displayer and editor tabs
     border-radius: 5px;
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
-    left: 400px;
-    top: 133px;
-    width: 500px;
-    height: 210px;
+    width: 100%;
+    height: 100%;
     z-index: 2;
     display: none;
 }
@@ -54,7 +52,6 @@ Styling for Score displayer and editor tabs
     text-align: center;
     position: absolute;
     z-index: 50;
-    left: 170px;
     top: 25px;
     display: none;
 }
@@ -64,72 +61,49 @@ Styling for Score displayer and editor tabs
 }
 
 .cMugellini {
-    left: 160px;
 }
 
 .scoreTitle {
     text-align: center;
+    position: absolute;
+    left: 25%;
+    top: -45px;
+    margin: 0 0 0 0;
 }
 
-.tab {
-    position: absolute;
-    z-index: 55;
-    width: 83px;
+#editorTabs {
+    width: 100%;
     height: 15px;
-    top: 343px;
+    display: table;
+    table-layout: fixed;
+    position: absolute;
+    bottom: -15px;
+}
+.tab {
+    display: table-cell;
+    position: relative;
+    z-index: 55;
     background: #fff;
     cursor: pointer;
     background-color: lightgray;
-    display: none;
+    border-right: 0.5px solid #000;
+    border-left: 0.5px solid #000;
 }
 
 .bartokTAB {
-    left: 400px;
-    border-right: 1px solid #000;
+    border-left: 0px solid #000;
     border-bottom-left-radius: 5px;
 }
 
-.bischoffTAB {
-    left: 483px;
-    border-right: 1px solid #000;
-    border-left: 1px solid #000;
-}
-
-.busoniTAB {
-    left: 566px;
-    border-right: 1px solid #000;
-    border-left: 1px solid #000;
-    display: none;
-}
-
-.czernyTAB {
-    left: 566px;
-    border-right: 1px solid #000;
-    border-left: 1px solid #000;
-}
-
-.hughesTAB {
-    left: 649px;
-    border-right: 1px solid #000;
-    border-left: 1px solid #000;
-}
-
-.mugelliniTAB {
-    left: 732px;
-    border-right: 1px solid #000;
-    border-left: 1px solid #000;
-}
-
 .palmerTAB {
-    left: 817px;
-    border-left: 1px solid #000;
+    border-left: 2px solid #000;
+    border-right: 0px solid #000;
     border-bottom-right-radius: 5px;
-    width: 82px;
 }
 
 .TABTEXT {
     position: absolute;
-    font-size: 15px;
-    top: -3px;
-    left: 6px;
+    font-size: 1em;
+    margin: 0 0 0 0;
+    text-align: center;
 }

@@ -178,19 +178,19 @@ function scoreFile(composer, piece, form, number, chroma, chromatrans, key,
             scoreContentLABEL + ' ' + scoreContenteditorLABEL + '"><h2 class="scoreTitle">' + this.form +
             ' No.     ' + this.number + ' in ' + this.chromatrans +
             ' ' + this.key +
-            '</h2><img height="210px" width="500px" class="scorePic cCzernyscore" src="' +
+            '</h2><img height="100%" width="100%" class="scorePic cCzernyscore" src="' +
             scoreURLCzerny +
-            '" /><img height="210px" width="500px" class="scorePic cBischoffscore" src="' +
+            '" /><img height="100%" width="100%" class="scorePic cBischoffscore" src="' +
             scoreURLBischoff +
-            '" /><img height="210px" width="500px" class="scorePic cBusoniscore" src="' +
+            '" /><img height="100%" width="100%" class="scorePic cBusoniscore" src="' +
             scoreURLBusoni +
-            '" /><img height="210px" width="500px" class="scorePic cMugelliniscore" src="' +
+            '" /><img height="100%" width="100%" class="scorePic cMugelliniscore" src="' +
             scoreURLMugellini +
-            '" /><img height="210px" width="500px" class="scorePic cPalmerscore" src="' +
+            '" /><img height="100%" width="100%" class="scorePic cPalmerscore" src="' +
             scoreURLPalmer +
-            '" /><img height="210px" width="500px" class="scorePic cHughesscore" src="' +
+            '" /><img height="100%" width="100%" class="scorePic cHughesscore" src="' +
             scoreURLHughes +
-            '" /><img height="210px" width="500px" class="scorePic cBartokscore" src="' +
+            '" /><img height="100%" width="100%" class="scorePic cBartokscore" src="' +
             scoreURLBartok +
             '" />' +
             '</div>');

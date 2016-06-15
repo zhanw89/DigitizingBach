@@ -255,6 +255,11 @@ note that piano and harpsichord sets are in seperate containers*/
 
 .contentBacheditor {
     display: none;
+    position: absolute;
+    left: 400px;
+    width: 500px;
+    height: 210px;
+    top: 140px;
 }
 
 .piano {
