@@ -14,9 +14,6 @@
         left: 0.5%;
         top: 3px;
     }
-    #chartBackground {
-        left: 0;
-    }
     /*Album Buttons*/
     .content {
         top: 530px;
@@ -89,9 +86,13 @@
     }
     #chartPad {
         left: 0;
-        top: 800px;
+        top: 1050px;
         width: 100%;
-        display: none;
+        height: 350px;
+    }
+    #chartBackground {
+        left: 0;
+        width: 100%;
     }
     .performerContainer {
         top: 350px;

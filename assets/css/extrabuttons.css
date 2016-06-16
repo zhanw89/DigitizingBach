@@ -67,6 +67,7 @@ Styling for extra menu buttons
     border-radius: 0;
     text-align: center;
     height: 20px;
+    padding: 0;
 }
 
 /*Click to open scatter plot*/

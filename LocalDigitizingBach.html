@@ -284,23 +284,44 @@ Git Repo: https://github.com/gauderkd/DigitizingBach
     </div><!---->
     <!--The chart area. each dot is essentially an empty container, and the points respective to each injected piece is generated through javascript-->
     <div id="chartPad">
-        <div class="noteDisplay" title="Common note duration"></div><!--Note at top right of tempo plot-->
-        <p class="toggleTag">Tempo<br>
-            Attack</p>
-        <div class="dataToggle" title="Toggles between plotting for Tempo vs Attack Rate">
-            <div class="dataToggleDot"></div>
+        <div id="extraTempoItems">
+            <div class="noteDisplay" title="Common note duration"></div><!--Note at top right of tempo plot-->
+            <p class="toggleTag">Tempo<br>
+                Attack</p>
+            <div class="dataToggle" title="Toggles between plotting for Tempo vs Attack Rate">
+                <div class="dataToggleDot"></div>
+            </div>
+            <div id="notice">
+                <p class="noticeText">Tempo's are calculated for common note duration.<br>
+                    Displayed in the tooltip are Palmer's original tempo measurements.</p>
+            </div>
+            <div id="lvlCOMPOSER">
+                <p class="plotPerformerBUTTON tempoPlotButton">Performer</p>
+                <p class="plotEditorBUTTON tempoPlotButton">Editor</p>
+                <p class="plotCombinedBUTTON tempoPlotButton">Combined</p>
+                <p class="chopinBUTTON">Chopin</p>
+            </div>
+            <div id="tempoLegend">
+                Legend
+                <div class="legendToolTip">
+                    <div class="legendEntries">
+                        <div class="legEntry leg1">
+                            <div class="legData redPDot pianoData"></div>
+                            - Pianists
+                        </div>
+                        <div class="legEntry leg1">
+                            <div class="legData redHSquare harpData"></div>
+                            - Harpsichordists
+                        </div>
+                        <div class="legEntry leg1">
+                            <div class="legData graySquare editorData"></div>
+                            - Editors
+                        </div>
+                    </div>
+                    <div class="legendBackground"></div>
+                </div>
+            </div>
         </div>
-        <div id="notice">
-            <p class="noticeText">Tempo's are calculated for common note duration.<br>
-                Displayed in the tooltip are Palmer's original tempo measurements.</p>
-        </div>
-        <div id="lvlCOMPOSER">
-            <p class="plotPerformerBUTTON tempoPlotButton">Performer</p>
-            <p class="plotEditorBUTTON tempoPlotButton">Editor</p>
-            <p class="plotCombinedBUTTON tempoPlotButton">Combined</p>
-            <p class="chopinBUTTON">Chopin</p>
-        </div>
-        <!--Default plot-->
         <div class="dataPlot" id="defaultPlot">
             <div class="dataHolder">
                 <div class="point d1">
@@ -367,38 +388,20 @@ Git Repo: https://github.com/gauderkd/DigitizingBach
                     <div class="noData commentData unselected"></div>
                 </div>
             </div>
+        </div><!--Default plot-->
+        <div id="tempohtmldrawings">
+            <div id="containerAttackAxis"></div>
+            <div id="containerTempoAxis"></div>
+            <canvas class="contentBachAxis" height="360px" id="performerXaxis" width="450px">
+            </canvas>
+            <canvas class="contentBachAxis" height="360px" id="editorXaxis"
+                    width="450px"></canvas>
+            <canvas class="contentBachAxis" height="360px" id="combinedXaxis"
+                    width="450px"></canvas>
+            <canvas height="360px" id="chartAreaChopin" width="450px"></canvas>
+            <canvas height="360px" id="defaultTempoaxis" width="450px"></canvas>
+            <canvas height="360px" id="defaultAttackaxis" width="450px"></canvas>
         </div>
-        <div id="tempoLegend">
-            Legend
-            <div class="legendToolTip">
-                <div class="legendEntries">
-                    <div class="legEntry leg1">
-                        <div class="legData redPDot pianoData"></div>
-                         - Pianists
-                    </div>
-                    <div class="legEntry leg1">
-                        <div class="legData redHSquare harpData"></div>
-                         - Harpsichordists
-                    </div>
-                    <div class="legEntry leg1">
-                        <div class="legData graySquare editorData"></div>
-                         - Editors
-                    </div>
-                </div>
-                <div class="legendBackground"></div>
-            </div>
-        </div>
-        <div id="containerAttackAxis"></div>
-        <div id="containerTempoAxis"></div>
-        <canvas class="contentBachAxis" height="360px" id="performerXaxis" width="450px">
-        </canvas>
-        <canvas class="contentBachAxis" height="360px" id="editorXaxis"
-                width="450px"></canvas>
-        <canvas class="contentBachAxis" height="360px" id="combinedXaxis"
-                width="450px"></canvas>
-        <canvas height="360px" id="chartAreaChopin" width="450px"></canvas>
-        <canvas height="360px" id="defaultTempoaxis" width="450px"></canvas>
-        <canvas height="360px" id="defaultAttackaxis" width="450px"></canvas>
         <div class="xAxisTicks">
             <div class="xAtick dx2 xPerf xTureck"></div>
             <div class="xAtick dx3 xPerf xGould"></div>
@@ -422,8 +425,10 @@ Git Repo: https://github.com/gauderkd/DigitizingBach
             <div class="xAtick dx18 xEdit xMugellini"></div>
             <div class="xAtick dx19 xEdit xBodky"></div>
         </div>
-        <div id="chartAreaWhiteBack"></div>
-        <div id="chartBackground"></div>
+        <div id="tempoBackground">
+            <div id="chartBackground"><div id="chartAreaWhiteBack"></div></div>
+        </div>
+
     </div><!---->
     <!--Information dispalyed for each performer-->
     <!--Eventually this will be generated through Javascript, but for the time being it's just in HTML-->
