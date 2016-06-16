@@ -408,7 +408,7 @@ var menuControl = function () {
                 if (currentTextLength > 0) {
                     var currentSpot = ".d" + (i + 14 - numberOffset);
                     var currentTick = ".dx" + (i + 14 - numberOffset);
-                    var newLocal = 24 * i * multiplier + "px";
+                    var newLocal = 6.2 * i + "%";
                     $(currentSpot).css("left", newLocal);
                     $(currentTick).css("left", newLocal);
                 } else {
@@ -435,7 +435,7 @@ var menuControl = function () {
                 if (currentTextLength > 0) {
                     var currentSpot = ".d" + (i + 14 - numberOffset);
                     var currentTick = ".dx" + (i + 14 - numberOffset);
-                    var newLocal = 24 * i * multiplier + "px";
+                    var newLocal = 6.2 * i + "%";
                     $(currentSpot).css("left", newLocal);
                     $(currentTick).css("left", newLocal);
                 } else {
@@ -466,7 +466,7 @@ var menuControl = function () {
                 if (currentTextLength > 0) {
                     var currentSpot = ".d" + (i + 1 - numberOffset);
                     var currentTick = ".dx" + (i + 1 - numberOffset);
-                    var newLocal = 24 * i * multiplier + "px";
+                    var newLocal = 3 * i  + "%";
                     $(currentSpot).css("left", newLocal);
                     $(currentTick).css("left", newLocal);
                 } else {
@@ -493,7 +493,7 @@ var menuControl = function () {
                 if (currentTextLength > 0) {
                     var currentSpot = ".d" + (i + 14 - numberOffset);
                     var currentTick = ".dx" + (i + 14 - numberOffset);
-                    var newLocal = 24 * i * multiplier + "px";
+                    var newLocal =  5 * i + "%";
                     $(currentSpot).css("left", newLocal);
                     $(currentTick).css("left", newLocal);
                 } else {
@@ -509,7 +509,6 @@ var menuControl = function () {
             $('.plotEditorBUTTON').hide();
             $('.plotCombinedBUTTON').hide();
             $('#performerXaxis').fadeIn("fast");
-            ;
             $('#editorXaxis').fadeOut("fast");
             $('#combinedXaxis').fadeOut("fast");
             $(editorPoints).hide();
@@ -525,7 +524,7 @@ var menuControl = function () {
                 if (currentTextLength > 0) {
                     var currentSpot = ".d" + (i + 1 - numberOffset);
                     var currentTick = ".dx" + (i + 1 - numberOffset);
-                    var newLocal = 24 * i * multiplier + "px";
+                    var newLocal =  5 * i + "%";
                     $(currentSpot).css("left", newLocal);
                     $(currentTick).css("left", newLocal);
                 } else {
@@ -552,7 +551,7 @@ var menuControl = function () {
                 if (currentTextLength > 0) {
                     var currentSpot = ".d" + (i + 14 - numberOffset);
                     var currentTick = ".dx" + (i + 14 - numberOffset);
-                    var newLocal = 24 * i * multiplier + "px";
+                    var newLocal =  5.1 * i + "%";
                     $(currentSpot).css("left", newLocal);
                     $(currentTick).css("left", newLocal);
                 } else {
@@ -1529,7 +1528,7 @@ $(document).ready(function () {
         if (currentTextLength > 0) {
             var currentSpot = ".d" + (i + 1 - numberOffset);
             var currentTick = ".dx" + (i + 1 - numberOffset);
-            var newLocal = 24 * i * 0.58 + "px";
+            var newLocal = 3 * i  + "%";
             if (menuPLOT == "plotCombined") {
                 $(currentSpot).css("left", newLocal);
                 $(currentTick).css("left", newLocal);
