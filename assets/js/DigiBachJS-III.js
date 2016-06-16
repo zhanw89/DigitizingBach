@@ -466,7 +466,7 @@ var menuControl = function () {
                 if (currentTextLength > 0) {
                     var currentSpot = ".d" + (i + 1 - numberOffset);
                     var currentTick = ".dx" + (i + 1 - numberOffset);
-                    var newLocal = 3 * i  + "%";
+                    var newLocal = 2.95 * i  + "%";
                     $(currentSpot).css("left", newLocal);
                     $(currentTick).css("left", newLocal);
                 } else {
@@ -1528,7 +1528,7 @@ $(document).ready(function () {
         if (currentTextLength > 0) {
             var currentSpot = ".d" + (i + 1 - numberOffset);
             var currentTick = ".dx" + (i + 1 - numberOffset);
-            var newLocal = 3 * i  + "%";
+            var newLocal = 2.95 * i  + "%";
             if (menuPLOT == "plotCombined") {
                 $(currentSpot).css("left", newLocal);
                 $(currentTick).css("left", newLocal);

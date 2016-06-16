@@ -35,10 +35,16 @@ Styling for Tempo plot
     border-radius: 5px;
     font-size: 0.9em;
     position: absolute;
-    left: 420px;
-    top: 330px;
+    right: 7%;
+    bottom: 8%;
 }
-
+#extraTempoItems {
+    position: absolute;
+    top: 3%;
+    left:2.5%;
+    width: 100%;
+    height: 100%;
+}
 .legendToolTip {
     position: absolute;
     left: -60px;
@@ -342,13 +348,14 @@ Styling for Tempo plot
     opacity: .7;
     background-color: grey;
     position: absolute;
-    top: 310px;
     z-index: 14;
 }
 
 .xAxisTicks {
     position: absolute;
-    left: 82px;
+    left: 20.1%;
+    bottom: 15.5%;
+    width: 100%;
 }
 
 .xEdit {
