@@ -112,8 +112,15 @@
     }
     #notice {
         width: 300px;
+        bottom: -18%;
     }
     #lvlCOMPOSER {
         top: 346px;
+    }
+    .toggleTag {
+        right: 11%;
+    }
+    .dataToggle{
+        box-shadow: 0px 0px 5px #000;
     }
 }
