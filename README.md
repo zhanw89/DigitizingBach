@@ -4,7 +4,7 @@
 
 Created for the [Maple Lab](https://maplelab.net/) , McMaster University
 
-Written by Kyle Gauder
+Written by [Kyle Gauder](https://github.com/gauderkd)
 
 
 The purpose of this application is to visualize a large dataset in an easy-to-understand way.
