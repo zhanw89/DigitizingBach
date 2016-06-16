@@ -19,7 +19,7 @@ Used as menu main LEVEL 2 selector
 }
 #regularKeyboard div {
     display: table-cell;
-    height: 100px;
+    height: 96px;
 }
 
 #fugKeyboard {

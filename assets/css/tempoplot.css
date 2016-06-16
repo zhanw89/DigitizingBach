@@ -250,8 +250,8 @@ Styling for Tempo plot
     position: absolute;
     z-index: 10;
     font-size: 14px;
-    left: 420px;
-    top: 370px;
+    right: 5%;
+    bottom: -12%;
 }
 
 .dataToggle {
@@ -261,8 +261,8 @@ Styling for Tempo plot
     background: gray;
     position: absolute;
     z-index: 10;
-    left: 470px;
-    top: 380px;
+    right: 5%;
+    bottom: -8%;
     cursor: pointer;
     box-shadow: 3px 3px 10px #000;
 }
@@ -281,8 +281,8 @@ Styling for Tempo plot
 .noteDisplay {
     position: absolute;
     font-size: 25px;
-    left: 10px;
-    top: -15px;
+    left: 2%;
+    top: 1%;
     z-index: 50;
 }
 

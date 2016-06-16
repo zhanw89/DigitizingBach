@@ -56,7 +56,8 @@
         font-size: 0.8em;
     }
     .scoreTitle {
-        font-size: 5vw;
+        font-size: 20px;
+        left: 20%;
     }
     .scorePic {
         box-shadow: 0px 0px 15px #000;
@@ -86,7 +87,7 @@
     }
     #chartPad {
         left: 0;
-        top: 1000px;
+        top: 960px;
         width: 100%;
     }
     #chartBackground {
