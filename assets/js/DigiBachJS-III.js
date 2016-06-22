@@ -336,7 +336,7 @@ var menuControl = function () {
             });
             dataMenuFunction();
             $('.noteDisplay').animate({
-                left: "450px"
+                left: "90%"
             }, {
                 queue: false
             });
