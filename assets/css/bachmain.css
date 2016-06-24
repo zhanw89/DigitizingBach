@@ -49,6 +49,7 @@ note that piano and harpsichord sets are in seperate containers*/
     color: blue;
     text-decoration: underline;
     cursor: pointer !important;
+    width: 150px;
 }
 
 .selfCredit {
@@ -247,7 +248,7 @@ note that piano and harpsichord sets are in seperate containers*/
     position: absolute;
     top: 10px;
     left: 27px;
-    z-index: 20;
+    z-index: 65;
     width: 350px;
 }
 

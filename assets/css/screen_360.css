@@ -81,25 +81,32 @@
     .selfCredit {
         top: 220px;
     }
-/*Turned-off Elements (TODO)*/
-    #scatterTab {
+    .editorModeText {
         display: none !important;
     }
-    #chartPad {
-        left: 0;
-        top: 960px;
-        width: 100%;
-    }
-    #chartBackground {
-        left: 0;
-        width: 100%;
-    }
     .performerContainer {
-        top: 350px;
+        top: 35px;
         width: 93%;
         left: 0;
         margin-left: 10px;
     }
+    #chartPad {
+        left: 0;
+        top: 650px;
+        width: 100%;
+    }
+    #scatterplotContainer {
+        width: 100%;
+        left: 0px;
+        top: 222px !important;
+    }
+/*Turned-off Elements (TODO)*/
+
+    #chartBackground {
+        left: 0;
+        width: 100%;
+    }
+
     .logoMAPLE {
         left: 91%;
         display: none;
@@ -119,8 +126,5 @@
     }
     .dataToggle{
         box-shadow: 0px 0px 5px #000;
-    }
-    .editorModeText {
-        display: none;
     }
 }

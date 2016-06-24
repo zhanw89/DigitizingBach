@@ -11,19 +11,21 @@ Styling for Scatterplot
 */
 #scatterplotContainer {
     position: absolute;
-    z-index: 15;
+    z-index: 60;
     top: 148px;
     left: 27px;
+    width: 350px;
+    height: 400px;
     display: none;
 }
 
 #scatterchartAreaWhiteBack {
     position: absolute;
     z-index: 2;
-    top: 10px;
-    left: 10px;
-    height: 375px;
-    width: 325px;
+    left: 2.5%;
+    top: 2.5%;
+    height: 94%;
+    width: 94%;
     background: #fff;
     border: 1px solid #000;
 }
@@ -38,8 +40,8 @@ Styling for Scatterplot
     border-radius: 10px;
     box-shadow: 3px 3px 10px #000;
     background: gray;
-    width: 350px;
-    height: 396px;
+    width: 100%;
+    height: 100%;
     z-index: 1;
 }
 
