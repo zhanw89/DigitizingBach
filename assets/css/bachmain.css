@@ -174,7 +174,7 @@ note that piano and harpsichord sets are in seperate containers*/
 #notice {
     position: absolute;
     z-index: 5;
-    bottom: -13%;
+    bottom: -12%;
     width: 400px;
 }
 
