@@ -36,6 +36,7 @@ Styling for extra menu buttons
     cursor: pointer;
     z-index: 4;
     height: 20px;
+    display: none;
 }
 
 /*Button when active, allows you to scroll between pieces and auto play selected performer*/
@@ -53,6 +54,7 @@ Styling for extra menu buttons
     cursor: pointer;
     border-top-right-radius: 15px;
     height: 20px;
+    display: none;
 }
 
 /*Input a number between 1-24 to automatically choose piece number*/
