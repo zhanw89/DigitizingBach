@@ -32,7 +32,7 @@ Git Repo: https://github.com/gauderkd/DigitizingBach
           rel="stylesheet"/>
     <!--Initial variables for application (local vs online, type mode-->
     <script>
-        var appMODE = "allMODE";
+        var appMODE = "mainMODE";
         var urlPrefix = "https://maplelab.net/virtualPianist/";
     </script>
     <!--Libraries-->
@@ -43,6 +43,7 @@ Git Repo: https://github.com/gauderkd/DigitizingBach
     <script src=
                     "./assets/js/DigiBachJS-I-pre.js">
     </script>
+
     <script src=
                     "./assets/js/DigiBachJS-I.js">
     </script>
@@ -52,14 +53,15 @@ Git Repo: https://github.com/gauderkd/DigitizingBach
     <script src=
                     "./assets/js/DigiBachJS-II-Scores.js">
     </script>
+
     <script src=
                     "./assets/js/DigiBachJS-III.js">
     </script>
     <script src=
-                    "./assets/js/DigiBachJS-IV-Hotkeys.js">
+                    "./assets/js/DigiBachJS-IV-Init.js">
     </script>
     <script src=
-                    "./assets/js/DigiBachJS-IV-Init.js">
+                    "./assets/js/DigiBachJS-IV-Hotkeys.js">
     </script>
     <title></title>
 </head><!--jQuery load-->
@@ -78,7 +80,7 @@ Git Repo: https://github.com/gauderkd/DigitizingBach
             </div><!--Pauses or Plays the piece, keeping the time tracking.-->
             <div class="stopPlay menuclicked" title="Prevents audio from playing while navigating applet"></div>
             <div id="scatterTab" title="Displays scatterplot of Pitch Height vs Attack Rate per piece">
-                Plot
+                Cue Visualization
             </div>
                 <input id="pieceNum" onkeypress='validate(event)' placeholder="No." type=
                         "text">
@@ -181,10 +183,10 @@ Git Repo: https://github.com/gauderkd/DigitizingBach
     <div class="editorModeText">
         <p>Welcome to the official MAPLE Lab Tempo Visualizer for JS Bach’s Well
             Tempered Clavier (Book 1). This tool is an online supplement to our
-            publication exploring the use of timing in this influential work <a href="http://journal.frontiersin.org/article/10.3389/fpsyg.2015.01419/full">(Poon &
-            Schutz, 2015)</a>.<br>
-            <br>
-            These values are based on a survey of tempi for seven different sets of
+            publication exploring the use of timing in this influential work.
+        </p>
+        <div class="frontiersLink">(Poon & Schutz, 2015)</div>
+        <p>These values are based on a survey of tempi for seven different sets of
             tempo markings – two by commentators and five by editors. These are grouped
             as two categories on the horizontal axis. We have also included Dr. Willard Palmer’s
             suggestions from this edition as a third category, in recognition to his

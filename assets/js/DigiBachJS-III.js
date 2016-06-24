@@ -1138,7 +1138,13 @@ var tabBTN = function () {
         $(this).addClass('scoretabselected');
         $('.' + menuScorechooser).show();
     });
-}
+};
+//
+var frontiersBTN = function () {
+    $('.frontiersLink').click(function () {
+        window.open('http://journal.frontiersin.org/article/10.3389/fpsyg.2015.01419/full', '_blank');
+    })
+};
 //
 ////////////////////////////
 // FX Variable Activators //
@@ -1165,6 +1171,7 @@ $(document).ready(stopPlayFX);
 $(document).ready(stopPlayFunction);
 $(document).ready(tabBTN);
 $(document).ready(tempoPlotButtonFX);
+$(document).ready(frontiersBTN);
 //
 //////////////////////////////
 // Performer Button Artwork //

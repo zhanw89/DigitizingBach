@@ -41,9 +41,14 @@ note that piano and harpsichord sets are in seperate containers*/
     display: none;
     position: absolute;
     left: 30px;
-    top: 200px;
+    top: 180px;
     width: 350px;
-    z-index: 8;
+    z-index: 30;
+}
+.frontiersLink {
+    color: blue;
+    text-decoration: underline;
+    cursor: pointer !important;
 }
 
 .selfCredit {
