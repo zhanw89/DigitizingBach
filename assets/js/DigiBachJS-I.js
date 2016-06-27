@@ -474,9 +474,33 @@ function audioFile(OnOff, composer, piece, PerfvsEdit, performer, note,
         };
         this.fX = function () {
             $(className).hover(function () {
-                $(className).toggleClass('hovered');
+                $(className).addClass('hovered');
+                $('.x' + performerName).animate({
+                    height: "11px"
+                }, {
+                    duration: 100,
+                    queue: true
+                });
+            }, function () {
+                $(className).removeClass('hovered');
+                if ($(className).hasClass('btnclicked') ===
+                    true) {}
+                else {
+                    $('.x' + performerName).animate({
+                        height: "6px"
+                    }, {
+                        duration: 100,
+                        queue: true
+                    });
+                }
             });
             $(className).click(function () {
+                $('.xAtick').animate({
+                    height: "6px"
+                }, {
+                    duration: 100,
+                    queue: false
+                });
                 if ($(className).hasClass('btnclicked') ===
                     true) {
                     $(className).addClass('unselected');
@@ -488,19 +512,13 @@ function audioFile(OnOff, composer, piece, PerfvsEdit, performer, note,
                     $('.data').removeClass('btnclicked');
                     $(className).removeClass('unselected');
                     $(className).addClass('btnclicked');
+                    $('.x' + performerName).animate({
+                        height: "11px"
+                    }, {
+                        duration: 100,
+                        queue: false
+                    });
                 }
-                $('.xAtick').animate({
-                    height: "6px"
-                }, {
-                    duration: 100,
-                    queue: false
-                });
-                $('.x' + performerName).animate({
-                    height: "11px"
-                }, {
-                    duration: 100,
-                    queue: false
-                });
             });
         };
         //
