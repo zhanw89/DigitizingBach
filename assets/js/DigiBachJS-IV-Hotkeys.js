@@ -139,6 +139,21 @@ $(document).ready(function () {
                 $('#prelude .lvlONEBUTTON').trigger("click");
                 $('#major .lvlTHREEBUTTON').trigger("click");
                 break;
+
+            
+            // Data scrolling hotkeys [ , ]
+            case 219: // open bracket "["
+                $('.' + menuPIECE + '.' + menuFORM + '.' + menuCHROMA +
+                    '.' + menuKEY + '.' + nextPerformer).trigger("click");
+                break;
+            case 221: // close bracket "]"
+                $('.' + menuPIECE + '.' + menuFORM + '.' + menuCHROMA +
+                    '.' + menuKEY + '.' + prevPerformer).trigger("click");
+                break;
+
+
+
+            // Score Scrolling hotkeys < , >
             case 190:
                 if ($('.bartokTAB').hasClass(
                         'scoretabselected')) {
