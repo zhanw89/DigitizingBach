@@ -140,7 +140,7 @@ $(document).ready(function () {
                 $('#major .lvlTHREEBUTTON').trigger("click");
                 break;
 
-            
+
             // Data scrolling hotkeys [ , ]
             case 219: // open bracket "["
                 $('.' + menuPIECE + '.' + menuFORM + '.' + menuCHROMA +

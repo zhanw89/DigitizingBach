@@ -95,12 +95,12 @@ Styling for Score displayer and editor tabs
 }
 
 .bartokTAB {
-    border-left: 1px solid #000;
+    border-left: 0px solid #000;
 }
 
 .palmerTAB {
     border-left: 2px solid #000;
-    border-right: 1px solid #000;
+    border-right: 0px solid #000;
 }
 
 .TABTEXT {
