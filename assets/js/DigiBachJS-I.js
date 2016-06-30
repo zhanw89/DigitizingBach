@@ -475,17 +475,23 @@ function audioFile(OnOff, composer, piece, PerfvsEdit, performer, note,
         this.fX = function () {
             $(className).hover(function () {
                 $(className).addClass('hovered');
-                $('.x' + performerName).animate({
-                    height: "11px"
-                }, {
-                    duration: 100,
-                    queue: true
-                });
+                if ($(className).hasClass('btnclicked') ===
+                    true) {
+                } else {
+                    $('.x' + performerName).css('background-color', 'black');
+                    $('.x' + performerName).animate({
+                        height: "11px"
+                    }, {
+                        duration: 100,
+                        queue: true
+                    });
+                }
             }, function () {
                 $(className).removeClass('hovered');
                 if ($(className).hasClass('btnclicked') ===
                     true) {}
                 else {
+                    $('.x' + performerName).css('background-color', 'grey');
                     $('.x' + performerName).animate({
                         height: "6px"
                     }, {
@@ -501,6 +507,7 @@ function audioFile(OnOff, composer, piece, PerfvsEdit, performer, note,
                     duration: 100,
                     queue: false
                 });
+                $('.xAtick').css('background-color', 'grey');
                 if ($(className).hasClass('btnclicked') ===
                     true) {
                     $(className).addClass('unselected');
@@ -512,6 +519,7 @@ function audioFile(OnOff, composer, piece, PerfvsEdit, performer, note,
                     $('.data').removeClass('btnclicked');
                     $(className).removeClass('unselected');
                     $(className).addClass('btnclicked');
+                    $('.x' + performerName).css('background-color', 'red');
                     $('.x' + performerName).animate({
                         height: "11px"
                     }, {
