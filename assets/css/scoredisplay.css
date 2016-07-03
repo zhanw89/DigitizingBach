@@ -110,3 +110,13 @@ Styling for Score displayer and editor tabs
     margin: -3px 0 0 0;
     text-align: center;
 }
+
+@-moz-document url-prefix() {
+    #regularKeyboard div {
+        height: 48px;
+    }
+    .blackkey {
+        top: 0px;
+    }
+}
+
