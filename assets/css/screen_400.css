@@ -1,4 +1,4 @@
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 550px) {
     /*bachmain.css*/
     #maincontainer {
         width: 100%;
@@ -57,11 +57,11 @@
         top: 5px;
     }
     .scoreTitle {
-        font-size: 20px;
+        font-size: 20px !important;
     }
     .scorePic {
         box-shadow: 0px 0px 15px #000;
-        top: -37px;
+        top: -30px;
     }
     .logoTitle {
         position: relative;
