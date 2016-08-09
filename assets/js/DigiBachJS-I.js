@@ -473,61 +473,94 @@ function audioFile(OnOff, composer, piece, PerfvsEdit, performer, note,
             });
         };
         this.fX = function () {
-            $(className).hover(function () {
-                $(className).addClass('hovered');
-                if ($(className).hasClass('btnclicked') ===
-                    true) {
-                } else {
-                    $('.x' + performerName).css('background-color', 'black');
-                    $('.x' + performerName).animate({
-                        height: "11px"
-                    }, {
-                        duration: 100,
-                        queue: true
-                    });
-                }
-            }, function () {
-                $(className).removeClass('hovered');
-                if ($(className).hasClass('btnclicked') ===
-                    true) {}
-                else {
-                    $('.x' + performerName).css('background-color', 'grey');
-                    $('.x' + performerName).animate({
+            if ( $(window).width() <=980 ) {
+                // If screen below certain width, remove hovering and just go straight to click
+                $(className).click(function () {
+                    $('.xAtick').animate({
                         height: "6px"
-                    }, {
-                        duration: 100,
-                        queue: true
-                    });
-                }
-            });
-            $(className).click(function () {
-                $('.xAtick').animate({
-                    height: "6px"
-                }, {
-                    duration: 100,
-                    queue: false
-                });
-                $('.xAtick').css('background-color', 'grey');
-                if ($(className).hasClass('btnclicked') ===
-                    true) {
-                    $(className).addClass('unselected');
-                    $(className).removeClass('btnclicked');
-                } else {
-                    $('.button').addClass('unselected');
-                    $('.button').removeClass('btnclicked');
-                    $('.data').addClass('unselected');
-                    $('.data').removeClass('btnclicked');
-                    $(className).removeClass('unselected');
-                    $(className).addClass('btnclicked');
-                    $('.x' + performerName).css('background-color', 'red');
-                    $('.x' + performerName).animate({
-                        height: "11px"
                     }, {
                         duration: 100,
                         queue: false
                     });
-                }
-            });
+                    $('.xAtick').css('background-color', 'grey');
+                    if ($(className).hasClass('btnclicked') ===
+                        true) {
+                        $(className).addClass('unselected');
+                        $(className).removeClass('btnclicked');
+                    } else {
+                        $('.button').addClass('unselected');
+                        $('.button').removeClass('btnclicked');
+                        $('.data').addClass('unselected');
+                        $('.data').removeClass('btnclicked');
+                        $(className).removeClass('unselected');
+                        $(className).addClass('btnclicked');
+                        $('.x' + performerName).css('background-color', 'red');
+                        $('.x' + performerName).animate({
+                            height: "11px"
+                        }, {
+                            duration: 100,
+                            queue: false
+                        });
+                    }
+                });
+            } else {
+                $(className).hover(function () {
+                    $(className).addClass('hovered');
+                    if ($(className).hasClass('btnclicked') ===
+                        true) {
+                    } else {
+                        $('.x' + performerName).css('background-color', 'black');
+                        $('.x' + performerName).animate({
+                            height: "11px"
+                        }, {
+                            duration: 100,
+                            queue: true
+                        });
+                    }
+                }, function () {
+                    $(className).removeClass('hovered');
+                    if ($(className).hasClass('btnclicked') ===
+                        true) {
+                    }
+                    else {
+                        $('.x' + performerName).css('background-color', 'grey');
+                        $('.x' + performerName).animate({
+                            height: "6px"
+                        }, {
+                            duration: 100,
+                            queue: true
+                        });
+                    }
+                });
+                $(className).click(function () {
+                    $('.xAtick').animate({
+                        height: "6px"
+                    }, {
+                        duration: 100,
+                        queue: false
+                    });
+                    $('.xAtick').css('background-color', 'grey');
+                    if ($(className).hasClass('btnclicked') ===
+                        true) {
+                        $(className).addClass('unselected');
+                        $(className).removeClass('btnclicked');
+                    } else {
+                        $('.button').addClass('unselected');
+                        $('.button').removeClass('btnclicked');
+                        $('.data').addClass('unselected');
+                        $('.data').removeClass('btnclicked');
+                        $(className).removeClass('unselected');
+                        $(className).addClass('btnclicked');
+                        $('.x' + performerName).css('background-color', 'red');
+                        $('.x' + performerName).animate({
+                            height: "11px"
+                        }, {
+                            duration: 100,
+                            queue: false
+                        });
+                    }
+                });
+            }
         };
         //
         //Creating Arrays of inserted content
@@ -595,17 +628,27 @@ function audioFile(OnOff, composer, piece, PerfvsEdit, performer, note,
             ".toolTipBoxA").append(dAttack);
     };
     this.toolTIPSFX = function () {
-        $('.data.' + contentPiece + '.' + contentPerformer + '.' +
-            contentForm + '.' + contentChroma + '.' + contentKey).hover(
-            function () {
-                $('.toolTipBoxT').hide();
-                $('.toolTipBoxA').hide();
-                $(this).children("." + toolTipHolder).show();
-            }, function () {
-                $('.toolTipBoxT').hide();
-                $('.toolTipBoxA').hide();
-                $(this).children("." + toolTipHolder).hide();
-            });
+        if ( $(window).width() <=980 ) {
+            $('.data.' + contentPiece + '.' + contentPerformer + '.' +
+                contentForm + '.' + contentChroma + '.' + contentKey).click(
+                function () {
+                    $('.toolTipBoxT').hide();
+                    $('.toolTipBoxA').hide();
+                    $(this).children("." + toolTipHolder).show();
+                });
+        } else {
+            $('.data.' + contentPiece + '.' + contentPerformer + '.' +
+                contentForm + '.' + contentChroma + '.' + contentKey).hover(
+                function () {
+                    $('.toolTipBoxT').hide();
+                    $('.toolTipBoxA').hide();
+                    $(this).children("." + toolTipHolder).show();
+                }, function () {
+                    $('.toolTipBoxT').hide();
+                    $('.toolTipBoxA').hide();
+                    $(this).children("." + toolTipHolder).hide();
+                });
+        }
     };
 }
 
