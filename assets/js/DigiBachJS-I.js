@@ -682,63 +682,99 @@ function scatterPoint(composer, piece, form, chroma, chromanote, key, aRate, pHe
         $(scatterPointClass).css("top", (306 - 22 * roundaRate) + "px");
         $(scatterPointClass).css("left", (-8 + (19 / 2) * (roundpHeight - 30)) + "px");
         this.scattertoolTIPSFX = function () {
-            $(scatterPointClass).hover(
-                function () {
-                    $(this).toggleClass('hovered');
-                    $('.toolTipBoxScatter').hide();
-                    $('.scatterdata').css('z-index', 1);
-                    $(this).css('z-index', 200);
-                    $(this).children(".toolTipBoxScatter").show();
-                    $(this).children(".toolTipBoxScatter").css('z-index', 200);
-                }, function () {
-                    $('.toolTipBoxScatter').hide();
-                    $(this).children(".toolTipBoxScatter").hide();
-                });
+            if ( $(window).width() <= 1030 ) {
+                $(scatterPointClass).click(
+                    function () {
+                        $(this).toggleClass('hovered');
+                        $('.toolTipBoxScatter').hide();
+                        $('.scatterdata').css('z-index', 1);
+                        $(this).css('z-index', 200);
+                        $(this).children(".toolTipBoxScatter").show();
+                        $(this).children(".toolTipBoxScatter").css('z-index', 200);
+                    });
+            } else {
+                $(scatterPointClass).hover(
+                    function () {
+                        $(this).toggleClass('hovered');
+                        $('.toolTipBoxScatter').hide();
+                        $('.scatterdata').css('z-index', 1);
+                        $(this).css('z-index', 200);
+                        $(this).children(".toolTipBoxScatter").show();
+                        $(this).children(".toolTipBoxScatter").css('z-index', 200);
+                    }, function () {
+                        $('.toolTipBoxScatter').hide();
+                        $(this).children(".toolTipBoxScatter").hide();
+                    });
+            }
+
         };
         this.scatterfX = function () {
-            $(scatterPointClass).hover(function () {
-                if ($(this).hasClass('scatterClicked') === true) {
+            if ( $(window).width() <= 1030 ) {
+                $(scatterPointClass).click(function () {
+                    menuFORM = contentForm;
+                    menuCHROMA = contentChroma;
+                    menuKEY = contentKey;
+                    scatterFORM = contentSForm;
+                    scatterCHROMA = contentSChroma;
+                    scatterKEY = contentSKey;
+                    menuFunction();
+                    dataMenuFunction();
+                    $('.key.activeWhite, .blackkey.activeBlack').removeClass('menuclicked');
+                    $('.' + menuCHROMA + 'menu').addClass('menuclicked');
+                    $('.lvlTHREEBUTTON').hide();
+                    $('.lvlTHREEBUTTON').removeClass('menuclicked');
+                    $('.' + menuKEY + 'menu').addClass('menuclicked');
+                    $('.' + menuKEY + 'menu').show();
+                    $('.lvlONEBUTTON').hide();
+                    $('.lvlONEBUTTON').removeClass('menuclicked');
+                    $('.' + menuFORM + 'menu').addClass('menuclicked');
+                    $('.' + menuFORM + 'menu').show();
+                });
+            } else {
+                $(scatterPointClass).hover(function () {
+                    if ($(this).hasClass('scatterClicked') === true) {
 
-                } else {
-                    if (scatterColortoggle === "scatterColorOn") {
-                        if ($(this).hasClass('cSMajor') === true) {
-                            $(this).css("box-shadow", "0px 0px 10px red");
-                        } else {
-                            $(this).css("box-shadow", "0px 0px 10px blue");
-                        }
                     } else {
-                        $(this).css("box-shadow", "0px 0px 10px #000");
+                        if (scatterColortoggle === "scatterColorOn") {
+                            if ($(this).hasClass('cSMajor') === true) {
+                                $(this).css("box-shadow", "0px 0px 10px red");
+                            } else {
+                                $(this).css("box-shadow", "0px 0px 10px blue");
+                            }
+                        } else {
+                            $(this).css("box-shadow", "0px 0px 10px #000");
+                        }
                     }
-                }
 
-            }, function () {
-                if ($(this).hasClass('scatterClicked') === true) {
+                }, function () {
+                    if ($(this).hasClass('scatterClicked') === true) {
 
-                } else {
-                    $(this).css("box-shadow", "0px 0px 0px #000");
-                }
+                    } else {
+                        $(this).css("box-shadow", "0px 0px 0px #000");
+                    }
 
-            });
-            $(scatterPointClass).click(function () {
-                menuFORM = contentForm;
-                menuCHROMA = contentChroma;
-                menuKEY = contentKey;
-                scatterFORM = contentSForm;
-                scatterCHROMA = contentSChroma;
-                scatterKEY = contentSKey;
-                menuFunction();
-                dataMenuFunction();
-                $('.key.activeWhite, .blackkey.activeBlack').removeClass('menuclicked');
-                $('.' + menuCHROMA + 'menu').addClass('menuclicked');
-                $('.lvlTHREEBUTTON').hide();
-                $('.lvlTHREEBUTTON').removeClass('menuclicked');
-                $('.' + menuKEY + 'menu').addClass('menuclicked');
-                $('.' + menuKEY + 'menu').show();
-                $('.lvlONEBUTTON').hide();
-                $('.lvlONEBUTTON').removeClass('menuclicked');
-                $('.' + menuFORM + 'menu').addClass('menuclicked');
-                $('.' + menuFORM + 'menu').show();
-            });
+                });
+                $(scatterPointClass).click(function () {
+                    menuFORM = contentForm;
+                    menuCHROMA = contentChroma;
+                    menuKEY = contentKey;
+                    scatterFORM = contentSForm;
+                    scatterCHROMA = contentSChroma;
+                    scatterKEY = contentSKey;
+                    menuFunction();
+                    dataMenuFunction();
+                    $('.key.activeWhite, .blackkey.activeBlack').removeClass('menuclicked');
+                    $('.' + menuCHROMA + 'menu').addClass('menuclicked');
+                    $('.lvlTHREEBUTTON').hide();
+                    $('.lvlTHREEBUTTON').removeClass('menuclicked');
+                    $('.' + menuKEY + 'menu').addClass('menuclicked');
+                    $('.' + menuKEY + 'menu').show();
+                    $('.lvlONEBUTTON').hide();
+                    $('.lvlONEBUTTON').removeClass('menuclicked');
+                    $('.' + menuFORM + 'menu').addClass('menuclicked');
+                    $('.' + menuFORM + 'menu').show();
+                });
+            }
         };
 
     };
