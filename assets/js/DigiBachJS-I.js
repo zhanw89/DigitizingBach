@@ -473,7 +473,7 @@ function audioFile(OnOff, composer, piece, PerfvsEdit, performer, note,
             });
         };
         this.fX = function () {
-            if ( $(window).width() <=980 ) {
+            if ( $(window).width() <= 1030 ) {
                 // If screen below certain width, remove hovering and just go straight to click
                 $(className).click(function () {
                     $('.xAtick').animate({
@@ -628,7 +628,7 @@ function audioFile(OnOff, composer, piece, PerfvsEdit, performer, note,
             ".toolTipBoxA").append(dAttack);
     };
     this.toolTIPSFX = function () {
-        if ( $(window).width() <=980 ) {
+        if ( $(window).width() <= 1030 ) {
             $('.data.' + contentPiece + '.' + contentPerformer + '.' +
                 contentForm + '.' + contentChroma + '.' + contentKey).click(
                 function () {
