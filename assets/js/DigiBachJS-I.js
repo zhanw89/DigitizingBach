@@ -473,7 +473,7 @@ function audioFile(OnOff, composer, piece, PerfvsEdit, performer, note,
             });
         };
         this.fX = function () {
-            if ( $(window).width() <= 1030 ) {
+            if ( /iPhone|iPad|iPod/i.test(navigator.userAgent) ) {
                 // If screen below certain width, remove hovering and just go straight to click
                 $(className).click(function () {
                     $('.xAtick').animate({
@@ -628,7 +628,7 @@ function audioFile(OnOff, composer, piece, PerfvsEdit, performer, note,
             ".toolTipBoxA").append(dAttack);
     };
     this.toolTIPSFX = function () {
-        if ( $(window).width() <= 1030 ) {
+        if ( /iPhone|iPad|iPod/i.test(navigator.userAgent) ) {
             $('.data.' + contentPiece + '.' + contentPerformer + '.' +
                 contentForm + '.' + contentChroma + '.' + contentKey).click(
                 function () {
@@ -682,7 +682,7 @@ function scatterPoint(composer, piece, form, chroma, chromanote, key, aRate, pHe
         $(scatterPointClass).css("top", (306 - 22 * roundaRate) + "px");
         $(scatterPointClass).css("left", (-8 + (19 / 2) * (roundpHeight - 30)) + "px");
         this.scattertoolTIPSFX = function () {
-            if ( $(window).width() <= 1030 ) {
+            if ( /iPhone|iPad|iPod/i.test(navigator.userAgent) ) {
                 $(scatterPointClass).click(
                     function () {
                         $(this).toggleClass('hovered');
@@ -709,7 +709,7 @@ function scatterPoint(composer, piece, form, chroma, chromanote, key, aRate, pHe
 
         };
         this.scatterfX = function () {
-            if ( $(window).width() <= 1030 ) {
+            if ( /iPhone|iPad|iPod/i.test(navigator.userAgent) ) {
                 $(scatterPointClass).click(function () {
                     menuFORM = contentForm;
                     menuCHROMA = contentChroma;
