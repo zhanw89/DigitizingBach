@@ -21,6 +21,17 @@
 $(document).ready(function () {
     $('.point').hide();
 });
+
+$(document).ready(function() {
+
+    $('a').on('click touchend', function(e) {
+        var el = $(this);
+        var link = el.attr('href');
+        window.location = link;
+    });
+
+});
+
 if (appMODE == "bacheditorMODE") {
     $(document).ready(function () {
         //CSS changes
