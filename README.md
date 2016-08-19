@@ -62,7 +62,9 @@ Hotkeys for quick navigation are available to use (there is an image on the bott
 - "M" = Toggle between Major and Minor
 - "P" = Toggle between Prelude and Fugue
 - "<-" = Scroll Key backwards
-- "->" = Scroll Key Forwards
+- "->" = Scroll Key forwards
+- "[" = Scroll through data backwards
+- "]" = Scroll through data forwards
 - "~,1,2...0,-" = Each key along the top keyboard row chooses a key from C to B, in order.
 - "Z,X,C,V" = Each chooses between 1 of 4 menu selections (Form/Key/Chroma) for quick navigation
 
