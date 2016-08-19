@@ -327,7 +327,7 @@ if (loadBachWTC == true) {
     var Bach_WTC1_Tureck_Fugue_0_Major = new audioFile('Y','Bach','WTC1','P','Tureck','Q',44,44,2.475,'Fugue','0','Major','P1','98',2);
     var Bach_WTC1_Tureck_Fugue_0_Minor = new audioFile('Y','Bach','WTC1','P','Tureck','Q',69,69,3.48565,'Fugue','0','Minor','P1','98',2);
     var Bach_WTC1_Tureck_Fugue_1_Major = new audioFile('Y','Bach','WTC1','P','Tureck','Q',84,84,4.6816,'Fugue','1','Major','P1','98',2);
-    var Bach_WTC1_Tureck_Fugue_1_Minor = new audioFile('Y','Bach','WTC1','P','Tureck','DH',46,69,1.796875,'Fugue','1','Minor','P1','98',2);
+    var Bach_WTC1_Tureck_Fugue_1_Minor = new audioFile('Y','Bach','WTC1','P','Tureck','H',46,46,1.19791666666667,'Fugue','1','Minor','P1','98',2);
     var Bach_WTC1_Tureck_Fugue_2_Major = new audioFile('Y','Bach','WTC1','P','Tureck','Q',48,48,3.1248,'Fugue','2','Major','P1','98',2);
     var Bach_WTC1_Tureck_Fugue_2_Minor = new audioFile('Y','Bach','WTC1','P','Tureck','Q',48,48,2.5664,'Fugue','2','Minor','P1','98',2);
     var Bach_WTC1_Tureck_Fugue_3_Major = new audioFile('Y','Bach','WTC1','P','Tureck','Q',76,76,4.63093333333333,'Fugue','3','Major','P1','98',2);
@@ -636,7 +636,6 @@ if (loadBachWTC == true) {
     var Bach_WTC1_Newman_Fugue_10_Minor = new audioFile('Y','Bach','WTC1','H','Newman','H',66,66,2.40625,'Fugue','10','Minor','H1','98',6);
     var Bach_WTC1_Newman_Fugue_11_Major = new audioFile('Y','Bach','WTC1','H','Newman','Q',74,74,3.5076,'Fugue','11','Major','H1','98',6);
     var Bach_WTC1_Newman_Fugue_11_Minor = new audioFile('Y','Bach','WTC1','H','Newman','E',80,40,1.52066666666667,'Fugue','11','Minor','H1','98',6);
-
 } else {
 }
 //
