@@ -18,7 +18,7 @@ It organizes a lot of data from Bach's Well-Tempered Clavier into a contained to
 _Note that the current stable "viewable" build is behind the development in this repo_
 
 ## Features:
-* Interactive piano menu
+* Interactive [piano menu](https://github.com/MAPLE-Lab/DigitizingBach/wiki/CSS-Piano-Menu)
  * Allows you to quickly select one of the 48 pieces in Bach's Well-Tempered Clavier
 * Info about all performers and editors (portrait, birth/death dates, short bios)
 * Score Display featuring snippets from different editors
