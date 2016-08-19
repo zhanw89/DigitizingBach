@@ -32,6 +32,43 @@ function validate(evt) {
         if (theEvent.preventDefault) theEvent.preventDefault();
     }
 }
+
+function scrollPerformer(direction) {
+    currentPerformer = menuPERFORMER.substring(1);
+    currentIndex = masterList.indexOf(currentPerformer);
+    if (direction == "fwd") {
+        if ( currentIndex == (masterList.length - 1) ) {
+            newPerformer = masterList[0];
+        } else {
+            newPerformer = masterList[currentIndex+1];
+        }
+        // Make sure you're not in a blank spot
+        if (newPerformer.length <= 0) {
+            newPerformer = masterList[currentIndex+2];
+        }
+    } else if (direction == "rev") {
+        if ( currentIndex == 0 ) {
+            newPerformer = masterList[masterList.length-1];
+        } else {
+            newPerformer = masterList[currentIndex-1];
+        }
+        // Make sure you're not in a blank spot
+        if (newPerformer.length <= 0) {
+            newPerformer = masterList[currentIndex-2];
+        }
+    } else {
+        // Repeat of forward
+        if ( currentIndex == (masterList.length - 1) ) {
+            newPerformer = masterList[0];
+        } else {
+            newPerformer = masterList[currentIndex+1];
+        }
+        if (newPerformer.length <= 0) {
+            newPerformer = masterList[currentIndex+2];
+        }
+    }
+    menuPERFORMER = "c" + newPerformer;
+}
 //Keypress listeners
 $(document).ready(function () {
     $(document).keydown(function (key) {
@@ -48,6 +85,21 @@ $(document).ready(function () {
                         });
                     }
                 }
+                break;
+
+            case 219:
+                scrollPerformer("rev");
+                $('.data.' + menuPIECE + '.' + menuFORM + '.' + menuCHROMA +
+                    '.' + menuKEY + '.' + menuPERFORMER).trigger(
+                    "click");
+                break;
+            case 221:
+                scrollPerformer("fwd");
+                $('.data.' + menuPIECE + '.' + menuFORM + '.' + menuCHROMA +
+                    '.' + menuKEY + '.' + menuPERFORMER).trigger(
+                    "click");
+                break;
+
             //# Hotkeys for Chroma
             case 192: //~ key = 0
                 if (!$('#pieceNum').hasClass('pNumSelect')) {
