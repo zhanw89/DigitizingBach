@@ -514,7 +514,11 @@ $(document).ready(function () {
                 }
             // Space bar pressed
             case 32:
-                $('.stopPlay').trigger("click");
+                // If the app is in the main tempi mode, don't do anything...
+                if (appMODE == "mainMODE") {
+                } else {
+                    $('.stopPlay').trigger("click");
+                }
                 break;
             // #1 key pressed
             //PRESS P
